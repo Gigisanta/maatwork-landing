@@ -61,13 +61,15 @@ export function Hero() {
               </a>
             </div>
 
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2.5 text-[13.5px]">
+            <ul className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-[13.5px]">
               <li className="flex items-center gap-1.5 text-[#a78bfa]">
                 <Check />+$5.1M AUM gestionados
               </li>
+              <li className="text-[#7c3aed]/50">·</li>
               <li className="flex items-center gap-1.5 text-[#a78bfa]">
                 <Check />+349 clientes activos
               </li>
+              <li className="text-[#7c3aed]/50">·</li>
               <li className="flex items-center gap-1.5 text-[#a78bfa]">
                 <Check />+1 año en desarrollo
               </li>

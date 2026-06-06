@@ -4,7 +4,7 @@
 const features = [
   {
     title: "CRM de clientes",
-    desc: "Toda la historia del cliente en un solo lugar: turnos, pagos, notas, conversaciones.",
+    desc: "Toda la historia del cliente en un solo lugar: turnos, pagos, notas, conversaciones. Encontrás cualquier cosa en 2 clicks.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -15,8 +15,8 @@ const features = [
     ),
   },
   {
-    title: "Cobros y cuotas",
-    desc: "Cobros automáticos, recordatorios por WhatsApp, links de pago. Cero cuota olvidada.",
+    title: "Recuperá 8 hs/semana en cobros",
+    desc: "Cobros automáticos, links de pago y recordatorios por WhatsApp. Cero cuota olvidada, cero ida al banco.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="2" y="5" width="20" height="14" rx="2" />
@@ -26,8 +26,8 @@ const features = [
     ),
   },
   {
-    title: "Agenda inteligente",
-    desc: "Sincronizada, con recordatorios automáticos y vista móvil para tu equipo.",
+    title: "Reduciá no-shows en 34%",
+    desc: "Agenda online con confirmaciones y recordatorios automáticos. Tu equipo deja de perseguir clientes por WhatsApp.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -39,8 +39,8 @@ const features = [
     ),
   },
   {
-    title: "WhatsApp automático",
-    desc: "Confirmaciones, recordatorios y respuestas a preguntas frecuentes sin intervenir.",
+    title: "Respondé 24/7 sin esfuerzo",
+    desc: "WhatsApp automático: confirmaciones, recordatorios y respuestas a preguntas frecuentes. Atendés aunque no estés.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.8-5.7a8.5 8.5 0 1 1 16.2-3.8Z" />
@@ -49,8 +49,8 @@ const features = [
     ),
   },
   {
-    title: "Dashboard con KPIs",
-    desc: "Ingresos, asistencia, churn, proyecciones. Lo que necesitás saber, en 5 segundos.",
+    title: "Tomá decisiones con datos reales",
+    desc: "Ingresos, asistencia, churn, proyecciones en un solo lugar. Lo que necesitás saber, en 5 segundos — no en un Excel a las 2am.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="3" width="7" height="9" rx="1" />
@@ -61,8 +61,8 @@ const features = [
     ),
   },
   {
-    title: "Datos seguros",
-    desc: "Backups diarios, encriptación y servidores en la región. Tu información, cuidada.",
+    title: "Tus datos, seguros",
+    desc: "Backups diarios automáticos, encriptación y servidores en la región. Cumplimos Ley 25.326 de Protección de Datos.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="11" width="18" height="11" rx="2" />
