@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
-import { LogoBar } from "@/components/LogoBar";
+import { StatsCounter } from "@/components/StatsCounter";
+import { LogoMarquee } from "@/components/LogoMarquee";
 import { ProblemSolution } from "@/components/ProblemSolution";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -17,8 +17,8 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <TrustBar />
-        <LogoBar />
+        <StatsCounter />
+        <LogoMarquee />
         <ProblemSolution />
         <Features />
         <HowItWorks />
