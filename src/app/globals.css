@@ -332,6 +332,21 @@ html.js-ready .reveal.is-visible {
   100% { opacity: 0; transform: translateY(-6px)  scale(0.98); }
 }
 
+/* Bar grow — chart bars rise from bottom */
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Marquee vertical — for live activity feed (scrolling up) */
+@keyframes marquee-vertical {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.animate-marquee-vertical {
+  animation: marquee-vertical 18s linear infinite;
+}
+
 /* Hover scale utilities */
 .hover-scale { transition: transform 300ms var(--ease-out-quart); }
 .hover-scale:hover { transform: scale(1.02); }
