@@ -69,10 +69,18 @@ export function StatsCounter() {
           io.disconnect();
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
     io.observe(ref.current);
-    return () => io.disconnect();
+    // Failsafe: si el IO no dispara (screenshot tools, headless, prefers-reduced-motion),
+    // forzar el counter a su valor final después de 1.5s para que NUNCA muestre 0.
+    const failsafe = window.setTimeout(() => {
+      setActive(true);
+    }, 1500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(failsafe);
+    };
   }, []);
 
   return (
