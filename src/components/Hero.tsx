@@ -1,4 +1,5 @@
 import { DashboardPreview } from "./DashboardPreview";
+import { StaggeredText } from "./StaggeredText";
 
 /**
  * Hero — versión "WOW OFICIAL" con app preview protagónico.
@@ -53,20 +54,18 @@ export function Hero() {
           className="reveal font-display text-white tracking-[-0.04em] text-center text-[44px] sm:text-[60px] lg:text-[80px] leading-[0.93] text-balance mx-auto max-w-[1000px]"
           style={{ fontWeight: 800, transitionDelay: "60ms" }}
         >
-          <span className="letter-reveal block">
-            {H1_LINE_1.split("").map((ch, i) => (
-              <span key={i} style={{ animationDelay: `${i * 22}ms` }}>
-                {ch === " " ? "\u00A0" : ch}
-              </span>
-            ))}
-          </span>
-          <span className="letter-reveal block text-[#d4b8ff]">
-            {H1_LINE_2.split("").map((ch, i) => (
-              <span key={i} style={{ animationDelay: `${(H1_LINE_1.length + i) * 22}ms` }}>
-                {ch === " " ? "\u00A0" : ch}
-              </span>
-            ))}
-          </span>
+          <StaggeredText
+            text={H1_LINE_1}
+            baseDelayMs={120}
+            staggerMs={22}
+            className="block"
+          />
+          <StaggeredText
+            text={H1_LINE_2}
+            baseDelayMs={120 + H1_LINE_1.length * 22}
+            staggerMs={22}
+            className="block text-[#d4b8ff]"
+          />
         </h1>
 
         {/* Sub centered */}

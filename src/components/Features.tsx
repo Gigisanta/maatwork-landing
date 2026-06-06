@@ -19,6 +19,7 @@
  */
 
 import { useEffect, useState, type ReactNode } from "react";
+import { BentoCard } from "./BentoCard";
 
 type Feature = {
   title: string;
@@ -217,47 +218,22 @@ export function Features() {
         {/* Bento grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-4 auto-rows-[180px] gap-3 md:gap-4">
           {FEATURES.map((f, i) => (
-            <BentoCard key={f.title} feature={f} index={i} />
+            <BentoCard
+              key={f.title}
+              icon={f.icon}
+              title={f.title}
+              description={f.desc}
+              hoverContent={f.hoverContent}
+              col={f.col}
+              row={f.row}
+              gradientIndex={f.gradient}
+              badge={f.col.includes("col-span-2") && f.row.includes("row-span-2") ? "Pro" : undefined}
+              delayMs={i * 60}
+            />
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function BentoCard({ feature, index }: { feature: Feature; index: number }) {
-  const isLarge = feature.col.includes("col-span-2") && feature.row.includes("row-span-2");
-
-  return (
-    <div
-      className={`bento-card p-5 md:p-6 flex flex-col ${feature.col} ${feature.row} reveal`}
-      style={{ transitionDelay: `${index * 60}ms` }}
-    >
-      {/* Static content (always visible) */}
-      <div className="flex items-start justify-between gap-3">
-        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br avatar-grad-${feature.gradient} border border-white/10 flex items-center justify-center text-white flex-shrink-0`}>
-          {feature.icon}
-        </div>
-        {isLarge && (
-          <span className="text-[9px] uppercase tracking-[0.18em] text-[#7c3aed] font-semibold">
-            Pro
-          </span>
-        )}
-      </div>
-      <h3
-        className="font-display text-white mt-4 text-[16.5px] md:text-[18px] font-bold tracking-[-0.01em]"
-      >
-        {feature.title}
-      </h3>
-      <p className="mt-1.5 text-[13.5px] text-[#d4b8ff]/85 leading-[1.5]">
-        {feature.desc}
-      </p>
-
-      {/* Hover content (reveal) */}
-      <div className="reveal-on-hover mt-auto pt-3">
-        {feature.hoverContent}
-      </div>
-    </div>
   );
 }
 
