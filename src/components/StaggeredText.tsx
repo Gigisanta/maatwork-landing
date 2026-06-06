@@ -42,7 +42,7 @@ export function StaggeredText({
   }
 
   return (
-    <span className={className}>
+    <span className={`letter-reveal ${className}`}>
       {text.split("").map((ch, i) => (
         <span
           key={i}
