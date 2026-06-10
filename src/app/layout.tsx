@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    "El SaaS de automatización comercial que eligen gyms, salones y academias en Argentina. Agenda, cobros, CRM y WhatsApp en un solo lugar. USD 59/mes, todo incluido.",
+    "MaatWork es el SaaS argentino para gestionar turnos, cobros, clientes y WhatsApp en gyms, salones y academias. 14 días gratis, setup en 5-10 días y soporte en español.",
   keywords: [
     "automatización comercial",
     "software para gimnasios",
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "MaatWork — Automatiza tu local. Sin complicaciones.",
     description:
-      "El SaaS que gyms, salones y academias eligen en Argentina. USD 59/mes, todo incluido.",
+      "Turnos, cobros, clientes y WhatsApp en un solo sistema para negocios con agenda en Argentina.",
     images: [
       {
-        url: "/og.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: SITE_NAME,
@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MaatWork — Automatiza tu local. Sin complicaciones.",
     description:
-      "El SaaS que gyms, salones y academias eligen en Argentina. USD 59/mes.",
-    images: ["/og.png"],
+      "Turnos, cobros, clientes y WhatsApp para negocios con agenda en Argentina.",
+    images: ["/twitter-image.png"],
   },
   robots: {
     index: true,
@@ -98,9 +98,9 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}/favicon.svg`,
       description:
-        "SaaS de automatización comercial para gyms, salones y academias en Argentina.",
+        "SaaS de automatización comercial para negocios con turnos en Argentina.",
       address: { "@type": "PostalAddress", addressCountry: "AR" },
       sameAs: [],
     },
@@ -110,7 +110,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Automatización comercial todo-en-uno: agenda, CRM, cobros, WhatsApp y dashboard para gyms, salones y academias.",
+        "Automatización comercial todo-en-uno: agenda, CRM, cobros, WhatsApp y dashboard para negocios con turnos.",
       offers: {
         "@type": "Offer",
         price: "59",
@@ -118,12 +118,44 @@ const jsonLd = {
         priceValidUntil: "2027-12-31",
         availability: "https://schema.org/InStock",
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "349",
-      },
       provider: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "¿Cuánto tarda la implementación?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Entre 5 y 10 días hábiles. La primera llamada es de 30 minutos, configuramos el sistema con tus datos y te dejamos operando.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Necesito tarjeta para probar?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Los 14 días son gratis y no pedimos tarjeta.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Sirve para mi rubro?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sirve para gimnasios, estudios de fitness, salones, barberías, academias y negocios con turnos, cobros recurrentes y clientes que atender.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Puedo migrar desde otro sistema?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Sí. Importamos tu base de clientes y turnos desde Excel, Google Sheets o cualquier sistema con exportación de datos.",
+          },
+        },
+      ],
     },
   ],
 };
