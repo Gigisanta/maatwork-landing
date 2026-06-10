@@ -92,8 +92,7 @@ export function ProblemSolution() {
                 MaatWork existe para esto.
               </h3>
               <p className="mt-2 text-[15px] text-purple-200 max-w-[640px]">
-                Reemplazá WhatsApp + cuaderno + Excel por un solo sistema.
-                Te devolvemos las horas que perdés hoy.
+                Centralizá agenda, cobros, clientes y recordatorios en un sistema simple. Más control, menos improvisación.
               </p>
             </div>
             <a

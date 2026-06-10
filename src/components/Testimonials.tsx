@@ -40,7 +40,7 @@ export function Testimonials() {
             className="font-display text-white mt-3 text-3xl md:text-4xl"
             style={{ fontWeight: 800 }}
           >
-            Gente que ya automatizó su local.
+            Historias de negocios que dejaron de improvisar.
           </h2>
         </div>
 

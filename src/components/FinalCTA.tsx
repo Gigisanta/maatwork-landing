@@ -47,7 +47,7 @@ export function FinalCTA() {
               className="font-display text-white text-[36px] md:text-[52px] leading-[1.04] tracking-[-0.03em] max-w-[720px] mx-auto"
               style={{ fontWeight: 800 }}
             >
-              Listo para automatizar tu negocio?
+              ¿Listo para dejar de improvisar?
             </h2>
             <p className="mt-5 text-[16.5px] md:text-[17.5px] text-purple-200 max-w-[560px] mx-auto leading-[1.55]">
               Empezás con 14 días gratis, sin tarjeta. Te llamamos y

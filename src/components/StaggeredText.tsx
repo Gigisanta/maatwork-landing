@@ -3,14 +3,12 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * StaggeredText — renderiza un string con cada letra animada con stagger.
+ * StaggeredText — V6 line reveal.
  *
- * @example
- *   <StaggeredText text="Automatizá tu local." baseDelayMs={0} staggerMs={22} />
- *   <StaggeredText text="Sin complicaciones." baseDelayMs={500} staggerMs={22} className="text-purple-200" />
- *
- * La animación se activa al montar. Cada letra es un <span> con `animation-delay` incremental.
- * Respeta prefers-reduced-motion: si está activo, no aplica animación.
+ * Historical name preserved to avoid touching all imports, but the behavior is
+ * intentionally changed from letter-by-letter reveal to a single line reveal.
+ * This is more editorial, avoids screen-reader fragmentation, and prevents the
+ * headline from feeling like a gimmicky Lottie placeholder.
  */
 
 type Props = {
@@ -23,7 +21,6 @@ type Props = {
 export function StaggeredText({
   text,
   baseDelayMs = 0,
-  staggerMs = 22,
   className = "",
 }: Props) {
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -36,27 +33,18 @@ export function StaggeredText({
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  // If reduced motion, just render plain text
-  if (reduceMotion) {
-    return <span className={className}>{text}</span>;
-  }
-
   return (
-    <span className={`letter-reveal ${className}`}>
-      {text.split("").map((ch, i) => (
-        <span
-          key={i}
-          style={{ animationDelay: `${baseDelayMs + i * staggerMs}ms` }}
-        >
-          {ch === " " ? "\u00A0" : ch}
-        </span>
-      ))}
+    <span
+      className={`${reduceMotion ? "" : "line-reveal"} ${className}`}
+      style={reduceMotion ? undefined : { animationDelay: `${baseDelayMs}ms` }}
+    >
+      {text}
     </span>
   );
 }
 
 /* ================================================================
-   Reveal — wrapper que aplica fade-up al entrar en viewport
+   Reveal — wrapper that applies fade-up when entering viewport
    ================================================================ */
 
 type RevealProps = {

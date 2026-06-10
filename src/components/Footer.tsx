@@ -52,7 +52,7 @@ export function Footer() {
               </span>
             </div>
             <p className="mt-3 text-[14px] text-purple-400/85 max-w-[300px] leading-[1.55]">
-              Automatización comercial para gyms, salones y academias en Argentina.
+              Automatización comercial para negocios con turnos en Argentina.
             </p>
 
             {/* Newsletter */}

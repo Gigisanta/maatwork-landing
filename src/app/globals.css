@@ -271,15 +271,15 @@ html.js-ready .reveal.is-visible {
           mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-/* Letter reveal — staggered fade-up for headlines */
-@keyframes letter-reveal {
-  from { opacity: 0; transform: translateY(0.4em); filter: blur(4px); }
-  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+/* Line reveal — editorial fade-up for headlines (V6) */
+@keyframes line-reveal {
+  from { opacity: 0; transform: translateY(0.25em); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0);      filter: blur(0); }
 }
-.letter-reveal > span {
+.line-reveal {
   display: inline-block;
   opacity: 0;
-  animation: letter-reveal 0.7s var(--ease-out-quart) forwards;
+  animation: line-reveal 0.72s var(--ease-out-quart) forwards;
 }
 
 /* Stagger delays — apply to children */

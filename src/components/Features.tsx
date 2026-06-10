@@ -207,7 +207,7 @@ export function Features() {
             className="font-display text-white mt-3 text-3xl md:text-4xl"
             style={{ fontWeight: 800 }}
           >
-            Todo lo que necesitás, en un solo lugar.
+            Todo lo que ordena tu operación diaria.
           </h2>
           <p className="mt-4 text-[16px] text-purple-200 max-w-[520px]">
             Diseñado para gente que maneja un local, no para programadores.
