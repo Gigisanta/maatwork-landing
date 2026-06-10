@@ -49,10 +49,10 @@ export function Hero() {
           </div>
         </div>
 
-        {/* H1 centered, full width */}
+        {/* H1 centered, full width — V6 editorial scale */}
         <h1
-          className="reveal font-display text-white tracking-[-0.04em] text-center text-[44px] sm:text-[60px] lg:text-[80px] leading-[0.93] text-balance mx-auto max-w-[1000px]"
-          style={{ fontWeight: 800, transitionDelay: "60ms" }}
+          className="reveal font-display text-white text-display text-center text-balance mx-auto max-w-[1000px]"
+          style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 0.95, transitionDelay: "60ms" }}
         >
           <StaggeredText
             text={H1_LINE_1}
@@ -68,10 +68,10 @@ export function Hero() {
           />
         </h1>
 
-        {/* Sub centered */}
+        {/* Sub centered — V6 editorial body */}
         <p
-          className="reveal mt-7 text-center text-[16.5px] md:text-[18.5px] text-purple-200 max-w-[640px] mx-auto leading-[1.55]"
-          style={{ transitionDelay: "200ms" }}
+          className="reveal mt-7 text-center text-lg md:text-xl text-purple-200 max-w-[640px] mx-auto"
+          style={{ lineHeight: 1.55, transitionDelay: "200ms" }}
         >
           El SaaS que gyms, salones y academias eligen en Argentina.
           Agenda, cobros, CRM y WhatsApp en un solo lugar — y&nbsp;

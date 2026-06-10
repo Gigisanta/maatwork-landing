@@ -56,7 +56,7 @@ export function PricingROI() {
             Precios
           </span>
           <h2
-            className="font-display text-white mt-3 text-[34px] md:text-[44px] leading-[1.05] tracking-[-0.025em]"
+            className="font-display text-white mt-3 text-3xl md:text-4xl"
             style={{ fontWeight: 800 }}
           >
             Un solo plan. Todo incluido. Sin sorpresas.
