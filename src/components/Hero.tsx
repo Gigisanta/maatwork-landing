@@ -47,7 +47,7 @@ export function Hero() {
 
         {/* H1 centered, full width — V6 editorial scale */}
         <h1
-          className="reveal font-display text-white text-display text-center text-balance mx-auto max-w-[1000px]"
+          className="reveal font-display text-white text-4xl sm:text-5xl lg:text-display text-center text-balance mx-auto max-w-[1000px]"
           style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 0.95, transitionDelay: "60ms" }}
         >
           <StaggeredText

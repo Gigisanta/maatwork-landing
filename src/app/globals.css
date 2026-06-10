@@ -89,6 +89,7 @@ html {
   background: var(--color-bg-base);
   color-scheme: dark;
   scroll-behavior: smooth;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -101,7 +102,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+main {
+  overflow-x: clip;
 }
 
 ::selection {
