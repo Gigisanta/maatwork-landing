@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 
-const SITE_URL = "https://maatwork.com.ar";
+const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0f0520",
+  themeColor: "#070a12",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -30,18 +30,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MaatWork — Automatiza tu local. Sin complicaciones.",
+    default: "MaatWork — Software real para operar empresas argentinas",
     template: "%s · MaatWork",
   },
   description:
-    "MaatWork es el SaaS argentino para gestionar turnos, cobros, clientes y WhatsApp en gyms, salones y academias. 14 días gratis, setup en 5-10 días y soporte en español.",
+    "MaatWork diseña y opera sistemas verticales reales para empresas argentinas: NMS, MaatWorkCRM, Infrannova, Varigas, automatización, WhatsApp, cobros y gestión diaria.",
   keywords: [
     "automatización comercial",
-    "software para gimnasios",
+    "software vertical Argentina",
     "sistema de turnos",
     "CRM Argentina",
-    "software para salones",
-    "software para academias",
+    "software para obras",
+    "software para natatorios",
     "gestión de cobros",
     "agenda online",
   ],
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MaatWork — Automatiza tu local. Sin complicaciones.",
+    title: "MaatWork — Software real para operar empresas argentinas",
     description:
-      "Turnos, cobros, clientes y WhatsApp en un solo sistema para negocios con agenda en Argentina.",
+      "Ecosistema real de productos: NMS, MaatWorkCRM, Infrannova y Varigas.",
     images: [
       {
         url: "/og-image.png",
@@ -72,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaatWork — Automatiza tu local. Sin complicaciones.",
+    title: "MaatWork — Software real para operar empresas argentinas",
     description:
-      "Turnos, cobros, clientes y WhatsApp para negocios con agenda en Argentina.",
+      "NMS, MaatWorkCRM, Infrannova y Varigas: productos reales para operar empresas argentinas.",
     images: ["/twitter-image.png"],
   },
   robots: {

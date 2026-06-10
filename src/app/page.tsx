@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { StatsCounter } from "@/components/StatsCounter";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { ProblemSolution } from "@/components/ProblemSolution";
+import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
 import { PricingROI } from "@/components/PricingROI";
@@ -20,6 +21,7 @@ export default function HomePage() {
         <StatsCounter />
         <LogoMarquee />
         <ProblemSolution />
+        <ProductEcosystem />
         <Features />
         <HowItWorks />
         <PricingROI />

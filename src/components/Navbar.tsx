@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 const links = [
+  { href: "#productos", label: "Productos" },
   { href: "#funcionalidades", label: "Funcionalidades" },
   { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
@@ -36,16 +37,16 @@ export function Navbar() {
       <nav className="container-maat flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
           <span className="font-display text-xl font-extrabold tracking-h3 text-white">
-            Maat<span className="text-purple-400">Work</span>
+            Maat<span className="text-cyan-300">Work</span>
           </span>
         </a>
 
-        <ul className="hidden items-center gap-8 text-sm text-purple-200 md:flex">
+        <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href} className="group relative transition-colors hover:text-white">
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-purple-600 transition-all group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-cyan-300 transition-all group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -75,7 +76,7 @@ export function Navbar() {
 
       {open && (
         <div className="md:hidden">
-          <div className="fixed inset-0 top-16 z-40 bg-purple-975/95 px-6 py-8 backdrop-blur-xl">
+          <div className="fixed inset-0 top-16 z-40 bg-slate-950/95 px-6 py-8 backdrop-blur-xl">
             <div className="flex flex-col gap-2">
               {links.map((l) => (
                 <a

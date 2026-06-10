@@ -1,157 +1,90 @@
 import { ProductVideo } from "./ProductVideo";
 import { StaggeredText } from "./StaggeredText";
 
-/**
- * Hero — versión "WOW OFICIAL" con app preview protagónico.
- *
- * ARQUITECTURA NUEVA:
- *   - Video real del producto como pieza central
- *   - Copy con jerarquía editorial refinada
- *   - H1 con reveal sutil
- *   - 2 CTAs con microinteracciones
- *
- * V6 reemplaza el DashboardPreview sintético por ProductVideo:
- *   - footage real/realista del panel
- *   - webm + mp4 fallback
- *   - poster liviano
- *   - sin librerías de motion
- */
+const H1_LINE_1 = "Software real para operar.";
+const H1_LINE_2 = "No otra landing vacía.";
 
-const H1_LINE_1 = "Automatizá tu local.";
-const H1_LINE_2 = "Sin complicaciones.";
+const PRODUCT_CHIPS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
 export function Hero() {
   return (
-    <section
-      id="top"
-      className="section-base relative pt-20 md:pt-24 pb-12 md:pb-16 overflow-hidden"
-    >
-      <div className="container-maat">
-        {/* Eyebrow: badge centrado arriba */}
-        <div className="flex justify-center mb-7">
+    <section id="top" className="section-base relative overflow-hidden pt-20 pb-12 md:pt-24 md:pb-16">
+      <div className="aurora-field" aria-hidden="true" />
+      <div className="noise-overlay" aria-hidden="true" />
+
+      <div className="container-maat relative z-10">
+        <div className="mb-7 flex justify-center">
           <div
-            className="reveal inline-flex items-center gap-2 rounded-full border border-purple-600/25 bg-purple-600/10 px-3 py-1.5 text-[12.5px] text-purple-200"
+            className="reveal live-chip inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[12.5px]"
             style={{ transitionDelay: "0ms" }}
           >
-            <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
             </span>
-            <span className="font-medium">14 días gratis</span>
-            <span className="text-purple-400/60">·</span>
-            <span>Sin tarjeta</span>
-            <span className="text-purple-400/60">·</span>
-            <span className="hidden sm:inline">Setup en 5-10 días</span>
+            <span className="font-semibold">Ecosistema MaatWork vivo</span>
+            <span className="text-cyan-200/50">·</span>
+            <span className="hidden sm:inline">productos reales, demos limpias</span>
           </div>
         </div>
 
-        {/* H1 centered, full width — V6 editorial scale */}
         <h1
-          className="reveal font-display text-white text-4xl sm:text-5xl lg:text-display text-center text-balance mx-auto max-w-[1000px]"
-          style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 0.95, transitionDelay: "60ms" }}
+          className="reveal mx-auto max-w-[1080px] text-center font-display text-4xl text-white text-balance sm:text-5xl lg:text-display"
+          style={{ fontWeight: 850, letterSpacing: "var(--tracking-display)", lineHeight: 0.94, transitionDelay: "60ms" }}
         >
-          <StaggeredText
-            text={H1_LINE_1}
-            baseDelayMs={120}
-            staggerMs={22}
-            className="block"
-          />
+          <StaggeredText text={H1_LINE_1} baseDelayMs={120} staggerMs={18} className="block" />
           <StaggeredText
             text={H1_LINE_2}
-            baseDelayMs={120 + H1_LINE_1.length * 22}
-            staggerMs={22}
-            className="block text-purple-200"
+            baseDelayMs={120 + H1_LINE_1.length * 18}
+            staggerMs={18}
+            className="hero-title-accent block"
           />
         </h1>
 
-        {/* Sub centered — V6 editorial body */}
         <p
-          className="reveal mt-7 text-center text-lg md:text-xl text-purple-200 max-w-[640px] mx-auto"
-          style={{ lineHeight: 1.55, transitionDelay: "200ms" }}
+          className="reveal mx-auto mt-7 max-w-[760px] text-center text-lg leading-8 text-slate-300 md:text-xl"
+          style={{ transitionDelay: "200ms" }}
         >
-          La plataforma para ordenar turnos, cobros, clientes y WhatsApp en negocios con agenda. Menos no-shows, menos mensajes manuales — y&nbsp;
-          <span className="text-white font-semibold">
-            dejás de perder entre 2 y 5 horas por día
-          </span>
-          .
+          Diseñamos, construimos y mantenemos sistemas verticales para empresas argentinas: CRM, gestión operativa,
+          automatización, facturación, obras y atención por WhatsApp. La landing ahora muestra el producto, no humo.
         </p>
 
-        {/* CTAs centered */}
         <div
-          className="reveal mt-8 flex flex-col sm:flex-row gap-3 justify-center"
+          className="reveal mt-8 flex flex-col justify-center gap-3 sm:flex-row"
           style={{ transitionDelay: "260ms" }}
         >
           <a
-            href="https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B%20quiero%20probar"
+            href="https://wa.me/5491100000000?text=Hola%20MaatWork%20quiero%20ver%20una%20demo"
             target="_blank"
             rel="noopener noreferrer"
-            className="group cta-whatsapp inline-flex items-center justify-center gap-2.5 px-7 rounded-full text-white font-semibold text-[15.5px] tracking-[-0.01em] shadow-[0_12px_30px_-10px_rgba(37,211,102,0.45)] hover-scale"
+            className="group cta-whatsapp inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15.5px] font-semibold tracking-[-0.01em] text-white shadow-[0_12px_30px_-10px_rgba(37,211,102,0.45)] hover-scale"
             style={{ height: 56 }}
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden
-              className="transition-transform group-hover:scale-110 group-hover:rotate-12"
-              style={{ transitionTimingFunction: "var(--ease-out-quart)" }}
-            >
-              <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 1.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-            </svg>
-            Hablar por WhatsApp
+            <WhatsAppIcon />
+            Ver demo por WhatsApp
           </a>
           <a
-            href="#funcionalidades"
-            className="group inline-flex items-center justify-center gap-2 px-7 rounded-full text-white font-semibold text-[15.5px] border border-white/15 hover:border-purple-600/50 hover:bg-purple-600/8 transition-all hover-scale"
-            style={{
-              height: 56,
-              transitionTimingFunction: "var(--ease-out-quart)",
-            }}
+            href="#productos"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-cyan-200/20 px-7 text-[15.5px] font-semibold text-white transition-all hover:border-cyan-200/50 hover:bg-cyan-200/[0.08] hover-scale"
+            style={{ height: 56, transitionTimingFunction: "var(--ease-out-quart)" }}
           >
-            Ver funcionalidades
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-              className="transition-transform group-hover:translate-x-0.5"
-              style={{ transitionTimingFunction: "var(--ease-out-quart)" }}
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            Ver productos reales
+            <ArrowIcon />
           </a>
         </div>
 
-        {/* Trust strip centered */}
         <ul
-          className="reveal mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-[13.5px]"
+          className="reveal mt-7 flex flex-wrap items-center justify-center gap-2.5 text-[13px]"
           style={{ transitionDelay: "320ms" }}
         >
-          <li className="flex items-center gap-1.5 text-purple-400">
-            <Check />+$5.1M AUM gestionados
-          </li>
-          <li className="text-purple-600/50">·</li>
-          <li className="flex items-center gap-1.5 text-purple-400">
-            <Check />+349 clientes activos
-          </li>
-          <li className="text-purple-600/50">·</li>
-          <li className="flex items-center gap-1.5 text-purple-400">
-            <Check />+1 año en desarrollo
-          </li>
+          {PRODUCT_CHIPS.map((chip) => (
+            <li key={chip} className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-slate-200">
+              <Check /> {chip}
+            </li>
+          ))}
         </ul>
 
-        {/* ====== PRODUCT VIDEO — full-width, credible, real footage ====== */}
-        <div
-          className="reveal mt-14 md:mt-20"
-          style={{ transitionDelay: "400ms" }}
-        >
+        <div className="reveal mt-12 md:mt-16" style={{ transitionDelay: "400ms" }}>
           <ProductVideo />
         </div>
       </div>
@@ -160,19 +93,22 @@ export function Hero() {
 }
 
 function Check() {
+  return <span className="inline-block text-emerald-300" aria-hidden>✓</span>;
+}
+
+function WhatsAppIcon() {
   return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="var(--color-purple-400)"
-      strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <polyline points="20 6 9 17 4 12" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="transition-transform group-hover:scale-110 group-hover:rotate-12" style={{ transitionTimingFunction: "var(--ease-out-quart)" }}>
+      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+    </svg>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="transition-transform group-hover:translate-x-0.5" style={{ transitionTimingFunction: "var(--ease-out-quart)" }}>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
     </svg>
   );
 }

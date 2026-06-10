@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ================================================================
-   MaatWork — Brand Theme
-   Deep Dark Purple · Premium · Tech · Sleek
+   MaatWork — Brand Theme V7
+   Ink · Electric violet · Cyan · Emerald · Amber
    ================================================================ */
 
 @theme {
@@ -23,27 +23,31 @@
   --color-purple-975: #0f0520;
 
   /* Brand Surfaces (dark canvas) */
-  --color-bg-base:    #0f0520;
-  --color-bg-elev-1:  #1a0a3e;
-  --color-bg-elev-2:  #2d1065;
-  --color-bg-card:    rgba(255, 255, 255, 0.04);
-  --color-bg-card-2:  rgba(255, 255, 255, 0.06);
+  --color-bg-base:    #070a12;
+  --color-bg-elev-1:  #0c1220;
+  --color-bg-elev-2:  #111827;
+  --color-bg-card:    rgba(255, 255, 255, 0.055);
+  --color-bg-card-2:  rgba(255, 255, 255, 0.085);
 
   /* Borders */
-  --color-border-subtle:  rgba(255, 255, 255, 0.06);
-  --color-border-accent:  rgba(124, 58, 237, 0.20);
-  --color-border-strong:  rgba(124, 58, 237, 0.35);
+  --color-border-subtle:  rgba(255, 255, 255, 0.09);
+  --color-border-accent:  rgba(34, 211, 238, 0.26);
+  --color-border-strong:  rgba(124, 58, 237, 0.42);
 
   /* Text */
   --color-text-primary:   #ffffff;
-  --color-text-secondary: #d8c0ff;
-  --color-text-tertiary:  #a78bfa;
-  --color-text-muted:     rgba(167, 139, 250, 0.65);
+  --color-text-secondary: #dbeafe;
+  --color-text-tertiary:  #93c5fd;
+  --color-text-muted:     rgba(203, 213, 225, 0.70);
   --color-white:          #ffffff;
 
   /* Status */
   --color-success: #25D366;
   --color-success-soft: #1ea851;
+  --color-cyan: #22d3ee;
+  --color-cyan-soft: #67e8f9;
+  --color-amber: #f59e0b;
+  --color-coral: #fb7185;
 
   /* Typography */
   --font-display: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
@@ -117,9 +121,22 @@ main {
 /* ================================================================
    Utility: Section background variants
    ================================================================ */
-.section-base  { background: var(--color-bg-base); }
-.section-elev1 { background: var(--color-bg-elev-1); }
-.section-elev2 { background: var(--color-bg-elev-2); }
+.section-base  {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.20), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(34, 211, 238, 0.13), transparent 30%),
+    var(--color-bg-base);
+}
+.section-elev1 {
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(8, 13, 24, 0.98)),
+    var(--color-bg-elev-1);
+}
+.section-elev2 {
+  background:
+    radial-gradient(circle at 75% 18%, rgba(245, 158, 11, 0.12), transparent 30%),
+    linear-gradient(180deg, #0a0f1d 0%, #111827 100%);
+}
 
 /* ================================================================
    V6 Section padding — editorial vertical rhythm
@@ -143,8 +160,8 @@ main {
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--color-purple-400);
-  font-weight: 500;
+  color: var(--color-cyan-soft);
+  font-weight: 700;
 }
 
 /* ================================================================
@@ -163,7 +180,7 @@ main {
    Logo "M" gradient (text)
    ================================================================ */
 .logo-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #d4b8ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #67e8f9 42%, #a78bfa 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -173,13 +190,13 @@ main {
    CTA gradient
    ================================================================ */
 .cta-violet {
-  background: linear-gradient(180deg, var(--color-purple-600) 0%, var(--color-purple-700) 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 48%, #0891b2 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.15) inset,
     0 8px 24px -8px rgba(124, 58, 237, 0.5);
 }
 .cta-violet:hover {
-  background: linear-gradient(180deg, var(--color-purple-550) 0%, var(--color-purple-650) 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 48%, #06b6d4 100%);
 }
 .cta-whatsapp {
   background: var(--color-success);
@@ -539,6 +556,134 @@ html.js-ready .reveal.is-visible {
   background: rgba(124, 58, 237, 0.08);
   transform: translateX(3px);
   border-color: rgba(124, 58, 237, 0.2);
+}
+
+
+/* ================================================================
+   V7: life, motion, product ecosystem
+   ================================================================ */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.72; }
+  50% { transform: translate3d(2%, -3%, 0) rotate(5deg); opacity: 1; }
+}
+@keyframes orbit-dot {
+  from { transform: rotate(0deg) translateX(54px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(54px) rotate(-360deg); }
+}
+@keyframes lock-spin { to { transform: rotate(360deg); } }
+@keyframes card-glow-sweep {
+  0% { background-position: 140% 50%; }
+  100% { background-position: -40% 50%; }
+}
+@keyframes screen-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.006); }
+}
+@keyframes rail-pulse {
+  0%, 100% { opacity: 0.55; transform: scaleX(0.88); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
+.aurora-field {
+  position: absolute;
+  inset: -18% -8% auto -8%;
+  height: 58rem;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(34, 211, 238, 0.20), transparent 32%),
+    radial-gradient(circle at 68% 18%, rgba(124, 58, 237, 0.30), transparent 32%),
+    radial-gradient(circle at 82% 62%, rgba(245, 158, 11, 0.14), transparent 28%),
+    radial-gradient(circle at 28% 80%, rgba(37, 211, 102, 0.12), transparent 24%);
+  filter: blur(32px) saturate(120%);
+  animation: aurora-drift 16s ease-in-out infinite;
+}
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at 50% 12%, black, transparent 70%);
+}
+.hero-title-accent {
+  color: transparent;
+  background: linear-gradient(100deg, #67e8f9 0%, #ffffff 32%, #a78bfa 68%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.product-frame {
+  animation: screen-breathe 7s ease-in-out infinite;
+  box-shadow:
+    0 34px 120px -40px rgba(34, 211, 238, 0.42),
+    0 20px 80px -46px rgba(124, 58, 237, 0.65),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
+.product-frame::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(103,232,249,0.55), rgba(167,139,250,0.35), rgba(251,191,36,0.28));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.live-chip {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(37, 211, 102, 0.12));
+  border-color: rgba(103, 232, 249, 0.28);
+  color: #a7f3d0;
+}
+.ecosystem-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+  border: 1px solid rgba(255,255,255,0.11);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 22px 70px -46px rgba(0,0,0,0.8);
+  transition: transform 420ms var(--ease-out-quart), border-color 420ms var(--ease-out-quart), background 420ms var(--ease-out-quart);
+}
+.ecosystem-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,0.12) 45%, transparent 70%);
+  background-size: 240% 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+.ecosystem-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(103, 232, 249, 0.34);
+  background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
+}
+.ecosystem-card:hover::after { opacity: 1; animation: card-glow-sweep 1.2s var(--ease-out-quart); }
+.product-orbit-dot { animation: orbit-dot 9s linear infinite; transform-origin: center; }
+.product-rail-active { animation: rail-pulse 2.8s ease-in-out infinite; transform-origin: center; }
+
+.bento-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 24px;
+}
+.bento-card::after {
+  background: linear-gradient(135deg, transparent 0%, rgba(34,211,238,0.12) 34%, rgba(167,139,250,0.14) 60%, rgba(245,158,11,0.08) 100%);
+}
+.bento-card .reveal-on-hover {
+  opacity: 0.72;
+  transform: translateY(2px);
+}
+@media (hover: hover) {
+  .bento-card .reveal-on-hover { opacity: 0.18; transform: translateY(8px); }
+  .bento-card:hover .reveal-on-hover { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  .aurora-field { height: 42rem; filter: blur(26px); }
+  .product-frame { animation: none; }
 }
 
 /* Respect prefers-reduced-motion */
