@@ -55,8 +55,8 @@ const FEATURES: Feature[] = [
               {c.n.split(" ").map((p) => p[0]).join("")}
             </div>
             <span className="text-white flex-1">{c.n}</span>
-            <span className="text-[#a78bfa]/70">{c.t}</span>
-            <span className="text-[#25D366] text-[9px]">● {c.c}</span>
+            <span className="text-purple-400/70">{c.t}</span>
+            <span className="text-success text-[9px]">● {c.c}</span>
           </div>
         ))}
       </div>
@@ -71,21 +71,21 @@ const FEATURES: Feature[] = [
     gradient: 2,
     hoverContent: (
       <div className="space-y-2">
-        <div className="text-[10px] text-[#a78bfa]/70">Esta semana ahorraste</div>
+        <div className="text-[10px] text-purple-400/70">Esta semana ahorraste</div>
         <div
           className="font-display text-white text-[28px] tracking-[-0.03em] tabular-nums"
           style={{ fontWeight: 800 }}
         >
           $<CounterUp end={32400} />
         </div>
-        <div className="text-[10px] text-[#25D366]">+8 hs recuperadas</div>
+        <div className="text-[10px] text-success">+8 hs recuperadas</div>
         <div className="mt-2 h-1 rounded-full bg-white/[0.06] overflow-hidden">
           <div
-            className="h-full rounded-full bg-gradient-to-r from-[#7c3aed] to-[#a855f7]"
+            className="h-full rounded-full bg-gradient-to-r from-purple-600 to-purple-500"
             style={{ width: "78%" }}
           />
         </div>
-        <div className="text-[9.5px] text-[#a78bfa]/70">78% del objetivo</div>
+        <div className="text-[9.5px] text-purple-400/70">78% del objetivo</div>
       </div>
     ),
   },
@@ -107,12 +107,12 @@ const FEATURES: Feature[] = [
                 style={{
                   height: `${heights[i]}%`,
                   minHeight: 8,
-                  background: i === 5 ? "linear-gradient(180deg, #a855f7, #7c3aed)" : "rgba(124, 58, 237, 0.25)",
+                  background: i === 5 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(124, 58, 237, 0.25)",
                   animation: `bar-grow 0.6s var(--ease-out-quart) ${i * 60}ms both`,
                   transformOrigin: "bottom",
                 }}
               />
-              <span className="text-[8px] text-[#a78bfa]/60">LM</span>
+              <span className="text-[8px] text-purple-400/60">LM</span>
             </div>
           );
         })}
@@ -129,7 +129,7 @@ const FEATURES: Feature[] = [
     hoverContent: (
       <div className="mt-2 space-y-1.5">
         <div className="flex justify-end">
-          <div className="bg-[#7c3aed]/30 rounded-lg px-2.5 py-1.5 text-[10px] text-white max-w-[85%]">
+          <div className="bg-purple-600/30 rounded-lg px-2.5 py-1.5 text-[10px] text-white max-w-[85%]">
             ¿Horario de boxeo?
           </div>
         </div>
@@ -138,7 +138,7 @@ const FEATURES: Feature[] = [
             Lun a vie · 18-22 hs. ¿Reservás?
           </div>
         </div>
-        <div className="text-[9px] text-[#25D366] text-right">● Respondido en 2s</div>
+        <div className="text-[9px] text-success text-right">● Respondido en 2s</div>
       </div>
     ),
   },
@@ -158,7 +158,7 @@ const FEATURES: Feature[] = [
             style={{
               height: `${h}%`,
               minHeight: 4,
-              background: i === 9 ? "linear-gradient(180deg, #a855f7, #7c3aed)" : "rgba(124, 58, 237, 0.25)",
+              background: i === 9 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(124, 58, 237, 0.25)",
               animation: `bar-grow 0.5s var(--ease-out-quart) ${i * 40}ms both`,
               transformOrigin: "bottom",
             }}
@@ -176,16 +176,16 @@ const FEATURES: Feature[] = [
     gradient: 6,
     hoverContent: (
       <div className="flex items-center gap-3 mt-1">
-        <div className="w-12 h-12 rounded-full bg-[#7c3aed]/15 border border-[#7c3aed]/30 flex items-center justify-center text-[#a78bfa]" style={{ animation: "lock-spin 4s linear infinite", transformOrigin: "center" }}>
+        <div className="w-12 h-12 rounded-full bg-purple-600/15 border border-purple-600/30 flex items-center justify-center text-purple-400" style={{ animation: "lock-spin 4s linear infinite", transformOrigin: "center" }}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <rect x="3" y="11" width="18" height="11" rx="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
         </div>
         <div className="flex-1">
-          <div className="text-[10px] text-[#a78bfa]/70">Último backup</div>
+          <div className="text-[10px] text-purple-400/70">Último backup</div>
           <div className="text-white text-[12px] font-semibold">Hace 3 minutos</div>
-          <div className="text-[9.5px] text-[#25D366]">✓ Datos encriptados</div>
+          <div className="text-[9.5px] text-success">✓ Datos encriptados</div>
         </div>
       </div>
     ),
@@ -200,7 +200,7 @@ export function Features() {
     >
       <div className="mx-auto max-w-[1320px] px-5 md:px-8">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-[#a78bfa]">
+          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
             Funcionalidades
           </span>
           <h2
@@ -209,7 +209,7 @@ export function Features() {
           >
             Todo lo que necesitás, en un solo lugar.
           </h2>
-          <p className="mt-4 text-[16px] text-[#d4b8ff] max-w-[520px]">
+          <p className="mt-4 text-[16px] text-purple-200 max-w-[520px]">
             Diseñado para gente que maneja un local, no para programadores.
             Abrís la app y entendés todo de una.
           </p>

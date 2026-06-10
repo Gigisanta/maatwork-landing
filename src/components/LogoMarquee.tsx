@@ -22,7 +22,7 @@ export function LogoMarquee() {
   return (
     <section className="section-base border-y border-white/[0.04] overflow-hidden">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-10">
-        <p className="text-center text-[12px] uppercase tracking-[0.22em] text-[#a78bfa]/80 mb-7">
+        <p className="text-center text-[12px] uppercase tracking-[0.22em] text-purple-400/80 mb-7">
           Funciona para tu rubro
         </p>
       </div>
@@ -37,10 +37,10 @@ export function LogoMarquee() {
               key={i}
               className="flex items-center gap-3 flex-shrink-0 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-[#a78bfa] transition-colors group-hover:text-white group-hover:border-[#7c3aed]/30">
+              <div className="w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-purple-400 transition-colors group-hover:text-white group-hover:border-purple-600/30">
                 {r.icon}
               </div>
-              <span className="text-[13.5px] text-[#a78bfa]/85 font-medium whitespace-nowrap group-hover:text-white transition-colors">
+              <span className="text-[13.5px] text-purple-400/85 font-medium whitespace-nowrap group-hover:text-white transition-colors">
                 {r.name}
               </span>
             </div>

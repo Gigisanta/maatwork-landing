@@ -7,7 +7,7 @@ const pains = [
     title: "Agenda mezclada",
     desc: "WhatsApp, papel y un Excel que ya nadie entiende.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="4" width="18" height="17" rx="2" />
         <path d="M3 9h18M8 2v4M16 2v4" />
         <path d="m9 14 2 2 4-4" />
@@ -18,7 +18,7 @@ const pains = [
     title: "Cobros que se pierden",
     desc: "Cuotas impagas, recordatorios a mano, plata en el aire.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="6" width="18" height="13" rx="2" />
         <path d="M3 10h18M7 15h2" />
       </svg>
@@ -28,7 +28,7 @@ const pains = [
     title: "WhatsApp te come el día",
     desc: "Respondés lo mismo 30 veces. No te queda tiempo para crecer.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.8-5.7a8.5 8.5 0 1 1 16.2-3.8Z" />
       </svg>
     ),
@@ -37,7 +37,7 @@ const pains = [
     title: "No ves los números",
     desc: "Cuánto entró, cuánto falta, quién se fue. Adivinas.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M3 3v18h18" />
         <path d="m7 14 4-4 4 4 5-5" />
       </svg>
@@ -50,7 +50,7 @@ export function ProblemSolution() {
     <section className="section-base py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-[#a78bfa]">
+          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
             El problema
           </span>
           <h2
@@ -59,7 +59,7 @@ export function ProblemSolution() {
           >
             ¿Esto te suena familiar?
           </h2>
-          <p className="mt-4 text-[16px] text-[#d4b8ff] max-w-[520px]">
+          <p className="mt-4 text-[16px] text-purple-200 max-w-[520px]">
             Si manejás tu local así, no estás solo. Pero te está costando
             tiempo, plata y clientes.
           </p>
@@ -78,7 +78,7 @@ export function ProblemSolution() {
               <h3 className="font-display text-white text-[16.5px] font-bold tracking-[-0.01em]">
                 {p.title}
               </h3>
-              <p className="mt-1.5 text-[13.5px] text-[#d4b8ff]/85 leading-[1.5]">
+              <p className="mt-1.5 text-[13.5px] text-purple-200/85 leading-[1.5]">
                 {p.desc}
               </p>
             </div>
@@ -91,7 +91,7 @@ export function ProblemSolution() {
               <h3 className="font-display text-white text-[22px] md:text-[24px] font-extrabold tracking-[-0.02em]">
                 MaatWork existe para esto.
               </h3>
-              <p className="mt-2 text-[15px] text-[#d4b8ff] max-w-[640px]">
+              <p className="mt-2 text-[15px] text-purple-200 max-w-[640px]">
                 Reemplazá WhatsApp + cuaderno + Excel por un solo sistema.
                 Te devolvemos las horas que perdés hoy.
               </p>

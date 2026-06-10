@@ -21,16 +21,16 @@ export function Logo({ size = 36, showText = true, className = "" }: LogoProps) 
         {/* Squircle background */}
         <defs>
           <linearGradient id="bg-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#0f0520" />
-            <stop offset="1" stopColor="#2d1065" />
+            <stop offset="0" stopColor="var(--color-purple-975)" />
+            <stop offset="1" stopColor="var(--color-purple-900)" />
           </linearGradient>
           <linearGradient id="m-grad" x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#ffffff" />
-            <stop offset="1" stopColor="#d4b8ff" />
+            <stop offset="0" stopColor="var(--color-white)" />
+            <stop offset="1" stopColor="var(--color-purple-200)" />
           </linearGradient>
           <radialGradient id="dot-grad" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0" stopColor="#a855f7" />
-            <stop offset="1" stopColor="#7c3aed" />
+            <stop offset="0" stopColor="var(--color-purple-500)" />
+            <stop offset="1" stopColor="var(--color-purple-600)" />
           </radialGradient>
         </defs>
         <rect width="48" height="48" rx="12" fill="url(#bg-grad)" />

@@ -19,7 +19,7 @@ const STEPS = [
     t: "Diagnóstico",
     desc: "Llamada de 30 min. Entendemos tu local, tu flujo y qué te hace perder tiempo.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
@@ -30,7 +30,7 @@ const STEPS = [
     t: "Prototipo",
     desc: "Configuramos el sistema con tus datos reales. Te lo mostramos funcionando antes de pagar.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M12 19l7-7 3 3-7 7-3-3z" />
         <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
         <path d="M2 2l7.586 7.586" />
@@ -44,7 +44,7 @@ const STEPS = [
     t: "Lanzamiento",
     desc: "Capacitamos a tu equipo. Migramos clientes y turnos. Arrancás a operar el mismo día.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
         <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
@@ -82,7 +82,7 @@ export function HowItWorks() {
     <section className="section-base py-20 md:py-28">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8" ref={ref}>
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-[#a78bfa]">
+          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
             Cómo funciona
           </span>
           <h2
@@ -91,7 +91,7 @@ export function HowItWorks() {
           >
             De cero a funcionando en 5-10 días.
           </h2>
-          <p className="mt-4 text-[16px] text-[#d4b8ff] max-w-[520px]">
+          <p className="mt-4 text-[16px] text-purple-200 max-w-[520px]">
             Sin proyectos de meses. Sin consultorías eternas. Te dejamos
             andando rápido, con tu equipo operando.
           </p>
@@ -108,10 +108,10 @@ export function HowItWorks() {
           >
             <defs>
               <linearGradient id="connector-grad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stopColor="#7c3aed" stopOpacity="0" />
-                <stop offset="0.3" stopColor="#7c3aed" stopOpacity="0.7" />
-                <stop offset="0.7" stopColor="#25D366" stopOpacity="0.7" />
-                <stop offset="1" stopColor="#25D366" stopOpacity="0" />
+                <stop offset="0" stopColor="var(--color-purple-600)" stopOpacity="0" />
+                <stop offset="0.3" stopColor="var(--color-purple-600)" stopOpacity="0.7" />
+                <stop offset="0.7" stopColor="var(--color-success)" stopOpacity="0.7" />
+                <stop offset="1" stopColor="var(--color-success)" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
@@ -137,7 +137,7 @@ export function HowItWorks() {
               >
                 <div className="flex md:flex-col items-start md:items-center gap-5 md:gap-0">
                   <div className="md:mb-7 flex-shrink-0">
-                    <div className="w-[80px] h-[80px] rounded-full bg-[#1a0a3e] border border-[#7c3aed]/30 flex items-center justify-center relative z-10">
+                    <div className="w-[80px] h-[80px] rounded-full bg-purple-950 border border-purple-600/30 flex items-center justify-center relative z-10">
                       <span
                         className="font-display text-white text-[22px] tracking-[-0.02em]"
                         style={{ fontWeight: 800 }}
@@ -145,20 +145,20 @@ export function HowItWorks() {
                         {s.n}
                       </span>
                       <div
-                        className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-[#0f0520] border border-[#7c3aed]/40 flex items-center justify-center"
+                        className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-purple-975 border border-purple-600/40 flex items-center justify-center"
                       >
                         {s.icon}
                       </div>
                     </div>
                   </div>
                   <div className="md:text-center md:max-w-[280px]">
-                    <div className="text-[12px] uppercase tracking-[0.18em] text-[#a78bfa] font-semibold">
+                    <div className="text-[12px] uppercase tracking-[0.18em] text-purple-400 font-semibold">
                       {s.d}
                     </div>
                     <h3 className="font-display text-white text-[22px] font-extrabold tracking-[-0.02em] mt-1.5">
                       {s.t}
                     </h3>
-                    <p className="mt-2.5 text-[14.5px] text-[#d4b8ff]/85 leading-[1.55] md:mx-auto">
+                    <p className="mt-2.5 text-[14.5px] text-purple-200/85 leading-[1.55] md:mx-auto">
                       {s.desc}
                     </p>
                   </div>

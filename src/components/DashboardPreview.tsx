@@ -76,9 +76,9 @@ const KPIS = [
 ];
 
 const STATUS_STYLES: Record<AgendaItem["status"], { bg: string; text: string; label: string; dot: string }> = {
-  curso:       { bg: "bg-[#7c3aed]/20", text: "text-[#a78bfa]", label: "En curso",   dot: "bg-[#7c3aed]" },
-  confirmado:  { bg: "bg-[#25D366]/15", text: "text-[#25D366]", label: "Confirmado", dot: "bg-[#25D366]" },
-  pendiente:   { bg: "bg-white/[0.05]", text: "text-[#a78bfa]/75", label: "Pendiente", dot: "bg-[#a78bfa]/40" },
+  curso:       { bg: "bg-purple-600/20", text: "text-purple-400", label: "En curso",   dot: "bg-purple-600" },
+  confirmado:  { bg: "bg-success/15", text: "text-success", label: "Confirmado", dot: "bg-success" },
+  pendiente:   { bg: "bg-white/[0.05]", text: "text-purple-400/75", label: "Pendiente", dot: "bg-purple-400/40" },
 };
 
 const ACTIVITY = [
@@ -128,30 +128,30 @@ export function DashboardPreview() {
 
       {/* Browser frame — más alto y protagónico */}
       <div
-        className="relative rounded-2xl border border-white/10 bg-[#1a0a3e] overflow-hidden shadow-[0_80px_180px_-30px_rgba(124,58,237,0.65),0_0_0_1px_rgba(255,255,255,0.04)]"
+        className="relative rounded-2xl border border-white/10 bg-purple-950 overflow-hidden shadow-[0_80px_180px_-30px_rgba(124,58,237,0.65),0_0_0_1px_rgba(255,255,255,0.04)]"
         role="img"
         aria-label="Vista previa del panel de MaatWork"
       >
         {/* Window header */}
-        <div className="h-10 px-4 flex items-center gap-2 border-b border-white/[0.06] bg-[#0f0520]/85">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ec7356]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#f7cf47]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#25D366]" />
+        <div className="h-10 px-4 flex items-center gap-2 border-b border-white/[0.06] bg-purple-975/85">
+          <span className="w-2.5 h-2.5 rounded-full bg-orange-400" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+          <span className="w-2.5 h-2.5 rounded-full bg-success" />
           <div className="ml-3 flex-1 max-w-[400px] mx-auto">
             <div className="h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center px-2.5 gap-2">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" aria-hidden>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="2" strokeLinecap="round" aria-hidden>
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <span className="text-[11px] text-[#a78bfa]/85 tracking-wide truncate">
+              <span className="text-[11px] text-purple-400/85 tracking-wide truncate">
                 app.maatwork.com.ar/panel
               </span>
             </div>
           </div>
-          <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-[#a78bfa]/70">
+          <div className="hidden sm:flex items-center gap-1.5 text-[10px] text-purple-400/70">
             <span className="relative flex w-2 h-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-70 animate-ping" />
-              <span className="relative inline-flex rounded-full w-2 h-2 bg-[#25D366]" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
+              <span className="relative inline-flex rounded-full w-2 h-2 bg-success" />
             </span>
             Live · {clock}
           </div>
@@ -160,9 +160,9 @@ export function DashboardPreview() {
         {/* 3-col layout — más alto */}
         <div className="grid grid-cols-[160px_1fr_220px] h-[560px] sm:h-[600px]">
           {/* ===== SIDEBAR ===== */}
-          <aside className="border-r border-white/[0.06] bg-[#0f0520]/55 p-3 space-y-3 overflow-hidden">
+          <aside className="border-r border-white/[0.06] bg-purple-975/55 p-3 space-y-3 overflow-hidden">
             <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-white/[0.05] border border-white/[0.05]">
-              <div className="w-4 h-4 rounded-sm bg-gradient-to-br from-[#7c3aed] to-[#a855f7]" />
+              <div className="w-4 h-4 rounded-sm bg-gradient-to-br from-purple-600 to-purple-500" />
               <span className="text-[11px] text-white font-semibold">Iron Gym</span>
             </div>
             <div className="space-y-0.5">
@@ -177,10 +177,10 @@ export function DashboardPreview() {
                   key={it.label}
                   className={[
                     "px-2 py-1.5 rounded-md text-[10.5px] flex items-center gap-2",
-                    it.active ? "bg-white/[0.05] text-white" : "text-[#a78bfa]/70",
+                    it.active ? "bg-white/[0.05] text-white" : "text-purple-400/70",
                   ].join(" ")}
                 >
-                  <span className={`w-1 h-1 rounded-full ${it.active ? "bg-[#7c3aed]" : "bg-[#a78bfa]/30"}`} />
+                  <span className={`w-1 h-1 rounded-full ${it.active ? "bg-purple-600" : "bg-purple-400/30"}`} />
                   {it.label}
                 </div>
               ))}
@@ -188,7 +188,7 @@ export function DashboardPreview() {
 
             {/* Clientes list */}
             <div className="pt-2 border-t border-white/[0.06]">
-              <div className="text-[9px] text-[#a78bfa]/60 uppercase tracking-wider px-2 mb-1.5">
+              <div className="text-[9px] text-purple-400/60 uppercase tracking-wider px-2 mb-1.5">
                 Clientes hoy
               </div>
               <div className="space-y-1">
@@ -201,7 +201,7 @@ export function DashboardPreview() {
                       {c.init}
                     </div>
                     <span className="text-white/85 truncate flex-1">{c.nombre.split(" ")[0]}</span>
-                    <span className="text-[8px] text-[#a78bfa]/55">{c.ultima.replace("Hoy ", "")}</span>
+                    <span className="text-[8px] text-purple-400/55">{c.ultima.replace("Hoy ", "")}</span>
                   </div>
                 ))}
               </div>
@@ -213,10 +213,10 @@ export function DashboardPreview() {
             {/* Greeting + filter */}
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-[10.5px] text-[#a78bfa]/80">Buenas tardes,</div>
+                <div className="text-[10.5px] text-purple-400/80">Buenas tardes,</div>
                 <div className="text-white text-[15px] font-bold tracking-tight">Martín</div>
               </div>
-              <div className="text-[10px] text-[#a78bfa]/70 border border-white/10 rounded-md px-2.5 py-1.5 flex items-center gap-1.5">
+              <div className="text-[10px] text-purple-400/70 border border-white/10 rounded-md px-2.5 py-1.5 flex items-center gap-1.5">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
                   <rect x="3" y="4" width="18" height="18" rx="2" />
                   <line x1="16" y1="2" x2="16" y2="6" />
@@ -237,16 +237,16 @@ export function DashboardPreview() {
                     className={[
                       "rounded-lg border px-2.5 py-2 transition-all duration-500",
                       focused
-                        ? "bg-[#7c3aed]/15 border-[#7c3aed]/40 shadow-[0_0_0_1px_rgba(124,58,237,0.25),0_8px_24px_-12px_rgba(124,58,237,0.5)]"
+                        ? "bg-purple-600/15 border-purple-600/40 shadow-[0_0_0_1px_rgba(124,58,237,0.25),0_8px_24px_-12px_rgba(124,58,237,0.5)]"
                         : "bg-white/[0.03] border-white/[0.06]",
                     ].join(" ")}
                     style={{ transitionTimingFunction: "var(--ease-out-quart)" }}
                   >
-                    <div className="text-[9px] text-[#a78bfa]/80 truncate">{kpi.label}</div>
+                    <div className="text-[9px] text-purple-400/80 truncate">{kpi.label}</div>
                     <div className="text-white text-[15px] font-bold tracking-tight mt-0.5">
                       {kpi.value}
                     </div>
-                    <div className="text-[8.5px] text-[#25D366] font-medium mt-0.5 truncate">
+                    <div className="text-[8.5px] text-success font-medium mt-0.5 truncate">
                       {kpi.delta}
                     </div>
                   </div>
@@ -258,7 +258,7 @@ export function DashboardPreview() {
             <div className="rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
               <div className="flex items-center justify-between mb-2.5">
                 <span className="text-[11px] text-white font-semibold">Agenda — hoy</span>
-                <span className="text-[9px] text-[#a78bfa]/70">ver todo →</span>
+                <span className="text-[9px] text-purple-400/70">ver todo →</span>
               </div>
               <div className="space-y-1.5">
                 {AGENDA.map((row, i) => {
@@ -268,18 +268,18 @@ export function DashboardPreview() {
                       key={row.t}
                       className={[
                         "row-hover flex items-center gap-2.5 text-[10.5px] py-1.5 px-2 rounded-md border border-transparent",
-                        row.status === "curso" ? "bg-[#7c3aed]/8 border-[#7c3aed]/25" : "",
+                        row.status === "curso" ? "bg-purple-600/8 border-purple-600/25" : "",
                       ].join(" ")}
                       style={{
                         animation: `fade-up 0.6s var(--ease-out-quart) ${i * 80}ms both`,
                       }}
                     >
-                      <span className="text-[#a78bfa]/85 w-9 tabular-nums font-medium">{row.t}</span>
+                      <span className="text-purple-400/85 w-9 tabular-nums font-medium">{row.t}</span>
                       <div className={`avatar-grad-${row.grad} w-6 h-6 rounded-full flex items-center justify-center text-[8.5px] text-white font-bold`}>
                         {row.init}
                       </div>
                       <span className="flex-1 text-white font-medium truncate">{row.nombre}</span>
-                      <span className="text-[8.5px] text-[#a78bfa]/60 border border-white/10 rounded px-1.5 py-0.5 hidden sm:inline">
+                      <span className="text-[8.5px] text-purple-400/60 border border-white/10 rounded px-1.5 py-0.5 hidden sm:inline">
                         {row.cls}
                       </span>
                       <span
@@ -299,12 +299,12 @@ export function DashboardPreview() {
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="relative flex w-1.5 h-1.5">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-70 animate-ping" />
-                    <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-[#25D366]" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
+                    <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
                   </span>
                   <span className="text-[11px] text-white font-semibold">Actividad en vivo</span>
                 </div>
-                <span className="text-[9px] text-[#a78bfa]/70">últimos 30 min</span>
+                <span className="text-[9px] text-purple-400/70">últimos 30 min</span>
               </div>
               <div
                 className="space-y-1 overflow-hidden"
@@ -316,9 +316,9 @@ export function DashboardPreview() {
                       key={i}
                       className="flex items-center gap-2 text-[10px] py-1"
                     >
-                      <span className="text-[#a78bfa]/55 w-9 tabular-nums font-medium">{item.t}</span>
+                      <span className="text-purple-400/55 w-9 tabular-nums font-medium">{item.t}</span>
                       <ActivityIcon kind={item.icon as "money" | "wa" | "user" | "agenda"} />
-                      <span className="text-[#d4b8ff] truncate">{item.text}</span>
+                      <span className="text-purple-200 truncate">{item.text}</span>
                     </div>
                   ))}
                 </div>
@@ -327,28 +327,28 @@ export function DashboardPreview() {
           </div>
 
           {/* ===== DETAIL PANEL ===== */}
-          <aside className="border-l border-white/[0.06] bg-[#0f0520]/35 p-3 space-y-3 overflow-hidden">
+          <aside className="border-l border-white/[0.06] bg-purple-975/35 p-3 space-y-3 overflow-hidden">
             <div className="flex flex-col items-center text-center pt-1">
-              <div className={`avatar-grad-${activeItem.grad} w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-[16px] mb-2 ring-2 ring-[#7c3aed]/30`}>
+              <div className={`avatar-grad-${activeItem.grad} w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-[16px] mb-2 ring-2 ring-purple-600/30`}>
                 {activeItem.init}
               </div>
               <div className="text-white text-[12px] font-semibold leading-tight">
                 {activeItem.nombre}
               </div>
-              <div className="text-[9.5px] text-[#a78bfa]/70 mt-0.5">{activeItem.cls}</div>
+              <div className="text-[9.5px] text-purple-400/70 mt-0.5">{activeItem.cls}</div>
             </div>
 
             <div className="rounded-md border border-white/[0.06] bg-white/[0.02] p-2 space-y-1.5">
               <div className="flex items-center justify-between text-[9.5px]">
-                <span className="text-[#a78bfa]/70">Próximo turno</span>
+                <span className="text-purple-400/70">Próximo turno</span>
                 <span className="text-white font-semibold">{activeItem.t} hs</span>
               </div>
               <div className="flex items-center justify-between text-[9.5px]">
-                <span className="text-[#a78bfa]/70">Visitas totales</span>
+                <span className="text-purple-400/70">Visitas totales</span>
                 <span className="text-white font-semibold">47</span>
               </div>
               <div className="flex items-center justify-between text-[9.5px]">
-                <span className="text-[#a78bfa]/70">Plan</span>
+                <span className="text-purple-400/70">Plan</span>
                 <span className="text-white font-semibold">Mensual</span>
               </div>
             </div>
@@ -357,15 +357,15 @@ export function DashboardPreview() {
             <div className="rounded-md border border-white/[0.06] bg-white/[0.02] p-2">
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-[9.5px] text-white font-medium">Asistencia</span>
-                <span className="text-[8.5px] text-[#25D366] font-medium">+12%</span>
+                <span className="text-[8.5px] text-success font-medium">+12%</span>
               </div>
               <MiniChart />
             </div>
 
             {/* WhatsApp confirm badge */}
-            <div className="rounded-md border border-[#25D366]/20 bg-[#25D366]/8 p-2 flex items-start gap-2">
-              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#25D366]/20 flex items-center justify-center mt-0.5">
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="#25D366" aria-hidden>
+            <div className="rounded-md border border-success/20 bg-success/8 p-2 flex items-start gap-2">
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-success/20 flex items-center justify-center mt-0.5">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="var(--color-success)" aria-hidden>
                   <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 9.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
                 </svg>
               </div>
@@ -373,7 +373,7 @@ export function DashboardPreview() {
                 <div className="text-[9.5px] text-white font-medium leading-tight">
                   Confirmó por WhatsApp
                 </div>
-                <div className="text-[8.5px] text-[#a78bfa]/70 mt-0.5">
+                <div className="text-[8.5px] text-purple-400/70 mt-0.5">
                   Hace 12 minutos
                 </div>
               </div>
@@ -384,25 +384,25 @@ export function DashboardPreview() {
 
       {/* Floating tag 1: cobro automático */}
       <div
-        className="hidden md:flex absolute -left-3 lg:-left-6 top-20 lg:top-24 items-center gap-2.5 rounded-full border border-white/10 bg-[#0f0520] px-3.5 py-2 shadow-2xl animate-float-slow"
+        className="hidden md:flex absolute -left-3 lg:-left-6 top-20 lg:top-24 items-center gap-2.5 rounded-full border border-white/10 bg-purple-975 px-3.5 py-2 shadow-2xl animate-float-slow"
         style={{ zIndex: 5 }}
       >
         <span className="relative flex w-2 h-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping" />
-          <span className="relative inline-flex rounded-full w-2 h-2 bg-[#25D366]" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping" />
+          <span className="relative inline-flex rounded-full w-2 h-2 bg-success" />
         </span>
         <span className="text-[12px] text-white font-medium">Cobro automático · {clock}</span>
       </div>
 
       {/* Floating tag 2: nuevos turnos */}
       <div
-        className="hidden md:flex absolute -right-2 lg:-right-4 bottom-20 lg:bottom-28 items-center gap-2.5 rounded-full border border-white/10 bg-[#0f0520] px-3.5 py-2 shadow-2xl animate-float-slower"
+        className="hidden md:flex absolute -right-2 lg:-right-4 bottom-20 lg:bottom-28 items-center gap-2.5 rounded-full border border-white/10 bg-purple-975 px-3.5 py-2 shadow-2xl animate-float-slower"
         style={{ zIndex: 5, animationDelay: "1s" }}
       >
         <div className="flex -space-x-1.5">
-          <div className="w-5 h-5 rounded-full avatar-grad-1 border-2 border-[#0f0520]" />
-          <div className="w-5 h-5 rounded-full avatar-grad-2 border-2 border-[#0f0520]" />
-          <div className="w-5 h-5 rounded-full avatar-grad-3 border-2 border-[#0f0520]" />
+          <div className="w-5 h-5 rounded-full avatar-grad-1 border-2 border-purple-975" />
+          <div className="w-5 h-5 rounded-full avatar-grad-2 border-2 border-purple-975" />
+          <div className="w-5 h-5 rounded-full avatar-grad-3 border-2 border-purple-975" />
         </div>
         <span className="text-[12px] text-white font-medium">+3 turnos nuevos</span>
       </div>
@@ -424,8 +424,8 @@ function ActivityIcon({ kind }: { kind: "money" | "wa" | "user" | "agenda" }) {
   const wrap = "flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center";
   if (kind === "money")
     return (
-      <div className={`${wrap} bg-[#7c3aed]/30`}>
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="3" strokeLinecap="round" aria-hidden>
+      <div className={`${wrap} bg-purple-600/30`}>
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="3" strokeLinecap="round" aria-hidden>
           <line x1="12" y1="1" x2="12" y2="23" />
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
@@ -433,8 +433,8 @@ function ActivityIcon({ kind }: { kind: "money" | "wa" | "user" | "agenda" }) {
     );
   if (kind === "wa")
     return (
-      <div className={`${wrap} bg-[#25D366]/20`}>
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="#25D366" aria-hidden>
+      <div className={`${wrap} bg-success/20`}>
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="var(--color-success)" aria-hidden>
           <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 9.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
         </svg>
       </div>
@@ -442,7 +442,7 @@ function ActivityIcon({ kind }: { kind: "money" | "wa" | "user" | "agenda" }) {
   if (kind === "user")
     return (
       <div className={`${wrap} bg-white/[0.06]`}>
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
           <circle cx="12" cy="7" r="4" />
         </svg>
@@ -450,7 +450,7 @@ function ActivityIcon({ kind }: { kind: "money" | "wa" | "user" | "agenda" }) {
     );
   return (
     <div className={`${wrap} bg-white/[0.06]`}>
-      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3" y="4" width="18" height="18" rx="2" />
         <line x1="16" y1="2" x2="16" y2="6" />
         <line x1="8" y1="2" x2="8" y2="6" />
@@ -472,7 +472,7 @@ function MiniChart() {
           style={{
             height: `${h}%`,
             background: i === 3
-              ? "linear-gradient(180deg, #a855f7 0%, #7c3aed 100%)"
+              ? "linear-gradient(180deg, var(--color-purple-500) 0%, var(--color-purple-600) 100%)"
               : "rgba(124, 58, 237, 0.25)",
             animation: `bar-grow 0.8s var(--ease-out-quart) ${i * 60}ms both`,
             transformOrigin: "bottom",
@@ -499,7 +499,7 @@ function CursorPointer() {
         <path
           d="M3 2L21 12L13 14L11 22L3 2Z"
           fill="white"
-          stroke="#0f0520"
+          stroke="var(--color-purple-975)"
           strokeWidth="1.5"
           strokeLinejoin="round"
         />
@@ -512,21 +512,21 @@ function ToastStack() {
   const toasts = [
     {
       icon: "whatsapp" as const,
-      iconBg: "bg-[#25D366]",
+      iconBg: "bg-success",
       title: "Confirmación enviada",
       body: "12 turnos confirmados por WhatsApp",
       delay: 3,
     },
     {
       icon: "money" as const,
-      iconBg: "bg-[#7c3aed]",
+      iconBg: "bg-purple-600",
       title: "Cobro recibido",
       body: "+$24.500 de Diego R. (Mensual)",
       delay: 7,
     },
     {
       icon: "user" as const,
-      iconBg: "bg-gradient-to-br from-[#a855f7] to-[#7c3aed]",
+      iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
       title: "Nuevo cliente",
       body: "Sofía Álvarez completó el alta",
       delay: 11,
@@ -542,7 +542,7 @@ function ToastStack() {
       {toasts.map((t, i) => (
         <div
           key={i}
-          className="flex items-start gap-2.5 rounded-lg border border-white/10 bg-[#0f0520] px-3 py-2 shadow-2xl min-w-[220px] max-w-[260px]"
+          className="flex items-start gap-2.5 rounded-lg border border-white/10 bg-purple-975 px-3 py-2 shadow-2xl min-w-[220px] max-w-[260px]"
           style={{
             animation: `toast-pop 9s var(--ease-out-quart) ${t.delay}s infinite both`,
           }}
@@ -568,7 +568,7 @@ function ToastStack() {
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-[10.5px] text-white font-semibold leading-tight">{t.title}</div>
-            <div className="text-[9.5px] text-[#a78bfa]/75 mt-0.5 leading-snug">{t.body}</div>
+            <div className="text-[9.5px] text-purple-400/75 mt-0.5 leading-snug">{t.body}</div>
           </div>
         </div>
       ))}

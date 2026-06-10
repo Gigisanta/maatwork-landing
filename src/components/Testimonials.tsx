@@ -33,7 +33,7 @@ export function Testimonials() {
     <section className="section-base py-20 md:py-28">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-[#a78bfa]">
+          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
             Lo que dicen
           </span>
           <h2
@@ -58,8 +58,8 @@ export function Testimonials() {
                 viewBox="0 0 28 22"
                 fill="currentColor"
                 aria-hidden
-                className="text-[#7c3aed] absolute -top-2 -left-2 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3"
-                style={{ opacity: 0.10, color: "#7c3aed" }}
+                className="text-purple-600 absolute -top-2 -left-2 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3"
+                style={{ opacity: 0.10, color: "var(--color-purple-600)" }}
               >
                 <path d="M0 22V13.2C0 9.27.93 6.07 2.8 3.6 4.67 1.13 7.33 0 10.8 0V4.4C8.93 4.4 7.4 5.07 6.2 6.4 5 7.73 4.4 9.47 4.4 11.6H10.8V22H0ZM17.2 22V13.2C17.2 9.27 18.13 6.07 20 3.6 21.87 1.13 24.53 0 28 0V4.4C26.13 4.4 24.6 5.07 23.4 6.4 22.2 7.73 21.6 9.47 21.6 11.6H28V22H17.2Z" />
               </svg>
@@ -76,7 +76,7 @@ export function Testimonials() {
                   <div className="font-display text-white font-bold text-[14.5px]">
                     {t.name}
                   </div>
-                  <div className="text-[12.5px] text-[#a78bfa]/80 mt-0.5">
+                  <div className="text-[12.5px] text-purple-400/80 mt-0.5">
                     {t.role}
                   </div>
                 </div>

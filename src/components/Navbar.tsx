@@ -35,11 +35,11 @@ export function Navbar() {
       <nav className="mx-auto max-w-[1320px] px-5 md:px-8 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="MaatWork inicio">
           <span className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
-            Maat<span className="text-[#a78bfa]">Work</span>
+            Maat<span className="text-purple-400">Work</span>
           </span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-8 text-[14px] text-[#d4b8ff]">
+        <ul className="hidden md:flex items-center gap-8 text-[14px] text-purple-200">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -47,7 +47,7 @@ export function Navbar() {
                 className="hover:text-white transition-colors relative group"
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#7c3aed] transition-all group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-purple-600 transition-all group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -92,7 +92,7 @@ export function Navbar() {
 
       {open && (
         <div className="md:hidden border-t border-white/[0.06] glass-subtle">
-          <ul className="px-6 py-4 flex flex-col gap-4 text-[15px] text-[#d4b8ff]">
+          <ul className="px-6 py-4 flex flex-col gap-4 text-[15px] text-purple-200">
             {links.map((l) => (
               <li key={l.href}>
                 <a href={l.href} onClick={() => setOpen(false)}>

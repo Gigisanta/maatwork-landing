@@ -7,7 +7,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
  *
  * @example
  *   <StaggeredText text="Automatizá tu local." baseDelayMs={0} staggerMs={22} />
- *   <StaggeredText text="Sin complicaciones." baseDelayMs={500} staggerMs={22} className="text-[#d4b8ff]" />
+ *   <StaggeredText text="Sin complicaciones." baseDelayMs={500} staggerMs={22} className="text-purple-200" />
  *
  * La animación se activa al montar. Cada letra es un <span> con `animation-delay` incremental.
  * Respeta prefers-reduced-motion: si está activo, no aplica animación.

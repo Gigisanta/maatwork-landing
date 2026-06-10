@@ -23,8 +23,8 @@ export default function GlobalError({
     <html lang="es-AR">
       <body
         style={{
-          background: "#0f0520",
-          color: "#ffffff",
+          background: "var(--color-purple-975)",
+          color: "var(--color-white)",
           fontFamily:
             "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif",
           minHeight: "100vh",
@@ -37,7 +37,7 @@ export default function GlobalError({
         <div style={{ maxWidth: 480, textAlign: "center" }}>
           <p
             style={{
-              color: "#a78bfa",
+              color: "var(--color-purple-400)",
               fontSize: 13,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
@@ -55,7 +55,7 @@ export default function GlobalError({
           >
             Algo se rompió del lado del servidor.
           </h1>
-          <p style={{ color: "#d4b8ff", marginTop: 16, fontSize: 16 }}>
+          <p style={{ color: "var(--color-purple-200)", marginTop: 16, fontSize: 16 }}>
             Ya estamos trabajando en esto. Probá recargar la página o volvé al
             inicio.
           </p>
@@ -66,8 +66,8 @@ export default function GlobalError({
               height: 44,
               padding: "0 24px",
               borderRadius: 9999,
-              background: "#7c3aed",
-              color: "#ffffff",
+              background: "var(--color-purple-600)",
+              color: "var(--color-white)",
               fontWeight: 600,
               fontSize: 14,
               border: "none",

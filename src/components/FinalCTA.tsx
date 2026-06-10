@@ -14,7 +14,7 @@ export function FinalCTA() {
     <section className="section-base py-20 md:py-28">
       <div className="mx-auto max-w-[1100px] px-5 md:px-8">
         <div
-          className="relative rounded-3xl overflow-hidden border border-[#7c3aed]/30 p-10 md:p-16 text-center"
+          className="relative rounded-3xl overflow-hidden border border-purple-600/30 p-10 md:p-16 text-center"
           style={{
             background:
               "linear-gradient(180deg, rgba(124,58,237,0.12) 0%, rgba(45,16,101,0.55) 100%)",
@@ -33,12 +33,12 @@ export function FinalCTA() {
           <div className="relative">
             {/* Live ticker — solo en md+ */}
             <div
-              className="hidden md:flex items-center justify-center gap-2 mb-7 text-[12px] text-[#a78bfa]/85"
+              className="hidden md:flex items-center justify-center gap-2 mb-7 text-[12px] text-purple-400/85"
               aria-live="polite"
             >
               <span className="relative flex w-1.5 h-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-70 animate-ping" />
-                <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-[#25D366]" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
+                <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
               </span>
               <span className="uppercase tracking-[0.18em] font-semibold">Actividad ahora</span>
             </div>
@@ -49,7 +49,7 @@ export function FinalCTA() {
             >
               Listo para automatizar tu negocio?
             </h2>
-            <p className="mt-5 text-[16.5px] md:text-[17.5px] text-[#d4b8ff] max-w-[560px] mx-auto leading-[1.55]">
+            <p className="mt-5 text-[16.5px] md:text-[17.5px] text-purple-200 max-w-[560px] mx-auto leading-[1.55]">
               Empezás con 14 días gratis, sin tarjeta. Te llamamos y
               configuramos todo con vos.
             </p>
@@ -62,10 +62,10 @@ export function FinalCTA() {
                     key={i}
                     className="flex items-center justify-center gap-2 text-[12px] py-1.5"
                   >
-                    <span className="text-[#a78bfa]/55">{m.t}</span>
+                    <span className="text-purple-400/55">{m.t}</span>
                     <span className="text-white font-medium">{m.n}</span>
-                    <span className="text-[#d4b8ff]/80">de {m.org}</span>
-                    <span className="text-[#25D366]">{m.a}</span>
+                    <span className="text-purple-200/80">de {m.org}</span>
+                    <span className="text-success">{m.a}</span>
                   </div>
                 ))}
               </div>
@@ -91,7 +91,7 @@ export function FinalCTA() {
               </a>
             </div>
 
-            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[13.5px] text-[#a78bfa]">
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[13.5px] text-purple-400">
               <li className="flex items-center gap-1.5">
                 <Dot />Sin tarjeta
               </li>
@@ -114,6 +114,6 @@ export function FinalCTA() {
 
 function Dot() {
   return (
-    <span className="inline-block w-1 h-1 rounded-full bg-[#a78bfa]/60" />
+    <span className="inline-block w-1 h-1 rounded-full bg-purple-400/60" />
   );
 }

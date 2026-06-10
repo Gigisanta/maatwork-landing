@@ -34,17 +34,17 @@ export function Hero() {
         {/* Eyebrow: badge centrado arriba */}
         <div className="flex justify-center mb-7">
           <div
-            className="reveal inline-flex items-center gap-2 rounded-full border border-[#7c3aed]/25 bg-[#7c3aed]/10 px-3 py-1.5 text-[12.5px] text-[#d4b8ff]"
+            className="reveal inline-flex items-center gap-2 rounded-full border border-purple-600/25 bg-purple-600/10 px-3 py-1.5 text-[12.5px] text-purple-200"
             style={{ transitionDelay: "0ms" }}
           >
             <span className="relative flex w-1.5 h-1.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-[#25D366]" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping" />
+              <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
             </span>
             <span className="font-medium">14 días gratis</span>
-            <span className="text-[#a78bfa]/60">·</span>
+            <span className="text-purple-400/60">·</span>
             <span>Sin tarjeta</span>
-            <span className="text-[#a78bfa]/60">·</span>
+            <span className="text-purple-400/60">·</span>
             <span className="hidden sm:inline">Setup en 5-10 días</span>
           </div>
         </div>
@@ -64,13 +64,13 @@ export function Hero() {
             text={H1_LINE_2}
             baseDelayMs={120 + H1_LINE_1.length * 22}
             staggerMs={22}
-            className="block text-[#d4b8ff]"
+            className="block text-purple-200"
           />
         </h1>
 
         {/* Sub centered */}
         <p
-          className="reveal mt-7 text-center text-[16.5px] md:text-[18.5px] text-[#d4b8ff] max-w-[640px] mx-auto leading-[1.55]"
+          className="reveal mt-7 text-center text-[16.5px] md:text-[18.5px] text-purple-200 max-w-[640px] mx-auto leading-[1.55]"
           style={{ transitionDelay: "200ms" }}
         >
           El SaaS que gyms, salones y academias eligen en Argentina.
@@ -108,7 +108,7 @@ export function Hero() {
           </a>
           <a
             href="#funcionalidades"
-            className="group inline-flex items-center justify-center gap-2 px-7 rounded-full text-white font-semibold text-[15.5px] border border-white/15 hover:border-[#7c3aed]/50 hover:bg-[#7c3aed]/8 transition-all hover-scale"
+            className="group inline-flex items-center justify-center gap-2 px-7 rounded-full text-white font-semibold text-[15.5px] border border-white/15 hover:border-purple-600/50 hover:bg-purple-600/8 transition-all hover-scale"
             style={{
               height: 56,
               transitionTimingFunction: "var(--ease-out-quart)",
@@ -139,15 +139,15 @@ export function Hero() {
           className="reveal mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-[13.5px]"
           style={{ transitionDelay: "320ms" }}
         >
-          <li className="flex items-center gap-1.5 text-[#a78bfa]">
+          <li className="flex items-center gap-1.5 text-purple-400">
             <Check />+$5.1M AUM gestionados
           </li>
-          <li className="text-[#7c3aed]/50">·</li>
-          <li className="flex items-center gap-1.5 text-[#a78bfa]">
+          <li className="text-purple-600/50">·</li>
+          <li className="flex items-center gap-1.5 text-purple-400">
             <Check />+349 clientes activos
           </li>
-          <li className="text-[#7c3aed]/50">·</li>
-          <li className="flex items-center gap-1.5 text-[#a78bfa]">
+          <li className="text-purple-600/50">·</li>
+          <li className="flex items-center gap-1.5 text-purple-400">
             <Check />+1 año en desarrollo
           </li>
         </ul>
@@ -171,7 +171,7 @@ function Check() {
       height="13"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#a78bfa"
+      stroke="var(--color-purple-400)"
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"

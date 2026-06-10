@@ -52,7 +52,7 @@ export function BentoCard({
           {icon}
         </div>
         {badge && (
-          <span className="text-[9px] uppercase tracking-[0.18em] text-[#7c3aed] font-semibold">
+          <span className="text-[9px] uppercase tracking-[0.18em] text-purple-600 font-semibold">
             {badge}
           </span>
         )}
@@ -64,7 +64,7 @@ export function BentoCard({
       >
         {title}
       </h3>
-      <p className="mt-1.5 text-[13.5px] text-[#d4b8ff]/85 leading-[1.5]">
+      <p className="mt-1.5 text-[13.5px] text-purple-200/85 leading-[1.5]">
         {description}
       </p>
 

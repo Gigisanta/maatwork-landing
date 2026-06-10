@@ -28,7 +28,7 @@ export function FAQ() {
     <section id="faq" className="section-elev2 py-20 md:py-28 border-y border-white/[0.06]">
       <div className="mx-auto max-w-[860px] px-6 md:px-8">
         <div className="text-center max-w-[640px] mx-auto reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-[#a78bfa]">
+          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
             Preguntas frecuentes
           </span>
           <h2
@@ -41,7 +41,7 @@ export function FAQ() {
 
         <div className="mt-8 max-w-[420px] mx-auto">
           <div className="relative">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden>
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
@@ -50,7 +50,7 @@ export function FAQ() {
               placeholder="Buscar pregunta..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full h-11 pl-10 pr-4 rounded-full bg-white/[0.04] border border-white/[0.08] text-[14px] text-white placeholder:text-[#a78bfa]/60 focus:border-[#7c3aed]/50 focus:outline-none transition-colors duration-200"
+              className="w-full h-11 pl-10 pr-4 rounded-full bg-white/[0.04] border border-white/[0.08] text-[14px] text-white placeholder:text-purple-400/60 focus:border-purple-600/50 focus:outline-none transition-colors duration-200"
             />
           </div>
         </div>
@@ -64,7 +64,7 @@ export function FAQ() {
                 className={[
                   "rounded-xl border transition-all duration-300 ease-out-quart",
                   isOpen
-                    ? "bg-white/[0.04] border-[#7c3aed]/30 shadow-[0_0_20px_-10px_rgba(124,58,237,0.4)]"
+                    ? "bg-white/[0.04] border-purple-600/30 shadow-[0_0_20px_-10px_rgba(124,58,237,0.4)]"
                     : "bg-white/[0.02] border-white/[0.06] hover:border-white/[0.15]",
                 ].join(" ")}
               >
@@ -82,7 +82,7 @@ export function FAQ() {
                     className={[
                       "flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-transform duration-300 ease-out-quart",
                       isOpen
-                        ? "bg-[#7c3aed] border-[#7c3aed] rotate-45"
+                        ? "bg-purple-600 border-purple-600 rotate-45"
                         : "border-white/20",
                     ].join(" ")}
                     aria-hidden
@@ -102,7 +102,7 @@ export function FAQ() {
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 md:px-6 pb-5 -mt-1 text-[14.5px] text-[#d4b8ff] leading-[1.6]">
+                    <p className="px-5 md:px-6 pb-5 -mt-1 text-[14.5px] text-purple-200 leading-[1.6]">
                       {item.a}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export function FAQ() {
             );
           })}
           {filtered.length === 0 && (
-            <p className="text-center text-[14px] text-[#a78bfa] py-8">
+            <p className="text-center text-[14px] text-purple-400 py-8">
               No encontramos preguntas con “{query}”. Escribinos por WhatsApp.
             </p>
           )}

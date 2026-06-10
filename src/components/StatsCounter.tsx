@@ -73,7 +73,7 @@ export function StatsCounter() {
                   <span className="opacity-0">0</span>
                 )}
               </span>
-              <span className="text-[13px] text-[#a78bfa] mt-2.5 font-medium tracking-wide">
+              <span className="text-[13px] text-purple-400 mt-2.5 font-medium tracking-wide">
                 {s.k}
               </span>
             </li>
