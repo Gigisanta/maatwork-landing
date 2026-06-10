@@ -12,10 +12,10 @@ type Stat = {
 };
 
 const STATS: Stat[] = [
-  { prefix: "+$", target: 5.1, suffix: "M", decimals: 1, k: "AUM gestionados" },
-  { prefix: "+", target: 349, suffix: "", k: "clientes activos" },
-  { target: 99.9, suffix: "%", decimals: 1, k: "uptime" },
-  { target: 7, suffix: " días", k: "implementación promedio" },
+  { target: 10, suffix: " días", k: "setup estimado" },
+  { target: 14, suffix: " días", k: "prueba sin tarjeta" },
+  { target: 2, suffix: " hs", k: "respuesta soporte" },
+  { target: 24, suffix: "/7", k: "operación online" },
 ];
 
 /**
@@ -64,7 +64,7 @@ export function StatsCounter() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <span
-                className="font-display text-white text-[40px] sm:text-[48px] md:text-[56px] leading-none tracking-[-0.04em] tabular-nums"
+                className="font-display text-white text-4xl sm:text-5xl md:text-display leading-none tracking-display tabular-nums"
                 style={{ fontWeight: 800 }}
               >
                 {active ? (

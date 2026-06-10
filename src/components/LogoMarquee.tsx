@@ -21,8 +21,8 @@ const RUBROS = [
 export function LogoMarquee() {
   return (
     <section className="section-base border-y border-white/[0.04] overflow-hidden">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8 py-10">
-        <p className="text-center text-[12px] uppercase tracking-[0.22em] text-purple-400/80 mb-7">
+      <div className="container-maat py-10">
+        <p className="eyebrow mb-7 text-center !text-purple-400/80">
           Funciona para tu rubro
         </p>
       </div>
