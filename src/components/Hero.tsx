@@ -1,24 +1,20 @@
-import { DashboardPreview } from "./DashboardPreview";
+import { ProductVideo } from "./ProductVideo";
 import { StaggeredText } from "./StaggeredText";
 
 /**
  * Hero — versión "WOW OFICIAL" con app preview protagónico.
  *
  * ARQUITECTURA NUEVA:
- *   - El preview se mueve ARRIBA, full-width, como pieza central
- *   - Copy ABAJO con jerarquía refinada
- *   - Live activity feed debajo del preview (scrollea solo)
- *   - H1 con staggered letter reveal
+ *   - Video real del producto como pieza central
+ *   - Copy con jerarquía editorial refinada
+ *   - H1 con reveal sutil
  *   - 2 CTAs con microinteracciones
  *
- * Animaciones activas en el preview (ver DashboardPreview.tsx):
- *   - KPI cycle (2.6s loop)
- *   - Toast notifications (9s loop, stagger)
- *   - Cursor move
- *   - Avatar float
- *   - Live clock
- *   - Row hover (translateX + bg)
- *   - WhatsApp confirm badge
+ * V6 reemplaza el DashboardPreview sintético por ProductVideo:
+ *   - footage real/realista del panel
+ *   - webm + mp4 fallback
+ *   - poster liviano
+ *   - sin librerías de motion
  */
 
 const H1_LINE_1 = "Automatizá tu local.";
@@ -152,12 +148,12 @@ export function Hero() {
           </li>
         </ul>
 
-        {/* ====== APP PREVIEW PROTA — full-width, protagonista ====== */}
+        {/* ====== PRODUCT VIDEO — full-width, credible, real footage ====== */}
         <div
           className="reveal mt-14 md:mt-20"
           style={{ transitionDelay: "400ms" }}
         >
-          <DashboardPreview />
+          <ProductVideo />
         </div>
       </div>
     </section>
