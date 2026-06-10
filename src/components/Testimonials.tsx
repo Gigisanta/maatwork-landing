@@ -30,10 +30,10 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="section-base py-20 md:py-28">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8">
+    <section className="section-base section-pad">
+      <div className="container-maat">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
+          <span className="eyebrow">
             Lo que dicen
           </span>
           <h2

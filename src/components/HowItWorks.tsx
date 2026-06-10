@@ -79,10 +79,10 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section className="section-base py-20 md:py-28">
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8" ref={ref}>
+    <section className="section-base section-pad">
+      <div className="container-maat" ref={ref}>
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
+          <span className="eyebrow">
             Cómo funciona
           </span>
           <h2

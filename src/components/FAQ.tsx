@@ -25,10 +25,10 @@ export function FAQ() {
     : FAQS;
 
   return (
-    <section id="faq" className="section-elev2 py-20 md:py-28 border-y border-white/[0.06]">
+    <section id="faq" className="section-elev2 section-pad border-y border-white/[0.06]">
       <div className="mx-auto max-w-[860px] px-6 md:px-8">
         <div className="text-center max-w-[640px] mx-auto reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
+          <span className="eyebrow">
             Preguntas frecuentes
           </span>
           <h2

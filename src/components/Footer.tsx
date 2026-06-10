@@ -82,7 +82,7 @@ export function Footer() {
 
           {cols.map((c) => (
             <div key={c.title}>
-              <h4 className="text-[12.5px] uppercase tracking-[0.18em] text-white/60 font-semibold">
+              <h4 className="eyebrow !text-white/60">
                 {c.title}
               </h4>
               <ul className="mt-4 space-y-2.5 text-[14px] text-purple-200">

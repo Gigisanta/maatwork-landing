@@ -48,11 +48,11 @@ export function PricingROI() {
   return (
     <section
       id="precios"
-      className="section-elev1 py-20 md:py-28 border-y border-white/[0.06]"
+      className="section-elev1 section-pad border-y border-white/[0.06]"
     >
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8">
+      <div className="container-maat">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
+          <span className="eyebrow">
             Precios
           </span>
           <h2
@@ -73,7 +73,7 @@ export function PricingROI() {
             <div className="featured-border rounded-2xl p-8 md:p-10 hover-scale">
               <div className="flex items-baseline justify-between">
                 <div>
-                  <div className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400 flex items-center gap-2">
+                  <div className="eyebrow flex items-center gap-2">
                     Plan único
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-success/15 border border-success/30 text-success text-[10.5px] font-semibold px-2.5 py-0.5">
                       <span className="relative flex w-1.5 h-1.5">

@@ -11,7 +11,7 @@ const TICKER_MESSAGES = [
 
 export function FinalCTA() {
   return (
-    <section className="section-base py-20 md:py-28">
+    <section className="section-base section-pad">
       <div className="mx-auto max-w-[1100px] px-5 md:px-8">
         <div
           className="relative rounded-3xl overflow-hidden border border-purple-600/30 p-10 md:p-16 text-center"

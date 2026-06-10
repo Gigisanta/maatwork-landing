@@ -117,6 +117,44 @@ body {
 .section-elev2 { background: var(--color-bg-elev-2); }
 
 /* ================================================================
+   V6 Section padding — editorial vertical rhythm
+   Use as: <section class="section-pad section-base"> or .section-pad-md
+   ================================================================ */
+.section-pad    { padding-top: var(--spacing-section);    padding-bottom: var(--spacing-section); }
+.section-pad-md { padding-top: var(--spacing-section-md); padding-bottom: var(--spacing-section-md); }
+@media (min-width: 768px) {
+  .section-pad    { padding-top: var(--spacing-section-md); padding-bottom: var(--spacing-section-md); }
+  .section-pad-md { padding-top: var(--spacing-section-lg); padding-bottom: var(--spacing-section-lg); }
+}
+@media (min-width: 1024px) {
+  .section-pad    { padding-top: var(--spacing-section-lg); padding-bottom: var(--spacing-section-lg); }
+}
+
+/* ================================================================
+   V6 Eyebrow text — uppercase tracking label
+   Use as: <span class="eyebrow">Funcionalidades</span>
+   ================================================================ */
+.eyebrow {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-purple-400);
+  font-weight: 500;
+}
+
+/* ================================================================
+   V6 Container — max-width content area with padding
+   ================================================================ */
+.container-maat {
+  margin-inline: auto;
+  max-width: 1320px;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-maat { padding-inline: 2rem; }
+}
+
+/* ================================================================
    Logo "M" gradient (text)
    ================================================================ */
 .logo-gradient {

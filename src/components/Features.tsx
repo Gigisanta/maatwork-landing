@@ -196,11 +196,11 @@ export function Features() {
   return (
     <section
       id="funcionalidades"
-      className="section-elev1 py-20 md:py-28 border-y border-white/[0.06]"
+      className="section-elev1 section-pad border-y border-white/[0.06]"
     >
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8">
+      <div className="container-maat">
         <div className="max-w-[640px] reveal">
-          <span className="text-[12.5px] uppercase tracking-[0.18em] text-purple-400">
+          <span className="eyebrow">
             Funcionalidades
           </span>
           <h2

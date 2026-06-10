@@ -30,7 +30,7 @@ export function Hero() {
       id="top"
       className="section-base relative pt-20 md:pt-24 pb-12 md:pb-16 overflow-hidden"
     >
-      <div className="mx-auto max-w-[1320px] px-5 md:px-8">
+      <div className="container-maat">
         {/* Eyebrow: badge centrado arriba */}
         <div className="flex justify-center mb-7">
           <div
