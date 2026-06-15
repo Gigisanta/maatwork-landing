@@ -17,6 +17,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Perf: ProductShowcase pausa auto-avance off-screen.** El `setInterval` (cada 3.8s) y la
+  animación CSS de la barra corrían aunque el showcase estuviera fuera de vista → re-renders + trabajo
+  inútiles durante el resto del scroll. IntersectionObserver (threshold 0.15, mismo patrón que StatsCounter)
+  gatea el interval y la barra en `visible`. Best-practice (no animar/timer off-screen), battery/CPU friendly.
+  Verificado mobile 390: showcase renderiza, tab click NMS→Varigas OK, sin romper. typecheck + build estático OK.
 - [2026-06-15] **Audit de perf + safe-area iOS en sticky CTA.** Perf trace prod: LCP **245 ms** (mejor
   que el 487 ms previo), CLS **0.00**, TTFB 9 ms, sin render-blocking → los últimos cambios (scroll-spy,
   sticky CTA, FAQ data-module, links) NO regresaron nada. Único item real: el sticky CTA usaba `bottom-4`

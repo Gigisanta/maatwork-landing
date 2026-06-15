@@ -8,7 +8,7 @@
  * basados en las entidades reales de cada app — sin presentar métricas como reales.
  * Pausa en hover, tabs clickeables, no auto-cicla con prefers-reduced-motion.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Screen = {
   name: string;
@@ -91,16 +91,27 @@ const INTERVAL_MS = 3800;
 export function ProductShowcase() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Pause auto-advance when the showcase is scrolled out of view (no off-screen work).
+  useEffect(() => {
+    if (!rootRef.current) return;
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { threshold: 0.15 });
+    io.observe(rootRef.current);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || !visible) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => setActive((p) => (p + 1) % SCREENS.length), INTERVAL_MS);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, visible]);
 
   return (
     <div
+      ref={rootRef}
       className="product-frame relative mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-white/10 bg-slate-950/70 p-2.5 backdrop-blur"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -158,7 +169,7 @@ export function ProductShowcase() {
           >
             <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
             <span className="truncate">{s.name}</span>
-            {idx === active && !paused && (
+            {idx === active && !paused && visible && (
               <span
                 key={active}
                 aria-hidden
