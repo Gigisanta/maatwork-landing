@@ -17,6 +17,10 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Métricas: Speed Insights (RUM de Core Web Vitals).** Ya teníamos pageviews + evento
+  `whatsapp_cta` (Web Analytics), faltaba perf de usuario real. `@vercel/speed-insights/next` +
+  `<SpeedInsights/>` en layout (junto a Analytics, en Suspense) + `vercel project speed-insights`
+  (`enabled:true`). CWV de campo alimentan ranking SEO → más visualizaciones. Build estático OK.
 - [2026-06-15] **Owner unblock: dominio + merge + deploy + analytics.** Owner confirmó dominio prod =
   `maat.work` (el código ya lo usaba → sin cambios). Consolidado TODO a `main`: `feat/v6-foundation`
   ya era ancestro de `loop/landing-autoimprove`; merge fast-forward de las 12 mejoras del loop → `main`

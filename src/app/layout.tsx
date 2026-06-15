@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 
@@ -187,6 +188,7 @@ export default function RootLayout({
         <AnalyticsEvents />
         <Suspense fallback={null}>
           <Analytics />
+          <SpeedInsights />
         </Suspense>
       </body>
     </html>
