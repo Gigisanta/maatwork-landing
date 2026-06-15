@@ -259,13 +259,6 @@ function CounterUp({ end }: { end: number }) {
 }
 
 /* ================================================================
-   Lock spin (for "Tus datos seguros" card)
-   ================================================================ */
-const LockSpinStyle = () => (
-  <style>{`@keyframes lock-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }`}</style>
-);
-
-/* ================================================================
    Icons
    ================================================================ */
 function IconCrm() {

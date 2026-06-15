@@ -18,6 +18,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Dead code + audit mobile completo.** Removido `LockSpinStyle` en Features.tsx (componente
+  nunca renderizado; los keyframes `lock-spin` ya viven en globals.css → era redundante, animación intacta).
+  Audit mobile (390px) de las secciones que faltaban — HowItWorks, ProductEcosystem y menú mobile del navbar:
+  todas renderizan bien, sin overflow ni roturas. **Cobertura de audit ahora completa** (desktop+mobile, todas
+  las secciones). Próximas iteraciones: enfocar en items desbloqueados por el owner, no re-auditar lo sano.
 - [2026-06-15] **Footer: form de newsletter muerto → CTA WhatsApp.** El form "Recibir tips" tenía
   `onSubmit preventDefault` sin handler (no hacía nada, sin feedback = UI engañosa). El schema de leads
   exige nombre+whatsapp (no acepta email-only) y no hay infra de email para "tips". Reemplazado por el
