@@ -16,6 +16,17 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Motion: fondo animado global + scroll-progress + card mouse-glow.** La página se
+  sentía plana debajo del hero (el `.aurora-field` vivía solo en el hero). Agregado `AnimatedBackground`
+  (4 blobs violeta que se deforman + 14 partículas que flotan, `fixed -z-10` sobre la base ink de
+  `<html>`; `body` pasó a `transparent`), `ScrollProgress` (barra superior, GPU scaleX vía rAF) y
+  `CardGlow` (resplandor violeta que sigue el cursor en ecosystem/bento cards, un solo listener
+  delegado, solo `pointer:fine`; `::before` z-index:-1 + `isolation:isolate` en las cards). Mobile:
+  partículas off, blobs suavizados. Todo transform/opacity (GPU) + respeta `prefers-reduced-motion`.
+  Refs skill `frontend-ui-engineering/animated-backgrounds.md` + `landing-page-animation-catalog.md`.
+  Build verde, clases sobreviven Lightning CSS, hero QA headless OK. ⚠️ QA per-sección del fondo
+  mid-page no confirmado visualmente (MCP chrome-devtools caído; reveals salen blanco en headless) →
+  reconfirmar al volver el MCP. Commit `4f4a2c2`.
 - [2026-06-15] **Brand: color primario cyan→violeta (owner).** El owner confirmó violeta como color
   de marca. Recolor central: `globals.css` (`--color-border-accent`, eyebrow, logo-gradient, cta-violet,
   tab-progress, hero-title-accent, aurora glow) + Navbar (wordmark `Work`, underline), Hero (dot +
