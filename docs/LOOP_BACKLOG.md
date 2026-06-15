@@ -6,24 +6,25 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Pendiente (prioridad ↓)
 
-1. **Perf: ruta `/` se compila `ƒ` (dynamic), no estática** — preexistente, peor TTFB/CDN/LCP para
-   un landing. Encontrar qué fuerza el bailout (incluso `/_not-found` es ƒ → algo global en layout/Turbopack)
-   y restaurar prerender estático. Alto impacto en "más visualizaciones".
-2. **SEO alineación**: `layout.tsx` metadata sigue mixto (title/keywords B2B "obras/natatorios" vs
+1. **SEO alineación**: `layout.tsx` metadata sigue mixto (title/keywords B2B "obras/natatorios" vs
    JSON-LD SMB). Alinear a la narrativa SMB elegida; verificar OG/twitter image reales, sitemap/robots
    vs dominio prod (maat.work). Riesgo medio (afecta indexación) → cambios cuidadosos.
-3. **Performance / LCP**: peso del video showcase (mp4+webm) en hero; medir LCP con Lighthouse;
+2. **Performance / LCP**: peso del video showcase (mp4+webm) en hero; medir LCP con Lighthouse;
    preconnect a fuentes; revisar si el video debe ser `preload="none"` + poster.
-4. **Prueba social honesta**: conseguir 1-2 testimonios reales con permiso (hoy `verified:false`).
+3. **Prueba social honesta**: conseguir 1-2 testimonios reales con permiso (hoy `verified:false`).
    Mientras tanto, no fabricar. Considerar logos/clientes reales si existen.
-5. **Accesibilidad**: contraste de `purple-400/80` sobre fondo oscuro (verificar ratio AA);
+4. **Accesibilidad**: contraste de `purple-400/80` sobre fondo oscuro (verificar ratio AA);
    focus-visible ya existe; reduced-motion ya cubierto.
-6. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
+5. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
    la narrativa elegida.
-7. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
+6. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
 
 ## Hecho
 
+- [2026-06-15] **Perf: prerender estático restaurado.** El script `build` tenía `next build --debug-prerender`
+  → forzaba `/` y `/_not-found` a `ƒ` (dynamic). Vercel corre `npm run build` → prod perdía el static
+  optimization (peor TTFB/CDN/LCP). Quitado el flag (vestigio de un debugging viejo, ver next.config) →
+  `/` vuelve a `○ (Static)`. Build limpio.
 - [2026-06-15] **Analítica** (era el blocker de la misión): `@vercel/analytics` (zero-config, proyecto
   ya en Vercel) → pageviews automáticos vía `<Analytics/>` (en `<Suspense>`) + `AnalyticsEvents.tsx`
   (listener delegado en `a[href*="wa.me"]` → evento `whatsapp_cta` = señal de conversión). Build+typecheck OK.
