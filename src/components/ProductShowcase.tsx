@@ -130,8 +130,12 @@ export function ProductShowcase() {
           <div
             key={s.name}
             aria-hidden={idx !== active}
-            className="absolute inset-0 p-4 transition-opacity duration-700 sm:p-6"
-            style={{ opacity: idx === active ? 1 : 0, pointerEvents: idx === active ? "auto" : "none" }}
+            className="absolute inset-0 p-4 transition-all duration-700 ease-out sm:p-6"
+            style={{
+              opacity: idx === active ? 1 : 0,
+              transform: idx === active ? "translateY(0)" : "translateY(10px)",
+              pointerEvents: idx === active ? "auto" : "none",
+            }}
           >
             <Dashboard screen={s} />
           </div>
@@ -146,7 +150,7 @@ export function ProductShowcase() {
             type="button"
             onClick={() => setActive(idx)}
             aria-pressed={idx === active}
-            className={`flex items-center justify-center gap-1.5 rounded-xl border px-2 py-2 text-[11px] font-semibold transition-colors sm:text-[12px] ${
+            className={`relative flex items-center justify-center gap-1.5 overflow-hidden rounded-xl border px-2 py-2 text-[11px] font-semibold transition-colors sm:text-[12px] ${
               idx === active
                 ? "border-white/20 bg-white/[0.08] text-white"
                 : "border-white/5 bg-white/[0.02] text-slate-400 hover:text-slate-200"
@@ -154,6 +158,14 @@ export function ProductShowcase() {
           >
             <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
             <span className="truncate">{s.name}</span>
+            {idx === active && !paused && (
+              <span
+                key={active}
+                aria-hidden
+                className="tab-progress"
+                style={{ animationDuration: `${INTERVAL_MS}ms` }}
+              />
+            )}
           </button>
         ))}
       </div>

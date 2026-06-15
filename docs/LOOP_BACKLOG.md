@@ -17,6 +17,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **ProductShowcase: pulido de animación/UX.** (1) Transición entre productos: opacity →
+  opacity + slide-up (translateY 10px→0, 700ms ease-out) = más premium. (2) Barra de progreso cyan→violeta
+  en el tab activo que se llena en `INTERVAL_MS` (3.8s) → señala el auto-avance y da feedback de que los
+  tabs son clickeables. Keyframe `tab-progress` (scaleX) + clase `.tab-progress`. Se oculta en hover (pausa)
+  y respeta reduced-motion (en ese caso no auto-cicla; tabs siguen clickeables = contenido accesible).
+  QA: barra se llena y se mueve al tab activo al click, sin glitch. Build estático OK.
 - [2026-06-15] **Hero H1 elevado + gradient premium ("landing impresionante").** El H1 era
   "Software real para operar. **No otra landing vacía.**" — la 2da línea era meta (hablaba de landings,
   no del negocio del cliente), débil para conversión e inconsistente con la OG/metadata. Reescrito a

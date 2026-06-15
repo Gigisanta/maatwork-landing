@@ -613,6 +613,21 @@ html.js-ready .reveal.is-visible {
   0%, 100% { opacity: 0.55; transform: scaleX(0.88); }
   50% { opacity: 1; transform: scaleX(1); }
 }
+@keyframes tab-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+/* ProductShowcase: auto-advance indicator on the active tab */
+.tab-progress {
+  position: absolute;
+  left: 0; bottom: 0;
+  height: 2px; width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #67e8f9, #a78bfa);
+  animation: tab-progress linear forwards;
+}
 
 .aurora-field {
   position: absolute;
