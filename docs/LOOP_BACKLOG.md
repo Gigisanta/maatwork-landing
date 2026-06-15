@@ -18,6 +18,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Métricas fabricadas en Features (cero-fabricación).** Audit mobile (390px) encontró 2
+  claims inventados presentados como hechos: title "Recuperá **8 hs/semana**" → "Recuperá horas cada
+  semana"; desc "Recordatorios automáticos. **34% menos ausencias**." → "…que reducen ausencias".
+  (Los widgets de hover con $/% son mockups demo ilustrativos, consistentes con el framing — se dejan.)
+  Audit mobile además: Pricing card, calculadora ROI y bento Features renderizan bien en 390px (sin overflow).
 - [2026-06-15] **Honestidad en FAQ/Features (barrera cero-fabricación + no quemar reputación).**
   (a) FAQ "¿Sirve para mi rubro?" decía "**Hoy tenemos clientes** en [6 rubros]" → contradecía la propia
   sección Testimonials (casos piloto, sin clientes nombrados). Reescrito a "Está pensado para…" (fit, no roster).

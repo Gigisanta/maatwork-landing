@@ -63,7 +63,7 @@ const FEATURES: Feature[] = [
     ),
   },
   {
-    title: "Recuperá 8 hs/semana",
+    title: "Recuperá horas cada semana",
     desc: "Cobros automáticos, links de pago, recordatorios.",
     icon: <IconMoney />,
     col: "md:col-span-1",
@@ -91,7 +91,7 @@ const FEATURES: Feature[] = [
   },
   {
     title: "Menos no-shows",
-    desc: "Recordatorios automáticos. 34% menos ausencias.",
+    desc: "Recordatorios automáticos que reducen ausencias.",
     icon: <IconCalendar />,
     col: "md:col-span-1",
     row: "md:row-span-1",
