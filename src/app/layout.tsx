@@ -172,6 +172,8 @@ export default function RootLayout({
     <html lang="es-AR" className={`${jakarta.variable} ${inter.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* Warm DNS for the WhatsApp CTA (primary conversion path) */}
+        <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="alternate" hrefLang="es-AR" href={SITE_URL} />
         <script
           type="application/ld+json"

@@ -18,6 +18,9 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Perf: `dns-prefetch` a wa.me** (CTA WhatsApp = camino de conversión dominante, 5+ links).
+  Calienta el DNS para acelerar el handoff al click. 1 línea en head. (dns-prefetch, no preconnect: es
+  navegación probable, no recurso del load.) 404 (`not-found.tsx`) auditado: ya está branded con CTA, sin cambios.
 - [2026-06-15] **A11y: skip-to-content link (WCAG 2.4.1).** Faltaba bypass-blocks para teclado/lectores.
   Agregado `<a class="skip-link" href="#main-content">Saltar al contenido</a>` (oculto hasta focus),
   `<main id="main-content" tabIndex={-1}>` como target. Verificado: aparece al focusear, build estático OK.
