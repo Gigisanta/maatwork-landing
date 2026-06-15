@@ -1,7 +1,10 @@
+import { Suspense } from "react";
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
@@ -178,6 +181,10 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <RevealOnScroll />
+        <AnalyticsEvents />
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );

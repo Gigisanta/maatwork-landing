@@ -6,9 +6,9 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Pendiente (prioridad ↓)
 
-1. **Analítica** (BLOQUEA la misión): sin tracking de pageviews + clicks de CTA WhatsApp no se puede
-   medir "más visualizaciones y clientes". Instalar algo liviano (Plausible/Umami o GA4) + eventos
-   en los CTAs de WhatsApp. Sin esto el loop optimiza a ciegas.
+1. **Perf: ruta `/` se compila `ƒ` (dynamic), no estática** — preexistente, peor TTFB/CDN/LCP para
+   un landing. Encontrar qué fuerza el bailout (incluso `/_not-found` es ƒ → algo global en layout/Turbopack)
+   y restaurar prerender estático. Alto impacto en "más visualizaciones".
 2. **SEO alineación**: `layout.tsx` metadata sigue mixto (title/keywords B2B "obras/natatorios" vs
    JSON-LD SMB). Alinear a la narrativa SMB elegida; verificar OG/twitter image reales, sitemap/robots
    vs dominio prod (maat.work). Riesgo medio (afecta indexación) → cambios cuidadosos.
@@ -24,6 +24,10 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Analítica** (era el blocker de la misión): `@vercel/analytics` (zero-config, proyecto
+  ya en Vercel) → pageviews automáticos vía `<Analytics/>` (en `<Suspense>`) + `AnalyticsEvents.tsx`
+  (listener delegado en `a[href*="wa.me"]` → evento `whatsapp_cta` = señal de conversión). Build+typecheck OK.
+  Falta: habilitar Web Analytics en el dashboard de Vercel (no requiere código).
 - [2026-06-15] Investigación de mercado → `docs/MARKET_RESEARCH.md`. Decisión de posicionamiento:
   unificar hacia SMB-local + productos como prueba (alineado a la lógica existente, no inventado).
 - [2026-06-15] Hero subcopy → outcome-driven SMB, sin jerga de agencia.
