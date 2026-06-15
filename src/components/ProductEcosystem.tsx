@@ -66,7 +66,19 @@ export function ProductEcosystem() {
                     </span>
                   ))}
                 </div>
-                <p className="mt-4 text-[12px] text-slate-500">{product.url}</p>
+                <a
+                  href={`https://${product.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Abrir ${product.name} (${product.url}) en una pestaña nueva`}
+                  className="group/url mt-4 inline-flex items-center gap-1 text-[12px] text-slate-500 transition-colors hover:text-cyan-300"
+                >
+                  {product.url}
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/url:translate-x-0.5 group-hover/url:-translate-y-0.5" aria-hidden>
+                    <path d="M7 17 17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
               </div>
             </article>
           ))}

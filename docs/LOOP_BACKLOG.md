@@ -17,6 +17,13 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **ProductEcosystem: URLs de producto clickeables (prueba verificable).** Las URLs
+  (oroazul.maat.work, crm.maat.work, infrannova.vercel.app, varigas.vercel.app) eran texto muerto. La
+  tesis de la sección es "mostramos productos funcionando" → hacerlas clickeables deja al prospecto
+  VERIFICAR que las apps existen y están vivas = credibilidad/confianza. Verificado que las 4 responden
+  HTTP 200 (apps reales, no dominios muertos) antes de linkear. `<a target="_blank" rel="noopener">` +
+  flecha externa + hover cyan + aria-label de pestaña nueva. Abre en pestaña nueva (no fuga la conversión).
+  typecheck + build estático OK, QA desktop.
 - [2026-06-15] **SEO: FAQ rich snippets sincronizados + métrica inventada fuera.** El JSON-LD FAQPage
   tenía solo 4 preguntas mientras el FAQ visible tenía 7 → Google solo veía la mitad. Además el FAQ #7
   reincidía con "Respuesta promedio: 2 horas" (métrica sin respaldo que ya saqué del StatsCounter, y
