@@ -17,6 +17,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Métrica inventada en StatsCounter (cero-fabricación + consistencia).** "2 hs ·
+  respuesta soporte" = SLA cuantificada sin respaldo que además CONTRADECÍA el footer ("Te respondemos
+  en el día"). Reemplazada por un stat verdadero y on-brand: "100 % · soporte en español" (matchea
+  "Hecho en Argentina, en español"). Verificación de calidad post-cambios (Lighthouse mobile, prod
+  build): A11y 96, BP 96, SEO 100, Agentic 100, LCP 487 ms (verde), CLS 0.00 — las 2 fallas siguen
+  siendo no-accionables (contraste del CTA verde = excepción de marca; 404 de `/_vercel/*` solo localhost).
 - [2026-06-15] **🎥 Video showcase buggy → ProductShowcase React (data-driven, dark).** QA visual con
   chrome-devtools encontró 3 defectos baked en `product-showcase.{mp4,webm}`: (a) escena NMS = pantalla
   **blanca vacía** (parecía rota), (b) **wipe diagonal blanco tosco** cruzando CRM/Infrannova/Varigas

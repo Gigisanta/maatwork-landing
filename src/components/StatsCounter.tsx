@@ -14,7 +14,7 @@ type Stat = {
 const STATS: Stat[] = [
   { target: 10, suffix: " días", k: "setup estimado" },
   { target: 14, suffix: " días", k: "prueba sin tarjeta" },
-  { target: 2, suffix: " hs", k: "respuesta soporte" },
+  { target: 100, suffix: " %", k: "soporte en español" },
   { target: 24, suffix: "/7", k: "operación online" },
 ];
 
