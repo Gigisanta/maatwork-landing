@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
+import { FAQS } from "@/data/faqs";
 
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
@@ -126,40 +127,11 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Cuánto tarda la implementación?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Entre 5 y 10 días hábiles. La primera llamada es de 30 minutos, configuramos el sistema con tus datos y te dejamos operando.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Necesito tarjeta para probar?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "No. Los 14 días son gratis y no pedimos tarjeta.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Sirve para mi rubro?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sirve para gimnasios, estudios de fitness, salones, barberías, academias y negocios con turnos, cobros recurrentes y clientes que atender.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Puedo migrar desde otro sistema?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí. Importamos tu base de clientes y turnos desde Excel, Google Sheets o cualquier sistema con exportación de datos.",
-          },
-        },
-      ],
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };

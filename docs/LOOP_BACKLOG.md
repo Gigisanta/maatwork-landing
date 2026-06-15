@@ -17,6 +17,13 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **SEO: FAQ rich snippets sincronizados + métrica inventada fuera.** El JSON-LD FAQPage
+  tenía solo 4 preguntas mientras el FAQ visible tenía 7 → Google solo veía la mitad. Además el FAQ #7
+  reincidía con "Respuesta promedio: 2 horas" (métrica sin respaldo que ya saqué del StatsCounter, y
+  contradecía el footer "en el día"). Fix robusto: extraído `FAQS` a `src/data/faqs.ts` (única fuente);
+  `<FAQ>` y el JSON-LD ahora la consumen → el structured data SIEMPRE matchea lo visible (requisito de
+  Google para rich results). Corregido #7 a honesto ("mismo día hábil"). Verificado: HTML servido tiene
+  7 `Question`, answer honesta presente, claim "2 horas" eliminado. typecheck + build estático OK.
 - [2026-06-15] **CTA sticky mobile (conversión).** La home mide ~16 pantallas en mobile y el WhatsApp
   quedaba lejos durante el scroll (6 CTAs dispersos, ninguno persistente). Nuevo `StickyWhatsApp`: pill
   verde fijo abajo, solo mobile (`md:hidden`), aparece tras pasar el hero (scrollY > 0.9vh) y se oculta
