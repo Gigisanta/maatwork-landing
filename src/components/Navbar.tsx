@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { waLink } from "@/lib/whatsapp";
 
 const links = [
@@ -16,6 +16,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -45,6 +46,19 @@ export function Navbar() {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  // Modal a11y: close the mobile menu with Escape and return focus to its toggle.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
@@ -92,10 +106,12 @@ export function Navbar() {
             Probar gratis
           </a>
           <button
+            ref={toggleRef}
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-white transition hover:bg-white/5 md:hidden"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
+            aria-haspopup="dialog"
             onClick={() => setOpen((v) => !v)}
           >
             <MenuIcon open={open} />
@@ -105,7 +121,12 @@ export function Navbar() {
 
       {open && (
         <div className="md:hidden">
-          <div className="fixed inset-0 top-16 z-40 bg-slate-950/95 px-6 py-8 backdrop-blur-xl">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación"
+            className="fixed inset-0 top-16 z-40 bg-slate-950/95 px-6 py-8 backdrop-blur-xl"
+          >
             <div className="flex flex-col gap-2">
               {links.map((l) => (
                 <a

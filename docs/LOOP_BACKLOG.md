@@ -17,6 +17,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **A11y: menú mobile = modal accesible.** El overlay del menú era un modal sin semántica
+  ni manejo de teclado. Agregado `role="dialog"` + `aria-modal` + `aria-label`, `aria-haspopup="dialog"`
+  en el toggle, y Escape-to-close que además devuelve el foco al botón toggle (no deja el foco huérfano
+  en un elemento oculto). Verificado: abre con dialog presente, Escape → cierra + foco vuelve al toggle.
+  typecheck + build estático OK. (Relevante en viewports angostos con teclado / lectores de pantalla.)
 - [2026-06-15] **Perf: ProductShowcase pausa auto-avance off-screen.** El `setInterval` (cada 3.8s) y la
   animación CSS de la barra corrían aunque el showcase estuviera fuera de vista → re-renders + trabajo
   inútiles durante el resto del scroll. IntersectionObserver (threshold 0.15, mismo patrón que StatsCounter)
