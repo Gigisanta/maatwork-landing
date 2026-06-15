@@ -169,7 +169,7 @@ const FEATURES: Feature[] = [
   },
   {
     title: "Tus datos, seguros",
-    desc: "Backups diarios, Ley 25.326, servidores en la región.",
+    desc: "Backups diarios automáticos. Exportás todo cuando quieras.",
     icon: <IconLock />,
     col: "md:col-span-2",
     row: "md:row-span-1",

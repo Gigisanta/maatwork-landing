@@ -5,9 +5,9 @@ import { useState } from "react";
 const FAQS = [
   { q: "¿Cuánto tarda la implementación?", a: "Entre 5 y 10 días hábiles. La primera llamada es de 30 minutos, configuramos el sistema con tus datos y te dejamos operando. En la mayoría de los casos, la primera semana ya estás cobrando." },
   { q: "¿Necesito tarjeta para probar?", a: "No. Los 14 días son gratis y no pedimos tarjeta. Si decidís continuar, ahí elegís cómo pagar: transferencia, Mercado Pago o tarjeta." },
-  { q: "¿Sirve para mi rubro?", a: "Hoy tenemos clientes en gimnasios, estudios de fitness, salones de belleza, barberías, academias de idiomas y centros de estética. Si tenés turnos, cobros recurrentes y clientes que atender, te sirve." },
+  { q: "¿Sirve para mi rubro?", a: "Está pensado para negocios con turnos, cobros recurrentes y clientes que atender: gimnasios, estudios de fitness, salones, barberías, academias y estética. Si trabajás así, te sirve." },
   { q: "¿Puedo migrar desde otro sistema?", a: "Sí. Importamos tu base de clientes y turnos desde Excel, Google Sheets o cualquier sistema con el que vengas. Lo hacemos nosotros, no tenés que tocar nada." },
-  { q: "¿Qué pasa con mis datos?", a: "Tus datos son tuyos. Hacemos backups diarios automáticos, los servidores están en la región y cumplimos con la Ley 25.326 de Protección de Datos Personales. Podés exportar todo cuando quieras." },
+  { q: "¿Qué pasa con mis datos?", a: "Tus datos son tuyos. Hacemos backups diarios automáticos y podés exportar todo cuando quieras, sin quedar atado a nosotros." },
   { q: "¿Tienen app móvil?", a: "Sí. Tu equipo y tus clientes tienen app nativa para iOS y Android. Vos también podés manejar todo desde el celular." },
   { q: "¿Cómo es el soporte?", a: "Soporte en español por WhatsApp y mail. Respuesta promedio: 2 horas en horario comercial. Si tenés un problema urgente, hablamos." },
 ];

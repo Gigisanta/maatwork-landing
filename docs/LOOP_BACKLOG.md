@@ -18,6 +18,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Honestidad en FAQ/Features (barrera cero-fabricación + no quemar reputación).**
+  (a) FAQ "¿Sirve para mi rubro?" decía "**Hoy tenemos clientes** en [6 rubros]" → contradecía la propia
+  sección Testimonials (casos piloto, sin clientes nombrados). Reescrito a "Está pensado para…" (fit, no roster).
+  (b) FAQ datos + Features card afirmaban "**Ley 25.326**" (compliance legal sin registro AAIP) y "servidores
+  **en la región**" (stack usa Neon, típicamente US) → riesgo legal/reputacional. Reescrito a verdad verificable:
+  backups diarios + export libre. typecheck OK. (Nota: dead code preexistente `LockSpinStyle` en Features.tsx, no tocado.)
 - [2026-06-15] **Auditoría perf + a11y (medida, prod build en :3001).** LCP **185 ms**, CLS **0.00**,
   cero render-blocking → perf YA verde, el video showcase no es el LCP element (lo es el H1). Per YAGNI:
   NO se tocó perf (no se optimiza lo que está verde). Lighthouse mobile: A11y **96**, BP **96**, SEO **100**.
