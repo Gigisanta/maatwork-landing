@@ -17,6 +17,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **OG/social image rota → regenerada (CTR de shares = visualizaciones).** QA encontró que
+  `og-image.png` tenía el headline CORTADO ("Software real para operar empr[esas]" colisionaba con las
+  cards decorativas) + copy stale. La OG es lo que se ve al compartir en WhatsApp/redes → un preview roto
+  mata el click-through. Regenerada con fidelidad de fuente (template HTML brandeado → screenshot headless
+  1200×630, normalizado con sips): wordmark, pill "Productos reales, no humo", headline sin clip
+  ("Software real para operar tu negocio"), subhead honesto + 4 chips de producto. og + twitter actualizadas.
 - [2026-06-15] **Métrica inventada en StatsCounter (cero-fabricación + consistencia).** "2 hs ·
   respuesta soporte" = SLA cuantificada sin respaldo que además CONTRADECÍA el footer ("Te respondemos
   en el día"). Reemplazada por un stat verdadero y on-brand: "100 % · soporte en español" (matchea
