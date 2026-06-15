@@ -7,7 +7,7 @@ import { useMemo, useState } from "react";
  *
  * Pricing card:
  * - Conic gradient border (border-spin) — siempre animado, lento
- * - "MÁS POPULAR" badge con dot pulsante
+ * - "TODO INCLUIDO" badge con dot pulsante
  * - Hover: scale + glow más fuerte
  *
  * ROI Calculator V2:
@@ -80,7 +80,7 @@ export function PricingROI() {
                         <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
                         <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
                       </span>
-                      MÁS POPULAR
+                      TODO INCLUIDO
                     </span>
                   </div>
                   <div className="mt-3 flex items-baseline gap-2">

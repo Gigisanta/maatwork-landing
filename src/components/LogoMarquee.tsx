@@ -8,7 +8,7 @@ const RUBROS = [
   { name: "CrossFit", icon: <Kettlebell /> },
   { name: "Boxeo", icon: <Glove /> },
   { name: "Yoga", icon: <Lotus /> },
-  { name: "Pilates", icon: <Lotus /> },
+  { name: "Pilates", icon: <Mat /> },
   { name: "Spinning", icon: <Cycle /> },
   { name: "Salones", icon: <Scissors /> },
   { name: "Barberías", icon: <Razor /> },
@@ -84,6 +84,15 @@ function Lotus() {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M12 2v6" />
       <path d="M8 8c-2 1-4 3-4 6 0 2 2 4 4 4 1 0 3-1 4-2 1 1 3 2 4 2 2 0 4-2 4-4 0-3-2-5-4-6" />
+    </svg>
+  );
+}
+function Mat() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="2" y="14" width="20" height="5" rx="2.5" />
+      <circle cx="7" cy="9.5" r="1.8" />
+      <path d="M9 11c2.5.3 4.8 1.6 7 3" />
     </svg>
   );
 }

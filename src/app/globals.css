@@ -613,6 +613,8 @@ html.js-ready .reveal.is-visible {
   background: linear-gradient(100deg, #67e8f9 0%, #ffffff 32%, #a78bfa 68%, #fbbf24 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders (g, y, í) */
+  padding-bottom: 0.18em;
 }
 .product-frame {
   animation: screen-breathe 7s ease-in-out infinite;
