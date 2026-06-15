@@ -87,7 +87,7 @@ export function Navbar() {
       <nav className="container-maat flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
           <span className="font-display text-xl font-extrabold tracking-h3 text-white">
-            Maat<span className="text-cyan-300">Work</span>
+            Maat<span className="text-purple-300">Work</span>
           </span>
         </a>
 
@@ -103,7 +103,7 @@ export function Navbar() {
                 >
                   {l.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-px bg-cyan-300 transition-all ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                    className={`absolute -bottom-0.5 left-0 h-px bg-purple-300 transition-all ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                   />
                 </a>
               </li>

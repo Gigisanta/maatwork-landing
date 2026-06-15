@@ -40,7 +40,7 @@ export function ProductEcosystem() {
                 </div>
               </div>
 
-              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200/80">
+              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-purple-300/80">
                 {product.label}
               </p>
               <p className="mt-5 text-[15px] leading-7 text-slate-300">
@@ -61,7 +61,7 @@ export function ProductEcosystem() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {product.evidence.map((item) => (
-                    <span key={item} className="rounded-full border border-cyan-200/15 bg-cyan-200/[0.06] px-2.5 py-1 text-[11px] text-cyan-100/85">
+                    <span key={item} className="rounded-full border border-purple-300/20 bg-purple-300/[0.07] px-2.5 py-1 text-[11px] text-purple-100/90">
                       {item}
                     </span>
                   ))}
@@ -71,7 +71,7 @@ export function ProductEcosystem() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Abrir ${product.name} (${product.url}) en una pestaña nueva`}
-                  className="group/url mt-4 inline-flex items-center gap-1 text-[12px] text-slate-500 transition-colors hover:text-cyan-300"
+                  className="group/url mt-4 inline-flex items-center gap-1 text-[12px] text-slate-500 transition-colors hover:text-purple-300"
                 >
                   {product.url}
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/url:translate-x-0.5 group-hover/url:-translate-y-0.5" aria-hidden>

@@ -31,7 +31,7 @@
 
   /* Borders */
   --color-border-subtle:  rgba(255, 255, 255, 0.09);
-  --color-border-accent:  rgba(34, 211, 238, 0.26);
+  --color-border-accent:  rgba(167, 139, 250, 0.30);
   --color-border-strong:  rgba(124, 58, 237, 0.42);
 
   /* Text */
@@ -190,7 +190,7 @@ section[id] {
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--color-cyan-soft);
+  color: var(--color-purple-300);
   font-weight: 700;
 }
 
@@ -210,7 +210,7 @@ section[id] {
    Logo "M" gradient (text)
    ================================================================ */
 .logo-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #67e8f9 42%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #c09aff 45%, #a78bfa 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -220,13 +220,13 @@ section[id] {
    CTA gradient
    ================================================================ */
 .cta-violet {
-  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 48%, #0891b2 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 52%, #6d28d9 100%);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.15) inset,
     0 8px 24px -8px rgba(124, 58, 237, 0.5);
 }
 .cta-violet:hover {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 48%, #06b6d4 100%);
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 52%, #7c3aed 100%);
 }
 .cta-whatsapp {
   background: var(--color-success);
@@ -625,7 +625,7 @@ html.js-ready .reveal.is-visible {
   transform-origin: left;
   transform: scaleX(0);
   border-radius: 999px;
-  background: linear-gradient(90deg, #67e8f9, #a78bfa);
+  background: linear-gradient(90deg, #c09aff, #7c3aed);
   animation: tab-progress linear forwards;
 }
 
@@ -635,8 +635,8 @@ html.js-ready .reveal.is-visible {
   height: 58rem;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 28%, rgba(34, 211, 238, 0.20), transparent 32%),
-    radial-gradient(circle at 68% 18%, rgba(124, 58, 237, 0.30), transparent 32%),
+    radial-gradient(circle at 18% 28%, rgba(167, 139, 250, 0.22), transparent 32%),
+    radial-gradient(circle at 68% 18%, rgba(124, 58, 237, 0.32), transparent 32%),
     radial-gradient(circle at 82% 62%, rgba(245, 158, 11, 0.14), transparent 28%),
     radial-gradient(circle at 28% 80%, rgba(37, 211, 102, 0.12), transparent 24%);
   filter: blur(32px) saturate(120%);
@@ -655,7 +655,7 @@ html.js-ready .reveal.is-visible {
 }
 .hero-title-accent {
   color: transparent;
-  background: linear-gradient(100deg, #67e8f9 0%, #a78bfa 100%);
+  background: linear-gradient(100deg, #c09aff 0%, #a78bfa 48%, #8b5cf6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders (g, y, í) */

@@ -24,7 +24,7 @@ export function Hero() {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
             </span>
             <span className="font-semibold">Ecosistema MaatWork vivo</span>
-            <span className="text-cyan-200/50">·</span>
+            <span className="text-purple-300/50">·</span>
             <span className="hidden sm:inline">productos reales, demos limpias</span>
           </div>
         </div>
@@ -66,7 +66,7 @@ export function Hero() {
           </a>
           <a
             href="#productos"
-            className="group inline-flex items-center justify-center gap-2 rounded-full border border-cyan-200/20 px-7 text-[15.5px] font-semibold text-white transition-all hover:border-cyan-200/50 hover:bg-cyan-200/[0.08] hover-scale"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-purple-300/25 px-7 text-[15.5px] font-semibold text-white transition-all hover:border-purple-300/55 hover:bg-purple-300/[0.08] hover-scale"
             style={{ height: 56, transitionTimingFunction: "var(--ease-out-quart)" }}
           >
             Ver productos reales
