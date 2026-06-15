@@ -18,6 +18,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Footer: form de newsletter muerto → CTA WhatsApp.** El form "Recibir tips" tenía
+  `onSubmit preventDefault` sin handler (no hacía nada, sin feedback = UI engañosa). El schema de leads
+  exige nombre+whatsapp (no acepta email-only) y no hay infra de email para "tips". Reemplazado por el
+  CTA de WhatsApp (canal que sí funciona en todo el sitio) + "Te respondemos en el día". Sin promesa falsa.
+  Footer dejó de necesitar `"use client"` → server component (menos JS). Build estático OK.
+  (Si querés captura real de email: relajar leadSchema para `footer_newsletter` + wire fetch + infra de envío.)
 - [2026-06-15] **Métricas fabricadas en Features (cero-fabricación).** Audit mobile (390px) encontró 2
   claims inventados presentados como hechos: title "Recuperá **8 hs/semana**" → "Recuperá horas cada
   semana"; desc "Recordatorios automáticos. **34% menos ausencias**." → "…que reducen ausencias".

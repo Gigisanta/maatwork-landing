@@ -1,10 +1,10 @@
-"use client";
+const WHATSAPP = "https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B";
 
 const footerLinks = [
   { href: "#funcionalidades", label: "Producto" },
   { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
-  { href: "https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B", label: "WhatsApp", external: true },
+  { href: WHATSAPP, label: "WhatsApp", external: true },
 ];
 
 export function Footer() {
@@ -21,25 +21,20 @@ export function Footer() {
             </p>
           </div>
 
-          <form
-            className="flex w-full max-w-[420px] flex-col gap-2 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <label className="sr-only" htmlFor="footer-email">Email</label>
-            <input
-              id="footer-email"
-              type="email"
-              required
-              placeholder="tu@email.com"
-              className="h-11 flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 text-sm text-white placeholder:text-purple-400/50 transition-colors focus:border-purple-600/50 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="h-11 rounded-full bg-purple-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-purple-550"
+          <div className="flex w-full max-w-[420px] flex-col gap-2 sm:items-end">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-whatsapp inline-flex h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold text-white hover-scale"
             >
-              Recibir tips
-            </button>
-          </form>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+              </svg>
+              Escribinos por WhatsApp
+            </a>
+            <p className="text-sm text-purple-400/75">Te respondemos en el día.</p>
+          </div>
         </div>
 
         <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.06] pt-6 text-sm text-purple-400/75 md:flex-row md:items-center md:justify-between">
