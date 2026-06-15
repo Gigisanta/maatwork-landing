@@ -17,7 +17,14 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
-- [2026-06-15] **A11y: focus-trap del menú mobile (aria-modal truthful).** La iteración anterior puso
+- [2026-06-15] **Fix scroll-spy: por posición, no por banda IO.** Bug encontrado en QA: con HowItWorks
+  centrado (sección sin id), el navbar resaltaba "FAQ" (que estaba 2751px abajo) — el IO de banda fina
+  (-45%/-50%) dejaba `activeId` stale cuando ninguna sección tracked estaba en la banda, y en jumps ganaba
+  el último del array. Reescrito a position-based dentro del scroll listener existente (consolidado, se
+  quitó el IO): activo = última sección cuyo `top` cruzó la línea de referencia (30% vh) = la sección en
+  la que estás. Correcto entre secciones sin-id y en scrolls rápidos. typecheck + build OK.
+  ⚠️ QA visual incompleto: el MCP de chrome-devtools se desconectó mid-iteración. Cambio layout-safe
+  (solo toggle de `aria-current`/underline, sin cambio estructural) → reconfirmar visual la próxima iteración. La iteración anterior puso
   `aria-modal="true"` pero sin trap → Tab podía salir del modal (promesa falsa). Completado: al abrir el
   foco entra al primer ítem, Tab/Shift+Tab ciclan dentro del diálogo (6 focusables), Escape cierra +
   devuelve foco al toggle. Verificado: foco entra en "Productos", Tab desde "Hablar por WhatsApp" → "Productos",

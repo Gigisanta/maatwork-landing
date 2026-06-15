@@ -19,29 +19,24 @@ export function Navbar() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
+  // Header bg on scroll + scroll-spy by position: the active link is the last section
+  // whose top has crossed the reference line (i.e. the section you're currently within).
+  // Position-based (not an IntersectionObserver band) so it stays correct between the
+  // untracked sections (HowItWorks, Testimonials) and on fast/programmatic scrolls.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      const refLine = window.innerHeight * 0.3;
+      let current = "";
+      for (const l of links) {
+        const el = document.getElementById(l.href.slice(1));
+        if (el && el.getBoundingClientRect().top <= refLine) current = l.href.slice(1);
+      }
+      setActiveId(current);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Scroll-spy: highlight the nav link of the section crossing the viewport mid-band.
-  useEffect(() => {
-    const sections = links
-      .map((l) => document.getElementById(l.href.slice(1)))
-      .filter((el): el is HTMLElement => el !== null);
-    if (sections.length === 0) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) setActiveId(e.target.id);
-        }
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
-    );
-    sections.forEach((s) => io.observe(s));
-    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
