@@ -6,21 +6,27 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Pendiente (prioridad ↓)
 
-1. **SEO alineación**: `layout.tsx` metadata sigue mixto (title/keywords B2B "obras/natatorios" vs
-   JSON-LD SMB). Alinear a la narrativa SMB elegida; verificar OG/twitter image reales, sitemap/robots
-   vs dominio prod (maat.work). Riesgo medio (afecta indexación) → cambios cuidadosos.
-2. **Performance / LCP**: peso del video showcase (mp4+webm) en hero; medir LCP con Lighthouse;
+1. **Performance / LCP**: peso del video showcase (mp4+webm) en hero; medir LCP con Lighthouse;
    preconnect a fuentes; revisar si el video debe ser `preload="none"` + poster.
-3. **Prueba social honesta**: conseguir 1-2 testimonios reales con permiso (hoy `verified:false`).
+2. **Prueba social honesta**: conseguir 1-2 testimonios reales con permiso (hoy `verified:false`).
    Mientras tanto, no fabricar. Considerar logos/clientes reales si existen.
-4. **Accesibilidad**: contraste de `purple-400/80` sobre fondo oscuro (verificar ratio AA);
+3. **Accesibilidad**: contraste de `purple-400/80` sobre fondo oscuro (verificar ratio AA);
    focus-visible ya existe; reduced-motion ya cubierto.
-5. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
+4. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
    la narrativa elegida.
-6. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
+5. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
+
+### Para confirmar con el owner
+- **Dominio prod**: unifiqué todo a `maat.work` (era el canónico dominante en layout). `sitemap.ts`/`robots.ts`
+  usaban `maatwork.com.ar`. Si el público real es `.com.ar`, hay que cambiar TODO (incluido metadataBase).
 
 ## Hecho
 
+- [2026-06-15] **SEO alineado.** (a) Bug: dominio split — layout/canonical/OG/JSON-LD/hreflang en
+  `maat.work` pero `sitemap.ts`/`robots.ts` en `maatwork.com.ar` → unificado a `maat.work` (canónico
+  dominante). (b) Copy de title/description/OG/twitter/keywords alineado a narrativa SMB + outcome
+  (agenda/cobros/clientes/WhatsApp, 14 días gratis). Verificado: `<title>`, sitemap.xml y robots.txt
+  ya coherentes. OG/twitter images existen en /public. Ver caveat de dominio arriba.
 - [2026-06-15] **Perf: prerender estático restaurado.** El script `build` tenía `next build --debug-prerender`
   → forzaba `/` y `/_not-found` a `ƒ` (dynamic). Vercel corre `npm run build` → prod perdía el static
   optimization (peor TTFB/CDN/LCP). Quitado el flag (vestigio de un debugging viejo, ver next.config) →

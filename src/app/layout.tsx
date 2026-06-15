@@ -33,20 +33,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MaatWork — Software real para operar empresas argentinas",
+    default: "MaatWork — Software de gestión para tu negocio en Argentina",
     template: "%s · MaatWork",
   },
   description:
-    "MaatWork diseña y opera sistemas verticales reales para empresas argentinas: NMS, MaatWorkCRM, Infrannova, Varigas, automatización, WhatsApp, cobros y gestión diaria.",
+    "Centralizá agenda, cobros, clientes y WhatsApp en un solo sistema. Software de gestión para negocios con turnos en Argentina, en español. 14 días gratis, sin tarjeta.",
   keywords: [
-    "automatización comercial",
-    "software vertical Argentina",
+    "software de gestión",
     "sistema de turnos",
-    "CRM Argentina",
-    "software para obras",
-    "software para natatorios",
-    "gestión de cobros",
     "agenda online",
+    "gestión de cobros",
+    "CRM Argentina",
+    "WhatsApp para negocios",
+    "software para gimnasios",
+    "automatización comercial",
   ],
   authors: [{ name: "MaatWork", url: SITE_URL }],
   creator: "MaatWork",
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MaatWork — Software real para operar empresas argentinas",
+    title: "MaatWork — Software de gestión para tu negocio en Argentina",
     description:
-      "Ecosistema real de productos: NMS, MaatWorkCRM, Infrannova y Varigas.",
+      "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta. Con productos reales que ya operan.",
     images: [
       {
         url: "/og-image.png",
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaatWork — Software real para operar empresas argentinas",
+    title: "MaatWork — Software de gestión para tu negocio en Argentina",
     description:
-      "NMS, MaatWorkCRM, Infrannova y Varigas: productos reales para operar empresas argentinas.",
+      "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta.",
     images: ["/twitter-image.png"],
   },
   robots: {
