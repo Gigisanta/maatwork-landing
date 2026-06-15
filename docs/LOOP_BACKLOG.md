@@ -17,6 +17,13 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Hero H1 elevado + gradient premium ("landing impresionante").** El H1 era
+  "Software real para operar. **No otra landing vacía.**" — la 2da línea era meta (hablaba de landings,
+  no del negocio del cliente), débil para conversión e inconsistente con la OG/metadata. Reescrito a
+  benefit-led y confiado: "Software real para operar **todo tu negocio**." (coherente con la OG nueva).
+  Además el gradient del accent pasó de un rainbow de 4 colores (cyan→blanco→violeta→ámbar, washy/slop
+  según el tone-doc) a un cyan→violeta de 2 acentos de marca = más premium. QA desktop 1440 + mobile 390:
+  wrap correcto, descendentes OK, sin overflow, build estático limpio.
 - [2026-06-15] **OG/social image rota → regenerada (CTR de shares = visualizaciones).** QA encontró que
   `og-image.png` tenía el headline CORTADO ("Software real para operar empr[esas]" colisionaba con las
   cards decorativas) + copy stale. La OG es lo que se ve al compartir en WhatsApp/redes → un preview roto

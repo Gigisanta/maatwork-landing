@@ -640,7 +640,7 @@ html.js-ready .reveal.is-visible {
 }
 .hero-title-accent {
   color: transparent;
-  background: linear-gradient(100deg, #67e8f9 0%, #ffffff 32%, #a78bfa 68%, #fbbf24 100%);
+  background: linear-gradient(100deg, #67e8f9 0%, #a78bfa 100%);
   -webkit-background-clip: text;
   background-clip: text;
   /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders (g, y, í) */

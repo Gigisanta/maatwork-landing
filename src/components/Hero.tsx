@@ -2,8 +2,8 @@ import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
 import { waLink } from "@/lib/whatsapp";
 
-const H1_LINE_1 = "Software real para operar.";
-const H1_LINE_2 = "No otra landing vacía.";
+const H1_LINE_1 = "Software real para operar";
+const H1_LINE_2 = "todo tu negocio.";
 
 const PRODUCT_CHIPS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
