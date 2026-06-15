@@ -10,12 +10,20 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
    (hoy `verified:false`, framing honesto ya OK). No fabricar. Si hay clientes/logos reales, sumarlos.
 2. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
    la narrativa elegida.
-3. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
 
 ### Para confirmar con el owner
 - (vacío — dominio `maat.work` confirmado por el owner 2026-06-15)
 
 ## Hecho
+
+- [2026-06-15] **Brand: color primario cyan→violeta (owner).** El owner confirmó violeta como color
+  de marca. Recolor central: `globals.css` (`--color-border-accent`, eyebrow, logo-gradient, cta-violet,
+  tab-progress, hero-title-accent, aurora glow) + Navbar (wordmark `Work`, underline), Hero (dot +
+  botón secundario), ProductEcosystem (label, chips, hover). Per-product accents (multi-accent
+  emerald/sky/amber/rose) intactos por diseño. Build verde, QA hero headless OK. Commit `f844c02`.
+- [2026-06-15] **Brand: OG/Twitter regeneradas a violeta.** Social preview alineado al recolor:
+  wordmark, `tu negocio.`, pill y glow en escala violeta. Template HTML→Chrome headless 1200×630,
+  Jakarta, sin clipping. Commit `6d7ffd8`.
 
 - [2026-06-15] **Fix scroll-spy: por posición, no por banda IO.** Bug encontrado en QA: con HowItWorks
   centrado (sección sin id), el navbar resaltaba "FAQ" (que estaba 2751px abajo) — el IO de banda fina
