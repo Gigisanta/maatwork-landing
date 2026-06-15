@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { waLink } from "@/lib/whatsapp";
 
 /**
  * PricingROI — pricing featured con conic gradient border animado + ROI V2.
@@ -113,7 +114,7 @@ export function PricingROI() {
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B%20quiero%20los%2014%20días%20gratis"
+                  href={waLink("Hola MaatWork ✋ quiero los 14 días gratis")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-whatsapp flex-1 inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full text-white font-semibold text-[15px]"

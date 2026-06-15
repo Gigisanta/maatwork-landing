@@ -1,5 +1,6 @@
 import { ProductVideo } from "./ProductVideo";
 import { StaggeredText } from "./StaggeredText";
+import { waLink } from "@/lib/whatsapp";
 
 const H1_LINE_1 = "Software real para operar.";
 const H1_LINE_2 = "No otra landing vacía.";
@@ -54,7 +55,7 @@ export function Hero() {
           style={{ transitionDelay: "260ms" }}
         >
           <a
-            href="https://wa.me/5491100000000?text=Hola%20MaatWork%20quiero%20ver%20una%20demo"
+            href={waLink("Hola MaatWork quiero ver una demo")}
             target="_blank"
             rel="noopener noreferrer"
             className="group cta-whatsapp inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15.5px] font-semibold tracking-[-0.01em] text-white shadow-[0_12px_30px_-10px_rgba(37,211,102,0.45)] hover-scale"

@@ -6,6 +6,10 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Pendiente (prioridad ↓)
 
+0. **🔴 WhatsApp = número placeholder** (BLOQUEADO en owner): los 6 CTA apuntan a `5491100000000`
+   (11 0000-0000 = falso). El camino de conversión #1 está MUERTO en prod → mata clientes y quema
+   reputación. Ya centralizado en `src/lib/whatsapp.ts` → owner cambia `WHATSAPP_NUMBER` en 1 línea
+   y queda todo arreglado. **Es el item de mayor impacto.** No fabricable (no inventar un número).
 1. **Prueba social real** (BLOQUEADO en owner): conseguir 1-2 testimonios reales con nombre+permiso
    (hoy `verified:false`, framing honesto ya OK). No fabricar. Si hay clientes/logos reales, sumarlos.
 2. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
@@ -17,6 +21,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **WhatsApp centralizado a 1 fuente de verdad.** Auditoría mobile detectó que los 6 CTA
+  de WhatsApp tenían el número hardcodeado (5 hrefs literales + 2 consts duplicadas) → cambiarlo era
+  editar 6 lugares (riesgo de dejar un CTA apuntando mal). Creado `src/lib/whatsapp.ts` con
+  `WHATSAPP_NUMBER` + `waLink(text)` (codifica solo). Todos los call sites importan. Cero cambio de
+  comportamiento (6 hrefs verificados idénticos en dev). Destraba el item #0: swap del número = 1 línea.
 - [2026-06-15] **Métricas: Speed Insights (RUM de Core Web Vitals).** Ya teníamos pageviews + evento
   `whatsapp_cta` (Web Analytics), faltaba perf de usuario real. `@vercel/speed-insights/next` +
   `<SpeedInsights/>` en layout (junto a Analytics, en Suspense) + `vercel project speed-insights`

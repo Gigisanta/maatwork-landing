@@ -2,6 +2,8 @@
  * FinalCTA — última sección. Prueba honesta: productos reales que ya operan
  * (sin inventar actividad de clientes en vivo).
  */
+import { waLink } from "@/lib/whatsapp";
+
 const LIVE_PRODUCTS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
 export function FinalCTA() {
@@ -61,7 +63,7 @@ export function FinalCTA() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B%20quiero%20empezar"
+                href={waLink("Hola MaatWork ✋ quiero empezar")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-whatsapp inline-flex items-center justify-center gap-2.5 h-[54px] px-7 rounded-full text-white font-semibold text-[15.5px] hover-scale"

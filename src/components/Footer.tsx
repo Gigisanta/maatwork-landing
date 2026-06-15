@@ -1,4 +1,6 @@
-const WHATSAPP = "https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B";
+import { waLink } from "@/lib/whatsapp";
+
+const WHATSAPP = waLink();
 
 const footerLinks = [
   { href: "#funcionalidades", label: "Producto" },

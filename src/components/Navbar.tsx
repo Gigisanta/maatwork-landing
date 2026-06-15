@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { waLink } from "@/lib/whatsapp";
 
 const links = [
   { href: "#productos", label: "Productos" },
@@ -9,7 +10,7 @@ const links = [
   { href: "#faq", label: "FAQ" },
 ];
 
-const WHATSAPP = "https://wa.me/5491100000000?text=Hola%20MaatWork%20%E2%9C%8B";
+const WHATSAPP = waLink();
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
