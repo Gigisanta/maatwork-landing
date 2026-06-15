@@ -18,6 +18,10 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **A11y: skip-to-content link (WCAG 2.4.1).** Faltaba bypass-blocks para teclado/lectores.
+  Agregado `<a class="skip-link" href="#main-content">Saltar al contenido</a>` (oculto hasta focus),
+  `<main id="main-content" tabIndex={-1}>` como target. Verificado: aparece al focusear, build estático OK.
+  (Reduced-motion ya estaba cubierto con blanket en globals — no era gap.)
 - [2026-06-15] **Dead code + audit mobile completo.** Removido `LockSpinStyle` en Features.tsx (componente
   nunca renderizado; los keyframes `lock-spin` ya viven en globals.css → era redundante, animación intacta).
   Audit mobile (390px) de las secciones que faltaban — HowItWorks, ProductEcosystem y menú mobile del navbar:

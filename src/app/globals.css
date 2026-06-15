@@ -118,6 +118,31 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
+/* Skip-to-content link (WCAG 2.4.1) — hidden until keyboard focus */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  background: var(--color-purple-600);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transform: translateY(-150%);
+  transition: transform 150ms ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+/* skip target shouldn't draw a ring around the whole <main> */
+#main-content:focus {
+  outline: none;
+}
+
 ::selection {
   background: rgba(124, 58, 237, 0.5);
   color: #ffffff;
