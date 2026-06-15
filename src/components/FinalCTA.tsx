@@ -1,13 +1,8 @@
 /**
- * FinalCTA — última sección con live ticker tipo "🟢 Martín empezó hace 2 min".
+ * FinalCTA — última sección. Prueba honesta: productos reales que ya operan
+ * (sin inventar actividad de clientes en vivo).
  */
-const TICKER_MESSAGES = [
-  { t: "hace 2 min",  n: "Martín",  org: "Iron Gym (Lanús)",     a: "empezó" },
-  { t: "hace 4 min",  n: "Camila",  org: "Estudio Oviedo (Palermo)", a: "configuró cobros" },
-  { t: "hace 6 min",  n: "Joaquín", org: "Academia Norte (Córdoba)", a: "migró 88 clientes" },
-  { t: "hace 8 min",  n: "Sofía",   org: "Yoga Vital (Belgrano)", a: "activó WhatsApp Auto" },
-  { t: "hace 11 min", n: "Diego",   org: "CrossFit Sur (Quilmes)", a: "cobró 47 cuotas" },
-];
+const LIVE_PRODUCTS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
 export function FinalCTA() {
   return (
@@ -31,16 +26,13 @@ export function FinalCTA() {
           />
 
           <div className="relative">
-            {/* Live ticker — solo en md+ */}
-            <div
-              className="hidden md:flex items-center justify-center gap-2 mb-7 text-[12px] text-purple-400/85"
-              aria-live="polite"
-            >
+            {/* Prueba honesta: productos reales operando */}
+            <div className="flex items-center justify-center gap-2 mb-7 text-[12px] text-purple-400/85">
               <span className="relative flex w-1.5 h-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-70 animate-ping" />
                 <span className="relative inline-flex rounded-full w-1.5 h-1.5 bg-success" />
               </span>
-              <span className="uppercase tracking-[0.18em] font-semibold">Actividad ahora</span>
+              <span className="uppercase tracking-[0.18em] font-semibold">Productos reales operando</span>
             </div>
 
             <h2
@@ -54,22 +46,18 @@ export function FinalCTA() {
               configuramos todo con vos.
             </p>
 
-            {/* Ticker messages (mini) */}
-            <div className="mt-7 max-w-[480px] mx-auto h-[36px] overflow-hidden marquee-mask" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
-              <div className="flex flex-col animate-marquee-vertical" style={{ animationDuration: "20s" }}>
-                {[...TICKER_MESSAGES, ...TICKER_MESSAGES].map((m, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-center gap-2 text-[12px] py-1.5"
-                  >
-                    <span className="text-purple-400/55">{m.t}</span>
-                    <span className="text-white font-medium">{m.n}</span>
-                    <span className="text-purple-200/80">de {m.org}</span>
-                    <span className="text-success">{m.a}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Productos reales — prueba honesta, sin actividad inventada */}
+            <ul className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
+              {LIVE_PRODUCTS.map((p) => (
+                <li
+                  key={p}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[12.5px] text-purple-200"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                  {p}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <a

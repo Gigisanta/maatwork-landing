@@ -113,6 +113,11 @@ main {
   overflow-x: clip;
 }
 
+/* Anchored sections must clear the fixed 64px navbar when jumped to */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 ::selection {
   background: rgba(124, 58, 237, 0.5);
   color: #ffffff;

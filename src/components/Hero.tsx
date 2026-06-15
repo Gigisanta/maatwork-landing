@@ -45,8 +45,8 @@ export function Hero() {
           className="reveal mx-auto mt-7 max-w-[760px] text-center text-lg leading-8 text-slate-300 md:text-xl"
           style={{ transitionDelay: "200ms" }}
         >
-          Diseñamos, construimos y mantenemos sistemas verticales para empresas argentinas: CRM, gestión operativa,
-          automatización, facturación, obras y atención por WhatsApp. La landing ahora muestra el producto, no humo.
+          Agenda, cobros, clientes y WhatsApp de tu negocio, ordenados en un solo sistema. Hecho en Argentina,
+          en español — y con productos reales que ya operan. Mostramos el producto, no humo.
         </p>
 
         <div
