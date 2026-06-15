@@ -17,6 +17,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Navbar scroll-spy (orientación en página larga).** IntersectionObserver sobre las 4
+  secciones (#productos/#funcionalidades/#precios/#faq); el link de la sección que cruza el mid-band del
+  viewport (rootMargin -45%/-50%) se resalta: texto blanco + underline cyan lleno + `aria-current="true"`
+  (a11y). En el tope (hero) no resalta ninguno. Solo nav desktop (mobile = overlay tap, sin scroll).
+  QA: scroll a #precios → solo "Precios" activo, highlight correcto. typecheck + build estático OK.
 - [2026-06-15] **ProductShowcase: pulido de animación/UX.** (1) Transición entre productos: opacity →
   opacity + slide-up (translateY 10px→0, 700ms ease-out) = más premium. (2) Barra de progreso cyan→violeta
   en el tab activo que se llena en `INTERVAL_MS` (3.8s) → señala el auto-avance y da feedback de que los

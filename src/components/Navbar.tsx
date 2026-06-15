@@ -15,12 +15,31 @@ const WHATSAPP = waLink();
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Scroll-spy: highlight the nav link of the section crossing the viewport mid-band.
+  useEffect(() => {
+    const sections = links
+      .map((l) => document.getElementById(l.href.slice(1)))
+      .filter((el): el is HTMLElement => el !== null);
+    if (sections.length === 0) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        }
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+    sections.forEach((s) => io.observe(s));
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -43,14 +62,23 @@ export function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="group relative transition-colors hover:text-white">
-                {l.label}
-                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-cyan-300 transition-all group-hover:w-full" />
-              </a>
-            </li>
-          ))}
+          {links.map((l) => {
+            const isActive = activeId === l.href.slice(1);
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`group relative transition-colors ${isActive ? "text-white" : "hover:text-white"}`}
+                >
+                  {l.label}
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-px bg-cyan-300 transition-all ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                  />
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-3">
