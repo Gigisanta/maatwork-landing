@@ -13,11 +13,15 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 3. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
 
 ### Para confirmar con el owner
-- **Dominio prod**: unifiqué todo a `maat.work` (era el canónico dominante en layout). `sitemap.ts`/`robots.ts`
-  usaban `maatwork.com.ar`. Si el público real es `.com.ar`, hay que cambiar TODO (incluido metadataBase).
+- (vacío — dominio `maat.work` confirmado por el owner 2026-06-15)
 
 ## Hecho
 
+- [2026-06-15] **Owner unblock: dominio + merge + deploy + analytics.** Owner confirmó dominio prod =
+  `maat.work` (el código ya lo usaba → sin cambios). Consolidado TODO a `main`: `feat/v6-foundation`
+  ya era ancestro de `loop/landing-autoimprove`; merge fast-forward de las 12 mejoras del loop → `main`
+  → push. Vercel auto-deployó `a46f48c` a producción (state READY). **Web Analytics habilitado** vía
+  `vercel project web-analytics` (`enabled:true`) → cierra el último gap de la misión de métricas.
 - [2026-06-15] **Perf: `dns-prefetch` a wa.me** (CTA WhatsApp = camino de conversión dominante, 5+ links).
   Calienta el DNS para acelerar el handoff al click. 1 línea en head. (dns-prefetch, no preconnect: es
   navegación probable, no recurso del load.) 404 (`not-found.tsx`) auditado: ya está branded con CTA, sin cambios.
