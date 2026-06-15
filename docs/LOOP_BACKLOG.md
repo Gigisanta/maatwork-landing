@@ -17,6 +17,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **A11y: focus-trap del menú mobile (aria-modal truthful).** La iteración anterior puso
+  `aria-modal="true"` pero sin trap → Tab podía salir del modal (promesa falsa). Completado: al abrir el
+  foco entra al primer ítem, Tab/Shift+Tab ciclan dentro del diálogo (6 focusables), Escape cierra +
+  devuelve foco al toggle. Verificado: foco entra en "Productos", Tab desde "Hablar por WhatsApp" → "Productos",
+  Shift+Tab al revés. Ponytail exime a11y de lazy → trap implementado (no se quita el claim). Build estático OK.
 - [2026-06-15] **A11y: menú mobile = modal accesible.** El overlay del menú era un modal sin semántica
   ni manejo de teclado. Agregado `role="dialog"` + `aria-modal` + `aria-label`, `aria-haspopup="dialog"`
   en el toggle, y Escape-to-close que además devuelve el foco al botón toggle (no deja el foco huérfano

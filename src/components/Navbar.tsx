@@ -17,6 +17,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,13 +49,33 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // Modal a11y: close the mobile menu with Escape and return focus to its toggle.
+  // Modal a11y: move focus into the dialog, trap Tab inside it (truthful aria-modal),
+  // close on Escape and return focus to the toggle.
   useEffect(() => {
     if (!open) return;
+    const focusables = () =>
+      Array.from(
+        dialogRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? [],
+      );
+    focusables()[0]?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen(false);
         toggleRef.current?.focus();
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = focusables();
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       }
     };
     document.addEventListener("keydown", onKey);
@@ -122,6 +143,7 @@ export function Navbar() {
       {open && (
         <div className="md:hidden">
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
