@@ -17,6 +17,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **CTA sticky mobile (conversión).** La home mide ~16 pantallas en mobile y el WhatsApp
+  quedaba lejos durante el scroll (6 CTAs dispersos, ninguno persistente). Nuevo `StickyWhatsApp`: pill
+  verde fijo abajo, solo mobile (`md:hidden`), aparece tras pasar el hero (scrollY > 0.9vh) y se oculta
+  cerca del fondo (últimas ~1.3vh) para no tapar el FinalCTA/footer. Número real, lo trackea AnalyticsEvents.
+  a11y: aria-hidden + tabIndex -1 cuando oculto. QA mobile 390: oculto top → visible mid → oculto bottom,
+  estados verificados. typecheck + build estático OK. (Posible porque el número de WhatsApp ya es real.)
 - [2026-06-15] **Navbar scroll-spy (orientación en página larga).** IntersectionObserver sobre las 4
   secciones (#productos/#funcionalidades/#precios/#faq); el link de la sección que cruza el mid-band del
   viewport (rootMargin -45%/-50%) se resalta: texto blanco + underline cyan lleno + `aria-current="true"`
