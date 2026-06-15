@@ -34,7 +34,7 @@ export function StickyWhatsApp() {
       data-section="sticky"
       aria-hidden={!show}
       tabIndex={show ? 0 : -1}
-      className={`cta-whatsapp fixed inset-x-4 bottom-4 z-40 flex h-14 items-center justify-center gap-2.5 rounded-full px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_-8px_rgba(37,211,102,0.5)] transition-all duration-300 md:hidden ${
+      className={`cta-whatsapp fixed inset-x-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex h-14 items-center justify-center gap-2.5 rounded-full px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_-8px_rgba(37,211,102,0.5)] transition-all duration-300 md:hidden ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-24 opacity-0"
       }`}
     >

@@ -17,6 +17,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Audit de perf + safe-area iOS en sticky CTA.** Perf trace prod: LCP **245 ms** (mejor
+  que el 487 ms previo), CLS **0.00**, TTFB 9 ms, sin render-blocking → los últimos cambios (scroll-spy,
+  sticky CTA, FAQ data-module, links) NO regresaron nada. Único item real: el sticky CTA usaba `bottom-4`
+  fijo → en iPhones con home indicator quedaba pegado/tapado. Cambiado a `bottom-[calc(1rem+env(safe-area-inset-bottom))]`
+  (estándar iOS). Verificado en CSS built (Lightning CSS no lo dropeó); en no-notch = 1rem (sin cambio).
 - [2026-06-15] **ProductEcosystem: URLs de producto clickeables (prueba verificable).** Las URLs
   (oroazul.maat.work, crm.maat.work, infrannova.vercel.app, varigas.vercel.app) eran texto muerto. La
   tesis de la sección es "mostramos productos funcionando" → hacerlas clickeables deja al prospecto
