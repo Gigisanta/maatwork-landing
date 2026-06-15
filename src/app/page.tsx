@@ -1,3 +1,6 @@
+import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { CardGlow } from "@/components/CardGlow";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { StatsCounter } from "@/components/StatsCounter";
@@ -16,6 +19,9 @@ import { StickyWhatsApp } from "@/components/StickyWhatsApp";
 export default function HomePage() {
   return (
     <>
+      <AnimatedBackground />
+      <ScrollProgress />
+      <CardGlow />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <Hero />

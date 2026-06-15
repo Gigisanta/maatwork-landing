@@ -98,7 +98,7 @@ html {
 }
 
 body {
-  background: var(--color-bg-base);
+  background: transparent; /* base la pinta <html>; deja ver .bg-field (-z-10) */
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-feature-settings: "cv11", "ss01", "ss03";
@@ -687,6 +687,7 @@ html.js-ready .reveal.is-visible {
 }
 .ecosystem-card {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
   border: 1px solid rgba(255,255,255,0.11);
@@ -712,6 +713,8 @@ html.js-ready .reveal.is-visible {
 .product-rail-active { animation: rail-pulse 2.8s ease-in-out infinite; transform-origin: center; }
 
 .bento-card {
+  position: relative;
+  isolation: isolate;
   background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 24px;
@@ -728,9 +731,116 @@ html.js-ready .reveal.is-visible {
   .bento-card:hover .reveal-on-hover { opacity: 1; transform: translateY(0); }
 }
 
+/* ================================================================
+   Global animated background (AnimatedBackground.tsx)
+   Blobs violeta que se deforman + partículas que flotan. Fixed -z-10
+   sobre la base ink de <html>. Solo transform/opacity (GPU).
+   ================================================================ */
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+}
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  will-change: transform;
+  animation: bg-morph 22s ease-in-out infinite;
+}
+.bg-blob--1 { width: 620px; height: 620px; top: -16%; left: -10%;
+  background: radial-gradient(circle, #7c3aed, transparent 62%); }
+.bg-blob--2 { width: 540px; height: 540px; top: 30%; right: -12%;
+  background: radial-gradient(circle, #a78bfa, transparent 62%); animation-delay: -6s; }
+.bg-blob--3 { width: 500px; height: 500px; bottom: -14%; left: 16%;
+  background: radial-gradient(circle, #8b5cf6, transparent 62%); animation-delay: -12s; }
+.bg-blob--4 { width: 440px; height: 440px; top: 66%; right: 22%;
+  background: radial-gradient(circle, #4c1d95, transparent 62%); opacity: 0.11; animation-delay: -3s; }
+@keyframes bg-morph {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  25% { transform: translate3d(56px, -40px, 0) scale(1.12); }
+  50% { transform: translate3d(-42px, 46px, 0) scale(0.9); }
+  75% { transform: translate3d(34px, 28px, 0) scale(1.06); }
+}
+.bg-particles { position: absolute; inset: 0; }
+.bg-particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: rgba(196, 154, 255, 0.5);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: bg-drift linear infinite;
+}
+@keyframes bg-drift {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  10% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% { transform: translate3d(36px, -118vh, 0); opacity: 0; }
+}
+.bg-particle:nth-child(1)  { left: 7%;  top: 106%; animation-duration: 19s; animation-delay: -2s;  }
+.bg-particle:nth-child(2)  { left: 16%; top: 112%; width: 3px; height: 3px; background: rgba(124,58,237,0.5); animation-duration: 24s; animation-delay: -8s; }
+.bg-particle:nth-child(3)  { left: 24%; top: 104%; animation-duration: 17s; animation-delay: -5s;  }
+.bg-particle:nth-child(4)  { left: 33%; top: 118%; width: 1.5px; height: 1.5px; animation-duration: 26s; animation-delay: -1s; }
+.bg-particle:nth-child(5)  { left: 41%; top: 108%; width: 3px; height: 3px; animation-duration: 21s; animation-delay: -11s; }
+.bg-particle:nth-child(6)  { left: 49%; top: 114%; animation-duration: 18s; animation-delay: -4s;  }
+.bg-particle:nth-child(7)  { left: 57%; top: 105%; background: rgba(196,154,255,0.7); animation-duration: 23s; animation-delay: -9s; }
+.bg-particle:nth-child(8)  { left: 64%; top: 116%; width: 1.5px; height: 1.5px; animation-duration: 27s; animation-delay: -6s; }
+.bg-particle:nth-child(9)  { left: 71%; top: 107%; width: 3px; height: 3px; background: rgba(124,58,237,0.45); animation-duration: 20s; animation-delay: -13s; }
+.bg-particle:nth-child(10) { left: 78%; top: 111%; animation-duration: 16s; animation-delay: -3s;  }
+.bg-particle:nth-child(11) { left: 84%; top: 119%; animation-duration: 25s; animation-delay: -10s; }
+.bg-particle:nth-child(12) { left: 90%; top: 104%; width: 1.5px; height: 1.5px; animation-duration: 22s; animation-delay: -7s; }
+.bg-particle:nth-child(13) { left: 94%; top: 113%; width: 3px; height: 3px; animation-duration: 28s; animation-delay: -14s; }
+.bg-particle:nth-child(14) { left: 12%; top: 120%; background: rgba(196,154,255,0.6); animation-duration: 21s; animation-delay: -12s; }
+
+/* ================================================================
+   Scroll progress bar (ScrollProgress.tsx) — GPU scaleX
+   ================================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 60;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+.scroll-progress__bar {
+  height: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #c09aff, #8b5cf6, #7c3aed);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+
+/* ================================================================
+   Mouse-follow glow on cards (CardGlow.tsx). z-index:-1 → sobre el
+   fondo de la card, debajo del contenido. Solo aparece en hover.
+   ================================================================ */
+.ecosystem-card::before,
+.bento-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(139, 92, 246, 0.16), transparent 42%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.ecosystem-card:hover::before,
+.bento-card:hover::before { opacity: 1; }
+
 @media (max-width: 767px) {
   .aurora-field { height: 42rem; filter: blur(26px); }
   .product-frame { animation: none; }
+  .bg-particles { display: none; }
+  .bg-blob { filter: blur(90px); opacity: 0.11; }
+  .bg-blob--4 { display: none; }
 }
 
 /* Respect prefers-reduced-motion */
