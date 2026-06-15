@@ -13,8 +13,8 @@ export function Testimonials() {
             Historias de negocios que dejaron de improvisar.
           </h2>
           <p className="mt-4 max-w-[560px] text-base text-purple-200 md:text-lg text-pretty">
-            Estructura preparada para sumar fotos y logos reales con permiso.
-            Hasta entonces, usamos casos piloto sin atribuir nombres falsos.
+            Casos piloto reales, sin nombres inventados. Sumamos testimonios con
+            nombre y logo a medida que cada cliente nos da permiso.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export function Testimonials() {
               </blockquote>
 
               <figcaption className="mt-7 border-t border-white/[0.06] pt-4 text-sm text-purple-400/80">
-                {t.verified ? t.name : "Caso piloto · reemplazar por cliente real al publicar"}
+                {t.verified ? t.name : "Caso piloto"}
               </figcaption>
             </figure>
           ))}

@@ -6,15 +6,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Pendiente (prioridad ↓)
 
-1. **Performance / LCP**: peso del video showcase (mp4+webm) en hero; medir LCP con Lighthouse;
-   preconnect a fuentes; revisar si el video debe ser `preload="none"` + poster.
-2. **Prueba social honesta**: conseguir 1-2 testimonios reales con permiso (hoy `verified:false`).
-   Mientras tanto, no fabricar. Considerar logos/clientes reales si existen.
-3. **Accesibilidad**: contraste de `purple-400/80` sobre fondo oscuro (verificar ratio AA);
-   focus-visible ya existe; reduced-motion ya cubierto.
-4. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
+1. **Prueba social real** (BLOQUEADO en owner): conseguir 1-2 testimonios reales con nombre+permiso
+   (hoy `verified:false`, framing honesto ya OK). No fabricar. Si hay clientes/logos reales, sumarlos.
+2. **Conversión**: A/B de copy de CTA; FAQ que cubra objeciones; coherencia marquee (rubros SMB) con
    la narrativa elegida.
-5. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
+3. **Video showcase**: transición con wipe blanco diagonal tosca en frame fijo → re-render del asset.
 
 ### Para confirmar con el owner
 - **Dominio prod**: unifiqué todo a `maat.work` (era el canónico dominante en layout). `sitemap.ts`/`robots.ts`
@@ -22,6 +18,16 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Auditoría perf + a11y (medida, prod build en :3001).** LCP **185 ms**, CLS **0.00**,
+  cero render-blocking → perf YA verde, el video showcase no es el LCP element (lo es el H1). Per YAGNI:
+  NO se tocó perf (no se optimiza lo que está verde). Lighthouse mobile: A11y **96**, BP **96**, SEO **100**.
+  Las 2 fallas son no-accionables: (a) contraste blanco/verde del CTA WhatsApp = excepción de marca
+  (cambiarlo a verde oscuro mata el affordance y la conversión), (b) `errors-in-console` = 404 de
+  `/_vercel/insights/script.js`, solo en localhost; en Vercel prod lo sirve la plataforma.
+- [2026-06-15] **Social proof: fuga de notas de dev a producción.** Testimonials mostraba al visitante
+  "Caso piloto · reemplazar por cliente real al publicar" (TODO de dev) y un subhead de scaffolding.
+  → copy visitor-facing honesto ("Casos piloto reales, sin nombres inventados…") + caption "Caso piloto".
+  Cero fabricación.
 - [2026-06-15] **SEO alineado.** (a) Bug: dominio split — layout/canonical/OG/JSON-LD/hreflang en
   `maat.work` pero `sitemap.ts`/`robots.ts` en `maatwork.com.ar` → unificado a `maat.work` (canónico
   dominante). (b) Copy de title/description/OG/twitter/keywords alineado a narrativa SMB + outcome
