@@ -1,4 +1,4 @@
-import { ProductVideo } from "./ProductVideo";
+import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
 import { waLink } from "@/lib/whatsapp";
 
@@ -86,7 +86,7 @@ export function Hero() {
         </ul>
 
         <div className="reveal mt-12 md:mt-16" style={{ transitionDelay: "400ms" }}>
-          <ProductVideo />
+          <ProductShowcase />
         </div>
       </div>
     </section>

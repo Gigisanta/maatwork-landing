@@ -17,6 +17,15 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **🎥 Video showcase buggy → ProductShowcase React (data-driven, dark).** QA visual con
+  chrome-devtools encontró 3 defectos baked en `product-showcase.{mp4,webm}`: (a) escena NMS = pantalla
+  **blanca vacía** (parecía rota), (b) **wipe diagonal blanco tosco** cruzando CRM/Infrannova/Varigas
+  (el defecto del backlog), (c) pills de módulos blanco-sobre-blanco (ilegibles). Infixeable con ffmpeg
+  (baked) y las apps reales están auth-walled. Reemplazado por `ProductShowcase.tsx`: app-window dark con
+  browser-chrome, 4 productos reales ciclando con crossfade CSS (sin wipe, sin blanco), datos DEMO marcados
+  basados en entidades reales observadas en las apps vivas (Infrannova obras 12/avance 68%/alertas 3;
+  Varigas 486 extintores). Pausa en hover, tabs clickeables, no auto-cicla con reduced-motion. Borrados
+  ProductVideo.tsx + 3 assets (−1.4 MB → perf). Verificado desktop 1440 + mobile 390, sin overflow. Build estático OK.
 - [2026-06-15] **🟢 WhatsApp real cargado (camino de conversión vivo).** Owner pasó el número real
   (299 456-9840). Cambio de 1 línea en `src/lib/whatsapp.ts` (`5492994569840`, formato AR 54+9+área).
   Los 6 CTA verificados en dev apuntando al número real, cero placeholder. La conversión ya no muere.
