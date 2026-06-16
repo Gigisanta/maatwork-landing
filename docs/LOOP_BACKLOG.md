@@ -12,11 +12,17 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
    la narrativa elegida.
 
 ### Para confirmar con el owner
-- **`DATABASE_URL` en Vercel**: el form de leads (FinalCTA → `POST /api/leads`) solo persiste si la env
-  está seteada en prod; si no, responde 202 y el lead se pierde silenciosamente. Confirmar que existe.
 - (dominio `maat.work` confirmado por el owner 2026-06-15)
 
 ## Hecho
+
+- [2026-06-16] **Infra: Neon DB provisionada + `DATABASE_URL` configurada en Vercel.** El form de leads
+  no persistía (sin env). Provisionada DB Neon dedicada vía `vercel integration add neon` (`neon-beige-window`,
+  conectada a prod/preview/dev → DATABASE_URL + 18 vars Neon encriptadas en Vercel). Creada tabla `leads`
+  (id uuid, nombre, whatsapp, email, rubro, problema, source, utm_*, metadata jsonb, created_at) + índice
+  `created_at DESC`. NO se reusó la Neon vieja del ecosistema (estaba marcada "ROTATE"=filtrada → riesgo
+  PII). E2E verificado local: POST → `persisted:true`, fila en DB; test rows truncadas. `.env.local`
+  (secreto) gitignored. Redeploy prod para tomar la env. Item owner-gated resuelto.
 
 - [2026-06-15] **Conversión: form de captura cableado al `/api/leads` huérfano.** Hallazgo: la route
   `POST /api/leads` (zod + rate-limit 5/min + fallback graceful sin-DB) NO tenía consumidor en la UI —
