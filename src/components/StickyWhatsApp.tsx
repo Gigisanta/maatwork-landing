@@ -13,17 +13,34 @@ export function StickyWhatsApp() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
+    let raf = 0;
+    // Cachear vh/docH (recalc en resize) evita leer scrollHeight en cada scroll
+    // event → sin reflow forzado por scroll. rAF colapsa a 1 medición/frame.
+    let vh = window.innerHeight;
+    let docH = document.documentElement.scrollHeight;
+    const measure = () => {
+      raf = 0;
       const y = window.scrollY;
-      const vh = window.innerHeight;
-      const docH = document.documentElement.scrollHeight;
       const pastHero = y > vh * 0.9;
       const nearBottom = y + vh > docH - vh * 1.3;
       setShow(pastHero && !nearBottom);
     };
-    onScroll();
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(measure);
+    };
+    const onResize = () => {
+      vh = window.innerHeight;
+      docH = document.documentElement.scrollHeight;
+      measure();
+    };
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (

@@ -151,21 +151,21 @@ section[id] {
 /* ================================================================
    Utility: Section background variants
    ================================================================ */
+/* Bases translúcidas: dejan ver .bg-field (blobs violeta) detrás → la página
+   respira. Alpha ~0.80-0.88 conserva contraste de texto; ink de <html> abajo. */
 .section-base  {
   background:
     radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.20), transparent 34%),
-    radial-gradient(circle at 82% 0%, rgba(34, 211, 238, 0.13), transparent 30%),
-    var(--color-bg-base);
+    radial-gradient(circle at 82% 0%, rgba(167, 139, 250, 0.12), transparent 30%),
+    rgba(7, 10, 18, 0.80);
 }
 .section-elev1 {
-  background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(8, 13, 24, 0.98)),
-    var(--color-bg-elev-1);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(8, 13, 24, 0.9));
 }
 .section-elev2 {
   background:
     radial-gradient(circle at 75% 18%, rgba(245, 158, 11, 0.12), transparent 30%),
-    linear-gradient(180deg, #0a0f1d 0%, #111827 100%);
+    linear-gradient(180deg, rgba(10, 15, 29, 0.84) 0%, rgba(17, 24, 39, 0.9) 100%);
 }
 
 /* ================================================================
@@ -747,8 +747,8 @@ html.js-ready .reveal.is-visible {
 .bg-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.15;
+  filter: blur(104px);
+  opacity: 0.24;
   will-change: transform;
   animation: bg-morph 22s ease-in-out infinite;
 }
@@ -759,12 +759,14 @@ html.js-ready .reveal.is-visible {
 .bg-blob--3 { width: 500px; height: 500px; bottom: -14%; left: 16%;
   background: radial-gradient(circle, #8b5cf6, transparent 62%); animation-delay: -12s; }
 .bg-blob--4 { width: 440px; height: 440px; top: 66%; right: 22%;
-  background: radial-gradient(circle, #4c1d95, transparent 62%); opacity: 0.11; animation-delay: -3s; }
+  background: radial-gradient(circle, #4c1d95, transparent 62%); opacity: 0.18; animation-delay: -3s; }
+/* translate-only (sin scale): el blur se rasteriza una vez y el compositor solo
+   mueve la textura cacheada → sin re-raster por frame = fluido en low-end. */
 @keyframes bg-morph {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  25% { transform: translate3d(56px, -40px, 0) scale(1.12); }
-  50% { transform: translate3d(-42px, 46px, 0) scale(0.9); }
-  75% { transform: translate3d(34px, 28px, 0) scale(1.06); }
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(70px, -52px, 0); }
+  50% { transform: translate3d(-54px, 60px, 0); }
+  75% { transform: translate3d(44px, 36px, 0); }
 }
 .bg-particles { position: absolute; inset: 0; }
 .bg-particle {
@@ -839,7 +841,7 @@ html.js-ready .reveal.is-visible {
   .aurora-field { height: 42rem; filter: blur(26px); }
   .product-frame { animation: none; }
   .bg-particles { display: none; }
-  .bg-blob { filter: blur(90px); opacity: 0.11; }
+  .bg-blob { filter: blur(80px); opacity: 0.16; }
   .bg-blob--4 { display: none; }
 }
 

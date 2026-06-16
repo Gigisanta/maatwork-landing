@@ -24,7 +24,9 @@ export function Navbar() {
   // Position-based (not an IntersectionObserver band) so it stays correct between the
   // untracked sections (HowItWorks, Testimonials) and on fast/programmatic scrolls.
   useEffect(() => {
-    const onScroll = () => {
+    let raf = 0;
+    const measure = () => {
+      raf = 0;
       setScrolled(window.scrollY > 12);
       const refLine = window.innerHeight * 0.3;
       let current = "";
@@ -34,9 +36,15 @@ export function Navbar() {
       }
       setActiveId(current);
     };
-    onScroll();
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(measure);
+    };
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   useEffect(() => {
