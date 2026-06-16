@@ -16,6 +16,12 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Perf LCP: delay del reveal del H1 570ms→180ms.** El H1 es el elemento LCP pero su
+  segunda línea (gradiente `todo tu negocio.`) arrancaba en `opacity:0` con `animation-delay` de 570ms
+  — resto de la matemática de stagger per-char ya muerta (`baseDelayMs = 120 + line1.length*18`).
+  Chrome ignora nodos `opacity:0` → el LCP se disparaba ~570ms más allá del primer paint. Delays chicos
+  fijos (60/180ms), reveal conservado. Removida prop `staggerMs` (muerta). lint+typecheck+build verdes,
+  hero QA headless OK. Commit `86faf87`.
 - [2026-06-15] **Reparación: ESLint roto + 7 issues latentes.** `npm run lint` estaba muerto: `next lint`
   se removió en Next 16 y no había ESLint instalado (script fallaba con "Invalid project directory ... /lint").
   Reparado: instalado `eslint` + `eslint-config-next` (flat config nativo vía exports `core-web-vitals`/
