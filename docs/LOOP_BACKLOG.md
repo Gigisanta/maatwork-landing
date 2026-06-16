@@ -12,10 +12,21 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
    la narrativa elegida.
 
 ### Para confirmar con el owner
-- (vacío — dominio `maat.work` confirmado por el owner 2026-06-15)
+- **`DATABASE_URL` en Vercel**: el form de leads (FinalCTA → `POST /api/leads`) solo persiste si la env
+  está seteada en prod; si no, responde 202 y el lead se pierde silenciosamente. Confirmar que existe.
+- (dominio `maat.work` confirmado por el owner 2026-06-15)
 
 ## Hecho
 
+- [2026-06-15] **Conversión: form de captura cableado al `/api/leads` huérfano.** Hallazgo: la route
+  `POST /api/leads` (zod + rate-limit 5/min + fallback graceful sin-DB) NO tenía consumidor en la UI —
+  la única vía de conversión era WhatsApp. Agregado `LeadForm` (nombre+whatsapp) en FinalCTA como vía
+  alternativa ("que te contactemos"). Estados idle/submitting/success/error con aria-live; reusa estilos
+  input + cta-violet. Verificado end-to-end por curl (202/422/400/429) y markup SSR (form + inputs con
+  label). `source=contact_form`. lint+typecheck+build verdes, dev sin errores de hidratación.
+  ⚠️ **Owner: confirmar `DATABASE_URL` en Vercel** — sin esa env la API responde 202 (el usuario ve
+  éxito pero el lead NO se persiste). Visual del form no confirmado per-sección (MCP caído; FinalCTA es
+  `.reveal` → blanco en headless) → reconfirmar al volver MCP. Commit `1576aa6`.
 - [2026-06-15] **A11y: input de búsqueda del FAQ sin label + contraste de placeholder.** Auditoría del
   HTML renderizado: 4 inputs / 3 labels → el buscador del FAQ (`type="search"`) tenía solo placeholder
   (sin nombre accesible; los lectores de pantalla no lo anuncian fiable). Agregado `aria-label`.
