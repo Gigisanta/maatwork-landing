@@ -16,6 +16,10 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-16] **Analytics: trackeo de conversión del form (`lead_submitted`).** El form de leads (2ª vía
+  de conversión) no se trackeaba → sus conversiones eran invisibles al lado de `whatsapp_cta`. Disparo
+  `track("lead_submitted", {source, persisted})` en submit exitoso. Cierra el gap de medición del funnel.
+  lint+typecheck+build verdes. Commit `a174b0c`.
 - [2026-06-16] **Infra: Neon DB provisionada + `DATABASE_URL` configurada en Vercel.** El form de leads
   no persistía (sin env). Provisionada DB Neon dedicada vía `vercel integration add neon` (`neon-beige-window`,
   conectada a prod/preview/dev → DATABASE_URL + 18 vars Neon encriptadas en Vercel). Creada tabla `leads`
