@@ -3,6 +3,7 @@
  * (sin inventar actividad de clientes en vivo).
  */
 import { waLink } from "@/lib/whatsapp";
+import { LeadForm } from "./LeadForm";
 
 const LIVE_PRODUCTS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
@@ -95,6 +96,14 @@ export function FinalCTA() {
                 <Dot />Soporte en español
               </li>
             </ul>
+
+            {/* Vía alternativa a WhatsApp: dejá tus datos y te contactamos (POST /api/leads) */}
+            <div className="mt-10 pt-8 border-t border-white/[0.08] max-w-[560px] mx-auto text-left">
+              <p className="mb-3.5 text-center text-[14px] text-purple-200/90">
+                ¿Preferís que te escribamos nosotros? Dejanos tus datos.
+              </p>
+              <LeadForm />
+            </div>
           </div>
         </div>
       </div>
