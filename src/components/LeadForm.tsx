@@ -7,6 +7,7 @@
  * idle / submitting / success / error, con anuncios aria-live.
  */
 import { useState, type FormEvent } from "react";
+import { track } from "@vercel/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -33,6 +34,7 @@ export function LeadForm() {
       const data = await res.json().catch(() => null);
       if (res.ok && data?.success) {
         setStatus("success");
+        track("lead_submitted", { source: "contact_form", persisted: Boolean(data?.persisted) });
         return;
       }
       setStatus("error");
