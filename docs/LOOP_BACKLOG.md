@@ -16,6 +16,14 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Perf/fluidez: fondo animado visible + super-optimización scroll/paint.** El `.bg-field`
+  global estaba OCULTO: cada sección pintaba una base ink opaca encima. Secciones ahora con bases
+  translúcidas (`section-base`/`elev1`/`elev2`, alpha ~0.80-0.88) → los blobs violeta sangran detrás del
+  contenido (capa fixed = parallax sutil), contraste de texto conservado. Fluidez: `bg-morph` pasó a
+  translate-only (sin scale → el blur no se re-rasteriza por frame, fluido en low-end), y los scroll
+  listeners de Navbar + StickyWhatsApp ahora son rAF-throttled con `vh`/`docH` cacheados (sin reflow
+  forzado por scroll). QA headless desktop 1440 + mobile 390: legible, sin breakage. Radial cyan
+  residual de section-base → violeta. Commit `1c52651`.
 - [2026-06-15] **Motion: fondo animado global + scroll-progress + card mouse-glow.** La página se
   sentía plana debajo del hero (el `.aurora-field` vivía solo en el hero). Agregado `AnimatedBackground`
   (4 blobs violeta que se deforman + 14 partículas que flotan, `fixed -z-10` sobre la base ink de
