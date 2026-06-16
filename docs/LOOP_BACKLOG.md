@@ -16,6 +16,13 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Brand: cyan residual decorativo → violeta + contraste a11y.** Completa el pase a
+  violeta: la pill `live-chip` del hero, el glow/borde del `product-frame`, el hover border de
+  ecosystem y el sweep de bento seguían liderados por cyan → ahora violeta (amber queda como
+  secundario cálido; ping emerald "vivo" se conserva). A11y: subidos los textos violeta que fallaban
+  WCAG a cualquier tamaño (separator del eyebrow `/50`, micro-labels de mock `/55`). Pendiente menor:
+  banda `text-purple-400/60-/75` (AA-large; mayormente micro-texto decorativo en DashboardPreview/
+  Features) → pase de contraste con juicio visual cuando vuelva el MCP. QA hero headless OK. Commit `d0f8cb7`.
 - [2026-06-15] **Perf/fluidez: fondo animado visible + super-optimización scroll/paint.** El `.bg-field`
   global estaba OCULTO: cada sección pintaba una base ink opaca encima. Secciones ahora con bases
   translúcidas (`section-base`/`elev1`/`elev2`, alpha ~0.80-0.88) → los blobs violeta sangran detrás del
