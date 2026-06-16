@@ -38,10 +38,11 @@ export function FAQ() {
             </svg>
             <input
               type="search"
+              aria-label="Buscar pregunta"
               placeholder="Buscar pregunta..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full h-11 pl-10 pr-4 rounded-full bg-white/[0.04] border border-white/[0.08] text-[14px] text-white placeholder:text-purple-400/60 focus:border-purple-600/50 focus:outline-none transition-colors duration-200"
+              className="w-full h-11 pl-10 pr-4 rounded-full bg-white/[0.04] border border-white/[0.08] text-[14px] text-white placeholder:text-purple-400/80 focus:border-purple-600/50 focus:outline-none transition-colors duration-200"
             />
           </div>
         </div>
