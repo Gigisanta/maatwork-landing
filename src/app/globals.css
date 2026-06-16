@@ -664,7 +664,7 @@ html.js-ready .reveal.is-visible {
 .product-frame {
   animation: screen-breathe 7s ease-in-out infinite;
   box-shadow:
-    0 34px 120px -40px rgba(34, 211, 238, 0.42),
+    0 34px 120px -40px rgba(167, 139, 250, 0.42),
     0 20px 80px -46px rgba(124, 58, 237, 0.65),
     inset 0 1px 0 rgba(255,255,255,0.14);
 }
@@ -674,16 +674,16 @@ html.js-ready .reveal.is-visible {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(103,232,249,0.55), rgba(167,139,250,0.35), rgba(251,191,36,0.28));
+  background: linear-gradient(135deg, rgba(196,154,255,0.55), rgba(124,58,237,0.35), rgba(251,191,36,0.28));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 .live-chip {
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(37, 211, 102, 0.12));
-  border-color: rgba(103, 232, 249, 0.28);
-  color: #a7f3d0;
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.16), rgba(124, 58, 237, 0.12));
+  border-color: rgba(167, 139, 250, 0.30);
+  color: #d8c0ff;
 }
 .ecosystem-card {
   position: relative;
@@ -705,7 +705,7 @@ html.js-ready .reveal.is-visible {
 }
 .ecosystem-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(103, 232, 249, 0.34);
+  border-color: rgba(167, 139, 250, 0.40);
   background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
 }
 .ecosystem-card:hover::after { opacity: 1; animation: card-glow-sweep 1.2s var(--ease-out-quart); }
@@ -720,7 +720,7 @@ html.js-ready .reveal.is-visible {
   border-radius: 24px;
 }
 .bento-card::after {
-  background: linear-gradient(135deg, transparent 0%, rgba(34,211,238,0.12) 34%, rgba(167,139,250,0.14) 60%, rgba(245,158,11,0.08) 100%);
+  background: linear-gradient(135deg, transparent 0%, rgba(167,139,250,0.14) 34%, rgba(124,58,237,0.14) 60%, rgba(245,158,11,0.08) 100%);
 }
 .bento-card .reveal-on-hover {
   opacity: 0.72;

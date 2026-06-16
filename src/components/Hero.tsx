@@ -24,7 +24,7 @@ export function Hero() {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
             </span>
             <span className="font-semibold">Ecosistema MaatWork vivo</span>
-            <span className="text-purple-300/50">·</span>
+            <span className="text-purple-300/70">·</span>
             <span className="hidden sm:inline">productos reales, demos limpias</span>
           </div>
         </div>

@@ -201,7 +201,7 @@ export function DashboardPreview() {
                       {c.init}
                     </div>
                     <span className="text-white/85 truncate flex-1">{c.nombre.split(" ")[0]}</span>
-                    <span className="text-[8px] text-purple-400/55">{c.ultima.replace("Hoy ", "")}</span>
+                    <span className="text-[8px] text-purple-400/75">{c.ultima.replace("Hoy ", "")}</span>
                   </div>
                 ))}
               </div>
@@ -316,7 +316,7 @@ export function DashboardPreview() {
                       key={i}
                       className="flex items-center gap-2 text-[10px] py-1"
                     >
-                      <span className="text-purple-400/55 w-9 tabular-nums font-medium">{item.t}</span>
+                      <span className="text-purple-400/75 w-9 tabular-nums font-medium">{item.t}</span>
                       <ActivityIcon kind={item.icon as "money" | "wa" | "user" | "agenda"} />
                       <span className="text-purple-200 truncate">{item.text}</span>
                     </div>
