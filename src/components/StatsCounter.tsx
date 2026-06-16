@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 type Stat = {
   /** What to display: prefix + numeric + suffix. Counter animates the numeric part. */
@@ -26,20 +27,16 @@ const STATS: Stat[] = [
  */
 export function StatsCounter() {
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const reduceMotion = usePrefersReducedMotion();
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    if (!ref.current) return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      setActive(true);
-      return;
-    }
+    if (!ref.current || reduceMotion) return;
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            setActive(true);
+            setInView(true);
             io.disconnect();
           }
         }
@@ -48,7 +45,9 @@ export function StatsCounter() {
     );
     io.observe(ref.current);
     return () => io.disconnect();
-  }, []);
+  }, [reduceMotion]);
+
+  const active = reduceMotion || inView;
 
   return (
     <section className="section-elev1 border-y border-white/[0.06]" ref={ref}>
@@ -97,14 +96,11 @@ function Counter({
 }) {
   // CSS @property trick: animate --num and display via counter()
   // We render the value live via JS to avoid hydration mismatch
+  const reduce = usePrefersReducedMotion();
   const [val, setVal] = useState(0);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setVal(target);
-      return;
-    }
+    if (reduce) return;
     const start = performance.now();
     const duration = 1600;
     let raf = 0;
@@ -117,9 +113,10 @@ function Counter({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [target]);
+  }, [target, reduce]);
 
-  const formatted = decimals > 0 ? val.toFixed(decimals) : Math.round(val).toString();
+  const displayVal = reduce ? target : val;
+  const formatted = decimals > 0 ? displayVal.toFixed(decimals) : Math.round(displayVal).toString();
 
   return (
     <span>

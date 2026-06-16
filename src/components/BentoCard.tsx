@@ -21,7 +21,6 @@ type BentoCardProps = {
   gradientIndex?: number;
   badge?: string;
   /** Cuando true, agrega class de Pro al header */
-  large?: boolean;
   /** Reveal delay (ms) — escalonado por parent */
   delayMs?: number;
 };
@@ -35,7 +34,6 @@ export function BentoCard({
   row = "md:row-span-1",
   gradientIndex = 1,
   badge,
-  large = false,
   delayMs = 0,
 }: BentoCardProps) {
   return (

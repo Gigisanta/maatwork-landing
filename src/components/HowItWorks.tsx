@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /**
  * HowItWorks — 3 steps con SVG paths que se dibujan al entrar en viewport.
@@ -54,20 +55,16 @@ const STEPS = [
 
 export function HowItWorks() {
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+  const reduce = usePrefersReducedMotion();
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    if (!ref.current) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setActive(true);
-      return;
-    }
+    if (!ref.current || reduce) return;
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            setActive(true);
+            setInView(true);
             io.disconnect();
           }
         }
@@ -76,7 +73,9 @@ export function HowItWorks() {
     );
     io.observe(ref.current);
     return () => io.disconnect();
-  }, []);
+  }, [reduce]);
+
+  const active = reduce || inView;
 
   return (
     <section className="section-base section-pad">

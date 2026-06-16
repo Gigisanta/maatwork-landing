@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 /**
  * StaggeredText — V6 line reveal.
@@ -23,15 +24,7 @@ export function StaggeredText({
   baseDelayMs = 0,
   className = "",
 }: Props) {
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(mq.matches);
-    const onChange = () => setReduceMotion(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
+  const reduceMotion = usePrefersReducedMotion();
 
   return (
     <span
@@ -55,21 +48,17 @@ type RevealProps = {
 
 export function Reveal({ children, delayMs = 0, className = "" }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const reduce = usePrefersReducedMotion();
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setVisible(true);
-      return;
-    }
+    if (!el || reduce) return;
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            setVisible(true);
+            setInView(true);
             io.disconnect();
           }
         }
@@ -78,7 +67,9 @@ export function Reveal({ children, delayMs = 0, className = "" }: RevealProps) {
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [reduce]);
+
+  const visible = reduce || inView;
 
   return (
     <div
