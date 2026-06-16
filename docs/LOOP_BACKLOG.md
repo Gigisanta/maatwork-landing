@@ -16,6 +16,11 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **A11y: input de búsqueda del FAQ sin label + contraste de placeholder.** Auditoría del
+  HTML renderizado: 4 inputs / 3 labels → el buscador del FAQ (`type="search"`) tenía solo placeholder
+  (sin nombre accesible; los lectores de pantalla no lo anuncian fiable). Agregado `aria-label`.
+  Placeholder `text-purple-400/60` (WCAG ~3.1, falla AA) → `/80` (4.5). Verificado en HTML: 4 inputs
+  con nombre. lint+typecheck+build verdes. Commit `bd8a461`.
 - [2026-06-15] **Perf LCP: delay del reveal del H1 570ms→180ms.** El H1 es el elemento LCP pero su
   segunda línea (gradiente `todo tu negocio.`) arrancaba en `opacity:0` con `animation-delay` de 570ms
   — resto de la matemática de stagger per-char ya muerta (`baseDelayMs = 120 + line1.length*18`).
