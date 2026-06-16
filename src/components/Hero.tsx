@@ -33,13 +33,11 @@ export function Hero() {
           className="reveal mx-auto max-w-[1080px] text-center font-display text-4xl text-white text-balance sm:text-5xl lg:text-display"
           style={{ fontWeight: 850, letterSpacing: "var(--tracking-display)", lineHeight: 0.94, transitionDelay: "60ms" }}
         >
-          <StaggeredText text={H1_LINE_1} baseDelayMs={120} staggerMs={18} className="block" />
-          <StaggeredText
-            text={H1_LINE_2}
-            baseDelayMs={120 + H1_LINE_1.length * 18}
-            staggerMs={18}
-            className="hero-title-accent block"
-          />
+          {/* Delays chicos: el H1 es el elemento LCP. La línea 2 antes arrancaba a
+              570ms (resto de la matemática de stagger per-char ya muerta) → Chrome
+              no cuenta opacity:0 y el LCP se disparaba. Ahora pinta a ~180ms. */}
+          <StaggeredText text={H1_LINE_1} baseDelayMs={60} className="block" />
+          <StaggeredText text={H1_LINE_2} baseDelayMs={180} className="hero-title-accent block" />
         </h1>
 
         <p

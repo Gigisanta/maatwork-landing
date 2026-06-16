@@ -15,7 +15,6 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 type Props = {
   text: string;
   baseDelayMs?: number;
-  staggerMs?: number;
   className?: string;
 };
 
