@@ -16,6 +16,16 @@ lo aplica, verifica y commitea. Cero fabricación de datos. Surgical edits.
 
 ## Hecho
 
+- [2026-06-15] **Reparación: ESLint roto + 7 issues latentes.** `npm run lint` estaba muerto: `next lint`
+  se removió en Next 16 y no había ESLint instalado (script fallaba con "Invalid project directory ... /lint").
+  Reparado: instalado `eslint` + `eslint-config-next` (flat config nativo vía exports `core-web-vitals`/
+  `typescript`; el `FlatCompat` con config-next 16 da "circular structure" → se usa import directo), script
+  → `eslint .`. El linter restaurado encontró 7 problemas reales, todos arreglados: 5× `react-hooks/
+  set-state-in-effect` (StatsCounter, HowItWorks, StaggeredText/Reveal seteaban estado sincrónico en effect
+  para el path reduced-motion → cascading renders) resueltos con un hook `usePrefersReducedMotion`
+  (`useSyncExternalStore`: valor en render, SSR-safe, sin hydration mismatch); 2× `no-unused-vars`
+  (global-error ahora loguea el error en vez de tragarlo; removida prop muerta `large` de BentoCard).
+  lint+typecheck+build verdes, hero QA headless OK. Commits `chore(lint)` + `fix:` (`ea592a3`).
 - [2026-06-15] **Brand: cyan residual decorativo → violeta + contraste a11y.** Completa el pase a
   violeta: la pill `live-chip` del hero, el glow/borde del `product-frame`, el hover border de
   ecosystem y el sweep de bento seguían liderados por cyan → ahora violeta (amber queda como
