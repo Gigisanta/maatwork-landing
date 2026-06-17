@@ -144,7 +144,7 @@ export function HowItWorks() {
                         {s.n}
                       </span>
                       <div
-                        className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-purple-975 border border-purple-600/40 flex items-center justify-center"
+                        className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-bg-card border border-violet-600/40 flex items-center justify-center"
                       >
                         {s.icon}
                       </div>
