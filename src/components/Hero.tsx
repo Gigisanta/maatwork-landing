@@ -2,104 +2,93 @@ import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
 import { waLink } from "@/lib/whatsapp";
 
-const H1_LINE_1 = "Software real para operar";
-const H1_LINE_2 = "todo tu negocio.";
+const H1_LINE_1 = "Control operativo para negocios";
+const H1_LINE_2 = "de agenda, cobros y clientes.";
 
-const PRODUCT_CHIPS = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
+// Real products in production — the one proof object next to the panel.
+const IN_PRODUCTION = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
 
 export function Hero() {
   return (
-    <section id="top" className="section-base relative overflow-hidden pt-20 pb-12 md:pt-24 md:pb-16">
-      <div className="aurora-field" aria-hidden="true" />
-      <div className="noise-overlay" aria-hidden="true" />
-
+    <section id="top" className="section-base relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20">
       <div className="container-maat relative z-10">
-        <div className="mb-7 flex justify-center">
+        {/* Mission briefing eyebrow */}
+        <div className="mb-6 flex justify-center">
           <div
-            className="reveal live-chip inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[12.5px]"
+            className="reveal live-chip inline-flex items-center gap-2.5 rounded-full border px-3.5 py-1.5"
             style={{ transitionDelay: "0ms" }}
           >
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-300" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan" />
             </span>
-            <span className="font-semibold">Ecosistema MaatWork vivo</span>
-            <span className="text-purple-300/70">·</span>
-            <span className="hidden sm:inline">productos reales, demos limpias</span>
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]">
+              MaatWork · Plataforma operativa
+            </span>
           </div>
         </div>
 
         <h1
-          className="reveal mx-auto max-w-[1080px] text-center font-display text-4xl text-white text-balance sm:text-5xl lg:text-display"
-          style={{ fontWeight: 850, letterSpacing: "var(--tracking-display)", lineHeight: 0.94, transitionDelay: "60ms" }}
+          aria-label={`${H1_LINE_1} ${H1_LINE_2}`}
+          className="reveal mx-auto max-w-[1000px] text-center font-display text-4xl text-white text-balance sm:text-5xl lg:text-[4rem]"
+          style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.02, transitionDelay: "60ms" }}
         >
-          {/* Delays chicos: el H1 es el elemento LCP. La línea 2 antes arrancaba a
-              570ms (resto de la matemática de stagger per-char ya muerta) → Chrome
-              no cuenta opacity:0 y el LCP se disparaba. Ahora pinta a ~180ms. */}
           <StaggeredText text={H1_LINE_1} baseDelayMs={60} className="block" />
-          <StaggeredText text={H1_LINE_2} baseDelayMs={180} className="hero-title-accent block" />
+          <StaggeredText text={H1_LINE_2} baseDelayMs={170} className="block text-slate-300" />
         </h1>
 
         <p
-          className="reveal mx-auto mt-7 max-w-[760px] text-center text-lg leading-8 text-slate-300 md:text-xl"
+          className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Agenda, cobros, clientes y WhatsApp de tu negocio, ordenados en un solo sistema. Hecho en Argentina,
-          en español — y con productos reales que ya operan. Mostramos el producto, no humo.
+          Implementamos agenda, cobros, clientes, recordatorios y tablero de control en un solo
+          sistema — con soporte local y salida en vivo guiada.
         </p>
 
         <div
-          className="reveal mt-8 flex flex-col justify-center gap-3 sm:flex-row"
+          className="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           style={{ transitionDelay: "260ms" }}
         >
           <a
-            href={waLink("Hola MaatWork quiero ver una demo")}
+            href={waLink("Hola MaatWork, quiero ver una demo operativa")}
             target="_blank"
             rel="noopener noreferrer"
-            className="group cta-whatsapp inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15.5px] font-semibold tracking-[-0.01em] text-white shadow-[0_12px_30px_-10px_rgba(37,211,102,0.45)] hover-scale"
-            style={{ height: 56 }}
+            className="cta-violet group inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15px] font-semibold tracking-[-0.01em] text-white hover-scale"
+            style={{ height: 54 }}
           >
-            <WhatsAppIcon />
-            Ver demo por WhatsApp
+            Ver demo operativa
+            <ArrowIcon />
           </a>
           <a
-            href="#productos"
-            className="group inline-flex items-center justify-center gap-2 rounded-full border border-purple-300/25 px-7 text-[15.5px] font-semibold text-white transition-all hover:border-purple-300/55 hover:bg-purple-300/[0.08] hover-scale"
-            style={{ height: 56, transitionTimingFunction: "var(--ease-out-quart)" }}
+            href={waLink("Hola MaatWork, quiero hablar con el equipo")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold text-white"
+            style={{ height: 54 }}
           >
-            Ver productos reales
-            <ArrowIcon />
+            Hablar con MaatWork
           </a>
         </div>
 
-        <ul
-          className="reveal mt-7 flex flex-wrap items-center justify-center gap-2.5 text-[13px]"
+        {/* One proof object: real products in production, stated plainly */}
+        <div
+          className="reveal mt-7 flex flex-wrap items-center justify-center gap-x-3 gap-y-2"
           style={{ transitionDelay: "320ms" }}
         >
-          {PRODUCT_CHIPS.map((chip) => (
-            <li key={chip} className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-slate-200">
-              <Check /> {chip}
-            </li>
+          <span className="mono-tag text-text-tertiary">En producción</span>
+          {IN_PRODUCTION.map((p) => (
+            <span key={p} className="flex items-center gap-1.5 font-mono text-[11px] tracking-[0.04em] text-slate-300">
+              <span className="h-1 w-1 rounded-full bg-success" />
+              {p}
+            </span>
           ))}
-        </ul>
+        </div>
 
         <div className="reveal mt-12 md:mt-16" style={{ transitionDelay: "400ms" }}>
           <ProductShowcase />
         </div>
       </div>
     </section>
-  );
-}
-
-function Check() {
-  return <span className="inline-block text-emerald-300" aria-hidden>✓</span>;
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="transition-transform group-hover:scale-110 group-hover:rotate-12" style={{ transitionTimingFunction: "var(--ease-out-quart)" }}>
-      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-    </svg>
   );
 }
 

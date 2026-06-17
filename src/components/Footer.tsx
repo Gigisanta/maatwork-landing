@@ -4,7 +4,8 @@ import { Logo } from "./Logo";
 const WHATSAPP = waLink();
 
 const footerLinks = [
-  { href: "#funcionalidades", label: "Producto" },
+  { href: "#producto", label: "Producto" },
+  { href: "#implementacion", label: "Implementación" },
   { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
   { href: WHATSAPP, label: "WhatsApp", external: true },
@@ -17,8 +18,9 @@ export function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
             <Logo size={26} />
-            <p className="mt-3 max-w-[420px] text-sm leading-[1.6] text-purple-400/85">
-              Automatización comercial para negocios con turnos en Argentina.
+            <p className="mt-3 max-w-[420px] text-sm leading-[1.6] text-slate-400">
+              Plataforma operativa para negocios con agenda, cobros y clientes recurrentes.
+              Hecho en Argentina.
             </p>
           </div>
 

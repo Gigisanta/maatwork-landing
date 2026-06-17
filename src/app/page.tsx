@@ -1,16 +1,13 @@
-import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { OperationalField } from "@/components/OperationalField";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { CardGlow } from "@/components/CardGlow";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { StatsCounter } from "@/components/StatsCounter";
-import { LogoMarquee } from "@/components/LogoMarquee";
+import { ProofStrip } from "@/components/ProofStrip";
 import { ProblemSolution } from "@/components/ProblemSolution";
-import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
-import { PricingROI } from "@/components/PricingROI";
-import { Testimonials } from "@/components/Testimonials";
+import { Pricing } from "@/components/Pricing";
+import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
@@ -19,20 +16,17 @@ import { StickyWhatsApp } from "@/components/StickyWhatsApp";
 export default function HomePage() {
   return (
     <>
-      <AnimatedBackground />
+      <OperationalField />
       <ScrollProgress />
-      <CardGlow />
       <Navbar />
       <main id="main-content" tabIndex={-1}>
         <Hero />
-        <StatsCounter />
-        <LogoMarquee />
+        <ProofStrip />
         <ProblemSolution />
-        <ProductEcosystem />
         <Features />
         <HowItWorks />
-        <PricingROI />
-        <Testimonials />
+        <Pricing />
+        <ProductEcosystem />
         <FAQ />
         <FinalCTA />
       </main>

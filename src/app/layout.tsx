@@ -44,11 +44,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MaatWork — Software real para operar todo tu negocio",
+    default: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
     template: "%s · MaatWork",
   },
   description:
-    "Centralizá agenda, cobros, clientes y WhatsApp en un solo sistema. Software de gestión para negocios con turnos en Argentina, en español. 14 días gratis, sin tarjeta.",
+    "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 14 días gratis, sin tarjeta.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.svg",
@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MaatWork — Software real para operar todo tu negocio",
+    title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
     description:
-      "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta. Con productos reales que ya operan.",
+      "Agenda, cobros, clientes y recordatorios en un solo sistema. Implementación guiada con soporte local. 14 días gratis, sin tarjeta.",
     images: [
       {
         url: "/og-image.png",
@@ -91,9 +91,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaatWork — Software real para operar todo tu negocio",
+    title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
     description:
-      "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta.",
+      "Agenda, cobros, clientes y recordatorios en un solo sistema. 14 días gratis, sin tarjeta.",
     images: ["/twitter-image.png"],
   },
   robots: {
@@ -119,7 +119,7 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/logo-mark.svg`,
       description:
-        "SaaS de automatización comercial para negocios con turnos en Argentina.",
+        "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes en Argentina.",
       address: { "@type": "PostalAddress", addressCountry: "AR" },
       sameAs: [],
     },
@@ -129,7 +129,7 @@ const jsonLd = {
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Automatización comercial todo-en-uno: agenda, CRM, cobros, WhatsApp y dashboard para negocios con turnos.",
+        "Plataforma operativa todo-en-uno: agenda, clientes, cobros, automatización y tablero de control para negocios con turnos.",
       offers: {
         "@type": "Offer",
         price: "59",

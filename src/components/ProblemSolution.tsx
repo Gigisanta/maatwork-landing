@@ -1,105 +1,98 @@
 /**
- * ProblemSolution — "Esto te suena familiar?"
- * 4 pain points con iconos simples. Cards sólidas, sin glass.
+ * ProblemSolution — the operational diagnosis. Instead of generic "pain cards",
+ * the disorder is rendered as a feed of operational signals (severity dot +
+ * detail + mono meta), then resolved into a single operational surface.
  */
-const pains = [
+type Signal = {
+  sev: "critical" | "warning";
+  title: string;
+  detail: string;
+  meta: string;
+};
+
+const SIGNALS: Signal[] = [
   {
-    title: "Agenda mezclada",
-    desc: "WhatsApp, papel y un Excel que ya nadie entiende.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <rect x="3" y="4" width="18" height="17" rx="2" />
-        <path d="M3 9h18M8 2v4M16 2v4" />
-        <path d="m9 14 2 2 4-4" />
-      </svg>
-    ),
+    sev: "critical",
+    title: "Agenda fragmentada",
+    detail: "WhatsApp, papel y un Excel que ya nadie mantiene.",
+    meta: "Sin fuente única",
   },
   {
-    title: "Cobros que se pierden",
-    desc: "Cuotas impagas, recordatorios a mano, plata en el aire.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <rect x="3" y="6" width="18" height="13" rx="2" />
-        <path d="M3 10h18M7 15h2" />
-      </svg>
-    ),
+    sev: "warning",
+    title: "Cobros sin seguimiento",
+    detail: "Cuotas vencidas y recordatorios hechos a mano.",
+    meta: "Ingresos en riesgo",
   },
   {
-    title: "WhatsApp te come el día",
-    desc: "Respondés lo mismo 30 veces. No te queda tiempo para crecer.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.8-5.7a8.5 8.5 0 1 1 16.2-3.8Z" />
-      </svg>
-    ),
+    sev: "warning",
+    title: "WhatsApp satura el día",
+    detail: "Las mismas respuestas, una y otra vez.",
+    meta: "Tiempo perdido",
   },
   {
-    title: "No ves los números",
-    desc: "Cuánto entró, cuánto falta, quién se fue. Adivinas.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-purple-400)" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M3 3v18h18" />
-        <path d="m7 14 4-4 4 4 5-5" />
-      </svg>
-    ),
+    sev: "critical",
+    title: "Sin visibilidad",
+    detail: "No sabés qué entró ni quién dejó de venir.",
+    meta: "Decisiones a ciegas",
   },
 ];
 
 export function ProblemSolution() {
   return (
-    <section className="section-base section-pad">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-8">
+    <section id="operacion" className="section-base section-pad">
+      <div className="container-maat">
         <div className="max-w-[640px] reveal">
-          <span className="eyebrow">
-            El problema
-          </span>
-          <h2
-            className="font-display text-white mt-3 text-3xl md:text-4xl"
-            style={{ fontWeight: 800 }}
-          >
-            ¿Esto te suena familiar?
+          <span className="eyebrow">Diagnóstico</span>
+          <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
+            Una operación sin sistema deja señales.
           </h2>
-          <p className="mt-4 text-[16px] text-purple-200 max-w-[520px]">
-            Si manejás tu local así, no estás solo. Pero te está costando
+          <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
+            Si manejás tu negocio así, no estás solo. Pero cada día sin sistema cuesta
             tiempo, plata y clientes.
           </p>
         </div>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {pains.map((p, i) => (
-            <div
-              key={p.title}
-              className="card p-5 md:p-6 reveal"
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center mb-3.5">
-                {p.icon}
-              </div>
-              <h3 className="font-display text-white text-[16.5px] font-bold tracking-[-0.01em]">
-                {p.title}
-              </h3>
-              <p className="mt-1.5 text-[13.5px] text-purple-200/85 leading-[1.5]">
-                {p.desc}
-              </p>
-            </div>
-          ))}
-        </div>
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          {/* Signal feed */}
+          <ul className="space-y-2.5">
+            {SIGNALS.map((s, i) => (
+              <li key={s.title} className="reveal" style={{ transitionDelay: `${i * 60}ms` }}>
+                <div className="signal-row">
+                  <span className={`signal-dot signal-dot--${s.sev}`} aria-hidden />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[15px] font-semibold text-white">{s.title}</p>
+                    <p className="mt-0.5 truncate text-[13.5px] text-slate-400">{s.detail}</p>
+                  </div>
+                  <span className="hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.1em] text-slate-500 sm:inline">
+                    {s.meta}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
 
-        <div className="mt-12 reveal">
-          <div className="card p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
-            <div>
-              <h3 className="font-display text-white text-[22px] md:text-[24px] font-extrabold tracking-[-0.02em]">
-                MaatWork existe para esto.
-              </h3>
-              <p className="mt-2 text-[15px] text-purple-200 max-w-[640px]">
-                Centralizá agenda, cobros, clientes y recordatorios en un sistema simple. Más control, menos improvisación.
-              </p>
-            </div>
+          {/* Resolved state */}
+          <div className="reveal ops-card p-7 md:p-8" style={{ transitionDelay: "120ms" }}>
+            <span className="status-pill status-pill--ok">
+              <span className="h-1.5 w-1.5 rounded-full bg-success" />
+              Resuelto
+            </span>
+            <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
+              Una sola superficie operativa.
+            </h3>
+            <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
+              MaatWork unifica agenda, cobros, clientes y recordatorios. Una fuente única,
+              el estado siempre visible y la operación bajo control.
+            </p>
             <a
-              href="#funcionalidades"
-              className="md:ml-auto inline-flex items-center justify-center h-11 px-5 rounded-full text-white font-semibold text-[14.5px] border border-white/15 hover:border-white/30 hover:bg-white/[0.04] transition whitespace-nowrap"
+              href="#producto"
+              className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200"
             >
-              Ver cómo funciona
+              Ver el producto
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             </a>
           </div>
         </div>

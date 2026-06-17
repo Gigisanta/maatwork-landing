@@ -145,14 +145,10 @@ body {
   overflow-x: clip;
 }
 
-main {
-  overflow-x: clip;
-}
+main { overflow-x: clip; }
 
 /* Anchored sections must clear the fixed 64px navbar when jumped to */
-section[id] {
-  scroll-margin-top: 5.5rem;
-}
+section[id] { scroll-margin-top: 5.5rem; }
 
 /* Skip-to-content link (WCAG 2.4.1) — hidden until keyboard focus */
 .skip-link {
@@ -174,32 +170,52 @@ section[id] {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
-/* skip target shouldn't draw a ring around the whole <main> */
-#main-content:focus {
-  outline: none;
-}
+#main-content:focus { outline: none; }
 
 ::selection {
-  background: rgba(138, 69, 245, 0.45);
+  background: rgba(138, 69, 245, 0.40);
   color: #ffffff;
 }
 
 /* ================================================================
-   Utility: Section background variants — solid ink, one violet accent
-   per surface. Bases keep faint translucency so .bg-field reads behind.
+   Operational field — global background.
+   Restrained NASA-mission-control grid on solid ink + one faint
+   violet wash at the top. No blobs, no particles, no drift. (DS)
+   ================================================================ */
+.bg-field {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(115% 80% at 50% -12%, rgba(131, 93, 245, 0.10), transparent 58%),
+    var(--ink-base);
+}
+.bg-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 92% at 50% 0%, #000 0%, transparent 74%);
+          mask-image: radial-gradient(120% 92% at 50% 0%, #000 0%, transparent 74%);
+}
+
+/* ================================================================
+   Section background variants — solid ink, one accent per surface.
+   Bases keep faint translucency so .bg-field reads behind.
    ================================================================ */
 .section-base {
-  background:
-    radial-gradient(circle at 18% 12%, rgba(131, 93, 245, 0.16), transparent 34%),
-    rgba(10, 10, 17, 0.82);
+  background: rgba(10, 10, 17, 0.62);
 }
 .section-elev1 {
-  background: linear-gradient(180deg, rgba(15, 15, 24, 0.88), rgba(10, 10, 17, 0.92));
+  background: linear-gradient(180deg, rgba(15, 15, 24, 0.90), rgba(10, 10, 17, 0.94));
 }
 .section-elev2 {
-  background:
-    radial-gradient(circle at 78% 14%, rgba(232, 178, 60, 0.08), transparent 30%),
-    linear-gradient(180deg, rgba(15, 15, 24, 0.88) 0%, rgba(21, 21, 31, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(15, 15, 24, 0.90) 0%, rgba(21, 21, 31, 0.94) 100%);
 }
 
 /* ================================================================
@@ -226,6 +242,14 @@ section[id] {
   color: var(--violet-300);
   font-weight: 600;
 }
+/* Mono metadata tag — IDs, status keys, evidence chips */
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
 
 /* ================================================================
    Container — max-width content area with padding
@@ -240,13 +264,30 @@ section[id] {
 }
 
 /* ================================================================
-   Logo "M" gradient (text) — kept for back-compat, DS violet/white
+   Seal rule — engraved gold hairline divider (Maat detail).
+   Used sparingly: section seams, the final CTA. Gold only here.
    ================================================================ */
-.logo-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, var(--violet-200) 45%, var(--violet-400) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.seal-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.seal-rule::before,
+.seal-rule::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(232, 178, 60, 0.32));
+}
+.seal-rule::after {
+  background: linear-gradient(90deg, rgba(232, 178, 60, 0.32), transparent);
+}
+
+/* Plain section divider — neutral hairline */
+.divider-hairline {
+  height: 1px;
+  background: var(--border-subtle);
 }
 
 /* ================================================================
@@ -256,9 +297,7 @@ section[id] {
    ================================================================ */
 .cta-violet {
   background: linear-gradient(135deg, var(--violet-500) 0%, var(--violet-600) 52%, var(--violet-700) 100%);
-  box-shadow:
-    var(--inset-top),
-    var(--glow-primary);
+  box-shadow: var(--inset-top), var(--glow-primary);
 }
 .cta-violet:hover {
   background: linear-gradient(135deg, var(--violet-400) 0%, var(--violet-500) 52%, var(--violet-600) 100%);
@@ -269,8 +308,17 @@ section[id] {
     0 1px 0 rgba(255, 255, 255, 0.18) inset,
     0 8px 24px -8px rgba(37, 211, 102, 0.45);
 }
-.cta-whatsapp:hover {
-  background: var(--whatsapp-dim);
+.cta-whatsapp:hover { background: var(--whatsapp-dim); }
+
+/* Ghost CTA — hairline, fills faintly on hover (secondary action) */
+.cta-ghost {
+  border: 1px solid var(--border-default);
+  background: rgba(255, 255, 255, 0.015);
+  transition: border-color 180ms var(--ease-out-quart), background 180ms var(--ease-out-quart);
+}
+.cta-ghost:hover {
+  border-color: var(--border-accent);
+  background: rgba(131, 93, 245, 0.06);
 }
 
 /* ================================================================
@@ -288,6 +336,84 @@ section[id] {
 }
 
 /* ================================================================
+   Ops card — the workhorse surface for product/proof modules.
+   Solid ink, 1px hairline, subtle inset top. Hover: border → accent
+   + 2px lift. No gradient sweep, no mouse-follow glow (DS restraint).
+   ================================================================ */
+.ops-card {
+  position: relative;
+  background: var(--ink-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--inset-top), var(--shadow-sm);
+  transition: border-color 220ms var(--ease-out-quart),
+              transform 220ms var(--ease-out-quart),
+              background 220ms var(--ease-out-quart);
+}
+.ops-card:hover {
+  border-color: var(--border-accent);
+  background: var(--ink-elev);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   Signal row — one operational signal. Severity dot + label +
+   secondary detail + trailing mono meta. The core "needs attention"
+   grammar lifted from Mission Control.
+   ================================================================ */
+.signal-row {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.014);
+  transition: border-color 180ms var(--ease-out-quart), background 180ms var(--ease-out-quart);
+}
+.signal-row:hover {
+  border-color: var(--border-default);
+  background: rgba(255, 255, 255, 0.028);
+}
+.signal-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
+}
+.signal-dot--critical { background: var(--danger); }
+.signal-dot--warning  { background: var(--warning); }
+.signal-dot--info     { background: var(--info); }
+.signal-dot--ok       { background: var(--success); }
+
+/* Status pill — mono uppercase state marker */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid var(--violet-ring);
+  background: var(--violet-soft);
+  color: var(--violet-200);
+}
+.status-pill--live   { border-color: var(--cyan-ring);    background: var(--cyan-soft);    color: var(--cyan-soft); }
+.status-pill--ok     { border-color: var(--success-ring); background: var(--success-soft); color: var(--success); }
+
+/* Live status dot (cyan/success) with soft ping */
+.live-chip {
+  background: var(--violet-soft);
+  border-color: var(--violet-ring);
+  color: var(--violet-200);
+}
+
+/* ================================================================
    Scrollbar (DS — subtle, dark)
    ================================================================ */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -299,12 +425,12 @@ section[id] {
 ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
 
 /* ================================================================
-   Fade-in on scroll (CSS-only, no JS)
+   Fade-in on scroll (CSS-only, JS adds .is-visible)
    ================================================================ */
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transition: opacity 600ms var(--ease-out-quart), transform 600ms var(--ease-out-quart);
 }
 html.js-ready .reveal:not(.is-visible) {
   opacity: 0;
@@ -316,9 +442,7 @@ html.js-ready .reveal.is-visible {
 }
 
 /* Subtle logo glow — restrained single drop-shadow (DS: no toy glow) */
-.logo-glow {
-  filter: drop-shadow(0 0 14px rgba(131, 93, 245, 0.22));
-}
+.logo-glow { filter: drop-shadow(0 0 12px rgba(131, 93, 245, 0.20)); }
 
 /* Focus ring (DS) */
 :focus-visible {
@@ -328,203 +452,51 @@ html.js-ready .reveal.is-visible {
 }
 
 /* ================================================================
-   ANIMATIONS FOUNDATION — CSS-only, no animation libraries
+   Motion — CSS-only, restrained
    ================================================================ */
 .ease-out-quart { transition-timing-function: var(--ease-out-quart); }
-.ease-out-expo { transition-timing-function: var(--ease-out-expo); }
-
-/* Marquee horizontal infinite */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.animate-marquee { animation: marquee 40s linear infinite; }
-.animate-marquee-slow { animation: marquee 60s linear infinite; }
-.animate-marquee:hover { animation-play-state: paused; }
-.marquee-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
+.ease-out-expo  { transition-timing-function: var(--ease-out-expo); }
 
 /* Line reveal — editorial fade-up for headlines */
 @keyframes line-reveal {
-  from { opacity: 0; transform: translateY(0.25em); filter: blur(3px); }
-  to   { opacity: 1; transform: translateY(0);      filter: blur(0); }
+  from { opacity: 0; transform: translateY(0.25em); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .line-reveal {
   display: inline-block;
   opacity: 0;
-  animation: line-reveal 0.72s var(--ease-out-quart) forwards;
+  animation: line-reveal 0.7s var(--ease-out-quart) forwards;
 }
-
-/* Stagger delays — apply to children */
-.delay-1  { animation-delay: 80ms; }
-.delay-2  { animation-delay: 160ms; }
-.delay-3  { animation-delay: 240ms; }
-.delay-4  { animation-delay: 320ms; }
-.delay-5  { animation-delay: 400ms; }
-.delay-6  { animation-delay: 480ms; }
-.delay-7  { animation-delay: 560ms; }
-.delay-8  { animation-delay: 640ms; }
-
-/* Draw SVG stroke */
-@keyframes draw-stroke {
-  to { stroke-dashoffset: 0; }
-}
-.draw-stroke {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw-stroke 1.6s var(--ease-out-quart) forwards;
-}
-
-/* Pulse ring — for online badges */
-@keyframes pulse-ring {
-  0%   { transform: scale(0.8); opacity: 0.8; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-.pulse-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Pulse soft — gentle attention */
-@keyframes pulse-soft {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.55; }
-}
-.animate-pulse-soft { animation: pulse-soft 2.2s ease-in-out infinite; }
-
-/* Float slow — for floating cards (subtle) */
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
-}
-.animate-float-slow { animation: float-slow 5s ease-in-out infinite; }
-.animate-float-slower { animation: float-slow 7s ease-in-out infinite; }
-
-/* Border spin — conic rotation (used by featured-border halo) */
-@keyframes border-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Cursor blink */
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0; }
-}
-.animate-cursor-blink { animation: cursor-blink 1s steps(1) infinite; }
-
-/* Number counter — for stats */
-@property --num {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
-}
-.counter-num {
-  counter-reset: num var(--num);
-  animation: count-up 1.6s var(--ease-out-quart) forwards;
-}
-.counter-num::after {
-  content: counter(num);
-}
-@keyframes count-up {
-  to { --num: var(--target); }
-}
-
-/* Fade-up — for staggered list rows */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Bar grow — chart bars rise from bottom */
-@keyframes bar-grow {
-  from { transform: scaleY(0); }
-  to   { transform: scaleY(1); }
-}
-
-/* Marquee vertical */
-@keyframes marquee-vertical {
-  0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-.animate-marquee-vertical { animation: marquee-vertical 18s linear infinite; }
 
 /* Hover scale utilities */
-.hover-scale { transition: transform 300ms var(--ease-out-quart); }
-.hover-scale:hover { transform: scale(1.02); }
+.hover-scale { transition: transform 260ms var(--ease-out-quart); }
+.hover-scale:hover { transform: translateY(-1px); }
 
 /* Text wrapping helpers */
 .text-balance { text-wrap: balance; }
 .text-pretty  { text-wrap: pretty; }
 
-/* Subtle glass — navbar only, solid-leaning DS ink */
+/* Subtle glass — navbar only, solid-leaning DS ink (the one exception) */
 .glass-subtle {
-  background: rgba(10, 10, 17, 0.72);
+  background: rgba(10, 10, 17, 0.78);
   backdrop-filter: blur(12px) saturate(140%);
   -webkit-backdrop-filter: blur(12px) saturate(140%);
 }
 
-/* Section divider line — DS violet */
-.divider-glow {
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(131, 93, 245, 0.4) 50%,
-    transparent 100%);
-}
-
-/* Card row hover — DS violet */
-.row-hover {
-  transition: background 200ms var(--ease-out-quart),
-              transform 200ms var(--ease-out-quart),
-              border-color 200ms var(--ease-out-quart);
-}
-.row-hover:hover {
-  background: rgba(131, 93, 245, 0.08);
-  transform: translateX(3px);
-  border-color: rgba(131, 93, 245, 0.2);
-}
-
-/* Avatar gradient backgrounds — DS palette */
-.avatar-grad-1 { background: linear-gradient(135deg, var(--violet-400), var(--violet-600)); }
-.avatar-grad-2 { background: linear-gradient(135deg, var(--gold-300), var(--gold-600)); }
-.avatar-grad-3 { background: linear-gradient(135deg, var(--info), var(--violet-600)); }
-.avatar-grad-4 { background: linear-gradient(135deg, var(--success), var(--violet-700)); }
-.avatar-grad-5 { background: linear-gradient(135deg, var(--rose), var(--violet-600)); }
-.avatar-grad-6 { background: linear-gradient(135deg, var(--violet-300), var(--violet-700)); }
-
 /* ================================================================
-   Hero / product ecosystem — life & motion (DS-tuned)
+   Product showcase frame — operational control panel.
+   Solid inset surface, hairline border, restrained violet edge.
+   No screen-breathe motion, no mac-window chrome cliché.
    ================================================================ */
-@keyframes aurora-drift {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.72; }
-  50% { transform: translate3d(2%, -3%, 0) rotate(5deg); opacity: 1; }
+.product-frame {
+  background: var(--ink-well);
+  box-shadow: var(--shadow-xl), 0 18px 60px -42px rgba(131, 93, 245, 0.45), var(--inset-top);
 }
-@keyframes orbit-dot {
-  from { transform: rotate(0deg) translateX(54px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(54px) rotate(-360deg); }
-}
-@keyframes lock-spin { to { transform: rotate(360deg); } }
-@keyframes card-glow-sweep {
-  0% { background-position: 140% 50%; }
-  100% { background-position: -40% 50%; }
-}
-@keyframes screen-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-4px) scale(1.006); }
-}
-@keyframes rail-pulse {
-  0%, 100% { opacity: 0.55; transform: scaleX(0.88); }
-  50% { opacity: 1; transform: scaleX(1); }
-}
+/* Auto-advance indicator on the active product tab */
 @keyframes tab-progress {
   from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
+  to   { transform: scaleX(1); }
 }
-/* ProductShowcase: auto-advance indicator on the active tab */
 .tab-progress {
   position: absolute;
   left: 0; bottom: 0;
@@ -532,190 +504,8 @@ html.js-ready .reveal.is-visible {
   transform-origin: left;
   transform: scaleX(0);
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--violet-300), var(--violet-600));
+  background: linear-gradient(90deg, var(--violet-400), var(--violet-600));
   animation: tab-progress linear forwards;
-}
-
-/* Hero ambient — violet-dominant with one faint gold accent (DS:
-   one dominant accent per surface, no rainbow, no toy particles). */
-.aurora-field {
-  position: absolute;
-  inset: -18% -8% auto -8%;
-  height: 58rem;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 30% 26%, rgba(131, 93, 245, 0.26), transparent 34%),
-    radial-gradient(circle at 70% 16%, rgba(110, 69, 230, 0.22), transparent 32%),
-    radial-gradient(circle at 82% 60%, rgba(232, 178, 60, 0.07), transparent 26%);
-  filter: blur(34px) saturate(115%);
-  animation: aurora-drift 16s ease-in-out infinite;
-}
-.noise-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(circle at 50% 12%, black, transparent 70%);
-}
-.hero-title-accent {
-  color: transparent;
-  background: linear-gradient(100deg, var(--violet-200) 0%, var(--violet-400) 48%, var(--violet-600) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders */
-  padding-bottom: 0.18em;
-}
-.product-frame {
-  animation: screen-breathe 7s ease-in-out infinite;
-  box-shadow:
-    var(--shadow-xl),
-    0 18px 60px -42px rgba(131, 93, 245, 0.5),
-    var(--inset-top);
-}
-.product-frame::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(180, 136, 255, 0.5), rgba(131, 93, 245, 0.32), rgba(232, 178, 60, 0.22));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-.live-chip {
-  background: var(--violet-soft);
-  border-color: var(--violet-ring);
-  color: var(--violet-200);
-}
-.ecosystem-card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-  border: 1px solid var(--border-default);
-  box-shadow: var(--inset-top), 0 22px 70px -46px rgba(0,0,0,0.8);
-  transition: transform 420ms var(--ease-out-quart), border-color 420ms var(--ease-out-quart), background 420ms var(--ease-out-quart);
-}
-.ecosystem-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,0.10) 45%, transparent 70%);
-  background-size: 240% 100%;
-  opacity: 0;
-  pointer-events: none;
-}
-.ecosystem-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-accent);
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
-}
-.ecosystem-card:hover::after { opacity: 1; animation: card-glow-sweep 1.2s var(--ease-out-quart); }
-.product-orbit-dot { animation: orbit-dot 9s linear infinite; transform-origin: center; }
-.product-rail-active { animation: rail-pulse 2.8s ease-in-out infinite; transform-origin: center; }
-
-.bento-card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-2xl);
-  transition: transform 400ms var(--ease-out-quart),
-              border-color 300ms var(--ease-out-quart),
-              background 300ms var(--ease-out-quart);
-}
-.bento-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(131,93,245,0.12) 40%, rgba(110,69,230,0.12) 60%, transparent 100%);
-  background-size: 300% 300%;
-  background-position: 100% 100%;
-  opacity: 0;
-  transition: opacity 400ms var(--ease-out-quart),
-              background-position 600ms var(--ease-out-quart);
-  z-index: -1;
-  pointer-events: none;
-}
-.bento-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--border-accent);
-  background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-}
-.bento-card:hover::after {
-  opacity: 1;
-  background-position: 0% 0%;
-}
-.bento-card .reveal-on-hover {
-  opacity: 0.72;
-  transform: translateY(2px);
-  transition: opacity 400ms var(--ease-out-quart),
-              transform 400ms var(--ease-out-quart);
-}
-@media (hover: hover) {
-  .bento-card .reveal-on-hover { opacity: 0.18; transform: translateY(8px); }
-  .bento-card:hover .reveal-on-hover { opacity: 1; transform: translateY(0); }
-}
-
-/* Featured pricing card — static DS violet ring + restrained glow
-   (replaces the spinning rainbow conic border). */
-.featured-border {
-  position: relative;
-  isolation: isolate;
-  border: 1px solid var(--violet-ring);
-  background: var(--ink-card);
-  box-shadow: var(--shadow-lg), var(--glow-soft);
-}
-.featured-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(60% 60% at 50% 0%, rgba(131, 93, 245, 0.14), transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ================================================================
-   Global animated background (AnimatedBackground.tsx)
-   Restrained violet ambient blobs (translate-only, GPU). No particles.
-   ================================================================ */
-.bg-field {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  overflow: hidden;
-  pointer-events: none;
-  contain: layout paint;
-}
-.bg-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(104px);
-  opacity: 0.18;
-  will-change: transform;
-  animation: bg-morph 22s ease-in-out infinite;
-}
-.bg-blob--1 { width: 620px; height: 620px; top: -16%; left: -10%;
-  background: radial-gradient(circle, var(--violet-600), transparent 62%); }
-.bg-blob--2 { width: 540px; height: 540px; top: 30%; right: -12%;
-  background: radial-gradient(circle, var(--violet-400), transparent 62%); animation-delay: -6s; }
-.bg-blob--3 { width: 500px; height: 500px; bottom: -14%; left: 16%;
-  background: radial-gradient(circle, var(--violet-500), transparent 62%); animation-delay: -12s; }
-.bg-blob--4 { width: 440px; height: 440px; top: 66%; right: 22%;
-  background: radial-gradient(circle, var(--violet-900), transparent 62%); opacity: 0.14; animation-delay: -3s; }
-@keyframes bg-morph {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  25% { transform: translate3d(70px, -52px, 0); }
-  50% { transform: translate3d(-54px, 60px, 0); }
-  75% { transform: translate3d(44px, 36px, 0); }
 }
 
 /* ================================================================
@@ -724,7 +514,7 @@ html.js-ready .reveal.is-visible {
 .scroll-progress {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   z-index: 60;
   background: rgba(255, 255, 255, 0.04);
   pointer-events: none;
@@ -734,32 +524,10 @@ html.js-ready .reveal.is-visible {
   transform-origin: left;
   transform: scaleX(0);
   background: linear-gradient(90deg, var(--violet-300), var(--violet-600));
-  box-shadow: 0 0 8px rgba(131, 93, 245, 0.45);
 }
-
-/* ================================================================
-   Mouse-follow glow on cards (CardGlow.tsx) — DS violet
-   ================================================================ */
-.ecosystem-card::before,
-.bento-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(131, 93, 245, 0.16), transparent 42%);
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  pointer-events: none;
-}
-.ecosystem-card:hover::before,
-.bento-card:hover::before { opacity: 1; }
 
 @media (max-width: 767px) {
-  .aurora-field { height: 42rem; filter: blur(26px); }
-  .product-frame { animation: none; }
-  .bg-blob { filter: blur(80px); opacity: 0.13; }
-  .bg-blob--4 { display: none; }
+  .bg-field::before { background-size: 48px 48px; }
 }
 
 /* Respect prefers-reduced-motion */
