@@ -10,6 +10,7 @@ type Module = {
   title: string;
   desc: string;
   result: string;
+  accent: string;
   icon: ReactNode;
 };
 
@@ -19,6 +20,7 @@ const MODULES: Module[] = [
     title: "Agenda",
     desc: "Turnos, reservas y recordatorios en una grilla viva.",
     result: "Recordatorios automáticos · menos ausencias",
+    accent: "accent-cyan",
     icon: <IconCalendar />,
   },
   {
@@ -26,6 +28,7 @@ const MODULES: Module[] = [
     title: "Cobros",
     desc: "Cuotas, links de pago y el estado de cada cobro.",
     result: "Vencimientos al día · sin planillas",
+    accent: "accent-emerald",
     icon: <IconMoney />,
   },
   {
@@ -33,6 +36,7 @@ const MODULES: Module[] = [
     title: "Clientes",
     desc: "Ficha, historial y seguimiento de cada cliente.",
     result: "Una ficha por cliente · todo el historial",
+    accent: "accent-violet",
     icon: <IconUsers />,
   },
   {
@@ -40,6 +44,7 @@ const MODULES: Module[] = [
     title: "Automatización",
     desc: "WhatsApp que confirma, responde y avisa, 24/7.",
     result: "Confirmaciones y respuestas automáticas",
+    accent: "accent-gold",
     icon: <IconChat />,
   },
   {
@@ -47,6 +52,7 @@ const MODULES: Module[] = [
     title: "Tablero",
     desc: "Ingresos, asistencia y bajas, en tiempo real.",
     result: "El estado del negocio de un vistazo",
+    accent: "accent-rose",
     icon: <IconChart />,
   },
   {
@@ -54,6 +60,7 @@ const MODULES: Module[] = [
     title: "App móvil",
     desc: "Tu equipo y tus clientes, en iOS y Android.",
     result: "Operás desde el celular",
+    accent: "accent-violet",
     icon: <IconPhone />,
   },
 ];
@@ -77,11 +84,14 @@ export function Features() {
           {MODULES.map((m, i) => (
             <article
               key={m.title}
-              className="ops-card reveal flex flex-col p-6"
+              className={`ops-card card-accent ${m.accent} reveal flex flex-col p-6`}
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <div className="flex items-center justify-between">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-violet-300">
+                <span
+                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border"
+                  style={{ borderColor: "var(--accent-ring)", background: "var(--accent-soft)", color: "var(--accent)" }}
+                >
                   {m.icon}
                 </span>
                 <span className="mono-tag text-slate-600">Módulo {m.idx}</span>
@@ -93,7 +103,7 @@ export function Features() {
                 {m.desc}
               </p>
               <div className="mt-5 flex items-center gap-2 border-t border-white/[0.06] pt-4">
-                <span className="signal-dot signal-dot--ok" aria-hidden />
+                <span className="h-1.5 w-1.5 rounded-full dot-pulse" style={{ background: "var(--accent)" }} aria-hidden />
                 <span className="font-mono text-[10.5px] uppercase tracking-[0.08em] text-slate-500">
                   {m.result}
                 </span>

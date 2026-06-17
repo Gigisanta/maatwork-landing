@@ -10,7 +10,9 @@ export function FinalCTA() {
   return (
     <section id="contacto" className="section-base section-pad">
       <div className="mx-auto max-w-[1000px] px-5 md:px-8">
-        <div className="ops-card relative overflow-hidden p-10 text-center md:p-16">
+        <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-16">
+          {/* Cinematic color wash — drifting violet/gold/cyan aurora behind copy */}
+          <div className="panel-aurora" aria-hidden />
           {/* Engraved Maat motif — sun disk watermark, one per surface (DS) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -22,7 +24,7 @@ export function FinalCTA() {
 
           <div className="relative">
             <div className="seal-rule mx-auto mb-7 max-w-[220px]" aria-hidden>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold-300">Maat</span>
+              <span className="gold-shimmer font-mono text-[10px] uppercase tracking-[0.16em]">Maat</span>
             </div>
 
             <h2

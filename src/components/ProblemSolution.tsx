@@ -58,7 +58,7 @@ export function ProblemSolution() {
             {SIGNALS.map((s, i) => (
               <li key={s.title} className="reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                 <div className="signal-row">
-                  <span className={`signal-dot signal-dot--${s.sev}`} aria-hidden />
+                  <span className={`signal-dot signal-dot--${s.sev} dot-pulse`} aria-hidden />
                   <div className="min-w-0 flex-1">
                     <p className="text-[15px] font-semibold text-white">{s.title}</p>
                     <p className="mt-0.5 truncate text-[13.5px] text-slate-400">{s.detail}</p>
@@ -72,9 +72,9 @@ export function ProblemSolution() {
           </ul>
 
           {/* Resolved state */}
-          <div className="reveal ops-card p-7 md:p-8" style={{ transitionDelay: "120ms" }}>
+          <div className="reveal ops-card card-accent accent-emerald p-7 md:p-8" style={{ transitionDelay: "120ms" }}>
             <span className="status-pill status-pill--ok">
-              <span className="h-1.5 w-1.5 rounded-full bg-success" />
+              <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
               Resuelto
             </span>
             <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">

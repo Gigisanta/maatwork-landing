@@ -39,16 +39,16 @@ export function Pricing() {
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_1fr]">
-          {/* Plan card */}
+          {/* Plan card — premium animated ring */}
           <div className="reveal">
             <div
-              className="ops-card flex h-full flex-col p-8 md:p-10"
+              className="ops-card ring-anim flex h-full flex-col p-8 md:p-10"
               style={{ borderColor: "var(--violet-ring)", boxShadow: "var(--shadow-lg), var(--glow-soft)" }}
             >
               <div className="flex items-center justify-between">
-                <span className="eyebrow">Plan único</span>
+                <span className="eyebrow gold-shimmer">Plan único</span>
                 <span className="status-pill status-pill--ok">
-                  <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                  <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
                   Todo incluido
                 </span>
               </div>
@@ -103,7 +103,7 @@ export function Pricing() {
 
           {/* Service commitments */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
-            <div className="ops-card flex h-full flex-col p-8">
+            <div className="ops-card card-accent accent-emerald flex h-full flex-col p-8">
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
                 El servicio, incluido en el plan
               </h3>

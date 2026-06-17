@@ -6,6 +6,9 @@
  */
 import { PRODUCT_HIGHLIGHTS } from "@/data/products";
 
+// Color-key each product to its showcase accent (NMS·cyan, CRM·violet, …).
+const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose"];
+
 export function ProductEcosystem() {
   return (
     <section id="ecosistema" className="section-elev2 section-pad">
@@ -26,15 +29,18 @@ export function ProductEcosystem() {
           {PRODUCT_HIGHLIGHTS.map((product, index) => (
             <article
               key={product.name}
-              className="ops-card reveal flex min-h-[420px] flex-col p-6"
+              className={`ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[420px] flex-col p-6`}
               style={{ transitionDelay: `${index * 70}ms` }}
             >
               <div className="flex items-start justify-between gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-border-accent bg-bg-base font-mono text-[13px] font-bold tracking-[0.02em] text-violet-300">
+                <span
+                  className="icon-halo flex h-11 w-11 items-center justify-center rounded-lg border bg-bg-base font-mono text-[13px] font-bold tracking-[0.02em]"
+                  style={{ borderColor: "var(--accent-ring)", color: "var(--accent)" }}
+                >
                   {product.name.slice(0, 2).toUpperCase()}
                 </span>
                 <span className="status-pill status-pill--ok">
-                  <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                  <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
                   En producción
                 </span>
               </div>
@@ -60,7 +66,11 @@ export function ProductEcosystem() {
               <div className="mt-auto pt-6">
                 <div className="flex flex-wrap gap-1.5">
                   {product.evidence.map((item) => (
-                    <span key={item} className="rounded-md border border-border-accent bg-violet-600/[0.07] px-2 py-1 font-mono text-[10px] tracking-[0.02em] text-violet-200/90">
+                    <span
+                      key={item}
+                      className="rounded-md border px-2 py-1 font-mono text-[10px] tracking-[0.02em]"
+                      style={{ borderColor: "var(--accent-ring)", background: "var(--accent-soft)", color: "var(--accent-2)" }}
+                    >
                       {item}
                     </span>
                   ))}

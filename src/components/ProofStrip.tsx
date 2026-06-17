@@ -3,11 +3,11 @@
  * Replaces the animated stat counters: static, mono-labelled, institutional.
  * No count-up gimmick — facts stated plainly. Server component.
  */
-const MARKERS: { value: string; label: string }[] = [
-  { value: "5–10 días", label: "Implementación guiada" },
-  { value: "Un sistema", label: "Agenda · Cobros · Clientes" },
-  { value: "Soporte local", label: "En español, mismo día" },
-  { value: "14 días", label: "Prueba sin tarjeta" },
+const MARKERS: { value: string; label: string; dot: string }[] = [
+  { value: "5–10 días", label: "Implementación guiada", dot: "var(--cyan)" },
+  { value: "Un sistema", label: "Agenda · Cobros · Clientes", dot: "var(--violet-400)" },
+  { value: "Soporte local", label: "En español, mismo día", dot: "var(--success)" },
+  { value: "14 días", label: "Prueba sin tarjeta", dot: "var(--gold-400)" },
 ];
 
 export function ProofStrip() {
@@ -24,6 +24,9 @@ export function ProofStrip() {
               ].join(" ")}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
+              <span className="mb-2.5 flex items-center gap-1.5">
+                <span className="dot-pulse h-1.5 w-1.5 rounded-full" style={{ background: m.dot }} aria-hidden />
+              </span>
               <span
                 className="font-display text-2xl text-white sm:text-3xl"
                 style={{ fontWeight: 700, letterSpacing: "var(--tracking-h2)" }}

@@ -40,15 +40,18 @@ export function HowItWorks() {
         </div>
 
         <div className="relative mt-14">
-          {/* static hairline connector (desktop) */}
-          <div className="pointer-events-none absolute left-[16.6%] right-[16.6%] top-[28px] hidden h-px bg-white/[0.08] md:block" aria-hidden />
+          {/* flowing connector (desktop) — a live signal moving through the steps */}
+          <div className="pointer-events-none absolute left-[16.6%] right-[16.6%] top-[28px] hidden h-px md:block flow-line" aria-hidden />
 
           <ol className="relative grid gap-4 md:grid-cols-3">
             {STEPS.map((s, i) => (
               <li key={s.n} className="reveal" style={{ transitionDelay: `${i * 90}ms` }}>
-                <div className="ops-card flex h-full flex-col p-7">
+                <div className="ops-card card-accent accent-violet flex h-full flex-col p-7">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full border border-border-accent bg-bg-base font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
+                    <span
+                      className="icon-halo flex h-14 w-14 items-center justify-center rounded-full border bg-bg-base font-display text-[20px] font-extrabold tracking-[-0.02em] text-white"
+                      style={{ borderColor: "var(--accent-ring)" }}
+                    >
                       {s.n}
                     </span>
                     <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-violet-300">

@@ -2,11 +2,16 @@ import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
 import { waLink } from "@/lib/whatsapp";
 
-const H1_LINE_1 = "Control operativo para negocios";
+const H1_LINE_1 = "Control operativo para negocios ";
 const H1_LINE_2 = "de agenda, cobros y clientes.";
 
-// Real products in production — the one proof object next to the panel.
-const IN_PRODUCTION = ["NMS", "MaatWorkCRM", "Infrannova", "Varigas"];
+// Real products in production — the proof chips, color-keyed to the showcase.
+const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
+  { name: "NMS", accent: "accent-cyan", dot: "var(--cyan)" },
+  { name: "MaatWorkCRM", accent: "accent-violet", dot: "var(--violet-400)" },
+  { name: "Infrannova", accent: "accent-gold", dot: "var(--gold-400)" },
+  { name: "Varigas", accent: "accent-rose", dot: "var(--rose)" },
+];
 
 export function Hero() {
   return (
@@ -77,9 +82,9 @@ export function Hero() {
         >
           <span className="mono-tag text-text-tertiary">En producción</span>
           {IN_PRODUCTION.map((p) => (
-            <span key={p} className="flex items-center gap-1.5 font-mono text-[11px] tracking-[0.04em] text-slate-300">
-              <span className="h-1 w-1 rounded-full bg-success" />
-              {p}
+            <span key={p.name} className={`${p.accent} flex items-center gap-1.5 font-mono text-[11px] tracking-[0.04em] text-slate-300`}>
+              <span className="dot-pulse h-1.5 w-1.5 rounded-full" style={{ background: p.dot }} />
+              {p.name}
             </span>
           ))}
         </div>

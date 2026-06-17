@@ -1,9 +1,15 @@
 /**
- * OperationalField — global background. A restrained mission-control grid on
- * solid ink with one faint violet wash at the top (all in `.bg-field`, see
- * globals.css). No drifting blobs, no particles — operational, not decorative.
- * Static, server component, decorative → aria-hidden.
+ * OperationalField — global background. A living mission-control field on solid
+ * ink: pulsing grid + drifting multi-accent aurora (violet/cyan/gold/rose) + a
+ * slow vertical scan beam (all in `.bg-field` & layer classes, see globals.css).
+ * Static, server component, decorative → aria-hidden. All motion is paused by
+ * the prefers-reduced-motion block in globals.css.
  */
 export function OperationalField() {
-  return <div className="bg-field" aria-hidden="true" />;
+  return (
+    <div className="bg-field" aria-hidden="true">
+      <div className="field-aurora" />
+      <div className="field-scan" />
+    </div>
+  );
 }
