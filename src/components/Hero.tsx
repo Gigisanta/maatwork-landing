@@ -15,7 +15,8 @@ const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
 
 export function Hero() {
   return (
-    <section id="top" className="section-base relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20">
+    <section id="top" className="section-base section-chroma relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20">
+      <div className="hero-halo" aria-hidden />
       <div className="container-maat relative z-10">
         {/* Mission briefing eyebrow */}
         <div className="mb-6 flex justify-center">

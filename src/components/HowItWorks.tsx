@@ -26,7 +26,7 @@ const STEPS = [
 
 export function HowItWorks() {
   return (
-    <section id="implementacion" className="section-base section-pad">
+    <section id="implementacion" className="section-base section-chroma section-pad">
       <div className="container-maat">
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Implementación</span>

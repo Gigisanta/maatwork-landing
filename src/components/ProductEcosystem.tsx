@@ -11,7 +11,7 @@ const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose"];
 
 export function ProductEcosystem() {
   return (
-    <section id="ecosistema" className="section-elev2 section-pad">
+    <section id="ecosistema" className="section-elev2 section-chroma section-pad">
       <div className="container-maat">
         <div className="mx-auto max-w-3xl text-center reveal">
           <span className="eyebrow">Ecosistema operativo</span>

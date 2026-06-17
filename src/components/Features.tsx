@@ -67,7 +67,7 @@ const MODULES: Module[] = [
 
 export function Features() {
   return (
-    <section id="producto" className="section-elev1 section-pad border-y border-white/[0.06]">
+    <section id="producto" className="section-elev1 section-chroma section-pad border-y border-white/[0.06]">
       <div className="container-maat">
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Producto</span>

@@ -39,7 +39,7 @@ const SIGNALS: Signal[] = [
 
 export function ProblemSolution() {
   return (
-    <section id="operacion" className="section-base section-pad">
+    <section id="operacion" className="section-base section-chroma section-pad">
       <div className="container-maat">
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Diagnóstico</span>

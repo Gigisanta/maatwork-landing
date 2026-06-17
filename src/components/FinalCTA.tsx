@@ -8,7 +8,7 @@ import { LeadForm } from "./LeadForm";
 
 export function FinalCTA() {
   return (
-    <section id="contacto" className="section-base section-pad">
+    <section id="contacto" className="section-base section-chroma section-pad">
       <div className="mx-auto max-w-[1000px] px-5 md:px-8">
         <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-16">
           {/* Cinematic color wash — drifting violet/gold/cyan aurora behind copy */}

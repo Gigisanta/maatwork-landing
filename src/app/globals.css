@@ -190,7 +190,9 @@ section[id] { scroll-margin-top: 5.5rem; }
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(120% 82% at 50% -12%, rgba(131, 93, 245, 0.16), transparent 60%),
+    radial-gradient(120% 84% at 50% -14%, rgba(131, 93, 245, 0.34), transparent 60%),
+    radial-gradient(90% 70% at 88% 8%, rgba(45, 212, 238, 0.14), transparent 58%),
+    radial-gradient(96% 72% at 12% 100%, rgba(232, 178, 60, 0.12), transparent 60%),
     var(--ink-base);
 }
 .bg-field::before {
@@ -198,26 +200,94 @@ section[id] { scroll-margin-top: 5.5rem; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(157, 123, 255, 0.030) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(157, 123, 255, 0.030) 1px, transparent 1px);
+    linear-gradient(rgba(157, 123, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 123, 255, 0.055) 1px, transparent 1px);
   background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(120% 92% at 50% 0%, #000 0%, transparent 74%);
-          mask-image: radial-gradient(120% 92% at 50% 0%, #000 0%, transparent 74%);
+  -webkit-mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
+          mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
   animation: grid-pulse 7.5s ease-in-out infinite;
 }
-/* Drifting aurora — violet · cyan · gold · rose, all DS-soft */
+
+/* Slow conic prism mesh — the room's living color bath (violet→cyan→gold→rose) */
+.field-prism {
+  position: absolute;
+  inset: -30%;
+  background:
+    conic-gradient(from 110deg at 32% 34%,
+      rgba(131, 93, 245, 0.30),
+      rgba(45, 212, 238, 0.16),
+      rgba(232, 178, 60, 0.16),
+      rgba(251, 113, 133, 0.14),
+      rgba(157, 123, 255, 0.24),
+      rgba(131, 93, 245, 0.30));
+  filter: blur(64px) saturate(130%);
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  animation: prism-spin 52s linear infinite;
+  will-change: transform;
+}
+
+/* Drifting color orbits — big, saturated MaatWork blobs, blended to ink */
+.field-orbit {
+  position: absolute;
+  width: 52vw;
+  height: 52vw;
+  border-radius: 50%;
+  filter: blur(72px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.field-orbit--violet {
+  top: -10%;
+  left: 2%;
+  background: radial-gradient(circle, rgba(131, 93, 245, 0.46), transparent 68%);
+  animation: orbit-violet 36s ease-in-out infinite;
+}
+.field-orbit--gold {
+  bottom: -14%;
+  right: 4%;
+  background: radial-gradient(circle, rgba(232, 178, 60, 0.32), transparent 68%);
+  animation: orbit-gold 44s ease-in-out infinite;
+}
+.field-orbit--cyan {
+  top: 26%;
+  right: 20%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(45, 212, 238, 0.34), transparent 68%);
+  animation: orbit-cyan 40s ease-in-out infinite;
+}
+
+/* Drifting aurora — violet · cyan · gold · rose, now clearly readable */
 .field-aurora {
   position: absolute;
   inset: -25%;
   background:
-    radial-gradient(38% 46% at 20% 16%, rgba(131, 93, 245, 0.22), transparent 62%),
-    radial-gradient(34% 42% at 82% 10%, rgba(45, 212, 238, 0.14), transparent 60%),
-    radial-gradient(42% 52% at 74% 86%, rgba(232, 178, 60, 0.12), transparent 64%),
-    radial-gradient(32% 40% at 10% 84%, rgba(251, 113, 133, 0.10), transparent 60%);
+    radial-gradient(38% 46% at 20% 16%, rgba(131, 93, 245, 0.34), transparent 62%),
+    radial-gradient(34% 42% at 82% 10%, rgba(45, 212, 238, 0.24), transparent 60%),
+    radial-gradient(42% 52% at 74% 86%, rgba(232, 178, 60, 0.22), transparent 64%),
+    radial-gradient(32% 40% at 10% 84%, rgba(251, 113, 133, 0.18), transparent 60%);
   filter: blur(22px);
+  mix-blend-mode: screen;
   animation: aurora-drift 32s ease-in-out infinite;
   will-change: transform;
 }
+
+/* Diagonal light beam — a slow sweeping rail across the field */
+.field-beam {
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: 18%;
+  width: 42vw;
+  background: linear-gradient(100deg, transparent 30%, rgba(157, 123, 255, 0.12) 47%, rgba(45, 212, 238, 0.09) 53%, transparent 70%);
+  transform: rotate(13deg);
+  filter: blur(16px);
+  mix-blend-mode: screen;
+  animation: beam-drift 28s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Slow vertical scan beam — the room is "live" */
 .field-scan {
   position: absolute;
@@ -225,8 +295,9 @@ section[id] { scroll-margin-top: 5.5rem; }
   right: -10%;
   top: 0;
   height: 34vh;
-  background: linear-gradient(180deg, transparent, rgba(157, 123, 255, 0.055) 45%, rgba(45, 212, 238, 0.04) 62%, transparent);
+  background: linear-gradient(180deg, transparent, rgba(157, 123, 255, 0.10) 45%, rgba(45, 212, 238, 0.07) 62%, transparent);
   filter: blur(4px);
+  mix-blend-mode: screen;
   animation: field-scan 19s linear infinite;
 }
 
@@ -235,13 +306,32 @@ section[id] { scroll-margin-top: 5.5rem; }
    Bases keep faint translucency so .bg-field reads behind.
    ================================================================ */
 .section-base {
-  background: rgba(10, 10, 17, 0.62);
+  background: rgba(10, 10, 17, 0.34);
 }
 .section-elev1 {
-  background: linear-gradient(180deg, rgba(15, 15, 24, 0.90), rgba(10, 10, 17, 0.94));
+  background: linear-gradient(180deg, rgba(15, 15, 24, 0.66), rgba(10, 10, 17, 0.60));
 }
 .section-elev2 {
-  background: linear-gradient(180deg, rgba(15, 15, 24, 0.90) 0%, rgba(21, 21, 31, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(15, 15, 24, 0.62) 0%, rgba(21, 21, 31, 0.68) 100%);
+}
+
+/* Per-section color wash — animated chroma band bleeding from the seam.
+   Cheap (one pseudo-element gradient), color stays under reduced motion. */
+.section-chroma { position: relative; isolation: isolate; }
+.section-chroma::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 46%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(131, 93, 245, 0.16) 0%,
+    rgba(45, 212, 238, 0.06) 40%,
+    transparent 100%);
+  mix-blend-mode: screen;
+  animation: chroma-shift 18s ease-in-out infinite;
 }
 
 /* ================================================================
@@ -573,6 +663,54 @@ html.js-ready .reveal.is-visible {
   88%  { opacity: 0.9; }
   100% { transform: translateY(170vh); opacity: 0; }
 }
+@keyframes prism-spin {
+  0%   { transform: rotate(0deg)   scale(1.12); }
+  100% { transform: rotate(360deg) scale(1.12); }
+}
+@keyframes orbit-violet {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(14vw, 8vh, 0); }
+}
+@keyframes orbit-gold {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(-12vw, -10vh, 0); }
+}
+@keyframes orbit-cyan {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(-10vw, 12vh, 0); }
+}
+@keyframes beam-drift {
+  0%, 100% { transform: rotate(13deg) translateX(-12vw); opacity: 0.7; }
+  50%      { transform: rotate(13deg) translateX(28vw);  opacity: 1; }
+}
+@keyframes chroma-shift {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+@keyframes halo-breathe {
+  0%, 100% { transform: translateX(-50%) scale(1);    opacity: 0.85; }
+  50%      { transform: translateX(-50%) scale(1.08); opacity: 1; }
+}
+
+/* Hero halo — colored glow behind the proof object / first viewport */
+.hero-halo {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 86vw;
+  max-width: 940px;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle,
+    rgba(131, 93, 245, 0.24) 0%,
+    rgba(45, 212, 238, 0.08) 38%,
+    rgba(232, 178, 60, 0.05) 56%,
+    transparent 68%);
+  filter: blur(42px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: halo-breathe 9s ease-in-out infinite;
+}
 
 /* ---- Accent palette — one ruleset, many colors (CSS-var driven) - */
 .accent-violet  { --accent: var(--violet-500); --accent-2: var(--violet-300); --accent-soft: var(--violet-soft);     --accent-ring: var(--violet-ring); }
@@ -735,8 +873,12 @@ html.js-ready .reveal.is-visible {
 
 @media (max-width: 767px) {
   .bg-field::before { background-size: 48px 48px; }
-  /* Trim the heaviest blur layers on mobile for paint cost */
+  /* Trim the heaviest blur layers on mobile for paint cost (colors stay) */
   .field-aurora { filter: blur(16px); }
+  .field-prism  { filter: blur(44px) saturate(130%); opacity: 0.6; }
+  .field-orbit  { filter: blur(48px); }
+  .field-beam   { display: none; }
+  .hero-halo    { filter: blur(34px); }
 }
 
 /* Respect prefers-reduced-motion */
