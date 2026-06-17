@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Pyramid">
+  <defs><linearGradient id="m-pyr" x1="24" y1="6" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient></defs>
+  <path d="M19 17 L8.5 41 L39.5 41 L29 17 Z" fill="none" stroke="url(#m-pyr)" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M14.5 28 L33.5 28" stroke="#E8B23C" stroke-opacity="0.4" stroke-width="0.9"/>
+  <path d="M11 35 L37 35" stroke="#E8B23C" stroke-opacity="0.4" stroke-width="0.9"/>
+  <path d="M8.5 41 L39.5 41" stroke="#E8B23C" stroke-opacity="0.55" stroke-width="1" stroke-linecap="round"/>
+  <path d="M24 6.5 L29.4 15 L18.6 15 Z" fill="#A988FF" stroke="#CDBCFF" stroke-width="1" stroke-linejoin="round"/>
+</svg>

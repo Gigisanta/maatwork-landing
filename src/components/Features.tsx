@@ -107,7 +107,7 @@ const FEATURES: Feature[] = [
                 style={{
                   height: `${heights[i]}%`,
                   minHeight: 8,
-                  background: i === 5 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(124, 58, 237, 0.25)",
+                  background: i === 5 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(131, 93, 245, 0.25)",
                   animation: `bar-grow 0.6s var(--ease-out-quart) ${i * 60}ms both`,
                   transformOrigin: "bottom",
                 }}
@@ -158,7 +158,7 @@ const FEATURES: Feature[] = [
             style={{
               height: `${h}%`,
               minHeight: 4,
-              background: i === 9 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(124, 58, 237, 0.25)",
+              background: i === 9 ? "linear-gradient(180deg, var(--color-purple-500), var(--color-purple-600))" : "rgba(131, 93, 245, 0.25)",
               animation: `bar-grow 0.5s var(--ease-out-quart) ${i * 40}ms both`,
               transformOrigin: "bottom",
             }}

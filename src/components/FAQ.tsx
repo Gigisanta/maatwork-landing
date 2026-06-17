@@ -56,7 +56,7 @@ export function FAQ() {
                 className={[
                   "rounded-xl border transition-all duration-300 ease-out-quart",
                   isOpen
-                    ? "bg-white/[0.04] border-purple-600/30 shadow-[0_0_20px_-10px_rgba(124,58,237,0.4)]"
+                    ? "bg-white/[0.04] border-purple-600/30 shadow-[0_0_20px_-10px_rgba(131,93,245,0.4)]"
                     : "bg-white/[0.02] border-white/[0.06] hover:border-white/[0.15]",
                 ].join(" ")}
               >

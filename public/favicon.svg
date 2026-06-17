@@ -1,15 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MaatWork">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0f0520"/>
-      <stop offset="1" stop-color="#2d1065"/>
-    </linearGradient>
-    <linearGradient id="m" x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#d4b8ff"/>
+    <radialGradient id="fv-bg" cx="50%" cy="28%" r="88%">
+      <stop offset="0" stop-color="#17121F"/><stop offset="1" stop-color="#09090F"/>
+    </radialGradient>
+    <linearGradient id="fv-pyr" x1="40" y1="31" x2="40" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8DC8C"/><stop offset="1" stop-color="#C58F23"/>
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="12" fill="url(#bg)"/>
-  <path d="M12 14 L18 14 L24 26 L30 14 L36 14 L36 34 L31 34 L31 22 L25.5 32 L22.5 32 L17 22 L17 34 L12 34 Z" fill="url(#m)"/>
-  <circle cx="36" cy="34" r="3" fill="#a855f7"/>
+  <rect width="80" height="80" rx="20" fill="url(#fv-bg)"/>
+  <circle cx="40" cy="41" r="24" fill="none" stroke="#E8B23C" stroke-width="2.4"/>
+  <!-- radiant sun -->
+  <circle cx="40" cy="14.5" r="2.6" fill="#F8DC8C"/>
+  <g stroke="#F2CE6A" stroke-width="1.1" stroke-linecap="round">
+    <path d="M40 10.4 L40 8.2"/><path d="M44.3 11.1 L45.8 9.4"/><path d="M35.7 11.1 L34.2 9.4"/>
+  </g>
+  <!-- solid truncated pyramid -->
+  <path d="M36 33 L26 52 L54 52 L44 33 Z" fill="url(#fv-pyr)"/>
+  <!-- eye cutout + violet pupil -->
+  <path d="M34.4 42 Q40 38.4 45.6 42 Q40 45.6 34.4 42 Z" fill="#120C1F"/>
+  <circle cx="40" cy="42" r="1.7" fill="#9D7BFF"/>
+  <!-- soft violet capstone -->
+  <path d="M40 24.4 L44.7 32 L35.3 32 Z" fill="#A988FF" stroke="#CDBCFF" stroke-width="1.1" stroke-linejoin="round"/>
 </svg>

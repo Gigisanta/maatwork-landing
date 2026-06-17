@@ -15,7 +15,7 @@ export function FinalCTA() {
           className="relative rounded-3xl overflow-hidden border border-purple-600/30 p-10 md:p-16 text-center"
           style={{
             background:
-              "linear-gradient(180deg, rgba(124,58,237,0.12) 0%, rgba(45,16,101,0.55) 100%)",
+              "linear-gradient(180deg, rgba(131,93,245,0.12) 0%, rgba(36,12,84,0.55) 100%)",
           }}
         >
           {/* Subtle radial top */}
@@ -24,8 +24,16 @@ export function FinalCTA() {
             className="absolute inset-0 opacity-50 pointer-events-none"
             style={{
               background:
-                "radial-gradient(50% 50% at 50% 0%, rgba(168,85,247,0.20) 0%, rgba(15,5,32,0) 70%)",
+                "radial-gradient(50% 50% at 50% 0%, rgba(131,93,245,0.20) 0%, rgba(10,10,17,0) 70%)",
             }}
+          />
+          {/* Engraved Maat motif — sun disk watermark (DS) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/motifs/sun-disk.svg"
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 -top-12 h-36 w-36 -translate-x-1/2 opacity-[0.10]"
           />
 
           <div className="relative">

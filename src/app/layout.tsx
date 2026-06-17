@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Sora, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -11,22 +11,31 @@ import { FAQS } from "@/data/faqs";
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
 
-const jakarta = Plus_Jakarta_Sans({
+// MaatWork Design System type stack — Sora (display) · Hanken Grotesk
+// (body) · JetBrains Mono (data/labels). Self-hosted via next/font.
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-jakarta",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sora",
   display: "swap",
 });
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-hanken",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#070a12",
+  themeColor: "#0A0A11",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -35,11 +44,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MaatWork — Software de gestión para tu negocio en Argentina",
+    default: "MaatWork — Software real para operar todo tu negocio",
     template: "%s · MaatWork",
   },
   description:
     "Centralizá agenda, cobros, clientes y WhatsApp en un solo sistema. Software de gestión para negocios con turnos en Argentina, en español. 14 días gratis, sin tarjeta.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   keywords: [
     "software de gestión",
     "sistema de turnos",
@@ -63,7 +77,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MaatWork — Software de gestión para tu negocio en Argentina",
+    title: "MaatWork — Software real para operar todo tu negocio",
     description:
       "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta. Con productos reales que ya operan.",
     images: [
@@ -77,7 +91,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaatWork — Software de gestión para tu negocio en Argentina",
+    title: "MaatWork — Software real para operar todo tu negocio",
     description:
       "Agenda, cobros, clientes y WhatsApp en un solo sistema. 14 días gratis, sin tarjeta.",
     images: ["/twitter-image.png"],
@@ -103,7 +117,7 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/favicon.svg`,
+      logo: `${SITE_URL}/logo-mark.svg`,
       description:
         "SaaS de automatización comercial para negocios con turnos en Argentina.",
       address: { "@type": "PostalAddress", addressCountry: "AR" },
@@ -142,7 +156,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es-AR" className={`${jakarta.variable} ${inter.variable}`}>
+    <html lang="es-AR" className={`${sora.variable} ${hanken.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         {/* Warm DNS for the WhatsApp CTA (primary conversion path) */}

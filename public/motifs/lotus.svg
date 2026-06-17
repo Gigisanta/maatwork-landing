@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Lotus">
+  <defs><linearGradient id="m-lot" x1="24" y1="6" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient></defs>
+  <g fill="none" stroke="url(#m-lot)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- centre petal (full teardrop) -->
+    <path d="M24 28 C 18.5 21, 18.5 12, 24 6.5 C 29.5 12, 29.5 21, 24 28 Z"/>
+    <!-- outer petals (full, leaning) -->
+    <path d="M24 28 C 16.5 25, 11.5 18, 11 11.5 C 17.5 13.5, 22 20, 24 28 Z"/>
+    <path d="M24 28 C 31.5 25, 36.5 18, 37 11.5 C 30.5 13.5, 26 20, 24 28 Z"/>
+    <!-- sepal cradle + stem -->
+    <path d="M14.5 27.5 Q 24 33.5, 33.5 27.5"/>
+    <path d="M24 29 L24 41"/>
+  </g>
+  <circle cx="24" cy="22.5" r="1.5" fill="#9D7BFF"/>
+</svg>

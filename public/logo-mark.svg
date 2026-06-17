@@ -1,0 +1,65 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MaatWork">
+  <defs>
+    <radialGradient id="mk-bg" cx="50%" cy="28%" r="88%">
+      <stop offset="0" stop-color="#17121F"/>
+      <stop offset="1" stop-color="#09090F"/>
+    </radialGradient>
+    <radialGradient id="mk-well" cx="50%" cy="46%" r="42%">
+      <stop offset="0" stop-color="#241B38"/>
+      <stop offset="1" stop-color="#241B38" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mk-ring" x1="40" y1="14" x2="40" y2="67" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8DC8C"/>
+      <stop offset="0.52" stop-color="#E8B23C"/>
+      <stop offset="1" stop-color="#A0701A"/>
+    </linearGradient>
+    <linearGradient id="mk-pyr" x1="40" y1="30" x2="40" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6D785"/>
+      <stop offset="1" stop-color="#C58F23"/>
+    </linearGradient>
+    <radialGradient id="mk-sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FFF1C8"/>
+      <stop offset="1" stop-color="#EFC65E"/>
+    </radialGradient>
+    <linearGradient id="mk-cap" x1="40" y1="24.4" x2="40" y2="31.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#CDBCFF"/>
+      <stop offset="1" stop-color="#9D7BFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="80" height="80" rx="20" fill="url(#mk-bg)"/>
+  <rect x="4.5" y="4.5" width="71" height="71" rx="15.5" fill="none" stroke="#E8B23C" stroke-opacity="0.22" stroke-width="1"/>
+  <!-- medallion well -->
+  <circle cx="40" cy="40.5" r="20.9" fill="url(#mk-well)"/>
+  <!-- coin rim + beveled ring + inner hairline -->
+  <circle cx="40" cy="40.5" r="26" fill="none" stroke="#E8B23C" stroke-opacity="0.1" stroke-width="0.7"/>
+  <circle cx="40" cy="40.5" r="24.5" fill="none" stroke="url(#mk-ring)" stroke-width="1.4"/>
+  <circle cx="40" cy="40.5" r="20.9" fill="none" stroke="#E8B23C" stroke-opacity="0.16" stroke-width="0.7"/>
+  <!-- cardinal coin marks -->
+  <circle cx="64.5" cy="40.5" r="0.8" fill="#E8B23C" fill-opacity="0.5"/>
+  <circle cx="15.5" cy="40.5" r="0.8" fill="#E8B23C" fill-opacity="0.5"/>
+  <circle cx="40" cy="65" r="0.8" fill="#E8B23C" fill-opacity="0.5"/>
+  <!-- SUN OF RA — radiant crown at 12 o'clock -->
+  <circle cx="40" cy="14.4" r="3.2" fill="none" stroke="#EFC65E" stroke-opacity="0.28" stroke-width="0.6"/>
+  <circle cx="40" cy="14.4" r="2" fill="url(#mk-sun)"/>
+  <circle cx="39.3" cy="13.7" r="0.55" fill="#FFFCF2"/>
+  <g stroke="#F2CE6A" stroke-linecap="round">
+    <path d="M40 11.9 L40 8.7" stroke-width="0.8"/>
+    <path d="M40.86 12.05 L41.44 10.2" stroke-width="0.65"/><path d="M39.14 12.05 L38.56 10.2" stroke-width="0.65"/>
+    <path d="M41.61 12.49 L43.6 10.05" stroke-width="0.8"/><path d="M38.39 12.49 L36.4 10.05" stroke-width="0.8"/>
+    <path d="M42.17 13.15 L43.74 12.2" stroke-width="0.65"/><path d="M37.83 13.15 L36.26 12.2" stroke-width="0.65"/>
+    <path d="M42.46 13.97 L45.5 13.43" stroke-width="0.8"/><path d="M37.54 13.97 L34.5 13.43" stroke-width="0.8"/>
+  </g>
+  <!-- PYRAMID — order/infrastructure -->
+  <path d="M36.5 31.3 L27 50 L53 50 L43.5 31.3 Z" fill="none" stroke="url(#mk-pyr)" stroke-width="1.7" stroke-linejoin="round"/>
+  <!-- engraved stone courses framing the eye -->
+  <path d="M35 34 L45 34" stroke="#E8B23C" stroke-opacity="0.3" stroke-width="0.6"/>
+  <path d="M29 46.5 L51 46.5" stroke="#E8B23C" stroke-opacity="0.32" stroke-width="0.65"/>
+  <path d="M28 50 L52 50" stroke="#E8B23C" stroke-opacity="0.3" stroke-width="0.8" stroke-linecap="round"/>
+  <!-- EYE OF PROVIDENCE — observability, "see everything" -->
+  <path d="M34.6 40 Q40 36.5 45.4 40 Q40 43.5 34.6 40 Z" fill="#100B1C" stroke="url(#mk-pyr)" stroke-width="1" stroke-linejoin="round"/>
+  <circle cx="40" cy="40" r="2.05" fill="none" stroke="#E8B23C" stroke-width="0.8"/>
+  <circle cx="40" cy="40" r="1.05" fill="#9D7BFF"/>
+  <circle cx="39.35" cy="39.35" r="0.4" fill="#F8DC8C"/>
+  <!-- SEPARATED CAPSTONE — soft violet accent, rounded corners -->
+  <path d="M40 25 L43.6 30.9 L36.4 30.9 Z" fill="url(#mk-cap)" stroke="#CDBCFF" stroke-width="1.3" stroke-linejoin="round" stroke-opacity="0.9"/>
+</svg>

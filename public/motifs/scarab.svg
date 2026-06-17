@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Scarab">
+  <defs><linearGradient id="m-scb" x1="24" y1="6" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient></defs>
+  <circle cx="24" cy="8" r="2.6" fill="#A988FF" stroke="#CDBCFF" stroke-width="0.9"/>
+  <g fill="none" stroke="url(#m-scb)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- segmented legs (with a knee bend) -->
+    <path d="M18 20 L11.5 16.5 L8.5 18.5"/><path d="M30 20 L36.5 16.5 L39.5 18.5"/>
+    <path d="M16.8 26 L10 25 L7.5 27.5"/><path d="M31.2 26 L38 25 L40.5 27.5"/>
+    <path d="M18 32 L12 35.5 L10 38.5"/><path d="M30 32 L36 35.5 L38 38.5"/>
+    <!-- clypeus / head -->
+    <path d="M18.5 15.2 Q 24 11, 29.5 15.2"/>
+    <!-- body (elytra) -->
+    <path d="M24 15.5 C 31 16.5, 31.4 30, 24 41 C 16.6 30, 17 16.5, 24 15.5 Z"/>
+    <!-- pronotum + central seam -->
+    <path d="M19 19.5 Q 24 17.8, 29 19.5"/>
+    <path d="M24 20 L24 39"/>
+  </g>
+</svg>

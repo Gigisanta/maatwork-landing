@@ -24,7 +24,7 @@ const SCREENS: Screen[] = [
     name: "NMS",
     path: "nms",
     role: "Recepción · Natatorio",
-    dot: "bg-emerald-400",
+    dot: "bg-cyan-300",
     kpis: [
       { label: "Socios activos", value: "312", delta: "+9 esta semana" },
       { label: "Cuotas al día", value: "87%", delta: "+4 pp" },
@@ -40,7 +40,7 @@ const SCREENS: Screen[] = [
     name: "MaatWorkCRM",
     path: "maatworkcrm",
     role: "Pipeline comercial",
-    dot: "bg-sky-400",
+    dot: "bg-violet-400",
     kpis: [
       { label: "Deals abiertos", value: "24", delta: "+3 vs mes ant." },
       { label: "Tareas hoy", value: "8" },
@@ -56,7 +56,7 @@ const SCREENS: Screen[] = [
     name: "Infrannova",
     path: "infrannova",
     role: "Dashboard de obras",
-    dot: "bg-amber-400",
+    dot: "bg-gold-400",
     kpis: [
       { label: "Obras activas", value: "12", delta: "+2 vs mes ant." },
       { label: "Avance promedio", value: "68%", delta: "+4,2 pp" },
@@ -136,7 +136,7 @@ export function ProductShowcase() {
       </div>
 
       {/* stacked product screens (crossfade) */}
-      <div className="relative h-[284px] w-full overflow-hidden bg-[#0a0e1a] sm:h-[340px]">
+      <div className="relative h-[284px] w-full overflow-hidden bg-[#0A0A11] sm:h-[340px]">
         {SCREENS.map((s, idx) => (
           <div
             key={s.name}

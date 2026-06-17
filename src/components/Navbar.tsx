@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { waLink } from "@/lib/whatsapp";
+import { Logo } from "./Logo";
 
 const links = [
   { href: "#productos", label: "Productos" },
@@ -94,9 +95,7 @@ export function Navbar() {
     >
       <nav className="container-maat flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
-          <span className="font-display text-xl font-extrabold tracking-h3 text-white">
-            Maat<span className="text-purple-300">Work</span>
-          </span>
+          <Logo size={30} />
         </a>
 
         <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">

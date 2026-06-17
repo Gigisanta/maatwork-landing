@@ -1,0 +1,192 @@
+/* ================================================================
+   MaatWork Design System — local foundation (canonical tokens)
+   Mirrors the centralized DS at MaatWork/MaatWork Design System.
+   This file holds the DS *named* semantic tokens that components &
+   bespoke CSS reference via var(--…): ink ladder, violet + gold
+   scales, text, borders, radius, elevation, motion.
+
+   Tailwind utility tokens (--color-*, --font-*, --text-*, --tracking-*)
+   live in globals.css `@theme` so they also generate utilities. Values
+   here are kept in lock-step with that block.
+   Dark editorial · electric violet (order/agency) + pharaonic gold
+   (Maat / truth / premium). One dominant accent per surface. Solid
+   surfaces over blur. No rainbow gradients, no toy glow.
+   ================================================================ */
+
+:root {
+  /* ---- Ink surfaces — graphite w/ faint violet undertone --------- */
+  --ink-base:    #0A0A11;
+  --ink-surface: #0F0F18;
+  --ink-card:    #15151F;
+  --ink-elev:    #1C1C27;
+  --ink-raised:  #262633;
+  --ink-line:    #343444;
+  --ink-well:    #070709;
+
+  --surface-1:       var(--ink-surface);
+  --surface-2:       var(--ink-elev);
+  --surface-card:    var(--ink-card);
+  --surface-popover: var(--ink-elev);
+  --surface-inset:   var(--ink-well);
+
+  /* ---- Hairlines & borders -------------------------------------- */
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.16);
+  --border-accent:  rgba(140, 94, 246, 0.34);
+  --border-gold:    rgba(232, 178, 60, 0.34);
+  --border-focus:   rgba(132, 94, 246, 0.65);
+
+  /* ---- Electric violet scale (primary — order / agency) --------- */
+  --violet-50:  #F4EEFF;
+  --violet-100: #E8DBFF;
+  --violet-200: #CFB4FF;
+  --violet-300: #B488FF;
+  --violet-400: #9D7BFF;
+  --violet-500: #8E69FA;
+  --violet-600: #835DF5;
+  --violet-700: #6E45E6;
+  --violet-800: #5A1FBE;
+  --violet-900: #3A1487;
+  --violet-950: #240C54;
+  --violet-975: #160734;
+
+  /* ---- Pharaonic gold scale (Maat's feather / truth / premium) -- */
+  --gold-100: #FBEFC9;
+  --gold-200: #F6DD95;
+  --gold-300: #F2CD6A;
+  --gold-400: #ECBE4C;
+  --gold-500: #E8B23C;
+  --gold-600: #CE9526;
+  --gold-700: #A5741A;
+
+  /* ---- Text (warm-violet whites) -------------------------------- */
+  --text-primary:   #F5F1FF;
+  --text-secondary: #CBC3E0;
+  --text-tertiary:  #9C93B8;
+  --text-muted:     #756C90;
+  --text-faint:     #756C90;
+  --text-inverse:   #120A24;
+  --text-on-accent: #FFFFFF;
+  --text-on-gold:   #2A1C04;
+
+  /* ---- Semantic status ------------------------------------------ */
+  --success: #22C38E;
+  --warning: #F59E0B;
+  --danger:  #F2555A;
+  --info:    #4FB0F5;
+  --cyan:    #2DD4EE;
+
+  --success-soft: rgba(34, 195, 142, 0.14);
+  --warning-soft: rgba(245, 158, 11, 0.15);
+  --danger-soft:  rgba(242, 85, 90, 0.15);
+  --info-soft:    rgba(79, 176, 245, 0.14);
+  --cyan-soft:    rgba(45, 212, 238, 0.13);
+  --violet-soft:  rgba(131, 93, 245, 0.16);
+  --gold-soft:    rgba(232, 178, 60, 0.15);
+
+  --success-ring: rgba(34, 195, 142, 0.30);
+  --warning-ring: rgba(245, 158, 11, 0.32);
+  --danger-ring:  rgba(242, 85, 90, 0.32);
+  --info-ring:    rgba(79, 176, 245, 0.30);
+  --cyan-ring:    rgba(45, 212, 238, 0.30);
+  --violet-ring:  var(--border-accent);
+  --gold-ring:    var(--border-gold);
+
+  /* ---- Brand utility accents ------------------------------------ */
+  --whatsapp: #25D366;        /* WhatsApp CTA only (landing) */
+  --rose:     #FB7185;
+
+  /* ---- Semantic aliases — author against these ------------------ */
+  --bg-canvas:   var(--ink-base);
+  --bg-elevated: var(--surface-1);
+  --bg-contrast: var(--surface-2);
+  --bg-card:     var(--surface-card);
+  --bg-popover:  var(--surface-popover);
+  --bg-inset:    var(--surface-inset);
+
+  --primary:       var(--violet-600);
+  --primary-hover: #9876FF;
+  --primary-active: var(--violet-700);
+  --primary-fg:    var(--text-on-accent);
+  --primary-muted: var(--violet-soft);
+
+  --accent-gold:    var(--gold-500);
+  --accent-gold-fg: var(--text-on-gold);
+
+  --ring: var(--border-focus);
+
+  --status-operational: var(--success);
+  --status-attention:   var(--warning);
+  --status-incident:    var(--danger);
+  --status-info:        var(--info);
+  --status-live:        var(--cyan);
+
+  --surface-hover: rgba(255, 255, 255, 0.045);
+
+  /* ---- Radius --------------------------------------------------- */
+  --radius-xs:   0.25rem;
+  --radius-sm:   0.4375rem;
+  --radius-md:   0.625rem;
+  --radius-lg:   0.875rem;
+  --radius-xl:   1.25rem;
+  --radius-2xl:  1.5rem;
+  --radius-3xl:  2rem;
+  --radius-full: 9999px;
+  --radius-pill: 9999px;
+
+  /* ---- Layout constants ----------------------------------------- */
+  --container-max: 1320px;
+  --content-max:   1120px;
+
+  /* ---- Elevation / shadow (dark-UI tuned, restrained) ----------- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 4px 12px -4px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 24px 60px -16px rgba(0, 0, 0, 0.7);
+
+  --glow-primary: 0 6px 20px -10px rgba(131, 93, 245, 0.38);
+  --glow-gold:    0 6px 18px -12px rgba(232, 178, 60, 0.30);
+  --glow-soft:    0 0 0 1px rgba(131, 93, 245, 0.10), 0 6px 22px -14px rgba(131, 93, 245, 0.30);
+
+  --inset-top: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --focus-ring: 0 0 0 2px var(--bg-canvas), 0 0 0 4px var(--ring);
+
+  /* ---- Motion --------------------------------------------------- */
+  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+
+  --dur-fast:   120ms;
+  --dur-base:   180ms;
+  --dur-slow:   250ms;
+  --dur-slower: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01ms;
+    --dur-base: 0.01ms;
+    --dur-slow: 0.01ms;
+    --dur-slower: 0.01ms;
+  }
+}
+
+/* ---- Brand wordmark: gold "Maat" + violet "Work" ---------------- */
+.brand-maat {
+  background: linear-gradient(180deg, #F4D27A 0%, #D89E2C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brand-work { color: var(--violet-400); }
+
+/* ---- Mono label: IDs, status keys, data captions ---------------- */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}

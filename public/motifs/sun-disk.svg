@@ -1,0 +1,20 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Winged sun disk of Ra">
+  <defs>
+    <radialGradient id="m-sun" cx="50%" cy="42%" r="55%"><stop offset="0" stop-color="#FFF1C8"/><stop offset="1" stop-color="#E8B23C"/></radialGradient>
+    <linearGradient id="m-wing" x1="24" y1="17" x2="24" y2="30" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#m-wing)" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+    <!-- right wing: layered feathers sweeping out & down -->
+    <path d="M29 19 Q 39 18, 46.5 21.5"/>
+    <path d="M29 20.6 Q 37.5 20, 44 23.5"/>
+    <path d="M29 22.2 Q 36 22.4, 41.5 25.6"/>
+    <path d="M29 23.6 Q 34.5 24.6, 39 27.4"/>
+    <!-- left wing -->
+    <path d="M19 19 Q 9 18, 1.5 21.5"/>
+    <path d="M19 20.6 Q 10.5 20, 4 23.5"/>
+    <path d="M19 22.2 Q 12 22.4, 6.5 25.6"/>
+    <path d="M19 23.6 Q 13.5 24.6, 9 27.4"/>
+  </g>
+  <circle cx="24" cy="21" r="5.2" fill="url(#m-sun)"/>
+  <circle cx="24" cy="21" r="1.5" fill="#9D7BFF"/>
+</svg>

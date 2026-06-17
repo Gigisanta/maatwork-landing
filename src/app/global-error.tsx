@@ -29,10 +29,10 @@ export default function GlobalError({
     <html lang="es-AR">
       <body
         style={{
-          background: "var(--color-purple-975)",
+          background: "var(--color-bg-base)",
           color: "var(--color-white)",
           fontFamily:
-            "var(--font-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif",
+            "var(--font-sora), 'Sora', system-ui, -apple-system, sans-serif",
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",

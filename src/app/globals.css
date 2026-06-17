@@ -1,62 +1,102 @@
 @import "tailwindcss";
+@import "../styles/maatwork-ds.css";
 
 /* ================================================================
-   MaatWork — Brand Theme V7
-   Ink · Electric violet · Cyan · Emerald · Amber
+   MaatWork — official Design System theme
+   Ink · electric violet (order/agency) · pharaonic gold (truth) ·
+   semantic status. Tailwind utility tokens below map onto the
+   canonical DS values (see src/styles/maatwork-ds.css). Legacy
+   `purple-*` utilities are remapped to the DS violet scale so the
+   whole surface migrates without per-component churn.
    ================================================================ */
 
 @theme {
-  /* Brand Purple Scale */
-  --color-purple-50:  #f5f0ff;
-  --color-purple-100: #ede0ff;
-  --color-purple-200: #d8c0ff;
-  --color-purple-300: #c09aff;
-  --color-purple-400: #a78bfa;
-  --color-purple-500: #a855f7;
-  --color-purple-550: #8b44f4;
-  --color-purple-600: #7c3aed;
-  --color-purple-650: #6828c2;
-  --color-purple-700: #5b21b6;
-  --color-purple-800: #3b1080;
-  --color-purple-900: #2d1065;
-  --color-purple-950: #1a0a3e;
-  --color-purple-975: #0f0520;
+  /* ---- Violet scale (primary) — DS values ----------------------- */
+  --color-violet-50:  #F4EEFF;
+  --color-violet-100: #E8DBFF;
+  --color-violet-200: #CFB4FF;
+  --color-violet-300: #B488FF;
+  --color-violet-400: #9D7BFF;
+  --color-violet-500: #8E69FA;
+  --color-violet-600: #835DF5;
+  --color-violet-700: #6E45E6;
+  --color-violet-800: #5A1FBE;
+  --color-violet-900: #3A1487;
+  --color-violet-950: #240C54;
 
-  /* Brand Surfaces (dark canvas) */
-  --color-bg-base:    #070a12;
-  --color-bg-elev-1:  #0c1220;
-  --color-bg-elev-2:  #111827;
-  --color-bg-card:    rgba(255, 255, 255, 0.055);
-  --color-bg-card-2:  rgba(255, 255, 255, 0.085);
+  /* ---- Legacy `purple-*` aliases → DS violet (drop-in migration) - */
+  --color-purple-50:  #F4EEFF;
+  --color-purple-100: #E8DBFF;
+  --color-purple-200: #CFB4FF;
+  --color-purple-300: #B488FF;
+  --color-purple-400: #9D7BFF;
+  --color-purple-500: #8E69FA;
+  --color-purple-550: #8862F7;
+  --color-purple-600: #835DF5;
+  --color-purple-650: #7650EE;
+  --color-purple-700: #6E45E6;
+  --color-purple-800: #5A1FBE;
+  --color-purple-900: #3A1487;
+  --color-purple-950: #240C54;
+  --color-purple-975: #160734;
 
-  /* Borders */
-  --color-border-subtle:  rgba(255, 255, 255, 0.09);
-  --color-border-accent:  rgba(167, 139, 250, 0.30);
-  --color-border-strong:  rgba(124, 58, 237, 0.42);
+  /* ---- Pharaonic gold scale ------------------------------------- */
+  --color-gold-100: #FBEFC9;
+  --color-gold-200: #F6DD95;
+  --color-gold-300: #F2CD6A;
+  --color-gold-400: #ECBE4C;
+  --color-gold-500: #E8B23C;
+  --color-gold-600: #CE9526;
+  --color-gold-700: #A5741A;
 
-  /* Text */
-  --color-text-primary:   #ffffff;
-  --color-text-secondary: #dbeafe;
-  --color-text-tertiary:  #93c5fd;
-  --color-text-muted:     rgba(203, 213, 225, 0.70);
+  /* ---- Brand surfaces (DS ink ladder) --------------------------- */
+  --color-bg-base:   #0A0A11;
+  --color-bg-elev-1: #0F0F18;
+  --color-bg-elev-2: #15151F;
+  --color-bg-card:   #15151F;
+  --color-bg-card-2: #1C1C27;
+
+  /* ---- Borders -------------------------------------------------- */
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-accent: rgba(140, 94, 246, 0.34);
+  --color-border-strong: rgba(131, 93, 245, 0.42);
+
+  /* ---- Text (warm-violet whites) -------------------------------- */
+  --color-text-primary:   #F5F1FF;
+  --color-text-secondary: #CBC3E0;
+  --color-text-tertiary:  #9C93B8;
+  --color-text-muted:     #756C90;
   --color-white:          #ffffff;
 
-  /* Status */
-  --color-success: #25D366;
-  --color-success-soft: #1ea851;
-  --color-cyan: #22d3ee;
-  --color-cyan-soft: #67e8f9;
-  --color-amber: #f59e0b;
-  --color-coral: #fb7185;
+  /* ---- Stock neutrals retuned to the warm DS palette ------------ */
+  --color-slate-200: #CBC3E0;
+  --color-slate-300: #CBC3E0;
+  --color-slate-400: #9C93B8;
+  --color-slate-500: #756C90;
+  --color-slate-950: #0A0A11;
 
-  /* Typography */
-  --font-display: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body:    var(--font-inter), "Inter", system-ui, sans-serif;
+  /* ---- Status (semantic) ---------------------------------------- */
+  --color-success:      #22C38E;  /* healthy / done / operational */
+  --color-success-soft: #1B9B72;
+  --color-whatsapp:     #25D366;  /* WhatsApp CTA only */
+  --color-whatsapp-dim: #1FB958;
+  --color-cyan:         #2DD4EE;  /* live / realtime */
+  --color-cyan-soft:    #6FE3F4;
+  --color-amber:        #F59E0B;  /* warning / attention */
+  --color-info:         #4FB0F5;
+  --color-coral:        #F2555A;
+  --color-rose:         #FB7185;
 
-  /* ================================================================
-     V6 EDITORIAL TYPE SCALE (Stripe-like, ratio 1.25)
-     Tailwind will read these as text-xs ... text-display
-     ================================================================ */
+  /* ---- "live/healthy" green dots unified to DS success ---------- */
+  --color-emerald-300: #4BD6A8;
+  --color-emerald-400: #22C38E;
+
+  /* ---- Typography — Sora · Hanken Grotesk · JetBrains Mono ------- */
+  --font-display: var(--font-sora), "Sora", system-ui, sans-serif;
+  --font-body:    var(--font-hanken), "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- Editorial type scale (ratio ~1.25) ----------------------- */
   --text-xs:      0.75rem;   /* 12px */
   --text-sm:      0.875rem;  /* 14px */
   --text-base:    1rem;      /* 16px */
@@ -68,22 +108,19 @@
   --text-5xl:     3.5rem;    /* 56px */
   --text-display: 4.5rem;    /* 72px */
 
-  /* ================================================================
-     V6 EDITORIAL TRACKING
-     ================================================================ */
+  /* ---- Tracking ------------------------------------------------- */
   --tracking-display: -0.04em;
   --tracking-h1:      -0.035em;
   --tracking-h2:      -0.025em;
   --tracking-h3:      -0.02em;
+  --tracking-label:    0.16em;
 
-  /* ================================================================
-     V6 EDITORIAL SPACING
-     ================================================================ */
-  --spacing-section:    4rem;    /* 64px  — between sections on mobile  */
-  --spacing-section-md: 5.5rem;  /* 88px  — between sections on tablet  */
-  --spacing-section-lg: 7rem;    /* 112px — between sections on desktop */
-  --spacing-block:      2.5rem;  /* 40px  — between blocks within section */
-  --spacing-card:       1.5rem;  /* 24px  — between cards in grid        */
+  /* ---- Editorial section rhythm --------------------------------- */
+  --spacing-section:    4rem;    /* 64px  */
+  --spacing-section-md: 5.5rem;  /* 88px  */
+  --spacing-section-lg: 7rem;    /* 112px */
+  --spacing-block:      2.5rem;  /* 40px  */
+  --spacing-card:       1.5rem;  /* 24px  */
 }
 
 /* ================================================================
@@ -101,7 +138,7 @@ body {
   background: transparent; /* base la pinta <html>; deja ver .bg-field (-z-10) */
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-feature-settings: "cv11", "ss01", "ss03";
+  font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -126,7 +163,7 @@ section[id] {
   z-index: 100;
   padding: 0.625rem 1rem;
   border-radius: 9999px;
-  background: var(--color-purple-600);
+  background: var(--violet-600);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -144,33 +181,30 @@ section[id] {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.5);
+  background: rgba(138, 69, 245, 0.45);
   color: #ffffff;
 }
 
 /* ================================================================
-   Utility: Section background variants
+   Utility: Section background variants — solid ink, one violet accent
+   per surface. Bases keep faint translucency so .bg-field reads behind.
    ================================================================ */
-/* Bases translúcidas: dejan ver .bg-field (blobs violeta) detrás → la página
-   respira. Alpha ~0.80-0.88 conserva contraste de texto; ink de <html> abajo. */
-.section-base  {
+.section-base {
   background:
-    radial-gradient(circle at 18% 12%, rgba(124, 58, 237, 0.20), transparent 34%),
-    radial-gradient(circle at 82% 0%, rgba(167, 139, 250, 0.12), transparent 30%),
-    rgba(7, 10, 18, 0.80);
+    radial-gradient(circle at 18% 12%, rgba(131, 93, 245, 0.16), transparent 34%),
+    rgba(10, 10, 17, 0.82);
 }
 .section-elev1 {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(8, 13, 24, 0.9));
+  background: linear-gradient(180deg, rgba(15, 15, 24, 0.88), rgba(10, 10, 17, 0.92));
 }
 .section-elev2 {
   background:
-    radial-gradient(circle at 75% 18%, rgba(245, 158, 11, 0.12), transparent 30%),
-    linear-gradient(180deg, rgba(10, 15, 29, 0.84) 0%, rgba(17, 24, 39, 0.9) 100%);
+    radial-gradient(circle at 78% 14%, rgba(232, 178, 60, 0.08), transparent 30%),
+    linear-gradient(180deg, rgba(15, 15, 24, 0.88) 0%, rgba(21, 21, 31, 0.92) 100%);
 }
 
 /* ================================================================
-   V6 Section padding — editorial vertical rhythm
-   Use as: <section class="section-pad section-base"> or .section-pad-md
+   Section padding — editorial vertical rhythm
    ================================================================ */
 .section-pad    { padding-top: var(--spacing-section);    padding-bottom: var(--spacing-section); }
 .section-pad-md { padding-top: var(--spacing-section-md); padding-bottom: var(--spacing-section-md); }
@@ -183,23 +217,23 @@ section[id] {
 }
 
 /* ================================================================
-   V6 Eyebrow text — uppercase tracking label
-   Use as: <span class="eyebrow">Funcionalidades</span>
+   Eyebrow — mono uppercase tracked section label (DS)
    ================================================================ */
 .eyebrow {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--color-purple-300);
-  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  color: var(--violet-300);
+  font-weight: 600;
 }
 
 /* ================================================================
-   V6 Container — max-width content area with padding
+   Container — max-width content area with padding
    ================================================================ */
 .container-maat {
   margin-inline: auto;
-  max-width: 1320px;
+  max-width: var(--container-max);
   padding-inline: 1.25rem;
 }
 @media (min-width: 768px) {
@@ -207,67 +241,66 @@ section[id] {
 }
 
 /* ================================================================
-   Logo "M" gradient (text)
+   Logo "M" gradient (text) — kept for back-compat, DS violet/white
    ================================================================ */
 .logo-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #c09aff 45%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--violet-200) 45%, var(--violet-400) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 /* ================================================================
-   CTA gradient
+   CTAs
+   - Primary: solid electric-violet, restrained glow (DS)
+   - WhatsApp: brand green, only for WhatsApp conversion CTAs
    ================================================================ */
 .cta-violet {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 52%, #6d28d9 100%);
+  background: linear-gradient(135deg, var(--violet-500) 0%, var(--violet-600) 52%, var(--violet-700) 100%);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.15) inset,
-    0 8px 24px -8px rgba(124, 58, 237, 0.5);
+    var(--inset-top),
+    var(--glow-primary);
 }
 .cta-violet:hover {
-  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 52%, #7c3aed 100%);
+  background: linear-gradient(135deg, var(--violet-400) 0%, var(--violet-500) 52%, var(--violet-600) 100%);
 }
 .cta-whatsapp {
-  background: var(--color-success);
+  background: var(--whatsapp);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.18) inset,
     0 8px 24px -8px rgba(37, 211, 102, 0.45);
 }
 .cta-whatsapp:hover {
-  background: var(--color-success-soft);
+  background: var(--whatsapp-dim);
 }
 
 /* ================================================================
-   Subtle card border + hover
+   Card — solid DS surface, hairline border, violet hover (no glass)
    ================================================================ */
 .card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: 16px;
+  background: var(--ink-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
 }
 .card:hover {
-  background: var(--color-bg-card-2);
-  border-color: var(--color-border-accent);
+  background: var(--ink-elev);
+  border-color: var(--border-accent);
 }
 
 /* ================================================================
-   Scrollbar (subtle, dark)
+   Scrollbar (DS — subtle, dark)
    ================================================================ */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--color-bg-base); }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-bg-elev-2);
-  border-radius: 8px;
-  border: 2px solid var(--color-bg-base);
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-xs);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-purple-700); }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
 
 /* ================================================================
    Fade-in on scroll (CSS-only, no JS)
-   - Default: visible (a11y + no-JS safe)
-   - js-ready class on <html>: animate IN on load
    ================================================================ */
 .reveal {
   opacity: 1;
@@ -283,30 +316,21 @@ html.js-ready .reveal.is-visible {
   transform: translateY(0);
 }
 
-/* Subtle logo glow — ONLY place we allow glow */
+/* Subtle logo glow — restrained single drop-shadow (DS: no toy glow) */
 .logo-glow {
-  filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.45))
-          drop-shadow(0 0 48px rgba(124, 58, 237, 0.25));
+  filter: drop-shadow(0 0 14px rgba(131, 93, 245, 0.22));
 }
 
-/* Focus ring */
+/* Focus ring (DS) */
 :focus-visible {
-  outline: 2px solid var(--color-purple-500);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 /* ================================================================
-   V5/V6 ANIMATIONS FOUNDATION
-   All keyframes & utilities — CSS-only, no animation libraries
+   ANIMATIONS FOUNDATION — CSS-only, no animation libraries
    ================================================================ */
-
-/* Easing curves — Linear-style "ease out quart" + "ease out expo" */
-:root {
-  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 .ease-out-quart { transition-timing-function: var(--ease-out-quart); }
 .ease-out-expo { transition-timing-function: var(--ease-out-expo); }
 
@@ -323,7 +347,7 @@ html.js-ready .reveal.is-visible {
           mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
 
-/* Line reveal — editorial fade-up for headlines (V6) */
+/* Line reveal — editorial fade-up for headlines */
 @keyframes line-reveal {
   from { opacity: 0; transform: translateY(0.25em); filter: blur(3px); }
   to   { opacity: 1; transform: translateY(0);      filter: blur(0); }
@@ -373,14 +397,7 @@ html.js-ready .reveal.is-visible {
 }
 .animate-pulse-soft { animation: pulse-soft 2.2s ease-in-out infinite; }
 
-/* Glow pulse — only for hero logo and featured card */
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
-  50%      { box-shadow: 0 0 30px 4px rgba(124, 58, 237, 0.15); }
-}
-.animate-glow-pulse { animation: glow-pulse 3.5s ease-in-out infinite; }
-
-/* Float slow — for floating notification cards (subtle) */
+/* Float slow — for floating cards (subtle) */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-6px); }
@@ -388,31 +405,17 @@ html.js-ready .reveal.is-visible {
 .animate-float-slow { animation: float-slow 5s ease-in-out infinite; }
 .animate-float-slower { animation: float-slow 7s ease-in-out infinite; }
 
-/* Border spin — conic gradient rotation for featured card */
+/* Border spin — conic rotation (used by featured-border halo) */
 @keyframes border-spin {
   to { transform: rotate(360deg); }
 }
 
-/* Cursor blink — for the simulated cursor in hero mockup */
+/* Cursor blink */
 @keyframes cursor-blink {
   0%, 100% { opacity: 1; }
   50%      { opacity: 0; }
 }
 .animate-cursor-blink { animation: cursor-blink 1s steps(1) infinite; }
-
-/* Shimmer bg — for live counter pulse */
-@keyframes shimmer-bg {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Ticker slide — for live notification strip */
-@keyframes ticker-slide {
-  0%   { transform: translateX(100%); opacity: 0; }
-  10%  { transform: translateX(0);    opacity: 1; }
-  90%  { transform: translateX(0);    opacity: 1; }
-  100% { transform: translateX(-100%); opacity: 0; }
-}
 
 /* Number counter — for stats */
 @property --num {
@@ -437,160 +440,65 @@ html.js-ready .reveal.is-visible {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Cursor move — for simulated cursor in hero preview */
-@keyframes cursor-move {
-  0%   { transform: translate(0, 0); }
-  20%  { transform: translate(-12px, -8px); }
-  40%  { transform: translate(-20px, 4px); }
-  60%  { transform: translate(-8px, 12px); }
-  80%  { transform: translate(0, 4px); }
-  100% { transform: translate(0, 0); }
-}
-
-/* Toast pop — notifications enter from top with subtle scale */
-@keyframes toast-pop {
-  0%   { opacity: 0; transform: translateY(-10px) scale(0.96); }
-  6%   { opacity: 1; transform: translateY(0)     scale(1); }
-  88%  { opacity: 1; transform: translateY(0)     scale(1); }
-  100% { opacity: 0; transform: translateY(-6px)  scale(0.98); }
-}
-
 /* Bar grow — chart bars rise from bottom */
 @keyframes bar-grow {
   from { transform: scaleY(0); }
   to   { transform: scaleY(1); }
 }
 
-/* Marquee vertical — for live activity feed (scrolling up) */
+/* Marquee vertical */
 @keyframes marquee-vertical {
   0%   { transform: translateY(0); }
   100% { transform: translateY(-50%); }
 }
-.animate-marquee-vertical {
-  animation: marquee-vertical 18s linear infinite;
-}
+.animate-marquee-vertical { animation: marquee-vertical 18s linear infinite; }
 
 /* Hover scale utilities */
 .hover-scale { transition: transform 300ms var(--ease-out-quart); }
 .hover-scale:hover { transform: scale(1.02); }
 
-/* Bento card hover — gradient sweep */
-.bento-card {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  transition: transform 400ms var(--ease-out-quart),
-              border-color 300ms var(--ease-out-quart),
-              background 300ms var(--ease-out-quart);
-}
-.bento-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg,
-    transparent 0%,
-    rgba(124, 58, 237, 0.08) 40%,
-    rgba(168, 85, 247, 0.12) 60%,
-    transparent 100%);
-  background-size: 300% 300%;
-  background-position: 100% 100%;
-  opacity: 0;
-  transition: opacity 400ms var(--ease-out-quart),
-              background-position 600ms var(--ease-out-quart);
-  z-index: -1;
-  pointer-events: none;
-}
-.bento-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--color-border-accent);
-  background: var(--color-bg-card-2);
-}
-.bento-card:hover::after {
-  opacity: 1;
-  background-position: 0% 0%;
-}
-.bento-card .reveal-on-hover {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 400ms var(--ease-out-quart),
-              transform 400ms var(--ease-out-quart);
-}
-.bento-card:hover .reveal-on-hover {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Featured card — conic gradient border */
-.featured-border {
-  position: relative;
-  isolation: isolate;
-}
-.featured-border::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(from 0deg,
-    rgba(124, 58, 237, 0.4) 0deg,
-    rgba(168, 85, 247, 0.1) 90deg,
-    rgba(124, 58, 237, 0.4) 180deg,
-    rgba(168, 85, 247, 0.1) 270deg,
-    rgba(124, 58, 237, 0.4) 360deg);
-  animation: border-spin 6s linear infinite;
-  z-index: -2;
-}
-.featured-border::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  border-radius: inherit;
-  background: var(--color-bg-elev-1);
-  z-index: -1;
-}
-
-/* Avatar gradient backgrounds */
-.avatar-grad-1 { background: linear-gradient(135deg, var(--color-purple-500), var(--color-purple-600)); }
-.avatar-grad-2 { background: linear-gradient(135deg, #f7cf47, #ec7356); }
-.avatar-grad-3 { background: linear-gradient(135deg, #5ab1f3, var(--color-purple-600)); }
-.avatar-grad-4 { background: linear-gradient(135deg, #61c39d, var(--color-purple-975)); }
-.avatar-grad-5 { background: linear-gradient(135deg, #d395c1, var(--color-purple-600)); }
-.avatar-grad-6 { background: linear-gradient(135deg, #ff163b, var(--color-purple-600)); }
-
-/* Text balance utility */
+/* Text wrapping helpers */
 .text-balance { text-wrap: balance; }
 .text-pretty  { text-wrap: pretty; }
 
-/* Subtle glass (only for navbar, opacity < 0.1) */
+/* Subtle glass — navbar only, solid-leaning DS ink */
 .glass-subtle {
-  background: rgba(15, 5, 32, 0.7);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background: rgba(10, 10, 17, 0.72);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
 }
 
-/* Section divider line */
+/* Section divider line — DS violet */
 .divider-glow {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(124, 58, 237, 0.4) 50%,
+    rgba(131, 93, 245, 0.4) 50%,
     transparent 100%);
 }
 
-/* Card row hover — used in dashboard agenda */
+/* Card row hover — DS violet */
 .row-hover {
   transition: background 200ms var(--ease-out-quart),
               transform 200ms var(--ease-out-quart),
               border-color 200ms var(--ease-out-quart);
 }
 .row-hover:hover {
-  background: rgba(124, 58, 237, 0.08);
+  background: rgba(131, 93, 245, 0.08);
   transform: translateX(3px);
-  border-color: rgba(124, 58, 237, 0.2);
+  border-color: rgba(131, 93, 245, 0.2);
 }
 
+/* Avatar gradient backgrounds — DS palette */
+.avatar-grad-1 { background: linear-gradient(135deg, var(--violet-400), var(--violet-600)); }
+.avatar-grad-2 { background: linear-gradient(135deg, var(--gold-300), var(--gold-600)); }
+.avatar-grad-3 { background: linear-gradient(135deg, var(--info), var(--violet-600)); }
+.avatar-grad-4 { background: linear-gradient(135deg, var(--success), var(--violet-700)); }
+.avatar-grad-5 { background: linear-gradient(135deg, var(--rose), var(--violet-600)); }
+.avatar-grad-6 { background: linear-gradient(135deg, var(--violet-300), var(--violet-700)); }
 
 /* ================================================================
-   V7: life, motion, product ecosystem
+   Hero / product ecosystem — life & motion (DS-tuned)
    ================================================================ */
 @keyframes aurora-drift {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.72; }
@@ -625,48 +533,49 @@ html.js-ready .reveal.is-visible {
   transform-origin: left;
   transform: scaleX(0);
   border-radius: 999px;
-  background: linear-gradient(90deg, #c09aff, #7c3aed);
+  background: linear-gradient(90deg, var(--violet-300), var(--violet-600));
   animation: tab-progress linear forwards;
 }
 
+/* Hero ambient — violet-dominant with one faint gold accent (DS:
+   one dominant accent per surface, no rainbow, no toy particles). */
 .aurora-field {
   position: absolute;
   inset: -18% -8% auto -8%;
   height: 58rem;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 28%, rgba(167, 139, 250, 0.22), transparent 32%),
-    radial-gradient(circle at 68% 18%, rgba(124, 58, 237, 0.32), transparent 32%),
-    radial-gradient(circle at 82% 62%, rgba(245, 158, 11, 0.14), transparent 28%),
-    radial-gradient(circle at 28% 80%, rgba(37, 211, 102, 0.12), transparent 24%);
-  filter: blur(32px) saturate(120%);
+    radial-gradient(circle at 30% 26%, rgba(131, 93, 245, 0.26), transparent 34%),
+    radial-gradient(circle at 70% 16%, rgba(110, 69, 230, 0.22), transparent 32%),
+    radial-gradient(circle at 82% 60%, rgba(232, 178, 60, 0.07), transparent 26%);
+  filter: blur(34px) saturate(115%);
   animation: aurora-drift 16s ease-in-out infinite;
 }
 .noise-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.10;
+  opacity: 0.08;
   background-image:
-    linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(circle at 50% 12%, black, transparent 70%);
 }
 .hero-title-accent {
   color: transparent;
-  background: linear-gradient(100deg, #c09aff 0%, #a78bfa 48%, #8b5cf6 100%);
+  background: linear-gradient(100deg, var(--violet-200) 0%, var(--violet-400) 48%, var(--violet-600) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders (g, y, í) */
+  /* line-height < 1 shrinks the bg box; pad so clip:text covers descenders */
   padding-bottom: 0.18em;
 }
 .product-frame {
   animation: screen-breathe 7s ease-in-out infinite;
   box-shadow:
-    0 34px 120px -40px rgba(167, 139, 250, 0.42),
-    0 20px 80px -46px rgba(124, 58, 237, 0.65),
-    inset 0 1px 0 rgba(255,255,255,0.14);
+    var(--shadow-xl),
+    0 18px 60px -42px rgba(131, 93, 245, 0.5),
+    var(--inset-top);
 }
 .product-frame::before {
   content: "";
@@ -674,39 +583,39 @@ html.js-ready .reveal.is-visible {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(196,154,255,0.55), rgba(124,58,237,0.35), rgba(251,191,36,0.28));
+  background: linear-gradient(135deg, rgba(180, 136, 255, 0.5), rgba(131, 93, 245, 0.32), rgba(232, 178, 60, 0.22));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
 .live-chip {
-  background: linear-gradient(135deg, rgba(167, 139, 250, 0.16), rgba(124, 58, 237, 0.12));
-  border-color: rgba(167, 139, 250, 0.30);
-  color: #d8c0ff;
+  background: var(--violet-soft);
+  border-color: var(--violet-ring);
+  color: var(--violet-200);
 }
 .ecosystem-card {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
-  border: 1px solid rgba(255,255,255,0.11);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 22px 70px -46px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid var(--border-default);
+  box-shadow: var(--inset-top), 0 22px 70px -46px rgba(0,0,0,0.8);
   transition: transform 420ms var(--ease-out-quart), border-color 420ms var(--ease-out-quart), background 420ms var(--ease-out-quart);
 }
 .ecosystem-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,0.12) 45%, transparent 70%);
+  background: linear-gradient(110deg, transparent 15%, rgba(255,255,255,0.10) 45%, transparent 70%);
   background-size: 240% 100%;
   opacity: 0;
   pointer-events: none;
 }
 .ecosystem-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(167, 139, 250, 0.40);
-  background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.05));
+  border-color: var(--border-accent);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.035));
 }
 .ecosystem-card:hover::after { opacity: 1; animation: card-glow-sweep 1.2s var(--ease-out-quart); }
 .product-orbit-dot { animation: orbit-dot 9s linear infinite; transform-origin: center; }
@@ -715,26 +624,69 @@ html.js-ready .reveal.is-visible {
 .bento-card {
   position: relative;
   isolation: isolate;
-  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  transition: transform 400ms var(--ease-out-quart),
+              border-color 300ms var(--ease-out-quart),
+              background 300ms var(--ease-out-quart);
 }
 .bento-card::after {
-  background: linear-gradient(135deg, transparent 0%, rgba(167,139,250,0.14) 34%, rgba(124,58,237,0.14) 60%, rgba(245,158,11,0.08) 100%);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(131,93,245,0.12) 40%, rgba(110,69,230,0.12) 60%, transparent 100%);
+  background-size: 300% 300%;
+  background-position: 100% 100%;
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out-quart),
+              background-position 600ms var(--ease-out-quart);
+  z-index: -1;
+  pointer-events: none;
+}
+.bento-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-accent);
+  background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+}
+.bento-card:hover::after {
+  opacity: 1;
+  background-position: 0% 0%;
 }
 .bento-card .reveal-on-hover {
   opacity: 0.72;
   transform: translateY(2px);
+  transition: opacity 400ms var(--ease-out-quart),
+              transform 400ms var(--ease-out-quart);
 }
 @media (hover: hover) {
   .bento-card .reveal-on-hover { opacity: 0.18; transform: translateY(8px); }
   .bento-card:hover .reveal-on-hover { opacity: 1; transform: translateY(0); }
 }
 
+/* Featured pricing card — static DS violet ring + restrained glow
+   (replaces the spinning rainbow conic border). */
+.featured-border {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid var(--violet-ring);
+  background: var(--ink-card);
+  box-shadow: var(--shadow-lg), var(--glow-soft);
+}
+.featured-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(60% 60% at 50% 0%, rgba(131, 93, 245, 0.14), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* ================================================================
    Global animated background (AnimatedBackground.tsx)
-   Blobs violeta que se deforman + partículas que flotan. Fixed -z-10
-   sobre la base ink de <html>. Solo transform/opacity (GPU).
+   Restrained violet ambient blobs (translate-only, GPU). No particles.
    ================================================================ */
 .bg-field {
   position: fixed;
@@ -748,59 +700,27 @@ html.js-ready .reveal.is-visible {
   position: absolute;
   border-radius: 50%;
   filter: blur(104px);
-  opacity: 0.24;
+  opacity: 0.18;
   will-change: transform;
   animation: bg-morph 22s ease-in-out infinite;
 }
 .bg-blob--1 { width: 620px; height: 620px; top: -16%; left: -10%;
-  background: radial-gradient(circle, #7c3aed, transparent 62%); }
+  background: radial-gradient(circle, var(--violet-600), transparent 62%); }
 .bg-blob--2 { width: 540px; height: 540px; top: 30%; right: -12%;
-  background: radial-gradient(circle, #a78bfa, transparent 62%); animation-delay: -6s; }
+  background: radial-gradient(circle, var(--violet-400), transparent 62%); animation-delay: -6s; }
 .bg-blob--3 { width: 500px; height: 500px; bottom: -14%; left: 16%;
-  background: radial-gradient(circle, #8b5cf6, transparent 62%); animation-delay: -12s; }
+  background: radial-gradient(circle, var(--violet-500), transparent 62%); animation-delay: -12s; }
 .bg-blob--4 { width: 440px; height: 440px; top: 66%; right: 22%;
-  background: radial-gradient(circle, #4c1d95, transparent 62%); opacity: 0.18; animation-delay: -3s; }
-/* translate-only (sin scale): el blur se rasteriza una vez y el compositor solo
-   mueve la textura cacheada → sin re-raster por frame = fluido en low-end. */
+  background: radial-gradient(circle, var(--violet-900), transparent 62%); opacity: 0.14; animation-delay: -3s; }
 @keyframes bg-morph {
   0%, 100% { transform: translate3d(0, 0, 0); }
   25% { transform: translate3d(70px, -52px, 0); }
   50% { transform: translate3d(-54px, 60px, 0); }
   75% { transform: translate3d(44px, 36px, 0); }
 }
-.bg-particles { position: absolute; inset: 0; }
-.bg-particle {
-  position: absolute;
-  width: 2px; height: 2px;
-  border-radius: 50%;
-  background: rgba(196, 154, 255, 0.5);
-  opacity: 0;
-  will-change: transform, opacity;
-  animation: bg-drift linear infinite;
-}
-@keyframes bg-drift {
-  0% { transform: translate3d(0, 0, 0); opacity: 0; }
-  10% { opacity: 0.85; }
-  90% { opacity: 0.85; }
-  100% { transform: translate3d(36px, -118vh, 0); opacity: 0; }
-}
-.bg-particle:nth-child(1)  { left: 7%;  top: 106%; animation-duration: 19s; animation-delay: -2s;  }
-.bg-particle:nth-child(2)  { left: 16%; top: 112%; width: 3px; height: 3px; background: rgba(124,58,237,0.5); animation-duration: 24s; animation-delay: -8s; }
-.bg-particle:nth-child(3)  { left: 24%; top: 104%; animation-duration: 17s; animation-delay: -5s;  }
-.bg-particle:nth-child(4)  { left: 33%; top: 118%; width: 1.5px; height: 1.5px; animation-duration: 26s; animation-delay: -1s; }
-.bg-particle:nth-child(5)  { left: 41%; top: 108%; width: 3px; height: 3px; animation-duration: 21s; animation-delay: -11s; }
-.bg-particle:nth-child(6)  { left: 49%; top: 114%; animation-duration: 18s; animation-delay: -4s;  }
-.bg-particle:nth-child(7)  { left: 57%; top: 105%; background: rgba(196,154,255,0.7); animation-duration: 23s; animation-delay: -9s; }
-.bg-particle:nth-child(8)  { left: 64%; top: 116%; width: 1.5px; height: 1.5px; animation-duration: 27s; animation-delay: -6s; }
-.bg-particle:nth-child(9)  { left: 71%; top: 107%; width: 3px; height: 3px; background: rgba(124,58,237,0.45); animation-duration: 20s; animation-delay: -13s; }
-.bg-particle:nth-child(10) { left: 78%; top: 111%; animation-duration: 16s; animation-delay: -3s;  }
-.bg-particle:nth-child(11) { left: 84%; top: 119%; animation-duration: 25s; animation-delay: -10s; }
-.bg-particle:nth-child(12) { left: 90%; top: 104%; width: 1.5px; height: 1.5px; animation-duration: 22s; animation-delay: -7s; }
-.bg-particle:nth-child(13) { left: 94%; top: 113%; width: 3px; height: 3px; animation-duration: 28s; animation-delay: -14s; }
-.bg-particle:nth-child(14) { left: 12%; top: 120%; background: rgba(196,154,255,0.6); animation-duration: 21s; animation-delay: -12s; }
 
 /* ================================================================
-   Scroll progress bar (ScrollProgress.tsx) — GPU scaleX
+   Scroll progress bar (ScrollProgress.tsx) — GPU scaleX, DS violet
    ================================================================ */
 .scroll-progress {
   position: fixed;
@@ -814,13 +734,12 @@ html.js-ready .reveal.is-visible {
   height: 100%;
   transform-origin: left;
   transform: scaleX(0);
-  background: linear-gradient(90deg, #c09aff, #8b5cf6, #7c3aed);
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+  background: linear-gradient(90deg, var(--violet-300), var(--violet-600));
+  box-shadow: 0 0 8px rgba(131, 93, 245, 0.45);
 }
 
 /* ================================================================
-   Mouse-follow glow on cards (CardGlow.tsx). z-index:-1 → sobre el
-   fondo de la card, debajo del contenido. Solo aparece en hover.
+   Mouse-follow glow on cards (CardGlow.tsx) — DS violet
    ================================================================ */
 .ecosystem-card::before,
 .bento-card::before {
@@ -829,7 +748,7 @@ html.js-ready .reveal.is-visible {
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(139, 92, 246, 0.16), transparent 42%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(131, 93, 245, 0.16), transparent 42%);
   opacity: 0;
   transition: opacity 0.45s ease;
   pointer-events: none;
@@ -840,8 +759,7 @@ html.js-ready .reveal.is-visible {
 @media (max-width: 767px) {
   .aurora-field { height: 42rem; filter: blur(26px); }
   .product-frame { animation: none; }
-  .bg-particles { display: none; }
-  .bg-blob { filter: blur(80px); opacity: 0.16; }
+  .bg-blob { filter: blur(80px); opacity: 0.13; }
   .bg-blob--4 { display: none; }
 }
 

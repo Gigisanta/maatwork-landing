@@ -1,0 +1,9 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ankh">
+  <defs><linearGradient id="m-ankh" x1="24" y1="5" x2="24" y2="43" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient></defs>
+  <ellipse cx="24" cy="14.5" rx="7.5" ry="9.5" fill="none" stroke="url(#m-ankh)" stroke-width="1.9"/>
+  <ellipse cx="24" cy="14.5" rx="4.4" ry="6" fill="none" stroke="#E8B23C" stroke-opacity="0.3" stroke-width="0.8"/>
+  <circle cx="24" cy="14.5" r="1.3" fill="#9D7BFF"/>
+  <path d="M14 29 L34 29" stroke="url(#m-ankh)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M24 24 L24 43" stroke="url(#m-ankh)" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,4 +1,5 @@
 import { waLink } from "@/lib/whatsapp";
+import { Logo } from "./Logo";
 
 const WHATSAPP = waLink();
 
@@ -15,10 +16,8 @@ export function Footer() {
       <div className="container-maat py-10 md:py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <div className="font-display text-xl font-extrabold tracking-h3 text-white">
-              Maat<span className="text-purple-400">Work</span>
-            </div>
-            <p className="mt-2 max-w-[420px] text-sm leading-[1.6] text-purple-400/85">
+            <Logo size={26} />
+            <p className="mt-3 max-w-[420px] text-sm leading-[1.6] text-purple-400/85">
               Automatización comercial para negocios con turnos en Argentina.
             </p>
           </div>
