@@ -28,7 +28,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "¿Tienen app móvil?",
-    a: "Sí. Tu equipo y tus clientes tienen app nativa para iOS y Android. Vos también podés manejar todo desde el celular.",
+    a: "Sí, pero no forma parte del plan base. La app nativa para iOS y Android se cotiza como módulo avanzado según alcance, usuarios y flujos necesarios.",
   },
   {
     q: "¿Cómo es el soporte?",

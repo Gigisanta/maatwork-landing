@@ -1,49 +1,44 @@
 /**
- * Pricing — one institutional plan at USD 59/mes, everything included, billed in
- * pesos at the daily FX rate. The ROI calculator and "blue rate" framing were
- * removed: they lowered the premium perception. The native mobile app is a priced
- * add-on (NOT part of the 59) — flagged as a premium tag on that one feature so
- * the fixed price stays honest. The second column lists service commitments.
+ * Pricing — base operational plan from USD 100/month, billed in pesos at the
+ * daily FX rate. The base plan covers the core operating layer; advanced modules
+ * are quoted separately so the page does not imply a false all-included bundle.
  */
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { CornerMarks, CardGlyph } from "./Ornaments";
 
-const PLAN_INCLUDES: { label: string; tag?: string }[] = [
-  { label: "Clientes ilimitados" },
-  { label: "Agenda online con recordatorios" },
-  { label: "Cobros automáticos y links de pago" },
-  { label: "WhatsApp automático" },
-  { label: "Tablero y reportes en vivo" },
-  { label: "App móvil (iOS y Android)", tag: "a partir de $100/mes" },
+const PLAN_INCLUDES = [
+  "Gestión de clientes",
+  "Inventario simple",
+  "Agenda operativa básica",
+  "Panel inicial de control",
 ];
 
-const SERVICE_INCLUDES = [
-  "Implementación guiada (5–10 días)",
-  "Migración asistida de tus datos",
-  "Capacitación del equipo",
-  "Soporte local en español",
-  "Backups diarios automáticos",
-  "Tus datos son tuyos · exportables",
+const QUOTED_MODULES = [
+  "WhatsApp automático y campañas",
+  "Cobros automáticos y links de pago",
+  "Reportes avanzados y tableros a medida",
+  "App móvil nativa iOS / Android",
+  "Integraciones, multi-sucursal y flujos complejos",
 ];
 
 export function Pricing() {
   return (
     <section id="precios" className="section-elev1 section-chroma section-pad border-y border-white/[0.06]">
       <div className="container-maat">
-        <div className="max-w-[640px] reveal">
-          <span className="eyebrow">Plan</span>
+        <div className="max-w-[660px] reveal">
+          <span className="eyebrow">Plan base</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Un plan. Todo incluido. Sin sorpresas.
+            Empezás con lo esencial. Lo avanzado se cotiza.
           </h2>
-          <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            Sin contratos ni letra chica. La implementación y el soporte están incluidos
-            en el plan. Facturación en pesos.
+          <p className="mt-4 max-w-[560px] text-[16px] leading-7 text-slate-300">
+            Una base operativa clara para ordenar clientes, inventario y agenda. Si tu operación necesita
+            automatizaciones, integraciones o módulos más complejos, lo armamos a medida.
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_1fr]">
-          {/* Plan card — premium animated ring */}
+          {/* Base plan card — premium animated ring */}
           <div className="reveal">
             <div
               className="ops-card ring-anim relative flex h-full flex-col overflow-hidden p-8 md:p-10"
@@ -63,10 +58,10 @@ export function Pricing() {
               </div>
 
               <div className="relative flex items-center justify-between gap-4">
-                <span className="eyebrow gold-shimmer">Plan único</span>
-                <span className="status-pill status-pill--ok shrink-0">
-                  <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
-                  Todo incluido
+                <span className="eyebrow gold-shimmer">Plan base</span>
+                <span className="status-pill status-pill--live shrink-0">
+                  <span className="live-ring h-1.5 w-1.5 rounded-full bg-cyan" />
+                  Esencial
                 </span>
               </div>
 
@@ -75,18 +70,18 @@ export function Pricing() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/motifs/ankh.svg" alt="" className="motif motif-float h-4 w-4" style={{ "--motif-o": 0.16 } as CSSProperties} />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/motifs/eye-of-horus.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-1.8s]" style={{ "--motif-o": 0.13 } as CSSProperties} />
+                <img src="/motifs/scales-of-maat.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-1.8s]" style={{ "--motif-o": 0.13 } as CSSProperties} />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/motifs/scarab.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-3.2s]" style={{ "--motif-o": 0.12 } as CSSProperties} />
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
               </div>
 
               <div className="relative mt-5 flex flex-wrap items-end gap-x-2.5 gap-y-1">
-                <span className="self-start pt-2 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-gold-300">
-                  USD
+                <span className="pb-2 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-gold-300">
+                  Desde USD
                 </span>
                 <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
-                  59
+                  100
                 </span>
                 <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>
               </div>
@@ -95,7 +90,7 @@ export function Pricing() {
               </p>
 
               <div className="seal-rule my-7" aria-hidden>
-                {/* Ankh — life/operations, engraved gold (was a generic shield) */}
+                {/* Ankh — life/operations, engraved gold. */}
                 <svg width="13" height="16" viewBox="0 0 24 28" fill="none" stroke="var(--gold-400)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <ellipse cx="12" cy="7" rx="5" ry="6" />
                   <line x1="12" y1="13" x2="12" y2="26" />
@@ -105,28 +100,21 @@ export function Pricing() {
 
               <ul className="relative space-y-3">
                 {PLAN_INCLUDES.map((f) => (
-                  <li key={f.label} className="flex items-start gap-3 text-[14.5px] text-slate-300">
-                    {f.tag ? <PremiumMark /> : <Check />}
-                    <span className="flex flex-wrap items-center gap-2">
-                      {f.label}
-                      {f.tag && (
-                        <span className="rounded-full border border-gold-400/40 bg-gold-400/[0.1] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-gold-200">
-                          {f.tag}
-                        </span>
-                      )}
-                    </span>
+                  <li key={f} className="flex items-start gap-3 text-[14.5px] text-slate-300">
+                    <Check />
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={waLink("Hola MaatWork, quiero ver una demo operativa")}
+                  href={waLink("Hola MaatWork, quiero cotizar el plan base")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cta-violet inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
                 >
-                  Ver demo operativa
+                  Cotizar plan base
                 </a>
                 <a
                   href="#faq"
@@ -137,34 +125,35 @@ export function Pricing() {
               </div>
 
               <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.09em] text-slate-400">
-                Sin tarjeta · Sin contrato · Cancelás cuando quieras
+                Sin tarjeta · Sin contrato · Escalable por módulos
               </p>
             </div>
           </div>
 
-          {/* Service commitments */}
+          {/* Quoted modules */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
             <div className="ops-card card-accent accent-emerald flex h-full flex-col p-8">
-              {/* Scales of Maat — judgement / balance: a fair plan, no surprises. */}
+              {/* Scales of Maat — judgement / balance: clear base, custom scope quoted fairly. */}
               <CardGlyph motif="scales-of-maat" className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
-                El servicio, incluido en el plan
+                Módulos avanzados a cotizar
               </h3>
               <p className="mt-2 text-[14px] leading-relaxed text-slate-400">
-                No pagás aparte por implementar. Te dejamos operando y te acompañamos.
+                No te cobramos un paquete gigante si no lo necesitás. Lo complejo se define por alcance,
+                volumen e integraciones reales.
               </p>
 
               <ul className="mt-7 space-y-3.5">
-                {SERVICE_INCLUDES.map((f) => (
+                {QUOTED_MODULES.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-[14.5px] text-slate-300">
-                    <span className="signal-dot signal-dot--ok mt-1.5" aria-hidden />
+                    <PremiumMark />
                     {f}
                   </li>
                 ))}
               </ul>
 
               <p className="mt-auto pt-7 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-slate-500">
-                Migración, capacitación y soporte sin costo adicional durante la salida en vivo.
+                Primero dejamos ordenada la operación base. Después escalamos sólo lo que tenga sentido.
               </p>
             </div>
           </div>
@@ -184,7 +173,7 @@ function Check() {
   );
 }
 
-// Gold "+" marker for the priced add-on — reads as extra, not bundled into USD 59.
+// Gold "+" marker for quoted modules — reads as optional/custom, not bundled into the base price.
 function PremiumMark() {
   return (
     <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/[0.12]">
