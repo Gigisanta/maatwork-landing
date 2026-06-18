@@ -11,7 +11,7 @@ import { FAQS } from "@/data/faqs";
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
 const BRAND_THEME_COLOR = "#0A0A11";
-const ICON_VERSION = "maatwork-20260618";
+const ICON_VERSION = "maatwork-ds-logo-20260618-v2";
 
 // MaatWork Design System type stack — Sora (display) · Hanken Grotesk
 // (body) · JetBrains Mono (data/labels). Self-hosted via next/font.
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 7 días gratis, sin tarjeta.",
   icons: {
     icon: [
-      { url: `/favicon-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
-      { url: `/favicon.ico?v=${ICON_VERSION}`, sizes: "any" },
-      { url: `/maatwork-favicon.svg?v=${ICON_VERSION}`, type: "image/svg+xml" },
-      { url: `/icon-192.png?v=${ICON_VERSION}`, sizes: "192x192", type: "image/png" },
+      { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
+      { url: `/favicon-ds.ico?v=${ICON_VERSION}`, sizes: "any" },
+      { url: `/logo-mark.svg?v=${ICON_VERSION}`, type: "image/svg+xml" },
+      { url: `/icon-ds-192.png?v=${ICON_VERSION}`, sizes: "192x192", type: "image/png" },
     ],
-    shortcut: `/favicon.ico?v=${ICON_VERSION}`,
-    apple: [{ url: `/apple-touch-icon.png?v=${ICON_VERSION}`, sizes: "180x180", type: "image/png" }],
+    shortcut: `/favicon-ds.ico?v=${ICON_VERSION}`,
+    apple: [{ url: `/apple-touch-icon-ds.png?v=${ICON_VERSION}`, sizes: "180x180", type: "image/png" }],
     other: [{ rel: "mask-icon", url: `/safari-pinned-tab.svg?v=${ICON_VERSION}`, color: "#E8B23C" }],
   },
   appleWebApp: {
