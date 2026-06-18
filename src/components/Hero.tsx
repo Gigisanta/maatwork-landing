@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import { ProductShowcase } from "./ProductShowcase";
-import { StaggeredText } from "./StaggeredText";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
 
@@ -54,8 +53,14 @@ export function Hero() {
           className="reveal mx-auto max-w-[1000px] text-center font-display text-4xl text-white text-balance sm:text-5xl lg:text-[4rem]"
           style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.02, transitionDelay: "60ms" }}
         >
-          <StaggeredText text={H1_LINE_1} baseDelayMs={60} className="block" />
-          <StaggeredText text={H1_LINE_2} baseDelayMs={170} className="block text-slate-300" />
+          <span className="line-reveal block" style={{ animationDelay: "60ms" }}>
+            Control operativo para <span className="hero-word hero-word--gold">negocios</span>
+          </span>
+          <span className="line-reveal block text-slate-300" style={{ animationDelay: "170ms" }}>
+            de <span className="hero-word hero-word--violet">agenda</span>,{" "}
+            <span className="hero-word hero-word--cyan">cobros</span> y{" "}
+            <span className="hero-word hero-word--gold">clientes</span>.
+          </span>
         </h1>
 
         <p

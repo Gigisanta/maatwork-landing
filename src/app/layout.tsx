@@ -10,6 +10,8 @@ import { FAQS } from "@/data/faqs";
 
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
+const BRAND_THEME_COLOR = "#0A0A11";
+const ICON_VERSION = "maatwork-20260618";
 
 // MaatWork Design System type stack — Sora (display) · Hanken Grotesk
 // (body) · JetBrains Mono (data/labels). Self-hosted via next/font.
@@ -35,10 +37,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A11",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: BRAND_THEME_COLOR },
+    { media: "(prefers-color-scheme: dark)", color: BRAND_THEME_COLOR },
+  ],
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
@@ -50,9 +56,20 @@ export const metadata: Metadata = {
   description:
     "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 7 días gratis, sin tarjeta.",
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: `/favicon-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
+      { url: `/favicon.ico?v=${ICON_VERSION}`, sizes: "any" },
+      { url: `/maatwork-favicon.svg?v=${ICON_VERSION}`, type: "image/svg+xml" },
+      { url: `/icon-192.png?v=${ICON_VERSION}`, sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: `/favicon.ico?v=${ICON_VERSION}`,
+    apple: [{ url: `/apple-touch-icon.png?v=${ICON_VERSION}`, sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "mask-icon", url: `/safari-pinned-tab.svg?v=${ICON_VERSION}`, color: "#E8B23C" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "black-translucent",
   },
   keywords: [
     "software de gestión",
@@ -159,7 +176,6 @@ export default function RootLayout({
   return (
     <html lang="es-AR" className={`${sora.variable} ${hanken.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         {/* Warm DNS for the WhatsApp CTA (primary conversion path) */}
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="alternate" hrefLang="es-AR" href={SITE_URL} />
