@@ -3,7 +3,8 @@
 /**
  * StickyWhatsApp — CTA persistente en mobile. La home mide ~16 pantallas de alto;
  * sin esto el camino de conversión (WhatsApp) queda lejos durante el scroll.
- * Aparece tras pasar el hero y se oculta cerca del fondo para no tapar el FinalCTA/footer.
+ * Aparece tras pasar el hero y se oculta en pricing/fondo para no tapar contenido
+ * ni competir con CTAs locales.
  * Solo mobile (md:hidden). El click lo trackea AnalyticsEvents (a[href*="wa.me"]).
  */
 import { useEffect, useState } from "react";
@@ -23,7 +24,9 @@ export function StickyWhatsApp() {
       const y = window.scrollY;
       const pastHero = y > vh * 0.9;
       const nearBottom = y + vh > docH - vh * 1.3;
-      setShow(pastHero && !nearBottom);
+      const pricingRect = document.getElementById("precios")?.getBoundingClientRect();
+      const overPricing = pricingRect ? pricingRect.top < vh * 0.92 && pricingRect.bottom > vh * 0.18 : false;
+      setShow(pastHero && !nearBottom && !overPricing);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(measure);
