@@ -1,17 +1,19 @@
 /**
  * Pricing — one institutional plan, everything included. The ROI calculator and
  * "blue rate" framing were removed: they lowered the premium perception. Price is
- * stated plainly; the second column lists the service commitments, not a slider.
+ * a starting-from figure (billed in pesos at the daily FX rate), not a fixed fee;
+ * the second column lists the service commitments, not a slider.
  */
+import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 
-const PLAN_INCLUDES = [
-  "Clientes ilimitados",
-  "Agenda online con recordatorios",
-  "Cobros automáticos y links de pago",
-  "WhatsApp automático",
-  "Tablero y reportes en vivo",
-  "App móvil (iOS y Android)",
+const PLAN_INCLUDES: { label: string; tag?: string }[] = [
+  { label: "Clientes ilimitados" },
+  { label: "Agenda online con recordatorios" },
+  { label: "Cobros automáticos y links de pago" },
+  { label: "WhatsApp automático" },
+  { label: "Tablero y reportes en vivo" },
+  { label: "App móvil (iOS y Android)", tag: "cotizar" },
 ];
 
 const SERVICE_INCLUDES = [
@@ -42,10 +44,22 @@ export function Pricing() {
           {/* Plan card — premium animated ring */}
           <div className="reveal">
             <div
-              className="ops-card ring-anim flex h-full flex-col p-8 md:p-10"
+              className="ops-card ring-anim relative flex h-full flex-col overflow-hidden p-8 md:p-10"
               style={{ borderColor: "var(--violet-ring)", boxShadow: "var(--shadow-lg), var(--glow-soft)" }}
             >
-              <div className="flex items-center justify-between">
+              {/* Engraved feather of Maat — the namesake symbol (truth / order),
+                  living gold watermark behind the plan. */}
+              <div aria-hidden className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/motifs/feather-of-maat.svg"
+                  alt=""
+                  className="motif motif-float h-48 w-48 md:h-56 md:w-56"
+                  style={{ "--motif-o": 0.06 } as CSSProperties}
+                />
+              </div>
+
+              <div className="relative flex items-center justify-between">
                 <span className="eyebrow gold-shimmer">Plan único</span>
                 <span className="status-pill status-pill--ok">
                   <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
@@ -53,27 +67,42 @@ export function Pricing() {
                 </span>
               </div>
 
-              <div className="mt-5 flex items-baseline gap-2">
-                <span className="font-display text-[60px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
-                  USD 59
+              <div className="relative mt-5">
+                <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-gold-300/85">
+                  A partir de
                 </span>
-                <span className="text-[15px] text-slate-400">/mes</span>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
+                    $100
+                  </span>
+                  <span className="text-[15px] text-slate-400">/mes</span>
+                </div>
               </div>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
+              <p className="relative mt-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
                 Facturación en pesos al tipo de cambio del día
               </p>
 
               <div className="seal-rule my-7" aria-hidden>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2 4 7v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V7l-8-5Z" />
+                {/* Ankh — life/operations, engraved gold (was a generic shield) */}
+                <svg width="13" height="16" viewBox="0 0 24 28" fill="none" stroke="var(--gold-400)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <ellipse cx="12" cy="7" rx="5" ry="6" />
+                  <line x1="12" y1="13" x2="12" y2="26" />
+                  <line x1="5" y1="17.5" x2="19" y2="17.5" />
                 </svg>
               </div>
 
-              <ul className="space-y-3">
+              <ul className="relative space-y-3">
                 {PLAN_INCLUDES.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[14.5px] text-slate-300">
+                  <li key={f.label} className="flex items-start gap-3 text-[14.5px] text-slate-300">
                     <Check />
-                    {f}
+                    <span className="flex flex-wrap items-center gap-2">
+                      {f.label}
+                      {f.tag && (
+                        <span className="rounded-full border border-gold-400/30 bg-gold-400/[0.08] px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-gold-300">
+                          {f.tag}
+                        </span>
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -131,9 +131,10 @@ const jsonLd = {
       description:
         "Plataforma operativa todo-en-uno: agenda, clientes, cobros, automatización y tablero de control para negocios con turnos.",
       offers: {
-        "@type": "Offer",
-        price: "59",
+        "@type": "AggregateOffer",
+        lowPrice: "100",
         priceCurrency: "USD",
+        offerCount: 1,
         priceValidUntil: "2027-12-31",
         availability: "https://schema.org/InStock",
       },

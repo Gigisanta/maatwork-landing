@@ -886,6 +886,34 @@ html.js-ready .reveal.is-visible {
   animation: shimmer-x 5s linear infinite;
 }
 
+/* ================================================================
+   Engraved Maat motifs — symbolic gold line watermarks (winged sun
+   disk of Ra, feather of Maat). Decorative, aria-hidden in markup.
+   Opacity driven by --motif-o so the rest state is correct even when
+   motion is paused. Centering lives on a WRAPPER; the float/breathe
+   transform lives on the motif itself, so Tailwind's translate utils
+   never fight the keyframe. Living, normal-speed motion — paused by
+   the reduced-motion block below.
+   ================================================================ */
+.motif {
+  opacity: var(--motif-o, 0.08);
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(232, 178, 60, 0.22));
+}
+@keyframes motif-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-8px) rotate(0.8deg); }
+}
+@keyframes motif-breathe {
+  0%, 100% { opacity: var(--motif-o, 0.08); }
+  50%      { opacity: calc(var(--motif-o, 0.08) * 1.85); }
+}
+.motif-float {
+  animation: motif-float 11s ease-in-out infinite,
+             motif-breathe 8.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
 @media (max-width: 767px) {
   .bg-field::before { background-size: 48px 48px; }
   /* Trim the heaviest blur layers on mobile for paint cost (colors stay) */

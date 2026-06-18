@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
 import { waLink } from "@/lib/whatsapp";
@@ -17,6 +18,16 @@ export function Hero() {
   return (
     <section id="top" className="section-base section-chroma relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20">
       <div className="hero-halo" aria-hidden />
+      {/* Winged sun disk of Ra — engraved gold watermark above the headline */}
+      <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 z-0 -translate-x-1/2 md:top-20">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/motifs/sun-disk.svg"
+          alt=""
+          className="motif motif-float h-44 w-44 md:h-56 md:w-56"
+          style={{ "--motif-o": 0.07 } as CSSProperties}
+        />
+      </div>
       <div className="container-maat relative z-10">
         {/* Mission briefing eyebrow */}
         <div className="mb-6 flex justify-center">

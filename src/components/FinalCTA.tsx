@@ -3,6 +3,7 @@
  * engraved gold seal, the primary action, and the lead form. Conversion paths
  * preserved (WhatsApp transport + POST /api/leads via <LeadForm/>).
  */
+import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { LeadForm } from "./LeadForm";
 
@@ -13,14 +14,17 @@ export function FinalCTA() {
         <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-16">
           {/* Cinematic color wash — drifting violet/gold/cyan aurora behind copy */}
           <div className="panel-aurora" aria-hidden />
-          {/* Engraved Maat motif — sun disk watermark, one per surface (DS) */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/motifs/sun-disk.svg"
-            alt=""
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 -top-10 h-28 w-28 -translate-x-1/2 opacity-[0.08]"
-          />
+          {/* Engraved Maat motif — winged sun disk watermark, one per surface
+              (DS). Slow float + breathe; paused under reduced-motion. */}
+          <div aria-hidden className="pointer-events-none absolute left-1/2 -top-12 -translate-x-1/2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/motifs/sun-disk.svg"
+              alt=""
+              className="motif motif-float h-28 w-28 md:h-32 md:w-32"
+              style={{ "--motif-o": 0.1 } as CSSProperties}
+            />
+          </div>
 
           <div className="relative">
             <div className="seal-rule mx-auto mb-7 max-w-[220px]" aria-hidden>
