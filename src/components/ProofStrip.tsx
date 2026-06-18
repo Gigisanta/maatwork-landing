@@ -10,7 +10,7 @@ const MARKERS: { value: string; label: string; dot: string }[] = [
   { value: "5–10 días", label: "Implementación guiada", dot: "var(--cyan)" },
   { value: "Un sistema", label: "Agenda · Cobros · Clientes", dot: "var(--violet-400)" },
   { value: "Soporte local", label: "En español, mismo día", dot: "var(--success)" },
-  { value: "14 días", label: "Prueba sin tarjeta", dot: "var(--gold-400)" },
+  { value: "7 días", label: "Prueba sin tarjeta", dot: "var(--gold-400)" },
 ];
 
 export function ProofStrip() {

@@ -1,7 +1,8 @@
 /**
  * ProblemSolution — the operational diagnosis. Instead of generic "pain cards",
  * the disorder is rendered as a feed of operational signals (severity dot +
- * detail + mono meta), then resolved into a single operational surface.
+ * detail + mono meta), then resolved into a small set of outcome cards plus the
+ * main operational-surface promise.
  */
 import { GlyphRail } from "./Ornaments";
 
@@ -10,6 +11,13 @@ type Signal = {
   title: string;
   detail: string;
   meta: string;
+};
+
+type Outcome = {
+  title: string;
+  detail: string;
+  metric: string;
+  accent: "accent-violet" | "accent-gold" | "accent-cyan";
 };
 
 const SIGNALS: Signal[] = [
@@ -36,6 +44,27 @@ const SIGNALS: Signal[] = [
     title: "Sin visibilidad",
     detail: "No sabés qué entró ni quién dejó de venir.",
     meta: "Decisiones a ciegas",
+  },
+];
+
+const OUTCOMES: Outcome[] = [
+  {
+    title: "Clientes ordenados",
+    detail: "Historial, estado y próximos pasos en un solo lugar.",
+    metric: "CRM base",
+    accent: "accent-violet",
+  },
+  {
+    title: "Inventario visible",
+    detail: "Stock y movimientos simples sin planillas paralelas.",
+    metric: "Control diario",
+    accent: "accent-gold",
+  },
+  {
+    title: "Agenda coordinada",
+    detail: "Turnos y tareas claros para dejar de improvisar.",
+    metric: "Operación viva",
+    accent: "accent-cyan",
   },
 ];
 
@@ -75,29 +104,51 @@ export function ProblemSolution() {
           </ul>
 
           {/* Resolved state */}
-          <div className="reveal ops-card card-accent accent-emerald p-7 md:p-8" style={{ transitionDelay: "120ms" }}>
-            <span className="status-pill status-pill--ok">
-              <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
-              Resuelto
-            </span>
-            <GlyphRail className="mt-5 max-w-[200px]" glyphs={["scales-of-maat", "feather-of-maat"]} o={0.1} />
-            <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
-              Una sola superficie operativa.
-            </h3>
-            <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
-              MaatWork unifica agenda, cobros, clientes y recordatorios. Una fuente única,
-              el estado siempre visible y la operación bajo control.
-            </p>
-            <a
-              href="#producto"
-              className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200"
-            >
-              Ver el producto
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
+          <div className="space-y-3">
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {OUTCOMES.map((o, i) => (
+                <div
+                  key={o.title}
+                  className={`reveal ops-card card-accent ${o.accent} p-4`}
+                  style={{ transitionDelay: `${120 + i * 60}ms` }}
+                >
+                  <span className="font-mono text-[9.5px] uppercase tracking-[0.1em] text-slate-500">
+                    {o.metric}
+                  </span>
+                  <h3 className="mt-2 font-display text-[15px] font-extrabold tracking-[-0.02em] text-white">
+                    {o.title}
+                  </h3>
+                  <p className="mt-1.5 text-[12.5px] leading-relaxed text-slate-400">
+                    {o.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="reveal ops-card card-accent accent-emerald p-7 md:p-8" style={{ transitionDelay: "300ms" }}>
+              <span className="status-pill status-pill--ok">
+                <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
+                Resuelto
+              </span>
+              <GlyphRail className="mt-5 max-w-[200px]" glyphs={["scales-of-maat", "feather-of-maat"]} o={0.1} />
+              <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
+                Una sola superficie operativa.
+              </h3>
+              <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
+                MaatWork unifica clientes, inventario, agenda y control diario. Una fuente única,
+                el estado siempre visible y la operación bajo control.
+              </p>
+              <a
+                href="#producto"
+                className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200"
+              >
+                Ver el producto
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>

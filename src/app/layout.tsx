@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 14 días gratis, sin tarjeta.",
+    "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 7 días gratis, sin tarjeta.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: "/favicon.svg",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
     description:
-      "Agenda, cobros, clientes y recordatorios en un solo sistema. Implementación guiada con soporte local. 14 días gratis, sin tarjeta.",
+      "Agenda, cobros, clientes y recordatorios en un solo sistema. Implementación guiada con soporte local. 7 días gratis, sin tarjeta.",
     images: [
       {
         url: "/og-image.png",
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
     description:
-      "Agenda, cobros, clientes y recordatorios en un solo sistema. 14 días gratis, sin tarjeta.",
+      "Agenda, cobros, clientes y recordatorios en un solo sistema. 7 días gratis, sin tarjeta.",
     images: ["/twitter-image.png"],
   },
   robots: {

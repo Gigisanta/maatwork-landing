@@ -41,7 +41,7 @@ export function FinalCTA() {
               ¿Listo para operar con un solo sistema?
             </h2>
             <p className="mx-auto mt-5 max-w-[540px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
-              Empezás con 14 días gratis, sin tarjeta. Te mostramos una demo operativa y
+              Empezás con 7 días gratis, sin tarjeta. Te mostramos una demo operativa y
               configuramos todo con vos.
             </p>
 

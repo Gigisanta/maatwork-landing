@@ -130,6 +130,7 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   overflow-x: clip;
+  width: 100%;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -142,6 +143,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
   overflow-x: clip;
 }
 
@@ -955,8 +958,41 @@ html.js-ready .reveal.is-visible {
   .field-aurora { filter: blur(16px); }
   .field-prism  { filter: blur(44px) saturate(130%); opacity: 0.6; }
   .field-orbit  { filter: blur(48px); }
-  .field-beam   { display: none; }
+  .field-beam,
+  .field-scan   { display: none; }
   .hero-halo    { filter: blur(34px); }
+
+  /* Mobile: keep the color identity but FREEZE the paint/composite-heavy
+     continuous loops (blurred + screen-blended layers, animated box-shadows,
+     the conic-gradient ring). Static gradients stay, so .bg-field rasterizes
+     once and composites cheaply while scrolling instead of re-rastering every
+     frame. The cheap transform/opacity micro-motions (grid pulse, dot pulse,
+     motif float, scan beams in panels) keep the page alive. */
+  .field-prism,
+  .field-orbit,
+  .field-aurora,
+  .hero-halo,
+  .panel-aurora,
+  .cta-violet::before,
+  .ring-anim::before,
+  .live-ring { animation: none; }
+
+  /* No animation → no reason to keep these large surfaces promoted to their
+     own GPU layers (saves compositor memory on low-end devices). */
+  .field-prism,
+  .field-orbit,
+  .field-aurora,
+  .field-beam,
+  .panel-aurora { will-change: auto; }
+}
+
+/* Touch devices have no real hover: neutralize the lift transforms so a tap
+   doesn't leave a card "stuck" raised (and skips the extra repaint). Color /
+   border hover states are harmless and stay. */
+@media (hover: none) {
+  .hover-scale:hover,
+  .ops-card:hover,
+  .card-accent:hover { transform: none; }
 }
 
 /* Respect prefers-reduced-motion */

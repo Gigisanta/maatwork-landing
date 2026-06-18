@@ -12,7 +12,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "¿Necesito tarjeta para probar?",
-    a: "No. Los 14 días son gratis y no pedimos tarjeta. Si decidís continuar, ahí elegís cómo pagar: transferencia, Mercado Pago o tarjeta.",
+    a: "No. Los 7 días son gratis y no pedimos tarjeta. Si decidís continuar, ahí elegís cómo pagar: transferencia, Mercado Pago o tarjeta.",
   },
   {
     q: "¿Sirve para mi rubro?",

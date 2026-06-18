@@ -95,6 +95,7 @@ export function ProductShowcase() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [pageVisible, setPageVisible] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -105,11 +106,18 @@ export function ProductShowcase() {
   }, []);
 
   useEffect(() => {
-    if (paused || !visible) return;
+    const onVisibility = () => setPageVisible(document.visibilityState === "visible");
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (paused || !visible || !pageVisible) return;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => setActive((p) => (p + 1) % SCREENS.length), INTERVAL_MS);
     return () => clearInterval(id);
-  }, [paused, visible]);
+  }, [paused, visible, pageVisible]);
 
   const accent = SCREENS[active].accent;
 
@@ -177,7 +185,7 @@ export function ProductShowcase() {
                 aria-hidden
               />
               <span className="truncate">{s.name}</span>
-              {on && !paused && visible && (
+              {on && !paused && visible && pageVisible && (
                 <span
                   key={active}
                   aria-hidden

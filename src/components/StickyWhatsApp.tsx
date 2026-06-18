@@ -3,8 +3,8 @@
 /**
  * StickyWhatsApp — CTA persistente en mobile. La home mide ~16 pantallas de alto;
  * sin esto el camino de conversión (WhatsApp) queda lejos durante el scroll.
- * Aparece tras pasar el hero y se oculta en pricing/fondo para no tapar contenido
- * ni competir con CTAs locales.
+ * Aparece tras pasar el hero y se oculta en secciones con CTAs locales para no
+ * tapar contenido ni competir con la acción contextual.
  * Solo mobile (md:hidden). El click lo trackea AnalyticsEvents (a[href*="wa.me"]).
  */
 import { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ export function StickyWhatsApp() {
 
   useEffect(() => {
     let raf = 0;
+    let shown = false;
     // Cachear vh/docH (recalc en resize) evita leer scrollHeight en cada scroll
     // event → sin reflow forzado por scroll. rAF colapsa a 1 medición/frame.
     let vh = window.innerHeight;
@@ -24,9 +25,15 @@ export function StickyWhatsApp() {
       const y = window.scrollY;
       const pastHero = y > vh * 0.9;
       const nearBottom = y + vh > docH - vh * 1.3;
-      const pricingRect = document.getElementById("precios")?.getBoundingClientRect();
-      const overPricing = pricingRect ? pricingRect.top < vh * 0.92 && pricingRect.bottom > vh * 0.18 : false;
-      setShow(pastHero && !nearBottom && !overPricing);
+      const overLocalCta = ["operacion", "precios"].some((id) => {
+        const rect = document.getElementById(id)?.getBoundingClientRect();
+        return rect ? rect.top < vh * 0.92 && rect.bottom > vh * 0.18 : false;
+      });
+      const nextShow = pastHero && !nearBottom && !overLocalCta;
+      if (nextShow !== shown) {
+        shown = nextShow;
+        setShow(nextShow);
+      }
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(measure);

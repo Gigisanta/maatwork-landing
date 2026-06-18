@@ -18,6 +18,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
+  const scrolledRef = useRef(false);
+  const activeIdRef = useRef("");
   const toggleRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -27,14 +29,21 @@ export function Navbar() {
     let raf = 0;
     const measure = () => {
       raf = 0;
-      setScrolled(window.scrollY > 12);
+      const nextScrolled = window.scrollY > 12;
+      if (nextScrolled !== scrolledRef.current) {
+        scrolledRef.current = nextScrolled;
+        setScrolled(nextScrolled);
+      }
       const refLine = window.innerHeight * 0.3;
       let current = "";
       for (const l of links) {
         const el = document.getElementById(l.href.slice(1));
         if (el && el.getBoundingClientRect().top <= refLine) current = l.href.slice(1);
       }
-      setActiveId(current);
+      if (current !== activeIdRef.current) {
+        activeIdRef.current = current;
+        setActiveId(current);
+      }
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(measure);
@@ -181,7 +190,7 @@ export function Navbar() {
             </a>
 
             <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
-              14 días gratis · sin tarjeta · salida en 5–10 días
+              7 días gratis · sin tarjeta · salida en 5–10 días
             </p>
           </div>
         </div>
