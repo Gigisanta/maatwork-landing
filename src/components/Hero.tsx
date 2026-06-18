@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { ProductShowcase } from "./ProductShowcase";
 import { StaggeredText } from "./StaggeredText";
+import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
 
 const H1_LINE_1 = "Control operativo para negocios ";
@@ -29,6 +30,9 @@ export function Hero() {
         />
       </div>
       <div className="container-maat relative z-10">
+        {/* Briefing frame — engraved gold corner marks around the hero copy */}
+        <div className="relative mx-auto max-w-[1040px] px-3 pt-9 pb-7">
+          <CornerMarks inset={0} />
         {/* Mission briefing eyebrow */}
         <div className="mb-6 flex justify-center">
           <div
@@ -100,8 +104,15 @@ export function Hero() {
             </span>
           ))}
         </div>
+        </div>
 
-        <div className="reveal mt-12 md:mt-16" style={{ transitionDelay: "400ms" }}>
+        {/* Ceremonial glyph rail — engraved transition from copy into the product */}
+        <GlyphRail
+          className="reveal mx-auto mt-11 max-w-[440px]"
+          glyphs={["ankh", "feather-of-maat", "scarab", "eye-of-horus"]}
+        />
+
+        <div className="reveal mt-9 md:mt-12" style={{ transitionDelay: "400ms" }}>
           <ProductShowcase />
         </div>
       </div>

@@ -1,8 +1,11 @@
 /**
  * ProofStrip — sober band of operational markers between hero and diagnosis.
  * Replaces the animated stat counters: static, mono-labelled, institutional.
- * No count-up gimmick — facts stated plainly. Server component.
+ * No count-up gimmick — facts stated plainly. Engraved corner marks frame the
+ * row as an instrument readout. Server component.
  */
+import { CornerMarks } from "./Ornaments";
+
 const MARKERS: { value: string; label: string; dot: string }[] = [
   { value: "5–10 días", label: "Implementación guiada", dot: "var(--cyan)" },
   { value: "Un sistema", label: "Agenda · Cobros · Clientes", dot: "var(--violet-400)" },
@@ -12,8 +15,9 @@ const MARKERS: { value: string; label: string; dot: string }[] = [
 
 export function ProofStrip() {
   return (
-    <section className="section-elev1 border-y border-white/[0.06]">
-      <div className="container-maat py-12 md:py-14">
+    <section className="section-elev1 maat-weave border-y border-white/[0.06]">
+      <div className="container-maat relative py-12 md:py-14">
+        <CornerMarks inset={0} />
         <ul className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-x-4">
           {MARKERS.map((m, i) => (
             <li

@@ -5,9 +5,12 @@
  * no orbiting dots, no gradient tiles, no aurora wash.
  */
 import { PRODUCT_HIGHLIGHTS } from "@/data/products";
+import { CardGlyph, GlyphRail } from "./Ornaments";
 
 // Color-key each product to its showcase accent (NMS·cyan, CRM·violet, …).
 const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose"];
+// Curated Maat seal per product: monitoring→eye, CRM→life, infra→obelisk, energy→stability.
+const MOTIFS = ["eye-of-horus", "ankh", "obelisk", "djed"];
 
 export function ProductEcosystem() {
   return (
@@ -23,6 +26,7 @@ export function ProductEcosystem() {
             promesa: estos sistemas ya operan, con datos demo honestos para mostrar el producto
             sin inventar métricas.
           </p>
+          <GlyphRail className="mx-auto mt-8 max-w-[420px]" glyphs={["eye-of-horus", "ankh", "obelisk"]} />
         </div>
 
         <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -32,6 +36,7 @@ export function ProductEcosystem() {
               className={`ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[420px] flex-col p-6`}
               style={{ transitionDelay: `${index * 70}ms` }}
             >
+              <CardGlyph motif={MOTIFS[index % MOTIFS.length]} className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               <div className="flex items-start justify-between gap-3">
                 <span
                   className="icon-halo flex h-11 w-11 items-center justify-center rounded-lg border bg-bg-base font-mono text-[13px] font-bold tracking-[0.02em]"
@@ -51,6 +56,7 @@ export function ProductEcosystem() {
               <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.14em] text-slate-500">
                 {product.label}
               </p>
+              <GlyphRail className="mt-3 max-w-[180px]" glyphs={[MOTIFS[index % MOTIFS.length], "feather-of-maat"]} o={0.09} />
               <p className="mt-4 text-[14px] leading-relaxed text-slate-400">
                 {product.description}
               </p>

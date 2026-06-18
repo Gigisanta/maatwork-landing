@@ -473,6 +473,8 @@ section[id] { scroll-margin-top: 5.5rem; }
    ================================================================ */
 .ops-card {
   position: relative;
+  isolation: isolate; /* own stacking context → .card-glyph (z-index:-1) sits
+                         above the card surface but behind the content */
   background: var(--ink-card);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
@@ -594,7 +596,7 @@ html.js-ready .reveal.is-visible {
   to   { opacity: 1; transform: translateY(0); }
 }
 .line-reveal {
-  display: inline-block;
+  display: block;
   opacity: 0;
   animation: line-reveal 0.7s var(--ease-out-quart) forwards;
 }
@@ -912,6 +914,39 @@ html.js-ready .reveal.is-visible {
   animation: motif-float 11s ease-in-out infinite,
              motif-breathe 8.5s ease-in-out infinite;
   will-change: transform, opacity;
+}
+
+/* ---- Card glyph — per-category Maat seal engraved in a card corner. Sits
+   behind the card content (negative z within the card's isolated context) and
+   warms up on hover, tying into the .card-accent grammar. Static (no float):
+   restraint across many cards at once. ------------------------------------- */
+.card-glyph {
+  z-index: -1;
+  opacity: var(--glyph-o, 0.07);
+  filter: drop-shadow(0 0 8px rgba(232, 178, 60, 0.16));
+  transition: opacity 280ms var(--ease-out-quart), transform 280ms var(--ease-out-quart);
+}
+.card-accent:hover .card-glyph {
+  opacity: calc(var(--glyph-o, 0.07) * 2.3);
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* ---- Maat weave — faience-net linework wash. A barely-there gold diamond
+   lattice (ancient ornament), masked to fade out. Decorative texture for the
+   quietest surfaces; pure gradients, no extra asset, frozen under reduced
+   motion (it never animates). Parent owns the stacking context. -------------- */
+.maat-weave { position: relative; isolation: isolate; }
+.maat-weave::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(45deg,  rgba(232, 178, 60, 0.05) 0 1px, transparent 1px 23px),
+    repeating-linear-gradient(-45deg, rgba(232, 178, 60, 0.05) 0 1px, transparent 1px 23px);
+  -webkit-mask-image: radial-gradient(135% 100% at 50% 0%, #000 8%, transparent 78%);
+          mask-image: radial-gradient(135% 100% at 50% 0%, #000 8%, transparent 78%);
 }
 
 @media (max-width: 767px) {

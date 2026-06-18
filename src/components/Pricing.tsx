@@ -1,11 +1,13 @@
 /**
- * Pricing — one institutional plan, everything included. The ROI calculator and
- * "blue rate" framing were removed: they lowered the premium perception. Price is
- * a starting-from figure (billed in pesos at the daily FX rate), not a fixed fee;
- * the second column lists the service commitments, not a slider.
+ * Pricing — one institutional plan at USD 59/mes, everything included, billed in
+ * pesos at the daily FX rate. The ROI calculator and "blue rate" framing were
+ * removed: they lowered the premium perception. The native mobile app is a priced
+ * add-on (NOT part of the 59) — flagged as a premium tag on that one feature so
+ * the fixed price stays honest. The second column lists service commitments.
  */
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
+import { CornerMarks, CardGlyph } from "./Ornaments";
 
 const PLAN_INCLUDES: { label: string; tag?: string }[] = [
   { label: "Clientes ilimitados" },
@@ -13,7 +15,7 @@ const PLAN_INCLUDES: { label: string; tag?: string }[] = [
   { label: "Cobros automáticos y links de pago" },
   { label: "WhatsApp automático" },
   { label: "Tablero y reportes en vivo" },
-  { label: "App móvil (iOS y Android)", tag: "cotizar" },
+  { label: "App móvil (iOS y Android)", tag: "a partir de $100/mes" },
 ];
 
 const SERVICE_INCLUDES = [
@@ -47,6 +49,7 @@ export function Pricing() {
               className="ops-card ring-anim relative flex h-full flex-col overflow-hidden p-8 md:p-10"
               style={{ borderColor: "var(--violet-ring)", boxShadow: "var(--shadow-lg), var(--glow-soft)" }}
             >
+              <CornerMarks inset={16} />
               {/* Engraved feather of Maat — the namesake symbol (truth / order),
                   living gold watermark behind the plan. */}
               <div aria-hidden className="pointer-events-none absolute -right-6 top-4 hidden md:block">
@@ -78,15 +81,16 @@ export function Pricing() {
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
               </div>
 
-              <div className="relative mt-5 flex flex-wrap items-end gap-x-4 gap-y-2">
+              <div className="relative mt-5 flex flex-wrap items-end gap-x-2.5 gap-y-1">
+                <span className="self-start pt-2 font-mono text-[13px] font-semibold uppercase tracking-[0.14em] text-gold-300">
+                  USD
+                </span>
                 <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
-                  Cotizar
+                  59
                 </span>
-                <span className="rounded-full border border-gold-400/25 bg-gold-400/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-gold-300">
-                  A partir de $100/mes
-                </span>
+                <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>
               </div>
-              <p className="relative mt-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
+              <p className="relative mt-2 font-mono text-[11.5px] uppercase tracking-[0.09em] text-slate-400">
                 Facturación en pesos al tipo de cambio del día
               </p>
 
@@ -102,11 +106,11 @@ export function Pricing() {
               <ul className="relative space-y-3">
                 {PLAN_INCLUDES.map((f) => (
                   <li key={f.label} className="flex items-start gap-3 text-[14.5px] text-slate-300">
-                    <Check />
+                    {f.tag ? <PremiumMark /> : <Check />}
                     <span className="flex flex-wrap items-center gap-2">
                       {f.label}
                       {f.tag && (
-                        <span className="rounded-full border border-gold-400/30 bg-gold-400/[0.08] px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.1em] text-gold-300">
+                        <span className="rounded-full border border-gold-400/40 bg-gold-400/[0.1] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-gold-200">
                           {f.tag}
                         </span>
                       )}
@@ -132,7 +136,7 @@ export function Pricing() {
                 </a>
               </div>
 
-              <p className="mt-5 text-center font-mono text-[10.5px] uppercase tracking-[0.1em] text-slate-500">
+              <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.09em] text-slate-400">
                 Sin tarjeta · Sin contrato · Cancelás cuando quieras
               </p>
             </div>
@@ -141,6 +145,8 @@ export function Pricing() {
           {/* Service commitments */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
             <div className="ops-card card-accent accent-emerald flex h-full flex-col p-8">
+              {/* Scales of Maat — judgement / balance: a fair plan, no surprises. */}
+              <CardGlyph motif="scales-of-maat" className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
                 El servicio, incluido en el plan
               </h3>
@@ -173,6 +179,18 @@ function Check() {
     <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-success/30 bg-success/15">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <polyline points="20 6 9 17 4 12" />
+      </svg>
+    </span>
+  );
+}
+
+// Gold "+" marker for the priced add-on — reads as extra, not bundled into USD 59.
+function PremiumMark() {
+  return (
+    <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-gold-400/40 bg-gold-400/[0.12]">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--gold-400)" strokeWidth="3.5" strokeLinecap="round" aria-hidden>
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
       </svg>
     </span>
   );

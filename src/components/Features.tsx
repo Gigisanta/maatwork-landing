@@ -4,6 +4,7 @@
  * one operational result line. No bento hover-charts, no toy reveals.
  */
 import type { ReactNode } from "react";
+import { CardGlyph, GlyphRail } from "./Ornaments";
 
 type Module = {
   idx: string;
@@ -11,6 +12,7 @@ type Module = {
   desc: string;
   result: string;
   accent: string;
+  motif: string; // per-category Maat seal (engraved in the card corner)
   icon: ReactNode;
 };
 
@@ -21,6 +23,7 @@ const MODULES: Module[] = [
     desc: "Turnos, reservas y recordatorios en una grilla viva.",
     result: "Recordatorios automáticos · menos ausencias",
     accent: "accent-cyan",
+    motif: "obelisk", // structure of the day
     icon: <IconCalendar />,
   },
   {
@@ -29,6 +32,7 @@ const MODULES: Module[] = [
     desc: "Cuotas, links de pago y el estado de cada cobro.",
     result: "Vencimientos al día · sin planillas",
     accent: "accent-emerald",
+    motif: "scales-of-maat", // balance / order of accounts
     icon: <IconMoney />,
   },
   {
@@ -37,6 +41,7 @@ const MODULES: Module[] = [
     desc: "Ficha, historial y seguimiento de cada cliente.",
     result: "Una ficha por cliente · todo el historial",
     accent: "accent-violet",
+    motif: "ankh", // operational life / people
     icon: <IconUsers />,
   },
   {
@@ -45,6 +50,7 @@ const MODULES: Module[] = [
     desc: "WhatsApp que confirma, responde y avisa, 24/7.",
     result: "Confirmaciones y respuestas automáticas",
     accent: "accent-gold",
+    motif: "scarab", // self-running / automation
     icon: <IconChat />,
   },
   {
@@ -53,6 +59,7 @@ const MODULES: Module[] = [
     desc: "Ingresos, asistencia y bajas, en tiempo real.",
     result: "El estado del negocio de un vistazo",
     accent: "accent-rose",
+    motif: "eye-of-horus", // visibility / reporting
     icon: <IconChart />,
   },
   {
@@ -61,6 +68,7 @@ const MODULES: Module[] = [
     desc: "Tu equipo y tus clientes, en iOS y Android.",
     result: "Operás desde el celular",
     accent: "accent-violet",
+    motif: "lotus", // growth / mobility
     icon: <IconPhone />,
   },
 ];
@@ -78,6 +86,7 @@ export function Features() {
             Pensado para quien maneja el negocio, no para programadores. Abrís el sistema
             y entendés el estado de todo.
           </p>
+          <GlyphRail className="mt-8 max-w-[380px]" glyphs={["ankh", "feather-of-maat", "eye-of-horus"]} />
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3">
@@ -87,6 +96,7 @@ export function Features() {
               className={`ops-card card-accent ${m.accent} reveal flex flex-col p-6`}
               style={{ transitionDelay: `${i * 50}ms` }}
             >
+              <CardGlyph motif={m.motif} />
               <div className="flex items-center justify-between">
                 <span
                   className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border"
@@ -99,6 +109,7 @@ export function Features() {
               <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-white">
                 {m.title}
               </h3>
+              <GlyphRail className="mt-3 max-w-[170px]" glyphs={[m.motif, "feather-of-maat"]} o={0.1} />
               <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-slate-400">
                 {m.desc}
               </p>

@@ -3,6 +3,8 @@
  * the disorder is rendered as a feed of operational signals (severity dot +
  * detail + mono meta), then resolved into a single operational surface.
  */
+import { GlyphRail } from "./Ornaments";
+
 type Signal = {
   sev: "critical" | "warning";
   title: string;
@@ -50,6 +52,7 @@ export function ProblemSolution() {
             Si manejás tu negocio así, no estás solo. Pero cada día sin sistema cuesta
             tiempo, plata y clientes.
           </p>
+          <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "scales-of-maat", "ankh"]} />
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -77,6 +80,7 @@ export function ProblemSolution() {
               <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
               Resuelto
             </span>
+            <GlyphRail className="mt-5 max-w-[200px]" glyphs={["scales-of-maat", "feather-of-maat"]} o={0.1} />
             <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
               Una sola superficie operativa.
             </h3>

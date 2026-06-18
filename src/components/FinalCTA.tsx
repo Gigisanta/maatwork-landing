@@ -6,14 +6,17 @@
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { LeadForm } from "./LeadForm";
+import { CornerMarks, GlyphRail } from "./Ornaments";
 
 export function FinalCTA() {
   return (
     <section id="contacto" className="section-base section-chroma section-pad">
       <div className="mx-auto max-w-[1000px] px-5 md:px-8">
-        <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-16">
+        <div className="ops-card ring-anim maat-weave relative overflow-hidden p-10 text-center md:p-16">
           {/* Cinematic color wash — drifting violet/gold/cyan aurora behind copy */}
           <div className="panel-aurora" aria-hidden />
+          {/* Engraved gold corner marks — ceremonial frame around the close */}
+          <CornerMarks inset={18} />
           {/* Engraved Maat motif — winged sun disk watermark, one per surface
               (DS). Slow float + breathe; paused under reduced-motion. */}
           <div aria-hidden className="pointer-events-none absolute left-1/2 -top-12 -translate-x-1/2">
@@ -65,6 +68,11 @@ export function FinalCTA() {
             <p className="mt-7 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
               Sin tarjeta · Sin contrato · Soporte en español
             </p>
+
+            <GlyphRail
+              className="mx-auto mt-9 max-w-[300px]"
+              glyphs={["scales-of-maat", "feather-of-maat", "ankh"]}
+            />
 
             {/* Alternative to WhatsApp: leave your details (POST /api/leads) */}
             <div className="mx-auto mt-10 max-w-[540px] border-t border-white/[0.08] pt-8 text-left">

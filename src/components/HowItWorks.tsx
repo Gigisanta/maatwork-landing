@@ -3,24 +3,29 @@
  * hairline connector. No animated SVG draw, no orbiting decoration — the
  * sequence is the message: diagnóstico → configuración → salida en vivo.
  */
+import { CardGlyph, GlyphRail } from "./Ornaments";
+
 const STEPS = [
   {
     n: "01",
     d: "1–2 días",
     t: "Diagnóstico",
     desc: "Llamada de 30 minutos. Entendemos tu operación, tu flujo y qué te hace perder tiempo.",
+    motif: "eye-of-horus", // insight / seeing the operation
   },
   {
     n: "02",
     d: "3–7 días",
     t: "Configuración",
     desc: "Cargamos tus datos reales y armamos agenda, cobros y clientes. Te lo mostramos funcionando antes de pagar.",
+    motif: "djed", // stability / structure being raised
   },
   {
     n: "03",
     d: "1–2 días",
     t: "Salida en vivo",
     desc: "Capacitamos al equipo y migramos clientes y turnos. Empezás a operar el mismo día.",
+    motif: "sun-disk", // the launch / rising
   },
 ];
 
@@ -37,6 +42,7 @@ export function HowItWorks() {
             Sin proyectos de meses ni consultorías eternas. Configuración guiada,
             con tu equipo operando y soporte local.
           </p>
+          <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "djed", "sun-disk"]} />
         </div>
 
         <div className="relative mt-14">
@@ -47,6 +53,7 @@ export function HowItWorks() {
             {STEPS.map((s, i) => (
               <li key={s.n} className="reveal" style={{ transitionDelay: `${i * 90}ms` }}>
                 <div className="ops-card card-accent accent-violet flex h-full flex-col p-7">
+                  <CardGlyph motif={s.motif} className="absolute right-3 top-3 h-14 w-14" />
                   <div className="flex items-center gap-3">
                     <span
                       className="icon-halo flex h-14 w-14 items-center justify-center rounded-full border bg-bg-base font-display text-[20px] font-extrabold tracking-[-0.02em] text-white"
@@ -61,6 +68,7 @@ export function HowItWorks() {
                   <h3 className="mt-5 font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
                     {s.t}
                   </h3>
+                  <GlyphRail className="mt-3 max-w-[160px]" glyphs={[s.motif, "feather-of-maat"]} o={0.1} />
                   <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-400">
                     {s.desc}
                   </p>
