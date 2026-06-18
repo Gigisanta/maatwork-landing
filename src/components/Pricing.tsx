@@ -49,34 +49,42 @@ export function Pricing() {
             >
               {/* Engraved feather of Maat — the namesake symbol (truth / order),
                   living gold watermark behind the plan. */}
-              <div aria-hidden className="pointer-events-none absolute -right-4 top-1/2 -translate-y-1/2">
+              <div aria-hidden className="pointer-events-none absolute -right-6 top-4 hidden md:block">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/motifs/feather-of-maat.svg"
                   alt=""
-                  className="motif motif-float h-48 w-48 md:h-56 md:w-56"
-                  style={{ "--motif-o": 0.06 } as CSSProperties}
+                  className="motif motif-float h-44 w-44 lg:h-56 lg:w-56"
+                  style={{ "--motif-o": 0.055 } as CSSProperties}
                 />
               </div>
 
-              <div className="relative flex items-center justify-between">
+              <div className="relative flex items-center justify-between gap-4">
                 <span className="eyebrow gold-shimmer">Plan único</span>
-                <span className="status-pill status-pill--ok">
+                <span className="status-pill status-pill--ok shrink-0">
                   <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
                   Todo incluido
                 </span>
               </div>
 
-              <div className="relative mt-5">
-                <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-gold-300/85">
-                  A partir de
+              <div aria-hidden className="relative mt-5 hidden items-center justify-center gap-3 sm:flex">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/motifs/ankh.svg" alt="" className="motif motif-float h-4 w-4" style={{ "--motif-o": 0.16 } as CSSProperties} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/motifs/eye-of-horus.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-1.8s]" style={{ "--motif-o": 0.13 } as CSSProperties} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/motifs/scarab.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-3.2s]" style={{ "--motif-o": 0.12 } as CSSProperties} />
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+              </div>
+
+              <div className="relative mt-5 flex flex-wrap items-end gap-x-4 gap-y-2">
+                <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
+                  Cotizar
                 </span>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
-                    $100
-                  </span>
-                  <span className="text-[15px] text-slate-400">/mes</span>
-                </div>
+                <span className="rounded-full border border-gold-400/25 bg-gold-400/[0.08] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-gold-300">
+                  A partir de $100/mes
+                </span>
               </div>
               <p className="relative mt-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
                 Facturación en pesos al tipo de cambio del día
