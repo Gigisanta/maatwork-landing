@@ -17,14 +17,14 @@ export function ProductEcosystem() {
     <section id="ecosistema" className="section-elev2 section-chroma section-pad">
       <div className="container-maat">
         <div className="mx-auto max-w-3xl text-center reveal">
-          <span className="eyebrow">Ecosistema operativo</span>
+          <span className="eyebrow">Lo que ya construimos</span>
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-display text-white text-balance sm:text-4xl">
-            Prueba de construcción real.
+            4 productos. 4 industrias. En producción.
           </h2>
           <p className="mt-5 text-base leading-7 text-slate-300 text-pretty">
-            MaatWork es una fábrica de software con productos en producción. No vendemos una
-            promesa: estos sistemas ya operan, con datos demo honestos para mostrar el producto
-            sin inventar métricas.
+            No vendemos una promesa: estos sistemas propios ya operan en producción, en industrias
+            distintas — natatorios, comercial, obras y seguridad contra incendios. Entrá y miralos
+            funcionando. Esa es la prueba de que podemos construir el tuyo.
           </p>
           <GlyphRail className="mx-auto mt-8 max-w-[420px]" glyphs={["eye-of-horus", "ankh", "obelisk"]} />
         </div>

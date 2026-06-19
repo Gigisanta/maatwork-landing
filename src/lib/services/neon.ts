@@ -14,9 +14,12 @@ export type LeadRecord = LeadInput & {
  * DATABASE_URL is intentionally treated as accepted-but-not-persisted.
  */
 export async function createLead(input: LeadInput, metadata: Record<string, unknown> = {}): Promise<LeadRecord> {
+  // `necesidad` (tipo de proyecto) no tiene columna propia → se persiste en el
+  // jsonb `metadata`, evitando una migración de la tabla `leads` en producción.
+  const meta = { ...metadata, necesidad: input.necesidad };
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
-    return { ...input, metadata, created_at: new Date().toISOString() };
+    return { ...input, metadata: meta, created_at: new Date().toISOString() };
   }
 
   const sql = neon(databaseUrl);
@@ -36,17 +39,17 @@ export async function createLead(input: LeadInput, metadata: Record<string, unkn
       ${input.nombre},
       ${input.whatsapp},
       ${input.email || null},
-      ${input.rubro},
+      ${input.rubro || null},
       ${input.problema || null},
       ${input.source},
       ${input.utm_source || null},
       ${input.utm_medium || null},
       ${input.utm_campaign || null},
-      ${JSON.stringify(metadata)}::jsonb
+      ${JSON.stringify(meta)}::jsonb
     )
     RETURNING id, created_at
   `;
 
   const row = rows[0] as { id?: string; created_at?: string } | undefined;
-  return { ...input, ...row, metadata };
+  return { ...input, ...row, metadata: meta };
 }

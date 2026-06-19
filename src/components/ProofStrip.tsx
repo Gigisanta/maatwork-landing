@@ -7,10 +7,10 @@
 import { CornerMarks } from "./Ornaments";
 
 const MARKERS: { value: string; label: string; dot: string }[] = [
-  { value: "5–10 días", label: "Implementación guiada", dot: "var(--cyan)" },
-  { value: "Un sistema", label: "Agenda · Cobros · Clientes", dot: "var(--violet-400)" },
+  { value: "4 productos", label: "En producción, navegables", dot: "var(--cyan)" },
+  { value: "A medida", label: "Para cualquier rubro", dot: "var(--violet-400)" },
   { value: "Soporte local", label: "En español, mismo día", dot: "var(--success)" },
-  { value: "7 días", label: "Prueba sin tarjeta", dot: "var(--gold-400)" },
+  { value: "Desde USD 100", label: "+ setup, a cotizar", dot: "var(--gold-400)" },
 ];
 
 export function ProofStrip() {

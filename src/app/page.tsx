@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ProofStrip } from "@/components/ProofStrip";
 import { ProblemSolution } from "@/components/ProblemSolution";
+import { Services } from "@/components/Services";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Pricing } from "@/components/Pricing";
@@ -23,6 +24,7 @@ export default function HomePage() {
         <Hero />
         <ProofStrip />
         <ProblemSolution />
+        <Services />
         <Features />
         <HowItWorks />
         <Pricing />

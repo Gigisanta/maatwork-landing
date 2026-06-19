@@ -17,7 +17,7 @@ const STEPS = [
     n: "02",
     d: "3–7 días",
     t: "Configuración",
-    desc: "Cargamos tus datos reales y armamos agenda, cobros y clientes. Te lo mostramos funcionando antes de pagar.",
+    desc: "Cargamos tus datos reales y armamos tu sistema. Te lo mostramos funcionando antes de que pagues.",
     motif: "djed", // stability / structure being raised
   },
   {

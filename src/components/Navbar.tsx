@@ -5,13 +5,13 @@ import { waLink } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "#producto", label: "Producto" },
-  { href: "#implementacion", label: "Implementación" },
+  { href: "#servicios", label: "Servicios" },
+  { href: "#ecosistema", label: "Proyectos" },
   { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
 ];
 
-const DEMO = waLink("Hola MaatWork, quiero ver una demo operativa");
+const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");
 const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 
 export function Navbar() {
@@ -132,7 +132,7 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Ver demo
+            Contanos tu proyecto
           </a>
           <button
             ref={toggleRef}
@@ -175,7 +175,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className="rounded-2xl border border-white/[0.06] bg-white/[0.025] px-5 py-4 font-display text-2xl font-bold tracking-h3 text-white transition hover:border-violet-600/30 hover:bg-white/[0.06]"
               >
-                Ver demo operativa
+                Contanos tu proyecto
               </a>
             </div>
 
@@ -190,7 +190,7 @@ export function Navbar() {
             </a>
 
             <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
-              7 días gratis · sin tarjeta · salida en 5–10 días
+              Desde USD 100/mes · soluciones a medida · soporte local
             </p>
           </div>
         </div>

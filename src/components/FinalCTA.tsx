@@ -38,21 +38,21 @@ export function FinalCTA() {
               className="mx-auto max-w-[680px] font-display text-[34px] leading-[1.06] tracking-[-0.03em] text-white md:text-[48px]"
               style={{ fontWeight: 800 }}
             >
-              ¿Listo para operar con un solo sistema?
+              ¿Listo para construir el software de tu negocio?
             </h2>
             <p className="mx-auto mt-5 max-w-[540px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
-              Empezás con 7 días gratis, sin tarjeta. Te mostramos una demo operativa y
-              configuramos todo con vos.
+              Contanos qué necesitás. Te mostramos lo que ya construimos funcionando y armamos
+              una propuesta a tu medida.
             </p>
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <a
-                href={waLink("Hola MaatWork, quiero ver una demo operativa")}
+                href={waLink("Hola MaatWork, quiero contarles un proyecto")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-violet inline-flex h-[52px] items-center justify-center rounded-full px-7 text-[15.5px] font-semibold text-white hover-scale"
               >
-                Ver demo operativa
+                Contanos tu proyecto
               </a>
               <a
                 href={waLink("Hola MaatWork, quiero hablar con el equipo")}
@@ -66,7 +66,7 @@ export function FinalCTA() {
             </div>
 
             <p className="mt-7 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
-              Sin tarjeta · Sin contrato · Soporte en español
+              Sin permanencia · Te lo mostramos antes de firmar · Soporte local
             </p>
 
             <GlyphRail

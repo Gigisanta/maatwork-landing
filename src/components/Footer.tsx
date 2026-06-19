@@ -4,11 +4,12 @@ import { Logo } from "./Logo";
 const WHATSAPP = waLink();
 
 const footerLinks = [
-  { href: "#producto", label: "Producto" },
-  { href: "#implementacion", label: "Implementación" },
+  { href: "#servicios", label: "Servicios" },
+  { href: "#ecosistema", label: "Proyectos" },
   { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
-  { href: WHATSAPP, label: "WhatsApp", external: true },
+  { href: "https://www.linkedin.com/in/giolivo-garcia-451954322/", label: "LinkedIn", external: true },
+  { href: "https://www.instagram.com/maat.work/", label: "Instagram", external: true },
 ];
 
 export function Footer() {
@@ -18,9 +19,24 @@ export function Footer() {
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
             <Logo size={26} />
-            <p className="mt-3 max-w-[420px] text-sm leading-[1.6] text-slate-400">
-              Plataforma operativa para negocios con agenda, cobros y clientes recurrentes.
-              Hecho en Argentina.
+            <p className="mt-3 max-w-[440px] text-sm leading-[1.6] text-slate-400">
+              Estudio de software y automatización a medida. Construimos apps, sistemas de gestión
+              y automatizaciones, con productos propios en producción. Hecho en Argentina.
+            </p>
+            <p className="mt-3 text-sm text-slate-500">
+              Por{" "}
+              <a
+                href="https://www.linkedin.com/in/giolivo-garcia-451954322/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline"
+              >
+                Giolivo García
+              </a>{" "}
+              · Reinnova Group S.R.L. ·{" "}
+              <a href="tel:+5492994569840" className="text-slate-400 transition-colors hover:text-white">
+                +54 9 299 456-9840
+              </a>
             </p>
           </div>
 

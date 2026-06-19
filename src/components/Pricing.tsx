@@ -86,7 +86,7 @@ export function Pricing() {
                 <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>
               </div>
               <p className="relative mt-2 font-mono text-[11.5px] uppercase tracking-[0.09em] text-slate-400">
-                Facturación en pesos al tipo de cambio del día
+                + setup inicial según alcance · facturado en pesos al cambio del día
               </p>
 
               <div className="seal-rule my-7" aria-hidden>
@@ -125,7 +125,7 @@ export function Pricing() {
               </div>
 
               <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.09em] text-slate-400">
-                Sin tarjeta · Sin contrato · Escalable por módulos
+                Sin permanencia · Te lo mostramos antes de firmar · Escalable a medida
               </p>
             </div>
           </div>

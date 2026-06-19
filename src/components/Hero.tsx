@@ -3,8 +3,8 @@ import { ProductShowcase } from "./ProductShowcase";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
 
-const H1_LINE_1 = "Control operativo para negocios ";
-const H1_LINE_2 = "de agenda, cobros y clientes.";
+const H1_LINE_1 = "Construimos software a medida y automatizaciones ";
+const H1_LINE_2 = "para que tu negocio funcione solo.";
 
 // Real products in production — the proof chips, color-keyed to the showcase.
 const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
@@ -43,7 +43,7 @@ export function Hero() {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan" />
             </span>
             <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]">
-              MaatWork · Plataforma operativa
+              Estudio de software y automatización · Argentina
             </span>
           </div>
         </div>
@@ -54,12 +54,11 @@ export function Hero() {
           style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.02, transitionDelay: "60ms" }}
         >
           <span className="line-reveal block" style={{ animationDelay: "60ms" }}>
-            Control operativo para <span className="hero-word hero-word--gold">negocios</span>
+            Construimos <span className="hero-word hero-word--gold">software a medida</span> y{" "}
+            <span className="hero-word hero-word--violet">automatizaciones</span>
           </span>
           <span className="line-reveal block text-slate-300" style={{ animationDelay: "170ms" }}>
-            de <span className="hero-word hero-word--violet">agenda</span>,{" "}
-            <span className="hero-word hero-word--cyan">cobros</span> y{" "}
-            <span className="hero-word hero-word--gold">clientes</span>.
+            para que tu negocio <span className="hero-word hero-word--cyan">funcione solo</span>.
           </span>
         </h1>
 
@@ -67,8 +66,8 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Implementamos agenda, cobros, clientes, recordatorios y tablero de control en un solo
-          sistema — con soporte local y salida en vivo guiada.
+          Apps, sistemas de gestión y automatizaciones a medida para cualquier rubro. No es una
+          promesa: ya tenemos 4 productos funcionando en producción.
         </p>
 
         <div
@@ -76,13 +75,13 @@ export function Hero() {
           style={{ transitionDelay: "260ms" }}
         >
           <a
-            href={waLink("Hola MaatWork, quiero ver una demo operativa")}
+            href={waLink("Hola MaatWork, quiero contarles un proyecto")}
             target="_blank"
             rel="noopener noreferrer"
             className="cta-violet group inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15px] font-semibold tracking-[-0.01em] text-white hover-scale"
             style={{ height: 54 }}
           >
-            Ver demo operativa
+            Contanos tu proyecto
             <ArrowIcon />
           </a>
           <a
@@ -95,6 +94,13 @@ export function Hero() {
             Hablar con MaatWork
           </a>
         </div>
+
+        <p
+          className="reveal mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400"
+          style={{ transitionDelay: "300ms" }}
+        >
+          Desde USD 100/mes · Te lo mostramos funcionando antes de que firmes nada
+        </p>
 
         {/* One proof object: real products in production, stated plainly */}
         <div

@@ -50,11 +50,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
+    default: "MaatWork — Estudio de software a medida y automatización",
     template: "%s · MaatWork",
   },
   description:
-    "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes. Implementación guiada con soporte local en español. 7 días gratis, sin tarjeta.",
+    "Estudio argentino de software y automatización a medida. Construimos apps, sistemas de gestión y automatizaciones para cualquier rubro — con 4 productos ya funcionando en producción. Implementación guiada y soporte local.",
   icons: {
     icon: [
       { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
@@ -72,14 +72,16 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   keywords: [
+    "desarrollo de software a medida",
+    "software a medida argentina",
+    "estudio de software",
+    "fábrica de software",
+    "automatización de procesos",
+    "automatización con inteligencia artificial",
+    "desarrollo de apps a medida",
+    "integración de sistemas",
+    "automatización de WhatsApp",
     "software de gestión",
-    "sistema de turnos",
-    "agenda online",
-    "gestión de cobros",
-    "CRM Argentina",
-    "WhatsApp para negocios",
-    "software para gimnasios",
-    "automatización comercial",
   ],
   authors: [{ name: "MaatWork", url: SITE_URL }],
   creator: "MaatWork",
@@ -94,9 +96,9 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
+    title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      "Agenda, cobros, clientes y recordatorios en un solo sistema. Implementación guiada con soporte local. 7 días gratis, sin tarjeta.",
+      "Construimos apps, sistemas de gestión y automatizaciones a medida para cualquier negocio — con 4 productos ya en producción. Soporte local en Argentina.",
     images: [
       {
         url: "/og-image.png",
@@ -108,9 +110,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MaatWork — Plataforma operativa para agenda, cobros y clientes",
+    title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      "Agenda, cobros, clientes y recordatorios en un solo sistema. 7 días gratis, sin tarjeta.",
+      "Apps, sistemas de gestión y automatizaciones a medida. 4 productos ya en producción. Soporte local en Argentina.",
     images: ["/twitter-image.png"],
   },
   robots: {
@@ -133,25 +135,64 @@ const jsonLd = {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
+      legalName: "Reinnova Group S.R.L.",
       url: SITE_URL,
       logo: `${SITE_URL}/logo-mark.svg`,
       description:
-        "Plataforma operativa para negocios con agenda, cobros y clientes recurrentes en Argentina.",
+        "Estudio de software y automatización a medida para cualquier negocio, con productos propios en producción en Argentina.",
+      founder: {
+        "@type": "Person",
+        name: "Giolivo García",
+        sameAs: ["https://www.linkedin.com/in/giolivo-garcia-451954322/"],
+      },
+      telephone: "+5492994569840",
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+5492994569840",
+        contactType: "sales",
+        areaServed: "AR",
+        availableLanguage: ["Spanish"],
+      },
+      areaServed: "AR",
       address: { "@type": "PostalAddress", addressCountry: "AR" },
-      sameAs: [],
+      sameAs: ["https://www.instagram.com/maat.work/"],
+      knowsAbout: [
+        "Desarrollo de software a medida",
+        "Automatización de procesos",
+        "Integración de sistemas",
+        "Inteligencia artificial aplicada",
+        "Facturación electrónica ARCA/AFIP",
+      ],
+      makesOffer: {
+        "@type": "OfferCatalog",
+        name: "Servicios",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo de software a medida" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automatizaciones e IA" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Integraciones y facturación ARCA/AFIP" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Producto base operativo" } },
+        ],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      inLanguage: "es-AR",
+      publisher: { "@id": `${SITE_URL}/#organization` },
     },
     {
       "@type": "SoftwareApplication",
-      name: SITE_NAME,
+      name: `${SITE_NAME} — Producto base operativo`,
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Plataforma operativa todo-en-uno: agenda, clientes, cobros, automatización y tablero de control para negocios con turnos.",
+        "Producto base operativo de MaatWork: agenda, clientes, cobros y tablero de control. Punto de entrada desde USD 100/mes; el alcance avanzado se desarrolla y cotiza a medida.",
       offers: {
         "@type": "AggregateOffer",
         lowPrice: "100",
         priceCurrency: "USD",
-        offerCount: 1,
         priceValidUntil: "2027-12-31",
         availability: "https://schema.org/InStock",
       },
