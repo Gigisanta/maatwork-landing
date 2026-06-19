@@ -4,6 +4,16 @@
 **Insumo:** auditoría inicial (3 agentes) + investigación profunda (20 agentes sonnet, informes en `docs/research/01-20`).
 **Regla inviolable:** cero fabricación de clientes, métricas o testimonios. Ítems que requieren un dato/activo real del owner van marcados `[OWNER]`.
 
+## Estado de ejecución (2026-06-19)
+
+Ejecutado en rama `feat/reposicionamiento-estudio` (commits incrementales, gate verde, QA visual):
+- **Fase 0 ✅** — home reposicionada a estudio (Hero, Servicios, ProofStrip, Pricing, FAQ, FinalCTA, Footer, Navbar, ProductEcosystem), SEO/JSON-LD (Reinnova, founder, teléfono, sameAs, WebSite, OfferCatalog, ARCA), LeadForm con calificación + post-submit, analytics de funnel.
+- **Fase 1 ✅** — multipágina: `/servicios/[slug]` (4), `/casos/[slug]` (4), `/soluciones/[slug]` (6), `/blog` + 3 artículos, índices, sitemap dinámico, internal linking, BreadcrumbList + Service/SoftwareApplication/BlogPosting JSON-LD. 27 páginas estáticas.
+- **Fase 2 ✅** — CTA "agendá un diagnóstico" (`bookingLink`, Cal.com vía `NEXT_PUBLIC_CALCOM_URL` con fallback WhatsApp).
+- **Fase 3 (codeable) ✅** — sección About con founder visible (Giolivo García + LinkedIn + Reinnova) y garantías de confianza. Off-site (Clutch/GoodFirms/Bing/Wikidata/reseñas) sigue `[OWNER]`.
+
+Pendiente `[OWNER]`: agenda Cal.com real, perfiles externos para reviews/GEO, primer testimonio real, foto del founder, demo grabada, confirmación de rangos de precio para módulos.
+
 ---
 
 ## 0. El pivote (lo que cambió)
