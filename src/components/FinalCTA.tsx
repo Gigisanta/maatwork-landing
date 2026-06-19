@@ -5,6 +5,7 @@
  */
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
+import { bookingLink } from "@/lib/booking";
 import { LeadForm } from "./LeadForm";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 
@@ -65,7 +66,19 @@ export function FinalCTA() {
               </a>
             </div>
 
-            <p className="mt-7 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
+            <p className="mt-5 text-[13.5px] text-slate-400">
+              ¿Preferís agendar?{" "}
+              <a
+                href={bookingLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-violet-300 underline-offset-2 transition-colors hover:text-violet-200 hover:underline"
+              >
+                Agendá un diagnóstico de 30 min →
+              </a>
+            </p>
+
+            <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
               Sin permanencia · Te lo mostramos antes de firmar · Soporte local
             </p>
 

@@ -10,6 +10,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Pricing } from "@/components/Pricing";
 import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { FAQ } from "@/components/FAQ";
+import { About } from "@/components/About";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
@@ -30,6 +31,7 @@ export default function HomePage() {
         <Pricing />
         <ProductEcosystem />
         <FAQ />
+        <About />
         <FinalCTA />
       </main>
       <Footer />
