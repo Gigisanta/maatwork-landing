@@ -4,6 +4,7 @@
  * production. Sober ops cards (mono initial tile, mono evidence/modules) —
  * no orbiting dots, no gradient tiles, no aurora wash.
  */
+import Link from "next/link";
 import { PRODUCT_HIGHLIGHTS } from "@/data/products";
 import { CardGlyph, GlyphRail } from "./Ornaments";
 
@@ -11,6 +12,13 @@ import { CardGlyph, GlyphRail } from "./Ornaments";
 const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose"];
 // Curated Maat seal per product: monitoring→eye, CRM→life, infra→obelisk, energy→stability.
 const MOTIFS = ["eye-of-horus", "ankh", "obelisk", "djed"];
+// Map each portfolio product to its case-study page.
+const CASE_SLUG: Record<string, string> = {
+  NMS: "nms",
+  MaatWorkCRM: "maatwork-crm",
+  Infrannova: "infrannova",
+  Varigas: "varigas",
+};
 
 export function ProductEcosystem() {
   return (
@@ -94,9 +102,25 @@ export function ProductEcosystem() {
                     <path d="M7 7h10v10" />
                   </svg>
                 </a>
+                <Link
+                  href={`/casos/${CASE_SLUG[product.name]}`}
+                  className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-violet-300 transition-colors hover:text-violet-200"
+                >
+                  Ver caso
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-9 text-center">
+          <Link href="/casos" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200">
+            Ver todos los casos →
+          </Link>
         </div>
       </div>
     </section>

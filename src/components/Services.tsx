@@ -6,6 +6,7 @@
  * Server component.
  */
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
 import { CardGlyph, GlyphRail } from "./Ornaments";
 
@@ -58,6 +59,13 @@ const SERVICES: Service[] = [
   },
 ];
 
+const DETAIL: Record<string, string> = {
+  "Producto base operativo": "/servicios/producto-base",
+  "Desarrollo a medida": "/servicios/desarrollo-a-medida",
+  "Automatizaciones e IA": "/servicios/automatizaciones",
+  "Integraciones y facturación": "/servicios/integraciones",
+};
+
 export function Services() {
   return (
     <section id="servicios" className="section-elev1 section-chroma section-pad border-y border-white/[0.06]">
@@ -97,21 +105,38 @@ export function Services() {
               <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-slate-400">
                 {s.desc}
               </p>
-              <a
-                href={waLink(`Hola MaatWork, ${s.cta}`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 border-t border-white/[0.06] pt-4 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors"
-                style={{ color: "var(--accent)" }}
-              >
-                Cotizar
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
+              <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/[0.06] pt-4">
+                <Link
+                  href={DETAIL[s.title]}
+                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-slate-400 transition-colors hover:text-white"
+                >
+                  Ver detalle
+                </Link>
+                <a
+                  href={waLink(`Hola MaatWork, ${s.cta}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors"
+                  style={{ color: "var(--accent)" }}
+                >
+                  Cotizar
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
             </article>
           ))}
+        </div>
+
+        <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Link href="/servicios" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200">
+            Ver todos los servicios →
+          </Link>
+          <Link href="/soluciones" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-slate-400 transition-colors hover:text-white">
+            Soluciones por industria →
+          </Link>
         </div>
       </div>
     </section>
