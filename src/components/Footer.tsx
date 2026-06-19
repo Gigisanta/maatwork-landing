@@ -4,10 +4,12 @@ import { Logo } from "./Logo";
 const WHATSAPP = waLink();
 
 const footerLinks = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#ecosistema", label: "Proyectos" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/servicios", label: "Servicios (todos)" },
+  { href: "/casos", label: "Casos" },
+  { href: "/#precios", label: "Precios" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#faq", label: "FAQ" },
   { href: "https://www.linkedin.com/in/giolivo-garcia-451954322/", label: "LinkedIn", external: true },
   { href: "https://www.instagram.com/maat.work/", label: "Instagram", external: true },
 ];

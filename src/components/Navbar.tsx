@@ -5,10 +5,10 @@ import { waLink } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#ecosistema", label: "Proyectos" },
-  { href: "#precios", label: "Precios" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#servicios", id: "servicios", label: "Servicios" },
+  { href: "/#ecosistema", id: "ecosistema", label: "Proyectos" },
+  { href: "/#precios", id: "precios", label: "Precios" },
+  { href: "/#faq", id: "faq", label: "FAQ" },
 ];
 
 const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");
@@ -37,8 +37,8 @@ export function Navbar() {
       const refLine = window.innerHeight * 0.3;
       let current = "";
       for (const l of links) {
-        const el = document.getElementById(l.href.slice(1));
-        if (el && el.getBoundingClientRect().top <= refLine) current = l.href.slice(1);
+        const el = document.getElementById(l.id);
+        if (el && el.getBoundingClientRect().top <= refLine) current = l.id;
       }
       if (current !== activeIdRef.current) {
         activeIdRef.current = current;
@@ -107,7 +107,7 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           {links.map((l) => {
-            const isActive = activeId === l.href.slice(1);
+            const isActive = activeId === l.id;
             return (
               <li key={l.href}>
                 <a
