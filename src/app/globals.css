@@ -226,7 +226,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   filter: blur(64px) saturate(140%);
   mix-blend-mode: screen;
   opacity: 0.85;
-  animation: prism-spin 38s linear infinite;
+  animation: prism-spin 26s linear infinite;
   will-change: transform;
 }
 
@@ -244,13 +244,13 @@ section[id] { scroll-margin-top: 5.5rem; }
   top: -10%;
   left: 2%;
   background: radial-gradient(circle, rgba(131, 93, 245, 0.56), transparent 68%);
-  animation: orbit-violet 28s ease-in-out infinite;
+  animation: orbit-violet 18s ease-in-out infinite;
 }
 .field-orbit--gold {
   bottom: -14%;
   right: 4%;
   background: radial-gradient(circle, rgba(232, 178, 60, 0.40), transparent 68%);
-  animation: orbit-gold 34s ease-in-out infinite;
+  animation: orbit-gold 23s ease-in-out infinite;
 }
 .field-orbit--cyan {
   top: 26%;
@@ -258,7 +258,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   width: 40vw;
   height: 40vw;
   background: radial-gradient(circle, rgba(45, 212, 238, 0.44), transparent 68%);
-  animation: orbit-cyan 30s ease-in-out infinite;
+  animation: orbit-cyan 20s ease-in-out infinite;
 }
 
 /* Drifting aurora — violet · cyan · gold · rose, now clearly readable */
@@ -272,7 +272,7 @@ section[id] { scroll-margin-top: 5.5rem; }
     radial-gradient(32% 40% at 10% 84%, rgba(251, 113, 133, 0.24), transparent 60%);
   filter: blur(22px);
   mix-blend-mode: screen;
-  animation: aurora-drift 24s ease-in-out infinite;
+  animation: aurora-drift 17s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -287,7 +287,7 @@ section[id] { scroll-margin-top: 5.5rem; }
   transform: rotate(13deg);
   filter: blur(16px);
   mix-blend-mode: screen;
-  animation: beam-drift 20s ease-in-out infinite;
+  animation: beam-drift 15s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -1001,8 +1001,10 @@ html.js-ready .reveal.is-visible {
      once and composites cheaply while scrolling instead of re-rastering every
      frame. The cheap transform/opacity micro-motions (grid pulse, dot pulse,
      motif float, scan beams in panels) keep the page alive. */
+  /* Freeze the heaviest blur+screen layers (prism/aurora); KEEP the orbits
+     drifting so the field stays visibly alive on phones — orbits are a single
+     radial gradient, cheap enough to animate. */
   .field-prism,
-  .field-orbit,
   .field-aurora,
   .hero-halo,
   .panel-aurora,
@@ -1013,7 +1015,6 @@ html.js-ready .reveal.is-visible {
   /* No animation → no reason to keep these large surfaces promoted to their
      own GPU layers (saves compositor memory on low-end devices). */
   .field-prism,
-  .field-orbit,
   .field-aurora,
   .field-beam,
   .panel-aurora { will-change: auto; }

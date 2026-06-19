@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cartouche">
+  <defs><linearGradient id="m-car" x1="24" y1="7" x2="24" y2="41" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F6D785"/><stop offset="1" stop-color="#C58F23"/></linearGradient></defs>
+  <rect x="13" y="10" width="22" height="30" rx="11" ry="11" stroke="url(#m-car)" stroke-width="1.7" fill="none"/>
+  <rect x="16.5" y="13.5" width="15" height="23" rx="7.5" ry="7.5" stroke="#E8B23C" stroke-opacity="0.22" stroke-width="0.8" fill="none"/>
+  <path d="M10 40 L38 40" stroke="url(#m-car)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M13 38 L13 40" stroke="url(#m-car)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M35 38 L35 40" stroke="url(#m-car)" stroke-width="2" stroke-linecap="round"/>
+  <g stroke="#E8B23C" stroke-opacity="0.45" stroke-width="1" stroke-linecap="round">
+    <path d="M19 20 L29 20"/>
+    <path d="M19 24 L29 24"/>
+    <path d="M19 28 L29 28"/>
+  </g>
+  <circle cx="24" cy="10" r="1.4" fill="#9D7BFF"/>
+</svg>

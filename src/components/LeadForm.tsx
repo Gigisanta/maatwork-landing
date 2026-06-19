@@ -174,7 +174,7 @@ export function LeadForm() {
           disabled={status === "submitting"}
           className="cta-violet inline-flex h-12 shrink-0 items-center justify-center rounded-xl px-6 text-[14.5px] font-semibold text-white transition disabled:opacity-70 sm:px-7"
         >
-          {status === "submitting" ? "Enviando…" : "Que me contacten"}
+          {status === "submitting" ? "Enviando…" : "Me contactan hoy"}
         </button>
       </form>
       {error && (

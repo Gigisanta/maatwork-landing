@@ -14,6 +14,15 @@ import { About } from "@/components/About";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
+import { KhekerFrieze } from "@/components/Ornaments";
+
+function FriezeDivider({ count = 13, o = 0.08 }: { count?: number; o?: number }) {
+  return (
+    <div className="container-maat py-2">
+      <KhekerFrieze count={count} o={o} />
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -28,10 +37,12 @@ export default function HomePage() {
         <Services />
         <Features />
         <HowItWorks />
+        <FriezeDivider count={13} />
         <Pricing />
         <ProductEcosystem />
         <FAQ />
         <About />
+        <FriezeDivider count={11} o={0.1} />
         <FinalCTA />
       </main>
       <Footer />

@@ -135,14 +135,13 @@ const jsonLd = {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      legalName: "Reinnova Group S.R.L.",
       url: SITE_URL,
       logo: `${SITE_URL}/logo-mark.svg`,
       description:
         "Estudio de software y automatización a medida para cualquier negocio, con productos propios en producción en Argentina.",
       founder: {
         "@type": "Person",
-        name: "Giolivo García",
+        name: "Giolivo Santarelli",
         sameAs: ["https://www.linkedin.com/in/giolivo-garcia-451954322/"],
       },
       telephone: "+5492994569840",

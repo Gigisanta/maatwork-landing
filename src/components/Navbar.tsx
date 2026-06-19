@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
 
 const links = [
   { href: "/#servicios", id: "servicios", label: "Servicios" },
-  { href: "/#ecosistema", id: "ecosistema", label: "Proyectos" },
+  { href: "/#ecosistema", id: "ecosistema", label: "Productos" },
   { href: "/#precios", id: "precios", label: "Precios" },
   { href: "/#faq", id: "faq", label: "FAQ" },
 ];
@@ -101,9 +102,9 @@ export function Navbar() {
       ].join(" ")}
     >
       <nav className="container-maat flex h-16 items-center justify-between">
-        <a href="#top" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
           <Logo size={30} />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
           {links.map((l) => {
@@ -157,7 +158,7 @@ export function Navbar() {
             aria-label="Menú de navegación"
             className="fixed inset-0 top-16 z-40 bg-bg-base px-6 py-8"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               {links.map((l) => (
                 <a
                   key={l.href}
@@ -190,7 +191,7 @@ export function Navbar() {
             </a>
 
             <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
-              Desde USD 100/mes · soluciones a medida · soporte local
+              Desde USD 100/mes · 4 productos en producción · soporte directo
             </p>
           </div>
         </div>

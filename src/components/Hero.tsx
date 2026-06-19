@@ -16,7 +16,7 @@ const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
 
 export function Hero() {
   return (
-    <section id="top" className="section-base section-chroma relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20">
+    <section id="top" className="section-base section-chroma relative overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20">
       <div className="hero-halo" aria-hidden />
       {/* Winged sun disk of Ra — engraved gold watermark above the headline */}
       <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 z-0 -translate-x-1/2 md:top-20">
@@ -28,9 +28,19 @@ export function Hero() {
           style={{ "--motif-o": 0.07 } as CSSProperties}
         />
       </div>
+      {/* Was-scepter — authority over operational chaos, faint engraved watermark */}
+      <div aria-hidden className="pointer-events-none absolute right-[3%] top-[26%] z-0 hidden lg:block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/motifs/was-scepter.svg" alt="" className="motif h-28 w-28" style={{ "--motif-o": 0.04 } as CSSProperties} />
+      </div>
+      {/* Ankh — operational life, mirrored faint watermark on the left */}
+      <div aria-hidden className="pointer-events-none absolute left-[3%] top-[30%] z-0 hidden lg:block">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/motifs/ankh.svg" alt="" className="motif h-24 w-24" style={{ "--motif-o": 0.04 } as CSSProperties} />
+      </div>
       <div className="container-maat relative z-10">
         {/* Briefing frame — engraved gold corner marks around the hero copy */}
-        <div className="relative mx-auto max-w-[1040px] px-3 pt-9 pb-7">
+        <div className="relative mx-auto max-w-[1040px] px-4 pt-9 pb-7 sm:px-6">
           <CornerMarks inset={0} />
         {/* Mission briefing eyebrow */}
         <div className="mb-6 flex justify-center">
@@ -66,8 +76,8 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Apps, sistemas de gestión y automatizaciones a medida para cualquier rubro. No es una
-          promesa: ya tenemos 4 productos funcionando en producción.
+          Apps, sistemas de gestión y automatizaciones a medida para cualquier rubro. NMS,
+          MaatWorkCRM, Infrannova y Varigas ya funcionan en producción — el tuyo es el próximo.
         </p>
 
         <div
@@ -119,8 +129,9 @@ export function Hero() {
 
         {/* Ceremonial glyph rail — engraved transition from copy into the product */}
         <GlyphRail
-          className="reveal mx-auto mt-11 max-w-[440px]"
-          glyphs={["ankh", "feather-of-maat", "scarab", "eye-of-horus"]}
+          className="reveal mx-auto mt-11 max-w-[460px]"
+          glyphs={["ankh", "was-scepter", "feather-of-maat", "eye-of-horus"]}
+          o={0.18}
         />
 
         <div className="reveal mt-9 md:mt-12" style={{ transitionDelay: "400ms" }}>

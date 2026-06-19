@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { FAQS } from "@/data/faqs";
+import { GlyphRail } from "./Ornaments";
 
 export function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section id="faq" className="section-base section-pad">
-      <div className="mx-auto max-w-[820px] px-6 md:px-8">
+      <div className="mx-auto max-w-[720px] px-6 md:px-8">
         <div className="reveal mx-auto max-w-[640px] text-center">
           <span className="eyebrow">Preguntas frecuentes</span>
           <h2
@@ -17,6 +18,8 @@ export function FAQ() {
           >
             Lo que se pregunta antes de empezar.
           </h2>
+          {/* Feather of Maat + Eye of Horus — truth & transparency: no fine print */}
+          <GlyphRail className="mx-auto mt-6 max-w-[200px]" glyphs={["feather-of-maat", "eye-of-horus"]} o={0.13} />
         </div>
 
         <div className="mt-10 space-y-2.5">

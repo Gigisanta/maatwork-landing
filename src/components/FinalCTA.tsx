@@ -29,6 +29,11 @@ export function FinalCTA() {
               style={{ "--motif-o": 0.1 } as CSSProperties}
             />
           </div>
+          {/* Was-scepter — authority over the chaos, closing counterweight to the sun disk */}
+          <div aria-hidden className="pointer-events-none absolute bottom-10 right-8 hidden md:block">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/motifs/was-scepter.svg" alt="" className="motif motif-float h-20 w-20 [animation-delay:-7s]" style={{ "--motif-o": 0.06 } as CSSProperties} />
+          </div>
 
           <div className="relative">
             <div className="seal-rule mx-auto mb-7 max-w-[220px]" aria-hidden>
@@ -83,8 +88,8 @@ export function FinalCTA() {
             </p>
 
             <GlyphRail
-              className="mx-auto mt-9 max-w-[300px]"
-              glyphs={["scales-of-maat", "feather-of-maat", "ankh"]}
+              className="mx-auto mt-9 max-w-[320px]"
+              glyphs={["scales-of-maat", "feather-of-maat", "ankh", "shen-ring"]}
             />
 
             {/* Alternative to WhatsApp: leave your details (POST /api/leads) */}

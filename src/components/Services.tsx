@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
   {
     idx: "03",
     title: "Automatizaciones e IA",
-    desc: "WhatsApp, cobros, reportes y tareas repetitivas que se hacen solos. Agentes de IA que trabajan 24/7 por vos.",
+    desc: "WhatsApp que responde y avisa, cobros que se siguen solos, reportes que se generan sin que toques nada. La lógica de tu negocio, adentro del sistema.",
     cta: "quiero automatizar mi negocio",
     accent: "accent-gold",
     motif: "scarab",
@@ -73,16 +73,16 @@ export function Services() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Servicios</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Lo que podemos construir para tu negocio.
+            Empezás con el producto base. Escalás con lo que necesite tu operación.
           </h2>
           <p className="mt-4 max-w-[540px] text-[16px] leading-7 text-slate-300">
-            Desde un producto listo para operar hasta software y automatizaciones hechas a tu
-            medida. Empezás con lo que necesitás hoy y escalás cuando haga falta.
+            El producto base te ordena en 5 a 10 días. Si tu operación necesita más, lo construimos
+            encima: desarrollo a medida, automatizaciones e integraciones. Un solo estudio, de punta a punta.
           </p>
-          <GlyphRail className="mt-8 max-w-[380px]" glyphs={["djed", "scarab", "scales-of-maat"]} />
+          <GlyphRail className="mt-8 max-w-[420px]" glyphs={["obelisk", "djed", "scarab", "scales-of-maat"]} />
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
           {SERVICES.map((s, i) => (
             <article
               key={s.title}

@@ -4,12 +4,13 @@
  * No count-up gimmick — facts stated plainly. Engraved corner marks frame the
  * row as an instrument readout. Server component.
  */
-import { CornerMarks } from "./Ornaments";
+import type { CSSProperties } from "react";
+import { CornerMarks, GlyphRail } from "./Ornaments";
 
 const MARKERS: { value: string; label: string; dot: string }[] = [
   { value: "4 productos", label: "En producción, navegables", dot: "var(--cyan)" },
-  { value: "A medida", label: "Para cualquier rubro", dot: "var(--violet-400)" },
-  { value: "Soporte local", label: "En español, mismo día", dot: "var(--success)" },
+  { value: "4 industrias", label: "Natatorios · obras · extintores · comercial", dot: "var(--violet-400)" },
+  { value: "Soporte directo", label: "WhatsApp, mismo día hábil", dot: "var(--success)" },
   { value: "Desde USD 100", label: "+ setup, a cotizar", dot: "var(--gold-400)" },
 ];
 
@@ -18,7 +19,12 @@ export function ProofStrip() {
     <section className="section-elev1 maat-weave border-y border-white/[0.06]">
       <div className="container-maat relative py-12 md:py-14">
         <CornerMarks inset={0} />
-        <ul className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-x-4">
+        {/* Shen-ring — eternity / no forced permanence: your code is yours for good */}
+        <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/motifs/shen-ring.svg" alt="" className="motif h-36 w-36" style={{ "--motif-o": 0.04 } as CSSProperties} />
+        </div>
+        <ul className="relative grid grid-cols-2 gap-y-6 md:grid-cols-4 md:gap-x-4">
           {MARKERS.map((m, i) => (
             <li
               key={m.label}
@@ -43,6 +49,7 @@ export function ProofStrip() {
             </li>
           ))}
         </ul>
+        <GlyphRail className="relative mx-auto mt-9 max-w-[300px]" glyphs={["shen-ring", "ankh", "cartouche"]} o={0.13} />
       </div>
     </section>
   );

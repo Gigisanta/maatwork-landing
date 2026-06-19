@@ -37,7 +37,7 @@ export function Pricing() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1.05fr_1fr]">
+        <div className="mt-12 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Base plan card — premium animated ring */}
           <div className="reveal">
             <div
@@ -132,9 +132,11 @@ export function Pricing() {
 
           {/* Quoted modules */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
-            <div className="ops-card card-accent accent-emerald flex h-full flex-col p-8">
+            <div className="ops-card card-accent accent-emerald relative flex h-full flex-col p-8">
               {/* Scales of Maat — judgement / balance: clear base, custom scope quoted fairly. */}
               <CardGlyph motif="scales-of-maat" className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
+              {/* Cartouche — your real scope gets its own name, not a forced bundle */}
+              <CardGlyph motif="cartouche" className="absolute right-3 top-3 h-14 w-14" o={0.05} />
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
                 Módulos avanzados a cotizar
               </h3>

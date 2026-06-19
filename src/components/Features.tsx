@@ -89,7 +89,7 @@ export function Features() {
           <GlyphRail className="mt-8 max-w-[380px]" glyphs={["ankh", "feather-of-maat", "eye-of-horus"]} />
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
           {MODULES.map((m, i) => (
             <article
               key={m.title}

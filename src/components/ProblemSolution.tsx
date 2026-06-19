@@ -78,8 +78,8 @@ export function ProblemSolution() {
             Una operación sin sistema deja señales.
           </h2>
           <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            Si manejás tu negocio así, no estás solo. Pero cada día sin sistema cuesta
-            tiempo, plata y clientes.
+            Si reconocés alguna de estas señales, tu operación está corriendo más rápido que tu
+            sistema. Cada día así cuesta tiempo, plata y clientes. Eso lo resolvemos.
           </p>
           <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "scales-of-maat", "ankh"]} />
         </div>
@@ -135,8 +135,8 @@ export function ProblemSolution() {
                 Una sola superficie operativa.
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
-                MaatWork unifica clientes, inventario, agenda y control diario. Una fuente única,
-                el estado siempre visible y la operación bajo control.
+                Una sola pantalla con clientes, inventario, agenda y el estado del negocio. Sin
+                planillas paralelas y sin WhatsApp como repositorio.
               </p>
               <a
                 href="#producto"

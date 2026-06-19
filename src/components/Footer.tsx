@@ -1,5 +1,6 @@
 import { waLink } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
+import { KhekerFrieze } from "./Ornaments";
 
 const WHATSAPP = waLink();
 
@@ -17,7 +18,7 @@ const footerLinks = [
 export function Footer() {
   return (
     <footer className="section-base border-t border-white/[0.06]">
-      <div className="container-maat py-10 md:py-12">
+      <div className="container-maat pt-12 pb-8 md:pt-16 md:pb-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
             <Logo size={26} />
@@ -33,9 +34,9 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-slate-400 underline-offset-2 transition-colors hover:text-white hover:underline"
               >
-                Giolivo García
+                Giolivo Santarelli
               </a>{" "}
-              · Reinnova Group S.R.L. ·{" "}
+              ·{" "}
               <a href="tel:+5492994569840" className="text-slate-400 transition-colors hover:text-white">
                 +54 9 299 456-9840
               </a>
@@ -58,7 +59,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.06] pt-6 text-sm text-purple-400/75 md:flex-row md:items-center md:justify-between">
+        {/* Kheker frieze — temple-cresting band closing the page like a colophon */}
+        <KhekerFrieze count={9} o={0.08} className="mt-10" />
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.06] pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} MaatWork · Hecho en Buenos Aires.</p>
           <nav className="flex flex-wrap gap-x-5 gap-y-2" aria-label="Links de footer">
             {footerLinks.map((l) => (

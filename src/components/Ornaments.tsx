@@ -41,6 +41,36 @@ export function GlyphRail({
   );
 }
 
+/** Kheker frieze — an authentic temple-cresting band of tied-reed units, used as
+ *  a ceremonial section divider. Engraved gold, aria-hidden, motion-free (static
+ *  by nature). Reads as architecture, not decoration: only between sections. */
+export function KhekerFrieze({
+  count = 11,
+  className = "",
+  o = 0.09,
+}: {
+  count?: number;
+  className?: string;
+  o?: number;
+}) {
+  return (
+    <div aria-hidden className={`flex items-end justify-center gap-[2px] overflow-hidden ${className}`}>
+      <span className="h-px flex-1 self-center bg-gradient-to-r from-transparent via-gold-400/20 to-transparent" />
+      {Array.from({ length: count }).map((_, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={i}
+          src="/motifs/kheker-unit.svg"
+          alt=""
+          className="pointer-events-none h-[34px] w-[12px] flex-none"
+          style={{ opacity: o }}
+        />
+      ))}
+      <span className="h-px flex-1 self-center bg-gradient-to-r from-transparent via-gold-400/20 to-transparent" />
+    </div>
+  );
+}
+
 /** Four engraved gold corner brackets framing the parent (must be relative). */
 export function CornerMarks({ inset = 14, className = "" }: { inset?: number; className?: string }) {
   return (

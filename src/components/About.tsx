@@ -1,14 +1,14 @@
 /**
  * About — confianza antes del cierre. Founder visible (cara y nombre reales) +
  * garantías concretas que bajan el riesgo de contratar a un estudio. Datos
- * verificables (Giolivo García, Reinnova Group S.R.L., LinkedIn real). Server component.
+ * verificables (Giolivo Santarelli, LinkedIn real). Server component.
  */
-import { CornerMarks } from "./Ornaments";
+import { CornerMarks, CardGlyph, GlyphRail } from "./Ornaments";
 
 const GUARANTEES = [
   "El código y los datos son tuyos",
   "Sin permanencia ni contratos eternos",
-  "Pagás por etapas, a medida que ves avances",
+  "Pagás por etapas: cada pago va atado a un avance real que podés ver",
   "Te mostramos el sistema funcionando antes de que firmes",
   "Soporte local en español, el mismo día hábil",
 ];
@@ -26,24 +26,28 @@ export function About() {
             Construimos software para nuestros propios productos antes que para vos. Sabemos lo que
             es operarlo todos los días — no te entregamos un MVP y desaparecemos.
           </p>
+          {/* Shen-ring (eternity) · Lotus (growth from chaos) · Feather (truth) */}
+          <GlyphRail className="mt-8 max-w-[300px]" glyphs={["shen-ring", "lotus", "feather-of-maat"]} o={0.14} />
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Founder */}
           <div className="reveal ops-card relative flex flex-col p-8">
             <CornerMarks inset={16} />
+            <CardGlyph motif="shen-ring" o={0.06} className="absolute right-3 top-3 h-14 w-14" />
             <div className="relative flex items-center gap-4">
               <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full border border-violet-600/30 bg-violet-600/15 font-display text-[18px] font-extrabold tracking-[-0.02em] text-white">
-                GG
+                GS
               </span>
               <div>
-                <p className="font-display text-[18px] font-extrabold tracking-[-0.02em] text-white">Giolivo García</p>
+                <p className="font-display text-[18px] font-extrabold tracking-[-0.02em] text-white">Giolivo Santarelli</p>
                 <p className="mt-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400">Fundador · MaatWork</p>
               </div>
             </div>
             <p className="relative mt-5 text-[14.5px] leading-7 text-slate-300">
-              MaatWork opera como Reinnova Group S.R.L., un estudio argentino de software y
-              automatización. Hecho en Argentina, con soporte local en español.
+              MaatWork es un estudio argentino de software y automatización: construimos
+              productos propios y los operamos en producción. Hecho en Argentina, con soporte
+              local en español.
             </p>
             <a
               href="https://www.linkedin.com/in/giolivo-garcia-451954322/"
@@ -59,7 +63,8 @@ export function About() {
           </div>
 
           {/* Guarantees */}
-          <div className="reveal ops-card card-accent accent-emerald flex flex-col p-8" style={{ transitionDelay: "100ms" }}>
+          <div className="reveal ops-card card-accent accent-emerald relative flex flex-col p-8" style={{ transitionDelay: "100ms" }}>
+            <CardGlyph motif="lotus" o={0.07} className="absolute bottom-3 right-3 h-16 w-16" />
             <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
               Por qué podés confiar
             </h3>
