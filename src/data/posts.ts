@@ -40,7 +40,7 @@ export const POSTS: BlogPost[] = [
       {
         heading: "Qué es un software a medida",
         paras: [
-          "Un software a medida se construye para tu operación real. Modela tu proceso tal como es, se integra con lo que ya usás (Mercado Pago, facturación ARCA/AFIP, tus planillas) y crece con vos. El costo inicial es mayor y lleva más tiempo, pero el sistema te queda a vos: el código es tuyo y no dependés de las decisiones de un proveedor externo.",
+          "Un software a medida se construye para tu operación real. Modela tu proceso tal como es, se integra con lo que ya usás (Mercado Pago, facturación ARCA/AFIP, tus planillas) y crece con vos. Tus datos son tuyos y exportables; la app queda licenciada para tu operación, mientras MaatWork conserva el código, el core y las herramientas reutilizables para sostener y mejorar el producto.",
         ],
       },
       {

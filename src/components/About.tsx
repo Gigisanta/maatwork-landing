@@ -6,7 +6,7 @@
 import { CornerMarks, CardGlyph, GlyphRail } from "./Ornaments";
 
 const GUARANTEES = [
-  "El código y los datos son tuyos",
+  "Tus datos son tuyos; la app queda licenciada para tu uso",
   "Sin permanencia ni contratos eternos",
   "Pagás por etapas: cada pago va atado a un avance real que podés ver",
   "Te mostramos el sistema funcionando antes de que firmes",

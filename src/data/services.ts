@@ -40,8 +40,8 @@ export const SERVICES: ServicePage[] = [
       "No es una promesa: ya construimos y operamos sistemas a medida en producción — NMS (natatorios), Infrannova (obras) y Varigas (seguridad contra incendios). Cada uno es un negocio distinto resuelto con software propio.",
     faqs: [
       {
-        q: "¿De quién es el código?",
-        a: "Tuyo. El software que construimos queda en tu poder, con tus datos exportables cuando quieras.",
+        q: "¿De quién es la app y los datos?",
+        a: "Tus datos son tuyos y siempre exportables. La app queda licenciada para tu operación; MaatWork conserva el código, el core y las herramientas reutilizables para mantener y mejorar el producto.",
       },
       {
         q: "¿Cuánto tarda un desarrollo a medida?",

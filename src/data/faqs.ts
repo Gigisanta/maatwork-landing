@@ -15,8 +15,8 @@ export const FAQS: Faq[] = [
     a: "Depende del alcance. El producto base te deja operando en 5 a 10 días hábiles. Un desarrollo a medida o una automatización los estimamos en la primera llamada, según lo que necesites.",
   },
   {
-    q: "¿De quién es el código y los datos?",
-    a: "Tuyos. El software que construimos para tu negocio queda en tu poder y podés exportar tus datos cuando quieras. No te dejamos atado a nosotros. Hacemos backups diarios automáticos.",
+    q: "¿De quién es la app y los datos?",
+    a: "Tus datos son tuyos y siempre exportables. La app queda licenciada para tu operación; MaatWork conserva el código, el core y las herramientas reutilizables. No te dejamos atado: podés exportar tus datos cuando quieras y hacemos backups automáticos.",
   },
   {
     q: "¿Sirve para mi rubro?",
