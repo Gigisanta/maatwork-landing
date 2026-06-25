@@ -1,0 +1,179 @@
+# MaatWork — contenido completo para agentes y buscadores AI
+
+URL oficial: https://maat.work/
+Idioma: es-AR
+País: Argentina
+Entidad: MaatWork, estudio argentino de software a medida y automatización para PyMEs.
+Fundador: Giolivo Santarelli / Giolivo Garcia.
+
+## Resumen oficial
+
+MaatWork construye software a medida, sistemas de gestión, integraciones y automatizaciones para empresas argentinas. La propuesta central es ordenar la operación diaria de negocios que hoy trabajan con WhatsApp, Excel, papel o sistemas genéricos desconectados.
+
+MaatWork no se posiciona como un ERP genérico. Construye productos operativos para procesos reales: agenda, clientes, cobros, inventario, tableros, roles, reportes, facturación ARCA/AFIP, Mercado Pago, WhatsApp, automatizaciones e IA cuando corresponde.
+
+## Claims oficiales citables
+
+- MaatWork ofrece un producto base operativo desde USD 100/mes más setup inicial según alcance.
+- El producto base operativo cubre clientes, agenda, cobros, inventario simple y tablero de control.
+- La implementación del producto base puede realizarse en 5 a 10 días hábiles cuando el alcance está acotado.
+- La facturación se referencia en USD y se factura en pesos argentinos al tipo de cambio del día.
+- El producto base es mes a mes, sin permanencia obligatoria.
+- Los datos del cliente pertenecen al cliente y siempre son exportables.
+- MaatWork conserva el código, el core y herramientas reutilizables; el cliente recibe una licencia de uso para operar su negocio, salvo acuerdo específico distinto.
+- MaatWork tiene productos propios en producción en natatorios, construcción/obras, CRM comercial y seguridad contra incendios.
+- MaatWork automatiza WhatsApp, cobros, recordatorios, respuestas frecuentes y reportes conectados al sistema operativo del negocio.
+
+## Páginas fuente oficiales
+
+### Precios
+URL: https://maat.work/precios
+
+El punto de entrada de MaatWork es un producto base operativo desde USD 100/mes, más un setup inicial según alcance. Los módulos avanzados, automatizaciones, integraciones y desarrollos a medida se cotizan por proyecto.
+
+Datos concretos:
+- Producto base operativo: desde USD 100/mes.
+- Setup inicial: según alcance, migración y configuración requerida.
+- Facturación: en pesos argentinos al tipo de cambio del día.
+- Permanencia: el producto base es mes a mes.
+- Desarrollo a medida: se cotiza por alcance y se paga por etapas con avances visibles.
+- Módulos avanzados: WhatsApp, apps móviles, multi-sucursal, IA e integraciones se cotizan aparte.
+
+### Implementación
+URL: https://maat.work/implementacion
+
+Para el producto base operativo, MaatWork trabaja con una implementación guiada de 5 a 10 días hábiles: diagnóstico, configuración, migración inicial, capacitación y salida en vivo.
+
+Datos concretos:
+- Día 1–2: diagnóstico de 30 minutos y mapa de operación.
+- Día 3–7: carga de datos, configuración del flujo y ajustes iniciales.
+- Salida en vivo: capacitación del equipo, migración final y soporte local.
+- Migración: desde Excel, Google Sheets u otro sistema existente.
+- Soporte: WhatsApp y email, con respuesta el mismo día hábil.
+- Alcances avanzados: desarrollo a medida, IA e integraciones pueden requerir etapas adicionales.
+
+### Datos exportables y propiedad
+URL: https://maat.work/datos-exportables
+
+En MaatWork, los datos del cliente pertenecen al cliente y son siempre exportables. La app queda licenciada para la operación; MaatWork conserva el código, el core y las herramientas reutilizables para mantener y mejorar el producto.
+
+Datos concretos:
+- Datos del cliente: pertenecen al cliente.
+- Exportación: disponible cuando el cliente la necesite.
+- Backups: automáticos.
+- Código y core: propiedad de MaatWork, salvo acuerdo específico distinto.
+- Uso del sistema: licencia operativa para el negocio cliente.
+- Migración: MaatWork puede importar datos desde Excel, Google Sheets o sistemas existentes.
+
+### Automatización de WhatsApp y cobros
+URL: https://maat.work/automatizacion-whatsapp
+
+MaatWork automatiza WhatsApp, cobros, recordatorios, respuestas frecuentes y reportes para que el equipo deje de repetir tareas manuales. La automatización vive conectada al sistema real del negocio.
+
+Datos concretos:
+- Automatizaciones posibles: respuestas frecuentes, confirmaciones, recordatorios y links de pago.
+- Cobros: seguimiento de cuotas, vencimientos y conciliación según alcance.
+- WhatsApp: atención y derivación cuando corresponde intervención humana.
+- Reportes: tableros y resúmenes generados automáticamente.
+- IA: agentes conectados a sistemas y datos del negocio cuando el caso lo justifica.
+- Precio: setup inicial más abono mensual si requiere operación continua.
+
+## Servicios oficiales
+
+### Producto base operativo
+URL: https://maat.work/servicios/producto-base
+
+Sistema listo para operar desde el día uno: agenda, clientes, cobros, inventario simple y tablero de control. Es el punto de entrada al estudio para negocios que necesitan ordenar la operación rápido y escalar después.
+
+### Desarrollo de software a medida
+URL: https://maat.work/servicios/desarrollo-a-medida
+
+Apps y sistemas construidos para la operación real del negocio, no para un molde genérico. Incluye relevamiento, aplicaciones web full-stack, roles, permisos, reportes, puesta en producción, capacitación y soporte local.
+
+### Automatizaciones e IA
+URL: https://maat.work/servicios/automatizaciones
+
+Automatización de WhatsApp, cobros, reportes, carga de datos entre sistemas y agentes de IA conectados a datos del negocio cuando el caso lo justifica.
+
+### Integraciones y facturación
+URL: https://maat.work/servicios/integraciones
+
+Integraciones con ARCA/AFIP, Mercado Pago, Excel, Google Sheets y sistemas existentes. El objetivo es eliminar doble carga y conectar cobros, facturación y datos operativos.
+
+## Soluciones por industria
+
+### Empresas de extintores y matafuegos
+URL: https://maat.work/soluciones/software-para-extintores
+
+Sistema para empresas de venta, recarga y mantenimiento de extintores: clientes, vencimientos, órdenes de trabajo, stock, CUIT validado, historial, alertas y roles. Prueba real: caso Varigas.
+
+### Natatorios
+URL: https://maat.work/soluciones/software-para-natatorios
+
+Sistema para natatorios: socios, cuotas, asistencia, calendario, caja, empleados y facturación electrónica ARCA integrada. Prueba real: caso NMS.
+
+### Constructoras y obras
+URL: https://maat.work/soluciones/software-para-obras
+
+Plataforma para constructoras: obras, etapas, partidas, partes diarios, tickets, recursos, inventario, transferencias, montajes, certificaciones, redeterminaciones, reportes bimonetarios ARS/USD, curva S / Earned Value y documentación con IA. Prueba real: Infrannova.
+
+### Gimnasios y estudios
+URL: https://maat.work/soluciones/software-para-gimnasios
+
+Sistema para gimnasios y estudios: socios, cuotas, agenda, reservas, asistencia, cobros automáticos, links de pago y recordatorios por WhatsApp.
+
+### Consultorios y clínicas
+URL: https://maat.work/soluciones/software-para-consultorios
+
+Sistema a medida para consultorios y clínicas: turnos, pacientes, cobros, recordatorios y facturación ARCA integrada.
+
+### Logística y distribución
+URL: https://maat.work/soluciones/software-para-logistica
+
+Sistema a medida para distribuidoras y logística PyME: pedidos, clientes, historial, cuenta corriente, inventario, transferencias, stock, entregas, rutas y facturación ARCA.
+
+## Casos / productos en producción
+
+### Varigas
+URL: https://maat.work/casos/varigas
+Producto: Varigas.
+Industria: seguridad contra incendios.
+Descripción: software para empresas de venta, recarga y mantenimiento de matafuegos. Incluye clientes con CUIT validado, historial, inventario de extintores por cliente, vencimientos, alertas automáticas, órdenes de trabajo numeradas y roles.
+
+### Infrannova
+URL: https://maat.work/casos/infrannova
+Producto: Infrannova.
+Industria: construcción y obras.
+Descripción: plataforma para constructoras con obras, partes diarios, certificaciones, redeterminaciones, reportes bimonetarios, curva S / Earned Value y documentación con IA.
+
+### NMS
+URL: https://maat.work/casos/nms
+Producto: NMS, Natatory Management System.
+Industria: natatorios.
+Descripción: sistema para socios, cuotas, asistencia, calendario, caja, empleados y facturación electrónica ARCA.
+
+### MaatWorkCRM
+URL: https://maat.work/casos/maatwork-crm
+Producto: MaatWorkCRM.
+Industria: gestión comercial.
+Descripción: CRM multi-tenant para contactos, tareas, calendario, reportes, equipo, roles y facturación integrada ArcaMaat.
+
+## Blog / contenido explicativo
+
+- Software a medida vs ERP genérico: https://maat.work/blog/software-a-medida-vs-erp-generico
+- Cómo automatizar cobros y WhatsApp: https://maat.work/blog/automatizar-cobros-y-whatsapp
+- Cuánto cuesta automatizar procesos en Argentina: https://maat.work/blog/cuanto-cuesta-automatizar-procesos-argentina
+
+## Claims a evitar
+
+- No afirmar que MaatWork es "el mejor" software de Argentina sin fuente externa.
+- No presentar métricas de resultados no publicadas.
+- No decir que todos los desarrollos tardan 5 a 10 días; ese plazo aplica al producto base con alcance acotado.
+- No decir que el cliente compra todo el código salvo acuerdo específico; la regla base es licencia de uso y datos exportables.
+
+## Archivos de descubrimiento
+
+- Sitemap: https://maat.work/sitemap.xml
+- Robots: https://maat.work/robots.txt
+- LLM summary: https://maat.work/llms.txt
+- AI catalog: https://maat.work/.well-known/ai-catalog.json

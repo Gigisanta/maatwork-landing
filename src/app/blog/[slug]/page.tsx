@@ -35,6 +35,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${p.title} · MaatWork`,
       description: p.metaDescription,
       url: `${SITE_URL}/blog/${p.slug}`,
+      publishedTime: p.date,
+      modifiedTime: p.date,
+      authors: [SITE_URL],
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${p.title} · MaatWork` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${p.title} · MaatWork`,
+      description: p.metaDescription,
+      images: ["/twitter-image.png"],
     },
   };
 }

@@ -63,5 +63,6 @@
     }
   ],
   "sitemap": "https://maat.work/sitemap.xml",
-  "llmsTxt": "https://maat.work/llms.txt"
+  "llmsTxt": "https://maat.work/llms.txt",
+  "llmsFullTxt": "https://maat.work/llms-full.txt"
 }

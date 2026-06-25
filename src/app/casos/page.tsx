@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Cuatro productos propios en producción, en industrias distintas: extintores (Varigas), obras (Infrannova), natatorios (NMS) y CRM comercial. La prueba de que construimos a medida.",
   alternates: { canonical: "/casos" },
+  openGraph: {
+    title: "Casos — productos reales en producción · MaatWork",
+    description:
+      "Varigas, Infrannova, NMS y MaatWorkCRM: productos reales en producción construidos por MaatWork para industrias argentinas.",
+    url: "https://maat.work/casos",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Casos de MaatWork" }],
+  },
 };
 
 export default function CasesIndexPage() {

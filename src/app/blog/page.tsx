@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Notas sobre software a medida, automatización de procesos, cobros y WhatsApp para PyMEs en Argentina.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — software a medida y automatización · MaatWork",
+    description:
+      "Notas prácticas sobre software a medida, automatización de procesos, cobros y WhatsApp para PyMEs en Argentina.",
+    url: "https://maat.work/blog",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Blog de MaatWork" }],
+  },
 };
 
 export default function BlogIndexPage() {

@@ -145,16 +145,9 @@ const jsonLd = {
         alternateName: "Giolivo Garcia",
         sameAs: ["https://www.linkedin.com/in/giolivo-garcia-451954322/"],
       },
-      telephone: "+5492994569840",
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+5492994569840",
-        contactType: "sales",
-        areaServed: "AR",
-        availableLanguage: ["Spanish"],
-      },
-      areaServed: "AR",
+
       address: { "@type": "PostalAddress", addressCountry: "AR" },
+      areaServed: "AR",
       sameAs: ["https://www.instagram.com/maat.work/"],
       knowsAbout: [
         "Desarrollo de software a medida",
@@ -200,6 +193,7 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faqpage`,
       mainEntity: FAQS.map((f) => ({
         "@type": "Question",
         name: f.q,
@@ -221,6 +215,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="alternate" hrefLang="es-AR" href={SITE_URL} />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="MaatWork facts for AI agents" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="MaatWork full text for AI agents" />
         <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
         <script
           type="application/ld+json"

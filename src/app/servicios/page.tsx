@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Lo que podemos construir para tu negocio: producto base operativo, desarrollo a medida, automatizaciones e IA, integraciones y facturación ARCA/AFIP.",
   alternates: { canonical: "/servicios" },
+  openGraph: {
+    title: "Servicios — software a medida, automatización e integraciones · MaatWork",
+    description:
+      "Producto base operativo, desarrollo a medida, automatizaciones e IA, integraciones y facturación ARCA/AFIP para PyMEs argentinas.",
+    url: "https://maat.work/servicios",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Servicios de MaatWork" }],
+  },
 };
 
 export default function ServicesIndexPage() {

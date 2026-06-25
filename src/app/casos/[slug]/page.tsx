@@ -25,6 +25,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${c.metaTitle} · MaatWork`,
       description: c.metaDescription,
       url: `${SITE_URL}/casos/${c.slug}`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${c.product} · MaatWork` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${c.metaTitle} · MaatWork`,
+      description: c.metaDescription,
+      images: ["/twitter-image.png"],
     },
   };
 }

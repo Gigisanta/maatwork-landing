@@ -7,35 +7,35 @@ import { SOURCE_PAGES } from "@/data/source-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://maat.work";
-  const now = new Date();
+  const lastContentUpdate = new Date("2026-06-25");
 
   return [
-    { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1, alternates: { languages: { "es-AR": `${base}/` } } },
-    { url: `${base}/servicios`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/casos`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${base}/soluciones`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${base}/`, lastModified: lastContentUpdate, changeFrequency: "weekly", priority: 1, alternates: { languages: { "es-AR": `${base}/` } } },
+    { url: `${base}/servicios`, lastModified: lastContentUpdate, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/casos`, lastModified: lastContentUpdate, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/soluciones`, lastModified: lastContentUpdate, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/blog`, lastModified: lastContentUpdate, changeFrequency: "weekly", priority: 0.7 },
     ...SOURCE_PAGES.map((page) => ({
       url: `${base}/${page.slug}`,
-      lastModified: now,
+      lastModified: lastContentUpdate,
       changeFrequency: "monthly" as const,
       priority: 0.92,
     })),
     ...SERVICES.map((s) => ({
       url: `${base}/servicios/${s.slug}`,
-      lastModified: now,
+      lastModified: lastContentUpdate,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     ...INDUSTRIES.map((i) => ({
       url: `${base}/soluciones/${i.slug}`,
-      lastModified: now,
+      lastModified: lastContentUpdate,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     ...CASES.map((c) => ({
       url: `${base}/casos/${c.slug}`,
-      lastModified: now,
+      lastModified: lastContentUpdate,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),

@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Software a medida por industria: extintores, natatorios, obras, gimnasios, consultorios y logística. Construido para tu operación, con productos ya en producción.",
   alternates: { canonical: "/soluciones" },
+  openGraph: {
+    title: "Soluciones por industria — software a medida · MaatWork",
+    description:
+      "Software a medida por industria para extintores, natatorios, obras, gimnasios, consultorios y logística, con productos reales en producción.",
+    url: "https://maat.work/soluciones",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Soluciones de MaatWork" }],
+  },
 };
 
 export default function SolutionsIndexPage() {
