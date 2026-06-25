@@ -3,6 +3,7 @@ import { SERVICES } from "@/data/services";
 import { CASES } from "@/data/cases";
 import { INDUSTRIES } from "@/data/industries";
 import { POSTS } from "@/data/posts";
+import { SOURCE_PAGES } from "@/data/source-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://maat.work";
@@ -14,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/casos`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/soluciones`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
+    ...SOURCE_PAGES.map((page) => ({
+      url: `${base}/${page.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.92,
+    })),
     ...SERVICES.map((s) => ({
       url: `${base}/servicios/${s.slug}`,
       lastModified: now,

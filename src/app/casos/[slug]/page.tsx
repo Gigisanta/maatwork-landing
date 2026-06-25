@@ -34,15 +34,29 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
   const c = getCase(slug);
   if (!c) notFound();
 
+  const pageUrl = `${SITE_URL}/casos/${c.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: c.product,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Web",
-    description: c.metaDescription,
-    url: c.url,
-    author: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${pageUrl}#software`,
+        name: c.product,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description: c.metaDescription,
+        url: c.url,
+        author: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Casos", item: `${SITE_URL}/casos` },
+          { "@type": "ListItem", position: 3, name: c.product, item: pageUrl },
+        ],
+      },
+    ],
   };
 
   const blocks: { label: string; text: string }[] = [

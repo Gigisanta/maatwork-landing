@@ -142,6 +142,7 @@ const jsonLd = {
       founder: {
         "@type": "Person",
         name: "Giolivo Santarelli",
+        alternateName: "Giolivo Garcia",
         sameAs: ["https://www.linkedin.com/in/giolivo-garcia-451954322/"],
       },
       telephone: "+5492994569840",
@@ -219,6 +220,8 @@ export default function RootLayout({
         {/* Warm DNS for the WhatsApp CTA (primary conversion path) */}
         <link rel="dns-prefetch" href="https://wa.me" />
         <link rel="alternate" hrefLang="es-AR" href={SITE_URL} />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="MaatWork facts for AI agents" />
+        <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

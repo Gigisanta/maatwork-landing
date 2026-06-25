@@ -34,15 +34,38 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const s = getService(slug);
   if (!s) notFound();
 
+  const pageUrl = `${SITE_URL}/servicios/${s.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.name,
-    serviceType: s.name,
-    description: s.metaDescription,
-    provider: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
-    areaServed: "AR",
-    url: `${SITE_URL}/servicios/${s.slug}`,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: s.name,
+        serviceType: s.name,
+        description: s.metaDescription,
+        provider: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+        areaServed: "AR",
+        url: pageUrl,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: s.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Servicios", item: `${SITE_URL}/servicios` },
+          { "@type": "ListItem", position: 3, name: s.name, item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (

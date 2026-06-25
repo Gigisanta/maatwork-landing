@@ -44,17 +44,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const p = getPost(slug);
   if (!p) notFound();
 
+  const pageUrl = `${SITE_URL}/blog/${p.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: p.title,
-    description: p.metaDescription,
-    datePublished: p.date,
-    dateModified: p.date,
-    inLanguage: "es-AR",
-    author: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
-    mainEntityOfPage: `${SITE_URL}/blog/${p.slug}`,
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${pageUrl}#article`,
+        headline: p.title,
+        description: p.metaDescription,
+        datePublished: p.date,
+        dateModified: p.date,
+        inLanguage: "es-AR",
+        author: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+        publisher: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+        mainEntityOfPage: pageUrl,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+          { "@type": "ListItem", position: 3, name: p.title, item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (

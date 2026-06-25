@@ -6,10 +6,10 @@ import { waLink } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "/#servicios", id: "servicios", label: "Servicios" },
-  { href: "/#ecosistema", id: "ecosistema", label: "Productos" },
-  { href: "/#precios", id: "precios", label: "Precios" },
-  { href: "/#faq", id: "faq", label: "FAQ" },
+  { href: "/servicios", id: "servicios", label: "Servicios" },
+  { href: "/soluciones", id: "ecosistema", label: "Soluciones" },
+  { href: "/precios", id: "precios", label: "Precios" },
+  { href: "/casos", id: "faq", label: "Casos" },
 ];
 
 const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");

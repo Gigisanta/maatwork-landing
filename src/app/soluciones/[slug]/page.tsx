@@ -36,15 +36,38 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
   if (!i) notFound();
   const proofCase = i.proofCaseSlug ? getCase(i.proofCaseSlug) : undefined;
 
+  const pageUrl = `${SITE_URL}/soluciones/${i.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: i.h1,
-    serviceType: i.name,
-    description: i.metaDescription,
-    provider: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
-    areaServed: "AR",
-    url: `${SITE_URL}/soluciones/${i.slug}`,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: i.h1,
+        serviceType: i.name,
+        description: i.metaDescription,
+        provider: { "@type": "Organization", name: "MaatWork", url: SITE_URL },
+        areaServed: "AR",
+        url: pageUrl,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: i.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.q,
+          acceptedAnswer: { "@type": "Answer", text: faq.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Soluciones", item: `${SITE_URL}/soluciones` },
+          { "@type": "ListItem", position: 3, name: i.name, item: pageUrl },
+        ],
+      },
+    ],
   };
 
   return (

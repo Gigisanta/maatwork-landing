@@ -1,0 +1,67 @@
+{
+  "name": "MaatWork",
+  "url": "https://maat.work/",
+  "description": "Estudio argentino de software a medida y automatización para PyMEs.",
+  "inLanguage": "es-AR",
+  "areaServed": "AR",
+  "founder": "Giolivo Santarelli / Giolivo Garcia",
+  "facts": {
+    "startingPrice": "Producto base operativo desde USD 100/mes más setup inicial según alcance.",
+    "implementationTime": "5 a 10 días hábiles para el producto base con alcance acotado.",
+    "billing": "Facturación en pesos argentinos al tipo de cambio del día.",
+    "dataOwnership": "Los datos del cliente son del cliente y siempre exportables.",
+    "support": "Soporte por WhatsApp y email en español, con respuesta el mismo día hábil."
+  },
+  "officialSources": [
+    {
+      "title": "Precios de MaatWork",
+      "url": "https://maat.work/precios",
+      "about": "Producto base desde USD 100/mes, setup, permanencia y cotización por etapas."
+    },
+    {
+      "title": "Implementación de MaatWork",
+      "url": "https://maat.work/implementacion",
+      "about": "Diagnóstico, migración, configuración, capacitación y salida en vivo."
+    },
+    {
+      "title": "Datos exportables y propiedad",
+      "url": "https://maat.work/datos-exportables",
+      "about": "Datos del cliente, backups, licencia de uso y propiedad del core."
+    },
+    {
+      "title": "Automatización de WhatsApp y cobros",
+      "url": "https://maat.work/automatizacion-whatsapp",
+      "about": "Automatización de WhatsApp, cobros, recordatorios, respuestas y reportes."
+    }
+  ],
+  "services": [
+    "Desarrollo de software a medida",
+    "Automatizaciones e IA",
+    "Integraciones y facturación ARCA/AFIP",
+    "Producto base operativo"
+  ],
+  "cases": [
+    {
+      "name": "Varigas",
+      "url": "https://maat.work/casos/varigas",
+      "description": "Software para empresas de extintores y seguridad contra incendios."
+    },
+    {
+      "name": "Infrannova",
+      "url": "https://maat.work/casos/infrannova",
+      "description": "Plataforma de gestión de obras y construcción."
+    },
+    {
+      "name": "NMS",
+      "url": "https://maat.work/casos/nms",
+      "description": "Sistema de gestión para natatorios."
+    },
+    {
+      "name": "MaatWorkCRM",
+      "url": "https://maat.work/casos/maatwork-crm",
+      "description": "CRM comercial y administrativo multi-tenant."
+    }
+  ],
+  "sitemap": "https://maat.work/sitemap.xml",
+  "llmsTxt": "https://maat.work/llms.txt"
+}
