@@ -15,6 +15,13 @@ const links = [
 const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");
 const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 
+const NAV_ITEMS = [
+  { href: "/servicios", label: "Servicios", desc: "Software y automatización a medida" },
+  { href: "/soluciones", label: "Soluciones", desc: "Productos por industria" },
+  { href: "/precios", label: "Precios", desc: "Desde USD 100/mes" },
+  { href: "/casos", label: "Casos", desc: "Proyectos en producción" },
+];
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -23,9 +30,10 @@ export function Navbar() {
   const activeIdRef = useRef("");
   const toggleRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const [mount, setMount] = useState(false);
+  const [animIn, setAnimIn] = useState(false);
 
-  // Header bg on scroll + scroll-spy by position: the active link is the last section
-  // whose top has crossed the reference line (i.e. the section you're currently within).
+  // Header bg on scroll + scroll-spy by position
   useEffect(() => {
     let raf = 0;
     const measure = () => {
@@ -57,9 +65,22 @@ export function Navbar() {
     };
   }, []);
 
+  // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  // Animate menu open/close with delay for mount
+  useEffect(() => {
+    if (open) {
+      setMount(true);
+      requestAnimationFrame(() => requestAnimationFrame(() => setAnimIn(true)));
+    } else {
+      setAnimIn(false);
+      const t = setTimeout(() => setMount(false), 300);
+      return () => clearTimeout(t);
+    }
   }, [open]);
 
   // Modal a11y: move focus into the dialog, trap Tab inside it, close on Escape.
@@ -138,7 +159,7 @@ export function Navbar() {
           <button
             ref={toggleRef}
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-white transition hover:bg-white/5 md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl text-white transition md:hidden"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-haspopup="dialog"
@@ -149,50 +170,121 @@ export function Navbar() {
         </div>
       </nav>
 
-      {open && (
+      {/* ---- Mobile menu overlay con slide-in + backdrop ---- */}
+      {mount && (
         <div className="md:hidden">
+          {/* Scrim — backdrop semitransparente */}
+          <div
+            aria-hidden
+            className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+              animIn ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+            style={{ background: "rgba(0,0,0,0.68)" }}
+            onClick={() => setOpen(false)}
+          />
+
+          {/* Panel — glass drawer */}
           <div
             ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
-            className="fixed inset-0 top-16 z-40 bg-bg-base px-6 py-8"
+            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.06] transition-all duration-300 ease-out ${
+              animIn ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
+            }`}
+            style={{ background: "rgba(15,15,24,0.97)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
           >
-            <div className="flex flex-col gap-3">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-2xl border border-white/[0.06] bg-white/[0.025] px-5 py-4 font-display text-2xl font-bold tracking-h3 text-white transition hover:border-violet-600/30 hover:bg-white/[0.06]"
-                >
-                  {l.label}
-                </a>
-              ))}
-              <a
-                href={DEMO}
-                target="_blank"
-                rel="noopener noreferrer"
+            <div className="flex h-full flex-col px-6 pb-8 pt-20">
+              {/* Close button */}
+              <button
+                type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-2xl border border-white/[0.06] bg-white/[0.025] px-5 py-4 font-display text-2xl font-bold tracking-h3 text-white transition hover:border-violet-600/30 hover:bg-white/[0.06]"
+                className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/[0.06] hover:text-white"
+                aria-label="Cerrar menú"
               >
-                Contanos tu proyecto
-              </a>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                </svg>
+              </button>
+
+              {/* Nav links */}
+              <nav className="flex flex-col gap-2">
+                {NAV_ITEMS.map((item, i) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`group flex items-center justify-between rounded-xl border border-white/[0.06] px-5 py-4 transition-all duration-300 ${
+                      animIn
+                        ? "translate-x-0 opacity-100"
+                        : "translate-x-6 opacity-0"
+                    } ${i > 0 ? "transition-delay-50" : ""}`}
+                    style={{
+                      background: "rgba(255,255,255,0.02)",
+                      transitionDelay: animIn ? `${i * 50}ms` : "0ms",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(131,93,245,0.08)";
+                      e.currentTarget.style.borderColor = "rgba(131,93,245,0.25)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(255,255,255,0.02)";
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
+                    }}
+                  >
+                    <div>
+                      <div className="font-display text-[17px] font-bold tracking-[-0.01em] text-white">
+                        {item.label}
+                      </div>
+                      <div className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-slate-500">
+                        {item.desc}
+                      </div>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-slate-500 transition group-hover:translate-x-0.5 group-hover:text-violet-400" aria-hidden>
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                ))}
+              </nav>
+
+              {/* CTA section */}
+              <div className="mt-auto space-y-3 border-t border-white/[0.06] pt-6">
+                <a
+                  href={DEMO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className={`cta-violet flex h-12 w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold text-white transition-all duration-300 ${
+                    animIn ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
+                  }`}
+                  style={{ transitionDelay: animIn ? "250ms" : "0ms" }}
+                >
+                  Contanos tu proyecto
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+                <a
+                  href={TALK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className={`cta-whatsapp flex h-12 w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold text-black transition-all duration-300 ${
+                    animIn ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
+                  }`}
+                  style={{ transitionDelay: animIn ? "320ms" : "0ms" }}
+                >
+                  <WhatsAppIcon />
+                  Hablar con MaatWork
+                </a>
+                <p className="text-center font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">
+                  Desde USD 100/mes · 4 productos en producción · soporte directo
+                </p>
+              </div>
             </div>
-
-            <a
-              href={TALK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-whatsapp mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-base font-semibold text-white"
-            >
-              <WhatsAppIcon />
-              Hablar con MaatWork
-            </a>
-
-            <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-500">
-              Desde USD 100/mes · 4 productos en producción · soporte directo
-            </p>
           </div>
         </div>
       )}

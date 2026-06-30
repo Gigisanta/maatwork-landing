@@ -839,18 +839,8 @@ html.js-ready .reveal:not(.is-visible) {
     padding-top: 5rem !important;
   }
 
-  /* ---- Mobile menu — tighter top offset --------------------- */
-  [role="dialog"][aria-label="Menú de navegación"] {
-    top: 4rem !important;
-    padding: 1.25rem !important;
-  }
-  [role="dialog"][aria-label="Menú de navegación"] a {
-    font-size: 1.25rem !important;
-    padding: 0.75rem 1rem !important;
-  }
-
   /* ---- Navbar — keep compact on mobile ---------------------- */
-  header nav.container-maat {
+  header .container-maat {
     padding-inline: 1rem;
   }
 
