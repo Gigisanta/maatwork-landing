@@ -135,139 +135,68 @@ html {
 }
 
 body {
-  background: transparent; /* base la pinta <html>; deja ver .bg-field (-z-10) */
+  background: transparent;
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-feature-settings: "cv11", "ss01";
+  font-size: var(--text-base);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  min-height: 100vh;
   width: 100%;
-  margin: 0;
-  overflow-x: clip;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
-main { overflow-x: clip; }
-
-/* Anchored sections must clear the fixed 64px navbar when jumped to */
-section[id] { scroll-margin-top: 5.5rem; }
-
-/* Sections below the fold get content-visibility: auto for instant first paint.
-   Only the hero (id="top") stays fully rendered — everything else defers
-   offscreen rendering until it approaches the viewport. */
-#top,
-#servicios { content-visibility: visible; }
-section:not(#top):not(#servicios) { content-visibility: auto; contain-intrinsic-size: 800px; }
-@media (prefers-reduced-motion: reduce) {
-  section { content-visibility: visible; }
-}
-
-/* Skip-to-content link (WCAG 2.4.1) — hidden until keyboard focus */
+/* ================================================================
+   Skip link — accessible, off-screen until focused
+   ================================================================ */
 .skip-link {
-  position: fixed;
-  top: 0.5rem;
-  left: 0.5rem;
-  z-index: 100;
-  padding: 0.625rem 1rem;
-  border-radius: 9999px;
+  position: absolute;
+  inset: 0.5rem auto auto 0.5rem;
+  z-index: 999;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
   background: var(--violet-600);
   color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  transform: translateY(-150%);
-  transition: transform 150ms ease;
+  font-size: 0.875rem;
+  transform: translateY(-120%);
+  transition: transform 150ms;
 }
 .skip-link:focus {
   transform: translateY(0);
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-#main-content:focus { outline: none; }
-
-::selection {
-  background: rgba(138, 69, 245, 0.40);
-  color: #ffffff;
 }
 
 /* ================================================================
-   Operational field — global background. Static base gradients + ONE
-   slow-moving aurora layer. No filter:blur, no mix-blend-mode, no
-   scan beam, no prism. Paused entirely by prefers-reduced-motion.
+   Section surfaces (background)
    ================================================================ */
-.bg-field {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    radial-gradient(120% 84% at 50% -14%, rgba(131, 93, 245, 0.28), transparent 60%),
-    radial-gradient(90% 70% at 88% 8%, rgba(45, 212, 238, 0.12), transparent 58%),
-    radial-gradient(96% 72% at 12% 100%, rgba(232, 178, 60, 0.10), transparent 60%),
-    var(--ink-base);
+.section-base  { background: var(--ink-base); }
+.section-elev1 { background: var(--ink-surface); }
+.section-elev2 { background: var(--ink-elev); }
+
+/* ---- Chroma field — ink-deep background with a drifting color wash.
+   Applied to .section-chroma. The chroma is a soft gradient overlay,
+   set per-section via --chroma / --chroma-2 (see section-colors block).
+   The ::before glow layer stays on the fixed field, the ::after
+   (chroma) scrolls with the section. Both paint in constant time
+   (GPU-composited gradients), no JS, no image assets. --------------- */
+.section-chroma {
+  position: relative;
+  isolation: isolate;
 }
-.bg-field::before {
+
+.section-chroma::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(157, 123, 255, 0.065) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(157, 123, 255, 0.065) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
-          mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
-  pointer-events: none;
-}
-
-/* Single slow-moving background aurora — GPU-friendly */
-.bg-field-aurora {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(50% 60% at 20% 20%, rgba(131, 93, 245, 0.08) 0%, transparent 60%),
-    radial-gradient(40% 50% at 80% 40%, rgba(232, 178, 60, 0.04) 0%, transparent 60%),
-    radial-gradient(30% 40% at 50% 80%, rgba(45, 212, 238, 0.03) 0%, transparent 60%);
-  will-change: transform;
-  animation: aurora-drift 26s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bg-field-aurora { animation: none; }
-}
-
-/* ================================================================
-   Section background variants — solid ink, one accent per surface.
-   Bases keep faint translucency so .bg-field reads behind.
-   ================================================================ */
-.section-base {
-  background: rgba(10, 10, 17, 0.34);
-}
-.section-elev1 {
-  background: linear-gradient(180deg, rgba(15, 15, 24, 0.56), rgba(10, 10, 17, 0.50));
-}
-.section-elev2 {
-  background: linear-gradient(180deg, rgba(15, 15, 24, 0.54) 0%, rgba(21, 21, 31, 0.60) 100%);
-}
-
-/* Per-section color atmosphere — each surface gets its own MaatWork tint via
-   --chroma/--chroma-2 (assigned per section id below). The seam band + an
-   opposite-corner bloom bleed the accent through the translucent base so the
-   page reads as distinct color rooms, not repeated dark cards. Cheap (one
-   pseudo-element), color stays frozen under reduced motion. */
-.section-chroma { position: relative; isolation: isolate; }
-.section-chroma::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 64%;
   z-index: -1;
-  pointer-events: none;
   background:
-    radial-gradient(72% 58% at 80% -10%,
-      color-mix(in srgb, var(--chroma-2, var(--cyan)) 16%, transparent), transparent 72%),
+    radial-gradient(100% 68% at 18% -20%,
+      color-mix(in srgb, var(--chroma, var(--violet-500)) 30%, transparent) 0%,
+      transparent 80%),
+    radial-gradient(100% 56% at 82% -20%,
+      color-mix(in srgb, var(--chroma-2, var(--cyan)) 18%, transparent) 0%,
+      transparent 70%),
     linear-gradient(180deg,
       color-mix(in srgb, var(--chroma, var(--violet-500)) 24%, transparent) 0%,
       color-mix(in srgb, var(--chroma, var(--violet-500)) 9%, transparent) 38%,
@@ -284,6 +213,11 @@ section:not(#top):not(#servicios) { content-visibility: auto; contain-intrinsic-
 #precios.section-chroma        { --chroma: var(--success);    --chroma-2: var(--cyan); }
 #ecosistema.section-chroma     { --chroma: var(--violet-500); --chroma-2: var(--cyan); }
 #contacto.section-chroma       { --chroma: var(--gold-400);   --chroma-2: var(--violet-400); }
+
+@keyframes chroma-shift {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.75; }
+}
 
 /* ================================================================
    Section padding — editorial vertical rhythm
@@ -343,131 +277,100 @@ section:not(#top):not(#servicios) { content-visibility: auto; contain-intrinsic-
 .seal-rule::before,
 .seal-rule::after {
   content: "";
-  height: 1px;
   flex: 1;
-  background: linear-gradient(90deg, transparent, rgba(232, 178, 60, 0.32));
-}
-.seal-rule::after {
-  background: linear-gradient(90deg, rgba(232, 178, 60, 0.32), transparent);
-}
-
-/* Plain section divider — neutral hairline */
-.divider-hairline {
   height: 1px;
-  background: var(--border-subtle);
+  background: linear-gradient(90deg, transparent, rgba(232, 178, 60, 0.34), transparent);
 }
-
-/* Hero word accents — solid DS colors only (no gradient text). */
-.hero-word {
-  color: var(--accent-word, var(--gold-300));
-  text-shadow: 0 0 18px color-mix(in oklab, var(--accent-word, var(--gold-300)) 20%, transparent);
-}
-.hero-word--gold   { --accent-word: var(--gold-300); }
-.hero-word--violet { --accent-word: var(--violet-200); }
-.hero-word--cyan   { --accent-word: var(--cyan); }
 
 /* ================================================================
-   CTAs
-   - Primary: solid electric-violet, restrained glow (DS)
-   - WhatsApp: brand green, only for WhatsApp conversion CTAs
+   Primary CTA — electric violet · breathing box-shadow glow
    ================================================================ */
 .cta-violet {
-  background: linear-gradient(135deg, var(--violet-500) 0%, var(--violet-600) 52%, var(--violet-700) 100%);
-  box-shadow: var(--inset-top), var(--glow-primary);
+  background: linear-gradient(135deg, var(--violet-600), var(--violet-700));
+  position: relative;
+  isolation: isolate;
 }
-.cta-violet:hover {
-  background: linear-gradient(135deg, var(--violet-400) 0%, var(--violet-500) 52%, var(--violet-600) 100%);
+.cta-violet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  box-shadow: var(--glow-primary);
+  animation: cta-breathe 3.8s ease-in-out infinite;
 }
-.cta-whatsapp {
-  background: var(--whatsapp);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 8px 24px -8px rgba(37, 211, 102, 0.45);
-}
-.cta-whatsapp:hover { background: var(--whatsapp-dim); }
-
-/* iOS Safari bottom toolbar samples the pixels behind fixed bottom controls.
-   Keep the WhatsApp CTA green, but put a MaatWork-colored compositor backplate
-   under it and remove the green glow from the sticky variant so Safari chrome
-   stays navy/violet/gold instead of turning WhatsApp green. */
-.safari-mobile-chrome {
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(1rem);
-  background:
-    radial-gradient(80% 120% at 50% 100%, rgba(131, 93, 245, 0.22), transparent 62%),
-    linear-gradient(180deg, rgba(10, 10, 17, 0) 0%, rgba(10, 10, 17, 0.88) 42%, #09090F 100%);
-  transition: opacity 240ms var(--ease-out-quart), transform 240ms var(--ease-out-quart);
-}
-.safari-mobile-chrome.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-a[data-section="sticky"].cta-whatsapp {
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.18) inset,
-    0 20px 48px -22px rgba(131, 93, 245, 0.65),
-    0 12px 28px -24px rgba(232, 178, 60, 0.72);
+@keyframes cta-breathe {
+  0%, 100% { box-shadow: 0 6px 20px -10px rgba(131, 93, 245, 0.42); }
+  50%      { box-shadow: 0 12px 38px -8px rgba(131, 93, 245, 0.80); }
 }
 
-/* Ghost CTA — hairline, fills faintly on hover (secondary action) */
+/* ---- Ghost CTA — no bg, subtle hover --------------------------- */
 .cta-ghost {
-  border: 1px solid var(--border-default);
-  background: rgba(255, 255, 255, 0.015);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   transition: border-color 180ms var(--ease-out-quart), background 180ms var(--ease-out-quart);
 }
 .cta-ghost:hover {
-  border-color: var(--border-accent);
-  background: rgba(131, 93, 245, 0.06);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* ================================================================
-   Card — solid DS surface, hairline border, violet hover (no glass)
-   ================================================================ */
-.card {
-  background: var(--ink-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+/* ---- WhatsApp CTA — DS-clean green, not overly bright ---------- */
+.cta-whatsapp {
+  background: var(--color-whatsapp);
+  color: #000;
+  font-weight: 600;
 }
-.card:hover {
-  background: var(--ink-elev);
-  border-color: var(--border-accent);
-}
+.cta-whatsapp:hover { background: #28D368; }
 
 /* ================================================================
-   Ops card — the workhorse surface for product/proof modules.
-   Solid ink, 1px hairline, subtle inset top. Hover: border → accent
-   + 2px lift. No gradient sweep, no mouse-follow glow (DS restraint).
+   hover-scale — micro-lift on interactive cards/CTAs
    ================================================================ */
-.ops-card {
-  position: relative;
-  isolation: isolate; /* own stacking context → .card-glyph (z-index:-1) sits
-                         above the card surface but behind the content */
-  background: var(--ink-card);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--inset-top), var(--shadow-sm);
-  transition: border-color 220ms var(--ease-out-quart),
-              transform 220ms var(--ease-out-quart),
-              background 220ms var(--ease-out-quart);
+.hover-scale {
+  transition: transform 180ms var(--ease-out-quart);
 }
-.ops-card:hover {
-  border-color: var(--border-accent);
-  background: var(--ink-elev);
+.hover-scale:hover {
   transform: translateY(-2px);
 }
 
 /* ================================================================
-   Signal row — one operational signal. Severity dot + label +
-   secondary detail + trailing mono meta. The core "needs attention"
-   grammar lifted from Mission Control.
+   Glass surface — translucent dark with blur (header dropdowns,
+   floating panels, popovers). Use sparingly (blur is expensive).
    ================================================================ */
+.glass {
+  background: rgba(10, 10, 17, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.glass-subtle {
+  background: rgba(10, 10, 17, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ================================================================
+   Ops card — the primary card surface for operational data.
+   Ink-dark, hairline border, soft inset highlight. The accent
+   palette system (violet, cyan, gold, rose, emerald) is applied
+   separately via .accent-* classes or custom properties.
+   ================================================================ */
+.ops-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--inset-top);
+}
+.ops-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--inset-top), 0 16px 44px -28px rgba(131, 93, 245, 0.32);
+}
+
+/* ---- Signal row — list item with dot + inline meta ------------ */
 .signal-row {
   display: flex;
   align-items: center;
-  gap: 0.875rem;
-  padding: 0.875rem 1rem;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.014);
@@ -538,136 +441,72 @@ html.js-ready .reveal:not(.is-visible) {
   opacity: 0;
   transform: translateY(12px);
 }
-html.js-ready .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-/* Subtle logo glow — restrained single drop-shadow (DS: no toy glow) */
-.logo-glow { filter: drop-shadow(0 0 12px rgba(131, 93, 245, 0.20)); }
-
-/* Focus ring (DS) */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* ================================================================
-   Motion — CSS-only, restrained
-   ================================================================ */
-.ease-out-quart { transition-timing-function: var(--ease-out-quart); }
-.ease-out-expo  { transition-timing-function: var(--ease-out-expo); }
-
-/* Line reveal — editorial fade-up for headlines */
-@keyframes line-reveal {
-  from { opacity: 0; transform: translateY(0.25em); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+/* ---- Hero line-reveal — staggered line pop-up with a subtle clip ---- */
 .line-reveal {
   display: block;
-  opacity: 0;
-  animation: line-reveal 0.7s var(--ease-out-quart) forwards;
+  animation: line-up 580ms var(--ease-out-quart) both;
+  will-change: transform, opacity;
+}
+@keyframes line-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
 }
 
-/* Hover scale utilities */
-.hover-scale { transition: transform 260ms var(--ease-out-quart); }
-.hover-scale:hover { transform: translateY(-1px); }
+/* ---- Hero colour-shift words ----------------------------------- */
+.hero-word--gold   { color: var(--gold-400); }
+.hero-word--violet { color: var(--violet-400); }
 
-/* Text wrapping helpers */
-.text-balance { text-wrap: balance; }
-.text-pretty  { text-wrap: pretty; }
-
-/* Subtle glass — navbar only, solid-leaning DS ink (the one exception) */
-.glass-subtle {
-  background: rgba(10, 10, 17, 0.78);
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
-}
-
-/* ================================================================
-   Product showcase frame — operational control panel.
-   Solid inset surface, hairline border, restrained violet edge.
-   No screen-breathe motion, no mac-window chrome cliché.
-   ================================================================ */
-.product-frame {
-  background: var(--ink-well);
-  box-shadow: var(--shadow-xl), 0 18px 60px -42px rgba(131, 93, 245, 0.45), var(--inset-top);
-}
-/* Auto-advance indicator on the active product tab */
-@keyframes tab-progress {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-.tab-progress {
-  position: absolute;
-  left: 0; bottom: 0;
-  height: 2px; width: 100%;
-  transform-origin: left;
-  transform: scaleX(0);
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--violet-400), var(--violet-600));
-  animation: tab-progress linear forwards;
-}
-
-/* ================================================================
-   Scroll progress bar (ScrollProgress.tsx) — GPU scaleX, DS violet
-   ================================================================ */
-.scroll-progress {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  z-index: 60;
-  background: rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-}
-.scroll-progress__bar {
-  height: 100%;
-  transform-origin: left;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, var(--violet-300), var(--violet-600));
-}
-
-/* ================================================================
-   LIVING VISUAL SYSTEM — color + motion pass.
-   A disciplined "control room": drifting field, per-surface accent
-   glows, live status pulses, animated data bars, premium rings.
-   Every continuous animation here is paused by the
-   prefers-reduced-motion block below (duration → 0.01ms).
-   ================================================================ */
-
-/* ---- Field keyframes ------------------------------------------- */
-@keyframes aurora-drift {
-  0%   { transform: translate3d(-3%, -2%, 0) scale(1.06); }
-  50%  { transform: translate3d(4%, 3%, 0) scale(1.14); }
-  100% { transform: translate3d(-3%, -2%, 0) scale(1.06); }
-}
-@keyframes chroma-shift {
-  0%, 100% { opacity: 0.7; }
-  50%      { opacity: 1; }
-}
-@keyframes halo-breathe {
-  0%, 100% { transform: translateX(-50%) scale(1);    opacity: 0.85; }
-  50%      { transform: translateX(-50%) scale(1.08); opacity: 1; }
-}
-
-/* Hero halo — colored glow behind the proof object / first viewport */
+/* ---- Hero halo — warm gold-violet radial behind the H1 ---------- */
 .hero-halo {
   position: absolute;
+  top: 42%;
   left: 50%;
-  top: 6%;
-  width: 92vw;
-  max-width: 1040px;
+  translate: -50% -50%;
+  width: clamp(440px, 68vw, 800px);
   aspect-ratio: 1;
-  transform: translateX(-50%);
+  border-radius: 50%;
   background: radial-gradient(circle,
     rgba(131, 93, 245, 0.18) 0%,
-    rgba(45, 212, 238, 0.08) 36%,
-    rgba(232, 178, 60, 0.05) 54%,
+    rgba(232, 178, 60, 0.08) 28%,
+    rgba(131, 93, 245, 0.04) 50%,
     transparent 70%);
   pointer-events: none;
-  will-change: transform;
-  animation: halo-breathe 7.5s ease-in-out infinite;
+  animation: halo-breathe 15s ease-in-out infinite;
+}
+@keyframes halo-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50%      { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+
+/* ---- Operational field — deep grid background (mounted on the ::before
+   of .bg-field). A very faint ruled grid, like a battle map or engineering
+   blueprint. Static (no motion) so it's zero-cost. --------------------- */
+.bg-field::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+/* ---- Aurora drift — the big abstract color wash --------------- */
+@keyframes aurora-drift {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33%      { transform: scale(1.06) rotate(1.2deg); }
+  66%      { transform: scale(0.96) rotate(-0.8deg); }
 }
 
 /* ---- Accent palette — one ruleset, many colors (CSS-var driven) - */
@@ -767,22 +606,6 @@ html.js-ready .reveal.is-visible {
   animation: panel-sweep 6s ease-in-out infinite;
 }
 
-/* ---- Magnetic primary CTA — breathing aura --------------------- */
-.cta-violet { position: relative; isolation: isolate; }
-.cta-violet::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
-  box-shadow: var(--glow-primary);
-  animation: cta-breathe 3.8s ease-in-out infinite;
-}
-@keyframes cta-breathe {
-  0%, 100% { box-shadow: 0 6px 20px -10px rgba(131, 93, 245, 0.42); }
-  50%      { box-shadow: 0 12px 38px -8px rgba(131, 93, 245, 0.80); }
-}
-
 /* ---- Premium border ring (Pricing / Final CTA) — static gradient border --- */
 .ring-anim { position: relative; }
 .ring-anim::before {
@@ -826,13 +649,7 @@ html.js-ready .reveal.is-visible {
 }
 
 /* ================================================================
-   Engraved Maat motifs — symbolic gold line watermarks (winged sun
-   disk of Ra, feather of Maat). Decorative, aria-hidden in markup.
-   Opacity driven by --motif-o so the rest state is correct even when
-   motion is paused. Centering lives on a WRAPPER; the float/breathe
-   transform lives on the motif itself, so Tailwind's translate utils
-   never fight the keyframe. Living, normal-speed motion — paused by
-   the reduced-motion block below.
+   Engraved Maat motifs — symbolic gold line watermarks
    ================================================================ */
 .motif {
   opacity: var(--motif-o, 0.08);
@@ -853,10 +670,6 @@ html.js-ready .reveal.is-visible {
   will-change: transform, opacity;
 }
 
-/* ---- Card glyph — per-category Maat seal engraved in a card corner. Sits
-   behind the card content (negative z within the card's isolated context) and
-   warms up on hover, tying into the .card-accent grammar. Static (no float):
-   restraint across many cards at once. ------------------------------------- */
 .card-glyph {
   z-index: -1;
   opacity: var(--glyph-o, 0.07);
@@ -868,10 +681,7 @@ html.js-ready .reveal.is-visible {
   transform: rotate(-3deg) scale(1.05);
 }
 
-/* ---- Maat weave — faience-net linework wash. A barely-there gold diamond
-   lattice (ancient ornament), masked to fade out. Decorative texture for the
-   quietest surfaces; pure gradients, no extra asset, frozen under reduced
-   motion (it never animates). Parent owns the stacking context. -------------- */
+/* ---- Maat weave — faience-net linework wash ------------------- */
 .maat-weave { position: relative; isolation: isolate; }
 .maat-weave::after {
   content: "";
@@ -886,31 +696,214 @@ html.js-ready .reveal.is-visible {
           mask-image: radial-gradient(135% 100% at 50% 0%, #000 8%, transparent 78%);
 }
 
-@media (max-width: 767px) {
-  .bg-field::before { background-size: 48px 48px; }
-  .hero-halo { opacity: 0.6; }
+/* ================================================================
+   Safari mobile chrome tinting — brand dark bar
+   ================================================================ */
+.safari-mobile-chrome {
+  background: var(--ink-base);
+  transition: opacity 400ms var(--ease-out-quart), visibility 400ms var(--ease-out-quart);
+  opacity: 0;
+  visibility: hidden;
+}
+.safari-mobile-chrome.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
 
-  /* Freeze continuous animations on mobile (GPU/compositor budget) */
+/* ================================================================
+   RESPONSIVE — Mobile under 768px
+   ================================================================ */
+@media (max-width: 767px) {
+  /* ---- Grid field background -------------------------------- */
+  .bg-field::before { background-size: 48px 48px; }
+  .hero-halo { opacity: 0.45; }
+
+  /* ---- Freeze expensive animations & GPU promotions -------- */
   .hero-halo,
   .panel-aurora,
   .cta-violet::before,
   .ring-anim::before,
-  .live-ring { animation: none; }
-
-  /* Remove GPU promotion on frozen layers */
+  .live-ring,
+  .section-chroma::after {
+    animation: none;
+  }
   .panel-aurora { will-change: auto; }
+
+  /* ---- Typography scaling ----------------------------------- */
+  h1.font-display.text-4xl {
+    font-size: 2rem !important;       /* 32px en vez de 40px */
+    line-height: 1.08 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  h2.font-display.text-3xl {
+    font-size: 1.6rem !important;      /* ~26px en vez de 32px */
+    line-height: 1.12 !important;
+  }
+
+  /* ---- Section padding reduction (mobile) ------------------- */
+  .section-pad {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  .section-pad-md {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* ---- Container tighter padding ---------------------------- */
+  .container-maat {
+    padding-inline: 1rem;
+  }
+
+  /* ---- Hero adjustments ------------------------------------- */
+  .hero-halo {
+    width: clamp(320px, 90vw, 440px);
+    top: 38%;
+  }
+
+  /* ---- ProductShowcase — compact panel ---------------------- */
+  .product-frame .panel-content {
+    padding: 0.75rem !important;
+  }
+  .product-frame .signal-row {
+    padding: 0.4rem 0.5rem;
+    gap: 0.5rem;
+  }
+  .product-frame .kpi-label {
+    font-size: 10px;
+  }
+
+  /* ---- Services cards — tighter padding --------------------- */
+  .ops-card.p-7 {
+    padding: 1.25rem !important;
+  }
+  .ops-card.p-8 {
+    padding: 1.25rem !important;
+  }
+  .ops-card.p-10 {
+    padding: 1.5rem !important;
+  }
+
+  /* ---- Pricing card — compact price display ----------------- */
+  .pricing-amount {
+    font-size: 2.5rem !important;     /* 40px en vez de 58px */
+  }
+
+  /* ---- Final CTA card — tighter ----------------------------- */
+  #contacto .ops-card.p-10 {
+    padding: 1.5rem 1.25rem !important;
+  }
+  #contacto h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.12 !important;
+  }
+
+  /* ---- Section subtitle text -------------------------------- */
+  .section-subtitle {
+    font-size: 0.9375rem !important;   /* 15px */
+    line-height: 1.6 !important;
+  }
+
+  /* ---- CTA buttons full-width on small screens -------------- */
+  .cta-full-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ---- Grid single column on mobile for key sections -------- */
+  .services-grid-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* ---- Testimonial cards tighter ---------------------------- */
+  #testimonios article {
+    padding: 1.25rem !important;
+  }
+
+  /* ---- HowItWorks step cards -------------------------------- */
+  #proceso .ops-card.p-7 {
+    padding: 1rem 1.25rem !important;
+  }
+
+  /* ---- TechStack badges — more compact ---------------------- */
+  #stack .ops-card {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 11px !important;
+  }
+
+  /* ---- Subpage content better padding ----------------------- */
+  .subpage-content {
+    padding-top: 5rem !important;
+  }
+
+  /* ---- Mobile menu — tighter top offset --------------------- */
+  [role="dialog"][aria-label="Menú de navegación"] {
+    top: 4rem !important;
+    padding: 1.25rem !important;
+  }
+  [role="dialog"][aria-label="Menú de navegación"] a {
+    font-size: 1.25rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  /* ---- Navbar — keep compact on mobile ---------------------- */
+  header nav.container-maat {
+    padding-inline: 1rem;
+  }
+
+  /* ---- StickyWhatsApp safeness ------------------------------ */
+  .cta-whatsapp {
+    font-size: 14px !important;
+    height: 50px !important;
+  }
+
+  /* ---- Footer — compact on mobile --------------------------- */
+  footer .container-maat {
+    padding-inline: 1rem;
+  }
+
+  /* ---- Features section — stacked --------------------------- */
+  #operacion .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
 }
 
-/* Touch devices have no real hover: neutralize the lift transforms so a tap
-   doesn't leave a card "stuck" raised (and skips the extra repaint). Color /
-   border hover states are harmless and stay. */
+/* ---- Touch devices — neutralize hover lifts ---------------- */
 @media (hover: none) {
   .hover-scale:hover,
   .ops-card:hover,
   .card-accent:hover { transform: none; }
 }
 
-/* Respect prefers-reduced-motion */
+/* ---- Very small screens (< 420px) — extra tightening ------- */
+@media (max-width: 419px) {
+  .container-maat {
+    padding-inline: 0.75rem;
+  }
+
+  h1.font-display.text-4xl {
+    font-size: 1.65rem !important;
+  }
+
+  .hero-halo {
+    width: 280px;
+  }
+
+  #contacto h2 {
+    font-size: 1.35rem !important;
+  }
+
+  .pricing-amount {
+    font-size: 2rem !important;
+  }
+}
+
+/* ================================================================
+   prefers-reduced-motion — kill all animations
+   ================================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -6,6 +6,10 @@
  * Aparece tras pasar el hero y se oculta en secciones con CTAs locales para no
  * tapar contenido ni competir con la acción contextual.
  * Solo mobile (md:hidden). El click lo trackea AnalyticsEvents (a[href*="wa.me"]).
+ *
+ * Safari chrome tinting: el span .safari-mobile-chrome permanece SIEMPRE visible
+ * en mobile con el color de marca (#0A0A11) para que Safari tiña su barra inferior
+ * con nuestro brand color, no con el verde del botón WhatsApp.
  */
 import { useEffect, useState } from "react";
 import { waLink } from "@/lib/whatsapp";
@@ -55,12 +59,13 @@ export function StickyWhatsApp() {
 
   return (
     <>
+      {/* Safari chrome tinter — SIEMPRE visible en mobile con brand color.
+          Safari tiñe su barra inferior con el color dominante del borde inferior.
+          Al mantener este span siempre presente con nuestro brand oscuro,
+          la barra de Safari se ve #0A0A11 en vez de verde cuando el CTA aparece. */}
       <span
         aria-hidden
-        data-section="mobile-safari-chrome"
-        className={`safari-mobile-chrome fixed inset-x-0 bottom-0 z-30 h-[calc(5.75rem+env(safe-area-inset-bottom))] md:hidden ${
-          show ? "is-visible" : ""
-        }`}
+        className="safari-mobile-chrome fixed inset-x-0 bottom-0 z-30 h-[calc(5.75rem+env(safe-area-inset-bottom))] md:hidden"
       />
       <a
         href={waLink("Hola MaatWork, quiero contarles un proyecto")}
