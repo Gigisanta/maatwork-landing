@@ -189,10 +189,9 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
-            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.06] transition-all duration-300 ease-out ${
+            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.08] bg-bg-elev-1 shadow-2xl transition-all duration-300 ease-out ${
               animIn ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
             }`}
-            style={{ background: "rgba(15,15,24,0.97)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}
           >
             <div className="flex h-full flex-col px-6 pb-8 pt-20">
               {/* Close button */}
@@ -209,30 +208,21 @@ export function Navbar() {
               </button>
 
               {/* Nav links */}
-              <nav className="flex flex-col gap-2">
-                {NAV_ITEMS.map((item, i) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className={`group flex items-center justify-between rounded-xl border border-white/[0.06] px-5 py-4 transition-all duration-300 ${
-                      animIn
-                        ? "translate-x-0 opacity-100"
-                        : "translate-x-6 opacity-0"
-                    } ${i > 0 ? "transition-delay-50" : ""}`}
-                    style={{
-                      background: "rgba(255,255,255,0.02)",
-                      transitionDelay: animIn ? `${i * 50}ms` : "0ms",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(131,93,245,0.08)";
-                      e.currentTarget.style.borderColor = "rgba(131,93,245,0.25)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                    }}
-                  >
+                <nav className="flex flex-col gap-2">
+                  {NAV_ITEMS.map((item, i) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={`group flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.025] px-5 py-4 transition-all duration-300 hover:border-violet-500/30 hover:bg-violet-500/[0.07] ${
+                        animIn
+                          ? "translate-x-0 opacity-100"
+                          : "translate-x-6 opacity-0"
+                      }`}
+                      style={{
+                        transitionDelay: animIn ? `${i * 50}ms` : "0ms",
+                      }}
+                    >
                     <div>
                       <div className="font-display text-[17px] font-bold tracking-[-0.01em] text-white">
                         {item.label}
