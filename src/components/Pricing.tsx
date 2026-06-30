@@ -5,7 +5,15 @@
  */
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
-import { CornerMarks, CardGlyph } from "./Ornaments";
+import { CornerMarks, CardGlyph, MOTIFS_MAP } from "./Ornaments";
+
+function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
+  return (
+    <span aria-hidden className={className} style={style}
+      dangerouslySetInnerHTML={{ __html: MOTIFS_MAP[name] || "" }}
+    />
+  );
+}
 
 const PLAN_INCLUDES = [
   "Gestión de clientes",
@@ -49,10 +57,7 @@ export function Pricing() {
                   living gold watermark behind the plan. */}
               <div aria-hidden className="pointer-events-none absolute -right-6 top-4 hidden md:block">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/motifs/feather-of-maat.svg"
-                  alt=""
-                  className="motif motif-float h-44 w-44 lg:h-56 lg:w-56"
+                <Motif name="feather-of-maat" className="motif motif-float h-44 w-44 lg:h-56 lg:w-56"
                   style={{ "--motif-o": 0.055 } as CSSProperties}
                 />
               </div>
@@ -65,14 +70,11 @@ export function Pricing() {
                 </span>
               </div>
 
-              <div aria-hidden className="relative mt-5 hidden items-center justify-center gap-3 sm:flex">
+              <div aria-hidden="true" className="relative mt-5 hidden items-center justify-center gap-3 sm:flex">
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/motifs/ankh.svg" alt="" className="motif motif-float h-4 w-4" style={{ "--motif-o": 0.16 } as CSSProperties} />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/motifs/scales-of-maat.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-1.8s]" style={{ "--motif-o": 0.13 } as CSSProperties} />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/motifs/scarab.svg" alt="" className="motif motif-float h-4 w-4 [animation-delay:-3.2s]" style={{ "--motif-o": 0.12 } as CSSProperties} />
+                <Motif name="ankh" className="motif motif-float h-4 w-4" style={{ "--motif-o": 0.16 } as CSSProperties} />
+                <Motif name="scales-of-maat" className="motif motif-float h-4 w-4 [animation-delay:-1.8s]" style={{ "--motif-o": 0.13 } as CSSProperties} />
+                <Motif name="scarab" className="motif motif-float h-4 w-4 [animation-delay:-3.2s]" style={{ "--motif-o": 0.12 } as CSSProperties} />
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
               </div>
 

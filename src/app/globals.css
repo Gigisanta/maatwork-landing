@@ -153,6 +153,16 @@ main { overflow-x: clip; }
 /* Anchored sections must clear the fixed 64px navbar when jumped to */
 section[id] { scroll-margin-top: 5.5rem; }
 
+/* Sections below the fold get content-visibility: auto for instant first paint.
+   Only the hero (id="top") stays fully rendered — everything else defers
+   offscreen rendering until it approaches the viewport. */
+#top,
+#servicios { content-visibility: visible; }
+section:not(#top):not(#servicios) { content-visibility: auto; contain-intrinsic-size: 800px; }
+@media (prefers-reduced-motion: reduce) {
+  section { content-visibility: visible; }
+}
+
 /* Skip-to-content link (WCAG 2.4.1) — hidden until keyboard focus */
 .skip-link {
   position: fixed;
@@ -181,10 +191,9 @@ section[id] { scroll-margin-top: 5.5rem; }
 }
 
 /* ================================================================
-   Operational field — global background, now ALIVE.
-   Mission-control grid on solid ink + drifting multi-accent aurora
-   + a slow vertical scan beam. Disciplined motion, paused entirely
-   by the prefers-reduced-motion block at the foot of this file.
+   Operational field — global background. Static base gradients + ONE
+   slow-moving aurora layer. No filter:blur, no mix-blend-mode, no
+   scan beam, no prism. Paused entirely by prefers-reduced-motion.
    ================================================================ */
 .bg-field {
   position: fixed;
@@ -193,9 +202,9 @@ section[id] { scroll-margin-top: 5.5rem; }
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(120% 84% at 50% -14%, rgba(131, 93, 245, 0.42), transparent 60%),
-    radial-gradient(90% 70% at 88% 8%, rgba(45, 212, 238, 0.20), transparent 58%),
-    radial-gradient(96% 72% at 12% 100%, rgba(232, 178, 60, 0.16), transparent 60%),
+    radial-gradient(120% 84% at 50% -14%, rgba(131, 93, 245, 0.28), transparent 60%),
+    radial-gradient(90% 70% at 88% 8%, rgba(45, 212, 238, 0.12), transparent 58%),
+    radial-gradient(96% 72% at 12% 100%, rgba(232, 178, 60, 0.10), transparent 60%),
     var(--ink-base);
 }
 .bg-field::before {
@@ -203,105 +212,29 @@ section[id] { scroll-margin-top: 5.5rem; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(157, 123, 255, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(157, 123, 255, 0.075) 1px, transparent 1px);
+    linear-gradient(rgba(157, 123, 255, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 123, 255, 0.065) 1px, transparent 1px);
   background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
           mask-image: radial-gradient(130% 96% at 50% 0%, #000 0%, transparent 78%);
-  animation: grid-pulse 6.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* Slow conic prism mesh — the room's living color bath (violet→cyan→gold→rose) */
-.field-prism {
+/* Single slow-moving background aurora — GPU-friendly */
+.bg-field-aurora {
   position: absolute;
-  inset: -30%;
+  inset: 0;
   background:
-    conic-gradient(from 110deg at 32% 34%,
-      rgba(131, 93, 245, 0.36),
-      rgba(45, 212, 238, 0.22),
-      rgba(232, 178, 60, 0.20),
-      rgba(251, 113, 133, 0.18),
-      rgba(157, 123, 255, 0.30),
-      rgba(131, 93, 245, 0.36));
-  filter: blur(64px) saturate(140%);
-  mix-blend-mode: screen;
-  opacity: 0.85;
-  animation: prism-spin 26s linear infinite;
+    radial-gradient(50% 60% at 20% 20%, rgba(131, 93, 245, 0.08) 0%, transparent 60%),
+    radial-gradient(40% 50% at 80% 40%, rgba(232, 178, 60, 0.04) 0%, transparent 60%),
+    radial-gradient(30% 40% at 50% 80%, rgba(45, 212, 238, 0.03) 0%, transparent 60%);
   will-change: transform;
+  animation: aurora-drift 26s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* Drifting color orbits — big, saturated MaatWork blobs, blended to ink */
-.field-orbit {
-  position: absolute;
-  width: 52vw;
-  height: 52vw;
-  border-radius: 50%;
-  filter: blur(72px);
-  mix-blend-mode: screen;
-  will-change: transform;
-}
-.field-orbit--violet {
-  top: -10%;
-  left: 2%;
-  background: radial-gradient(circle, rgba(131, 93, 245, 0.56), transparent 68%);
-  animation: orbit-violet 18s ease-in-out infinite;
-}
-.field-orbit--gold {
-  bottom: -14%;
-  right: 4%;
-  background: radial-gradient(circle, rgba(232, 178, 60, 0.40), transparent 68%);
-  animation: orbit-gold 23s ease-in-out infinite;
-}
-.field-orbit--cyan {
-  top: 26%;
-  right: 20%;
-  width: 40vw;
-  height: 40vw;
-  background: radial-gradient(circle, rgba(45, 212, 238, 0.44), transparent 68%);
-  animation: orbit-cyan 20s ease-in-out infinite;
-}
-
-/* Drifting aurora — violet · cyan · gold · rose, now clearly readable */
-.field-aurora {
-  position: absolute;
-  inset: -25%;
-  background:
-    radial-gradient(38% 46% at 20% 16%, rgba(131, 93, 245, 0.40), transparent 62%),
-    radial-gradient(34% 42% at 82% 10%, rgba(45, 212, 238, 0.30), transparent 60%),
-    radial-gradient(42% 52% at 74% 86%, rgba(232, 178, 60, 0.26), transparent 64%),
-    radial-gradient(32% 40% at 10% 84%, rgba(251, 113, 133, 0.24), transparent 60%);
-  filter: blur(22px);
-  mix-blend-mode: screen;
-  animation: aurora-drift 17s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Diagonal light beam — a slow sweeping rail across the field */
-.field-beam {
-  position: absolute;
-  top: -30%;
-  bottom: -30%;
-  left: 18%;
-  width: 42vw;
-  background: linear-gradient(100deg, transparent 30%, rgba(157, 123, 255, 0.16) 47%, rgba(45, 212, 238, 0.12) 53%, transparent 70%);
-  transform: rotate(13deg);
-  filter: blur(16px);
-  mix-blend-mode: screen;
-  animation: beam-drift 15s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Slow vertical scan beam — the room is "live" */
-.field-scan {
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  top: 0;
-  height: 34vh;
-  background: linear-gradient(180deg, transparent, rgba(157, 123, 255, 0.14) 45%, rgba(45, 212, 238, 0.10) 62%, transparent);
-  filter: blur(4px);
-  mix-blend-mode: screen;
-  animation: field-scan 13s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+  .bg-field-aurora { animation: none; }
 }
 
 /* ================================================================
@@ -339,7 +272,7 @@ section[id] { scroll-margin-top: 5.5rem; }
       color-mix(in srgb, var(--chroma, var(--violet-500)) 24%, transparent) 0%,
       color-mix(in srgb, var(--chroma, var(--violet-500)) 9%, transparent) 38%,
       transparent 100%);
-  mix-blend-mode: screen;
+  opacity: 0.5;
   animation: chroma-shift 14s ease-in-out infinite;
 }
 
@@ -709,33 +642,6 @@ html.js-ready .reveal.is-visible {
   50%  { transform: translate3d(4%, 3%, 0) scale(1.14); }
   100% { transform: translate3d(-3%, -2%, 0) scale(1.06); }
 }
-@keyframes grid-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
-@keyframes field-scan {
-  0%   { transform: translateY(-60vh); opacity: 0; }
-  12%  { opacity: 0.9; }
-  88%  { opacity: 0.9; }
-  100% { transform: translateY(170vh); opacity: 0; }
-}
-@keyframes prism-spin {
-  0%   { transform: rotate(0deg)   scale(1.12); }
-  100% { transform: rotate(360deg) scale(1.12); }
-}
-@keyframes orbit-violet {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(14vw, 8vh, 0); }
-}
-@keyframes orbit-gold {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(-12vw, -10vh, 0); }
-}
-@keyframes orbit-cyan {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(-10vw, 12vh, 0); }
-}
-@keyframes beam-drift {
-  0%, 100% { transform: rotate(13deg) translateX(-12vw); opacity: 0.7; }
-  50%      { transform: rotate(13deg) translateX(28vw);  opacity: 1; }
-}
 @keyframes chroma-shift {
   0%, 100% { opacity: 0.7; }
   50%      { opacity: 1; }
@@ -755,13 +661,12 @@ html.js-ready .reveal.is-visible {
   aspect-ratio: 1;
   transform: translateX(-50%);
   background: radial-gradient(circle,
-    rgba(131, 93, 245, 0.34) 0%,
-    rgba(45, 212, 238, 0.13) 36%,
-    rgba(232, 178, 60, 0.08) 54%,
+    rgba(131, 93, 245, 0.18) 0%,
+    rgba(45, 212, 238, 0.08) 36%,
+    rgba(232, 178, 60, 0.05) 54%,
     transparent 70%);
-  filter: blur(46px);
   pointer-events: none;
-  mix-blend-mode: screen;
+  will-change: transform;
   animation: halo-breathe 7.5s ease-in-out infinite;
 }
 
@@ -878,9 +783,7 @@ html.js-ready .reveal.is-visible {
   50%      { box-shadow: 0 12px 38px -8px rgba(131, 93, 245, 0.80); }
 }
 
-/* ---- Premium animated ring (Pricing / Final CTA) --------------- */
-@property --maat-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-@keyframes ring-spin { to { --maat-angle: 360deg; } }
+/* ---- Premium border ring (Pricing / Final CTA) — static gradient border --- */
 .ring-anim { position: relative; }
 .ring-anim::before {
   content: "";
@@ -888,13 +791,12 @@ html.js-ready .reveal.is-visible {
   inset: -1px;
   border-radius: inherit;
   padding: 1.5px;
-  background: conic-gradient(from var(--maat-angle),
-    var(--violet-600), var(--gold-400), var(--cyan), var(--violet-500), var(--gold-300), var(--violet-600));
+  background: linear-gradient(135deg,
+    var(--violet-600), var(--gold-400), var(--cyan), var(--violet-500));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
-  animation: ring-spin 7s linear infinite;
   opacity: 0.85;
   pointer-events: none;
 }
@@ -904,10 +806,9 @@ html.js-ready .reveal.is-visible {
   position: absolute;
   inset: -40%;
   background:
-    radial-gradient(40% 50% at 22% 24%, rgba(131, 93, 245, 0.28), transparent 60%),
-    radial-gradient(38% 46% at 80% 30%, rgba(232, 178, 60, 0.16), transparent 60%),
-    radial-gradient(36% 44% at 62% 84%, rgba(45, 212, 238, 0.14), transparent 60%);
-  filter: blur(26px);
+    radial-gradient(40% 50% at 22% 24%, rgba(131, 93, 245, 0.18), transparent 60%),
+    radial-gradient(38% 46% at 80% 30%, rgba(232, 178, 60, 0.10), transparent 60%),
+    radial-gradient(36% 44% at 62% 84%, rgba(45, 212, 238, 0.08), transparent 60%);
   animation: aurora-drift 26s ease-in-out infinite;
   will-change: transform;
   pointer-events: none;
@@ -987,36 +888,16 @@ html.js-ready .reveal.is-visible {
 
 @media (max-width: 767px) {
   .bg-field::before { background-size: 48px 48px; }
-  /* Trim the heaviest blur layers on mobile for paint cost (colors stay) */
-  .field-aurora { filter: blur(16px); }
-  .field-prism  { filter: blur(44px) saturate(130%); opacity: 0.6; }
-  .field-orbit  { filter: blur(48px); }
-  .field-beam,
-  .field-scan   { display: none; }
-  .hero-halo    { filter: blur(34px); }
+  .hero-halo { opacity: 0.6; }
 
-  /* Mobile: keep the color identity but FREEZE the paint/composite-heavy
-     continuous loops (blurred + screen-blended layers, animated box-shadows,
-     the conic-gradient ring). Static gradients stay, so .bg-field rasterizes
-     once and composites cheaply while scrolling instead of re-rastering every
-     frame. The cheap transform/opacity micro-motions (grid pulse, dot pulse,
-     motif float, scan beams in panels) keep the page alive. */
-  /* Freeze the heaviest blur+screen layers (prism/aurora); KEEP the orbits
-     drifting so the field stays visibly alive on phones — orbits are a single
-     radial gradient, cheap enough to animate. */
-  .field-prism,
-  .field-aurora,
+  /* Freeze continuous animations on mobile (GPU/compositor budget) */
   .hero-halo,
   .panel-aurora,
   .cta-violet::before,
   .ring-anim::before,
   .live-ring { animation: none; }
 
-  /* No animation → no reason to keep these large surfaces promoted to their
-     own GPU layers (saves compositor memory on low-end devices). */
-  .field-prism,
-  .field-aurora,
-  .field-beam,
+  /* Remove GPU promotion on frozen layers */
   .panel-aurora { will-change: auto; }
 }
 

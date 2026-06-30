@@ -5,7 +5,15 @@
  * row as an instrument readout. Server component.
  */
 import type { CSSProperties } from "react";
-import { CornerMarks, GlyphRail } from "./Ornaments";
+import { CornerMarks, GlyphRail, MOTIFS_MAP } from "./Ornaments";
+
+function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
+  return (
+    <span aria-hidden className={className} style={style}
+      dangerouslySetInnerHTML={{ __html: MOTIFS_MAP[name] || "" }}
+    />
+  );
+}
 
 const MARKERS: { value: string; label: string; dot: string }[] = [
   { value: "4 productos", label: "En producción, navegables", dot: "var(--cyan)" },
@@ -22,7 +30,7 @@ export function ProofStrip() {
         {/* Shen-ring — eternity / no forced permanence: your code is yours for good */}
         <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/motifs/shen-ring.svg" alt="" className="motif h-36 w-36" style={{ "--motif-o": 0.04 } as CSSProperties} />
+          <Motif name="shen-ring" className="motif h-36 w-36" style={{ "--motif-o": 0.04 } as CSSProperties} />
         </div>
         <ul className="relative grid grid-cols-2 gap-y-6 md:grid-cols-4 md:gap-x-4">
           {MARKERS.map((m, i) => (

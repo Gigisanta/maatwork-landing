@@ -5,7 +5,15 @@
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { LeadForm } from "./LeadForm";
-import { CornerMarks, GlyphRail } from "./Ornaments";
+import { CornerMarks, GlyphRail, MOTIFS_MAP } from "./Ornaments";
+
+function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
+  return (
+    <span aria-hidden className={className} style={style}
+      dangerouslySetInnerHTML={{ __html: MOTIFS_MAP[name] || "" }}
+    />
+  );
+}
 
 export function FinalCTA() {
   return (
@@ -18,18 +26,15 @@ export function FinalCTA() {
           <CornerMarks inset={18} />
           {/* Engraved Maat motif — winged sun disk watermark */}
           <div aria-hidden className="pointer-events-none absolute left-1/2 -top-12 -translate-x-1/2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/motifs/sun-disk.svg"
-              alt=""
-              className="motif motif-float h-28 w-28 md:h-32 md:w-32"
+            <Motif name="sun-disk" className="motif motif-float h-28 w-28 md:h-32 md:w-32"
               style={{ "--motif-o": 0.1 } as CSSProperties}
             />
           </div>
           {/* Was-scepter — authority over the chaos */}
           <div aria-hidden className="pointer-events-none absolute bottom-10 right-8 hidden md:block">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/motifs/was-scepter.svg" alt="" className="motif motif-float h-20 w-20 [animation-delay:-7s]" style={{ "--motif-o": 0.06 } as CSSProperties} />
+            <Motif name="was-scepter" className="motif motif-float h-20 w-20 [animation-delay:-7s]"
+              style={{ "--motif-o": 0.06 } as CSSProperties}
+            />
           </div>
 
           <div className="relative">

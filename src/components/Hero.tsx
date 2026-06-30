@@ -2,6 +2,19 @@ import type { CSSProperties } from "react";
 import { ProductShowcase } from "./ProductShowcase";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
+import { MOTIFS } from "@/lib/motifs";
+
+/** Render inline SVG motif — zero HTTP requests. */
+function MotifImg({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
+  return (
+    <span
+      aria-hidden
+      className={className}
+      style={style}
+      dangerouslySetInnerHTML={{ __html: MOTIFS[name] || "" }}
+    />
+  );
+}
 
 const H1_LINE_1 = "Software a medida que";
 const H1_LINE_2 = "automatiza y escala tu negocio";
@@ -21,9 +34,8 @@ export function Hero() {
       {/* Winged sun disk of Ra — engraved gold watermark above the headline */}
       <div aria-hidden className="pointer-events-none absolute left-1/2 top-16 z-0 -translate-x-1/2 md:top-20">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/motifs/sun-disk.svg"
-          alt=""
+        <MotifImg
+          name="sun-disk"
           className="motif motif-float h-44 w-44 md:h-56 md:w-56"
           style={{ "--motif-o": 0.07 } as CSSProperties}
         />
@@ -31,12 +43,12 @@ export function Hero() {
       {/* Was-scepter — authority over operational chaos, faint engraved watermark */}
       <div aria-hidden className="pointer-events-none absolute right-[3%] top-[26%] z-0 hidden lg:block">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/motifs/was-scepter.svg" alt="" className="motif h-28 w-28" style={{ "--motif-o": 0.04 } as CSSProperties} />
+        <MotifImg name="was-scepter" className="motif h-28 w-28" style={{ "--motif-o": 0.04 } as CSSProperties} />
       </div>
       {/* Ankh — operational life, mirrored faint watermark on the left */}
       <div aria-hidden className="pointer-events-none absolute left-[3%] top-[30%] z-0 hidden lg:block">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/motifs/ankh.svg" alt="" className="motif h-24 w-24" style={{ "--motif-o": 0.04 } as CSSProperties} />
+        <MotifImg name="ankh" className="motif h-24 w-24" style={{ "--motif-o": 0.04 } as CSSProperties} />
       </div>
       <div className="container-maat relative z-10">
         {/* Briefing frame — engraved gold corner marks around the hero copy */}
