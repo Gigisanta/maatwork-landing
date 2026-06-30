@@ -7,7 +7,9 @@ import { ProblemSolution } from "@/components/ProblemSolution";
 import { Services } from "@/components/Services";
 import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
+import { TechStack } from "@/components/TechStack";
 import { Pricing } from "@/components/Pricing";
+import { Testimonials } from "@/components/Testimonials";
 import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { FAQ } from "@/components/FAQ";
 import { About } from "@/components/About";
@@ -37,8 +39,10 @@ export default function HomePage() {
         <Services />
         <Features />
         <HowItWorks />
+        <TechStack />
         <FriezeDivider count={13} />
         <Pricing />
+        <Testimonials />
         <ProductEcosystem />
         <FAQ />
         <About />

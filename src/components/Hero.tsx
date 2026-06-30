@@ -3,8 +3,8 @@ import { ProductShowcase } from "./ProductShowcase";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
 
-const H1_LINE_1 = "Construimos software a medida y automatizaciones ";
-const H1_LINE_2 = "para que tu negocio funcione solo.";
+const H1_LINE_1 = "Software a medida que";
+const H1_LINE_2 = "automatiza y escala tu negocio";
 
 // Real products in production — the proof chips, color-keyed to the showcase.
 const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
@@ -42,18 +42,29 @@ export function Hero() {
         {/* Briefing frame — engraved gold corner marks around the hero copy */}
         <div className="relative mx-auto max-w-[1040px] px-4 pt-9 pb-7 sm:px-6">
           <CornerMarks inset={0} />
-        {/* Mission briefing eyebrow */}
+
+        {/* Scarcity + credibility badge — sincroweb-inspired limited-spots + rating */}
         <div className="mb-6 flex justify-center">
           <div
-            className="reveal live-chip inline-flex items-center gap-2.5 rounded-full border px-3.5 py-1.5"
+            className="reveal inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 rounded-full border border-gold-400/20 bg-gold-500/[0.06] px-4 py-2"
             style={{ transitionDelay: "0ms" }}
           >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-70" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cyan" />
+            <span className="flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber" />
+              </span>
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-amber">
+                Solo 3 proyectos nuevos este mes
+              </span>
             </span>
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em]">
-              Estudio de software y automatización · Argentina
+            <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
+            <span className="font-mono text-[11px] tracking-[0.04em] text-gold-300">
+              ★ <span className="font-semibold">5.0</span>
+            </span>
+            <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
+            <span className="font-mono text-[11px] tracking-[0.04em] text-slate-400">
+              4 productos en producción
             </span>
           </div>
         </div>
@@ -64,11 +75,12 @@ export function Hero() {
           style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.02, transitionDelay: "60ms" }}
         >
           <span className="line-reveal block" style={{ animationDelay: "60ms" }}>
-            Construimos <span className="hero-word hero-word--gold">software a medida</span> y{" "}
-            <span className="hero-word hero-word--violet">automatizaciones</span>
+            {H1_LINE_1}
           </span>
-          <span className="line-reveal block text-slate-300" style={{ animationDelay: "170ms" }}>
-            para que tu negocio <span className="hero-word hero-word--cyan">funcione solo</span>.
+          <span className="line-reveal block" style={{ animationDelay: "170ms" }}>
+            <span className="hero-word hero-word--gold">automatiza</span> y{" "}
+            <span className="hero-word hero-word--violet">escala</span>{" "}
+            tu negocio
           </span>
         </h1>
 
@@ -76,8 +88,8 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Apps, sistemas de gestión y automatizaciones a medida para cualquier rubro. NMS,
-          MaatWorkCRM, Infrannova y Varigas ya funcionan en producción — el tuyo es el próximo.
+          Diseñamos y desarrollamos apps de gestión, automatizaciones con IA y sistemas a medida
+          para startups y empresas. Stack moderno, código tuyo, entrega en sprints.
         </p>
 
         <div
@@ -92,16 +104,17 @@ export function Hero() {
             style={{ height: 54 }}
           >
             Contanos tu proyecto
-            <ArrowIcon />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
           </a>
           <a
-            href={waLink("Hola MaatWork, quiero hablar con el equipo")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#servicios"
             className="cta-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold text-white"
             style={{ height: 54 }}
           >
-            Hablar con MaatWork
+            Ver qué hacemos
           </a>
         </div>
 
@@ -109,7 +122,7 @@ export function Hero() {
           className="reveal mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400"
           style={{ transitionDelay: "300ms" }}
         >
-          Desde USD 100/mes · Te lo mostramos funcionando antes de que firmes nada
+          Respondemos personalmente · Sin compromiso · Estimación en 24 hs
         </p>
 
         {/* One proof object: real products in production, stated plainly */}
@@ -139,14 +152,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ArrowIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="transition-transform group-hover:translate-x-0.5" style={{ transitionTimingFunction: "var(--ease-out-quart)" }}>
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
   );
 }

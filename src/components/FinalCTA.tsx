@@ -1,11 +1,9 @@
 /**
- * FinalCTA — closing section. Calm and premium: a solid ink panel with one
- * engraved gold seal, the primary action, and the lead form. Conversion paths
- * preserved (WhatsApp transport + POST /api/leads via <LeadForm/>).
+ * FinalCTA — closing section. Sincroweb-inspired copy: urgency, clear offer,
+ * WhatsApp + email options. Calm and premium with the Egyptian design.
  */
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
-import { bookingLink } from "@/lib/booking";
 import { LeadForm } from "./LeadForm";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 
@@ -18,8 +16,7 @@ export function FinalCTA() {
           <div className="panel-aurora" aria-hidden />
           {/* Engraved gold corner marks — ceremonial frame around the close */}
           <CornerMarks inset={18} />
-          {/* Engraved Maat motif — winged sun disk watermark, one per surface
-              (DS). Slow float + breathe; paused under reduced-motion. */}
+          {/* Engraved Maat motif — winged sun disk watermark */}
           <div aria-hidden className="pointer-events-none absolute left-1/2 -top-12 -translate-x-1/2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -29,7 +26,7 @@ export function FinalCTA() {
               style={{ "--motif-o": 0.1 } as CSSProperties}
             />
           </div>
-          {/* Was-scepter — authority over the chaos, closing counterweight to the sun disk */}
+          {/* Was-scepter — authority over the chaos */}
           <div aria-hidden className="pointer-events-none absolute bottom-10 right-8 hidden md:block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/motifs/was-scepter.svg" alt="" className="motif motif-float h-20 w-20 [animation-delay:-7s]" style={{ "--motif-o": 0.06 } as CSSProperties} />
@@ -44,72 +41,67 @@ export function FinalCTA() {
               className="mx-auto max-w-[680px] font-display text-[34px] leading-[1.06] tracking-[-0.03em] text-white md:text-[48px]"
               style={{ fontWeight: 800 }}
             >
-              ¿Listo para construir el software de tu negocio?
+              ¿Tenés una idea o un proceso para automatizar?
             </h2>
-            <p className="mx-auto mt-5 max-w-[540px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
-              Contanos qué necesitás. Te mostramos lo que ya construimos funcionando y armamos
-              una propuesta a tu medida.
+            <p className="mx-auto mt-5 max-w-[580px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
+              Contanos en 30 minutos qué querés construir. Salís de la llamada con estimación de tiempos,
+              presupuesto y un plan claro.
             </p>
+
+            {/* Offer bullets */}
+            <div className="mx-auto mt-7 flex max-w-[480px] flex-col items-center gap-2">
+              {[
+                "Estimación de tiempos y precio",
+                "Definición de stack técnico",
+                "Plan de sprints concreto",
+              ].map((item) => (
+                <span key={item} className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400">
+                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-emerald-400/40 text-[8px] text-emerald-400">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  {item}
+                </span>
+              ))}
+            </div>
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <a
                 href={waLink("Hola MaatWork, quiero contarles un proyecto")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-violet inline-flex h-[52px] items-center justify-center rounded-full px-7 text-[15.5px] font-semibold text-white hover-scale"
+                className="cta-violet inline-flex h-[52px] items-center justify-center rounded-full px-7 text-[15.5px] font-semibold tracking-[-0.01em] text-white hover-scale"
               >
-                Contanos tu proyecto
+                Empezá tu proyecto
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="ml-1.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
               </a>
               <a
-                href={waLink("Hola MaatWork, quiero hablar con el equipo")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cta-whatsapp inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full px-7 text-[15.5px] font-semibold text-white hover-scale"
+                href="mailto:giolivosantarelli@gmail.com"
+                className="cta-ghost inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-7 text-[15.5px] font-semibold text-white hover-scale"
               >
-                <WhatsAppIcon />
-                Hablar con MaatWork
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 4L12 13 2 4" />
+                </svg>
+                Prefiero escribir un mail
               </a>
             </div>
 
-            <p className="mt-5 text-[13.5px] text-slate-400">
-              ¿Preferís agendar?{" "}
-              <a
-                href={bookingLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-violet-300 underline-offset-2 transition-colors hover:text-violet-200 hover:underline"
-              >
-                Agendá un diagnóstico de 30 min →
-              </a>
+            <p className="mt-5 text-[13px] text-slate-500">
+              NDA disponible · Respuesta en menos de 24 hs
             </p>
 
-            <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
-              Sin permanencia · Te lo mostramos antes de firmar · Soporte local
-            </p>
-
-            <GlyphRail
-              className="mx-auto mt-9 max-w-[320px]"
-              glyphs={["scales-of-maat", "feather-of-maat", "ankh", "shen-ring"]}
-            />
-
-            {/* Alternative to WhatsApp: leave your details (POST /api/leads) */}
-            <div className="mx-auto mt-10 max-w-[540px] border-t border-white/[0.08] pt-8 text-left">
-              <p className="mb-3.5 text-center text-[14px] text-slate-300">
-                ¿Preferís que te escribamos nosotros? Dejanos tus datos.
-              </p>
+            {/* Lead form — embedded for high-intent traffic */}
+            <div className="mx-auto mt-10 max-w-[440px]">
               <LeadForm />
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-    </svg>
   );
 }
