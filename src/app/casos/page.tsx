@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import { PRODUCT_HIGHLIGHTS, SERIOUS_PROJECT_COUNT } from "@/data/products";
 import { PageShell } from "@/components/PageShell";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -30,7 +31,7 @@ export default function CasesIndexPage() {
       />
       <section className="section-elev1 section-pad border-y border-white/[0.06]">
         <div className="container-maat grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {PRODUCT_HIGHLIGHTS.map((project) => {
+          {PRODUCT_HIGHLIGHTS.map((project, index) => {
             const href = project.caseSlug ? `/casos/${project.caseSlug}` : `https://${project.url}`;
             const isExternal = !project.caseSlug;
 
@@ -40,7 +41,8 @@ export default function CasesIndexPage() {
                 href={href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="ops-card group flex min-h-[270px] flex-col p-7 transition-colors hover:border-violet-600/30"
+                className="portfolio-card ops-card group flex min-h-[270px] flex-col p-7 transition-colors hover:border-violet-600/30"
+                style={{ "--project-index": index } as CSSProperties}
               >
                 <span className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">{project.label}</span>
                 <h2 className="mt-2 font-display text-[21px] font-extrabold tracking-[-0.02em] text-white">{project.name}</h2>

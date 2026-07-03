@@ -4,12 +4,14 @@
  * already published. Sober ops cards (mono initial tile, mono evidence/modules) —
  * no orbiting dots, no gradient tiles, no aurora wash.
  */
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { PRODUCT_HIGHLIGHTS, SERIOUS_PROJECT_COUNT } from "@/data/products";
 import { CardGlyph, GlyphRail } from "./Ornaments";
 
 const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose", "accent-emerald"];
 const MOTIFS = ["eye-of-horus", "ankh", "obelisk", "djed"];
+const RAIL_PROJECTS = PRODUCT_HIGHLIGHTS.slice(0, 12);
 
 export function ProductEcosystem() {
   return (
@@ -28,12 +30,23 @@ export function ProductEcosystem() {
           <GlyphRail className="mx-auto mt-8 max-w-[420px]" glyphs={["eye-of-horus", "ankh", "obelisk"]} />
         </div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="portfolio-marquee reveal mt-10" aria-hidden="true">
+          <div className="portfolio-marquee__track">
+            {[...RAIL_PROJECTS, ...RAIL_PROJECTS].map((project, index) => (
+              <span key={`${project.name}-${index}`} className="portfolio-marquee__item">
+                <span className="portfolio-marquee__dot" />
+                {project.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="portfolio-grid mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {PRODUCT_HIGHLIGHTS.map((product, index) => (
             <article
               key={product.name}
-              className={`ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[360px] flex-col p-6`}
-              style={{ transitionDelay: `${index * 45}ms` }}
+              className={`portfolio-card ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[360px] flex-col p-6 ${index < 2 ? "xl:col-span-2" : ""}`}
+              style={{ "--project-index": index, transitionDelay: `${index * 45}ms` } as CSSProperties}
             >
               <CardGlyph motif={MOTIFS[index % MOTIFS.length]} className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               <div className="flex items-start justify-between gap-3">
@@ -85,7 +98,7 @@ export function ProductEcosystem() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Abrir ${product.name} (${product.url}) en una pestaña nueva`}
-                  className="group/url mt-4 inline-flex items-center gap-1 font-mono text-[11px] text-slate-500 transition-colors hover:text-violet-300"
+                  className="portfolio-link group/url mt-4 inline-flex items-center gap-1 font-mono text-[11px] text-slate-500 transition-colors hover:text-violet-300"
                 >
                   {product.url}
                   <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/url:translate-x-0.5 group-hover/url:-translate-y-0.5" aria-hidden>

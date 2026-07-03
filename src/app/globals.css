@@ -534,6 +534,93 @@ html.js-ready .reveal:not(.is-visible) {
   box-shadow: var(--inset-top), 0 22px 54px -28px var(--accent, var(--violet-500));
 }
 
+/* ---- Portfolio motion — inspired by modern animated portfolio rails:
+   kinetic project ticker, bento emphasis, subtle card scale/shine. CSS-only
+   so the section stays server-rendered and avoids extra animation libraries. */
+.portfolio-marquee {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.06);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.portfolio-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 0.75rem;
+  padding-block: 0.75rem;
+  animation: portfolio-marquee 34s linear infinite;
+  will-change: transform;
+}
+.portfolio-marquee:hover .portfolio-marquee__track { animation-play-state: paused; }
+.portfolio-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  padding: 0.42rem 0.72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.portfolio-marquee__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.08);
+}
+@keyframes portfolio-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.portfolio-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 260ms var(--ease-out-quart),
+    border-color 220ms var(--ease-out-quart),
+    box-shadow 260ms var(--ease-out-quart),
+    background 260ms var(--ease-out-quart);
+}
+.portfolio-card > * {
+  position: relative;
+  z-index: 1;
+}
+.portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.09) 42%, transparent 58%),
+    radial-gradient(circle at 18% 0%, var(--accent-soft, rgba(131, 93, 245, 0.12)), transparent 42%);
+  opacity: 0;
+  transform: translate3d(-18%, 0, 0) scale(1.04);
+  transition: opacity 260ms var(--ease-out-quart), transform 520ms var(--ease-out-quart);
+  pointer-events: none;
+}
+.portfolio-card:hover,
+.portfolio-card:focus-within {
+  transform: translateY(-7px) scale(1.012);
+}
+.portfolio-card:hover::before,
+.portfolio-card:focus-within::before {
+  opacity: 1;
+  transform: translate3d(18%, 0, 0) scale(1.04);
+}
+.portfolio-card:hover .portfolio-link,
+.portfolio-card:focus-within .portfolio-link {
+  color: var(--accent-2, var(--violet-300));
+}
+
 /* ---- Icon halo — colored glow behind a module/product glyph ----- */
 .icon-halo { position: relative; }
 .icon-halo > * { position: relative; z-index: 1; }
@@ -865,7 +952,8 @@ html.js-ready .reveal:not(.is-visible) {
 @media (hover: none) {
   .hover-scale:hover,
   .ops-card:hover,
-  .card-accent:hover { transform: none; }
+  .card-accent:hover,
+  .portfolio-card:hover { transform: none; }
 }
 
 /* ---- Very small screens (< 420px) — extra tightening ------- */
