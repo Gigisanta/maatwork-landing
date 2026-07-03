@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
-import { FAQS } from "@/data/faqs";
 import { SERIOUS_PROJECT_COUNT } from "@/data/products";
 
 const SITE_URL = "https://maat.work";
@@ -55,7 +54,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    `Software a medida para ordenar y automatizar operaciones: CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
+    `Software simple para ordenar negocios con WhatsApp, Excel y procesos manuales. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
   icons: {
     icon: [
       { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
@@ -191,15 +190,6 @@ const jsonLd = {
         availability: "https://schema.org/InStock",
       },
       provider: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faqpage`,
-      mainEntity: FAQS.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
     },
   ],
 };

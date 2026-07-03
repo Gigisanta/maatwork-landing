@@ -232,6 +232,24 @@ body {
   .section-pad    { padding-top: var(--spacing-section-lg); padding-bottom: var(--spacing-section-lg); }
 }
 
+/* Landing pass: shorter, faster story without changing deep pages. */
+.home-compact .section-pad {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  .home-compact .section-pad {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .home-compact .section-pad {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
 /* ================================================================
    Eyebrow — mono uppercase tracked section label (DS)
    ================================================================ */

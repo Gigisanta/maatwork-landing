@@ -23,47 +23,41 @@ type Outcome = {
 const SIGNALS: Signal[] = [
   {
     sev: "critical",
-    title: "Agenda fragmentada",
-    detail: "WhatsApp, papel y un Excel que ya nadie mantiene.",
-    meta: "Sin fuente única",
+    title: "Todo vive en WhatsApp",
+    detail: "Pedidos, turnos y reclamos mezclados.",
+    meta: "Caos diario",
   },
   {
     sev: "warning",
-    title: "Cobros sin seguimiento",
-    detail: "Cuotas vencidas y recordatorios hechos a mano.",
-    meta: "Ingresos en riesgo",
+    title: "Excel ya no alcanza",
+    detail: "Nadie sabe cuál es la versión buena.",
+    meta: "Sin control",
   },
   {
     sev: "warning",
-    title: "WhatsApp satura el día",
-    detail: "Las mismas respuestas, una y otra vez.",
-    meta: "Tiempo perdido",
-  },
-  {
-    sev: "critical",
-    title: "Sin visibilidad",
-    detail: "No sabés qué entró ni quién dejó de venir.",
-    meta: "Decisiones a ciegas",
+    title: "Todo depende de vos",
+    detail: "Si no respondés, la operación se frena.",
+    meta: "Cuello de botella",
   },
 ];
 
 const OUTCOMES: Outcome[] = [
   {
-    title: "Clientes ordenados",
-    detail: "Historial, estado y próximos pasos en un solo lugar.",
-    metric: "CRM base",
+    title: "Un solo panel",
+    detail: "Clientes, tareas y estado claro.",
+    metric: "Orden",
     accent: "accent-violet",
   },
   {
-    title: "Inventario visible",
-    detail: "Stock y movimientos simples sin planillas paralelas.",
-    metric: "Control diario",
+    title: "Menos tareas manuales",
+    detail: "Avisos, cobros y respuestas automáticas.",
+    metric: "Automatización",
     accent: "accent-gold",
   },
   {
-    title: "Agenda coordinada",
-    detail: "Turnos y tareas claros para dejar de improvisar.",
-    metric: "Operación viva",
+    title: "Mejores decisiones",
+    detail: "Números visibles sin pedir reportes.",
+    metric: "Control",
     accent: "accent-cyan",
   },
 ];
@@ -75,11 +69,10 @@ export function ProblemSolution() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Diagnóstico</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Si todo depende de WhatsApp y Excel, algo se pierde.
+            Detectamos qué te está frenando.
           </h2>
           <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            No hace falta cambiar todo. Empezamos por el cuello de botella y lo convertimos
-            en un flujo claro.
+            No rediseñamos tu empresa entera: atacamos el bloqueo que más tiempo te roba.
           </p>
           <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "scales-of-maat", "ankh"]} />
         </div>
@@ -132,17 +125,16 @@ export function ProblemSolution() {
               </span>
               <GlyphRail className="mt-5 max-w-[200px]" glyphs={["scales-of-maat", "feather-of-maat"]} o={0.1} />
               <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
-                Una operación más simple.
+                Lo hacemos usable.
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
-                Clientes, agenda, inventario y estado del negocio en un solo lugar. Lo demás
-                deja de vivir desperdigado.
+                Un flujo claro, medible y mantenible. Nada de pantallas de relleno.
               </p>
               <a
-                href="#producto"
+                href="#servicios"
                 className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200"
               >
-                Ver el producto
+                Ver opciones
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />

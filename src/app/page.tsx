@@ -5,26 +5,12 @@ import { Hero } from "@/components/Hero";
 import { ProofStrip } from "@/components/ProofStrip";
 import { ProblemSolution } from "@/components/ProblemSolution";
 import { Services } from "@/components/Services";
-import { Features } from "@/components/Features";
 import { HowItWorks } from "@/components/HowItWorks";
-import { TechStack } from "@/components/TechStack";
 import { Pricing } from "@/components/Pricing";
-import { Testimonials } from "@/components/Testimonials";
 import { ProductEcosystem } from "@/components/ProductEcosystem";
-import { FAQ } from "@/components/FAQ";
-import { About } from "@/components/About";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
-import { KhekerFrieze } from "@/components/Ornaments";
-
-function FriezeDivider({ count = 13, o = 0.08 }: { count?: number; o?: number }) {
-  return (
-    <div className="container-maat py-2">
-      <KhekerFrieze count={count} o={o} />
-    </div>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -32,21 +18,14 @@ export default function HomePage() {
       <OperationalField />
       <ScrollProgress />
       <Navbar />
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" className="home-compact" tabIndex={-1}>
         <Hero />
         <ProofStrip />
         <ProblemSolution />
         <Services />
-        <Features />
         <HowItWorks />
-        <TechStack />
-        <FriezeDivider count={13} />
         <Pricing />
-        <Testimonials />
         <ProductEcosystem />
-        <FAQ />
-        <About />
-        <FriezeDivider count={11} o={0.1} />
         <FinalCTA />
       </main>
       <Footer />

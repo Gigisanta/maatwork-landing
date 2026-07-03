@@ -5,7 +5,7 @@
 import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { LeadForm } from "./LeadForm";
-import { CornerMarks, GlyphRail, MOTIFS_MAP } from "./Ornaments";
+import { CornerMarks, MOTIFS_MAP } from "./Ornaments";
 
 function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
   return (
@@ -46,18 +46,18 @@ export function FinalCTA() {
               className="mx-auto max-w-[680px] font-display text-[34px] leading-[1.06] tracking-[-0.03em] text-white md:text-[48px]"
               style={{ fontWeight: 800 }}
             >
-              Contanos qué querés ordenar.
+              ¿Qué querés destrabar?
             </h2>
             <p className="mx-auto mt-5 max-w-[580px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
-              En una llamada corta vemos el problema, el alcance y el primer paso sensato.
+              Mandanos el problema. Te decimos el primer paso sin marearte.
             </p>
 
             {/* Offer bullets */}
             <div className="mx-auto mt-7 flex max-w-[480px] flex-col items-center gap-2">
               {[
-                "Alcance inicial",
-                "Tiempo y presupuesto estimado",
-                "Próximo paso concreto",
+                "Alcance",
+                "Tiempo y costo",
+                "Próximo paso",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400">
                   <span className="flex h-4 w-4 items-center justify-center rounded-full border border-emerald-400/40 text-[8px] text-emerald-400">

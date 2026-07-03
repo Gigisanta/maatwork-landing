@@ -16,11 +16,10 @@ export function ProductEcosystem() {
         <div className="mx-auto max-w-3xl text-center reveal">
           <span className="eyebrow">Portfolio</span>
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-display text-white text-balance sm:text-4xl">
-            Proyectos reales, no promesas.
+            Prueba real, en vivo.
           </h2>
           <p className="mx-auto mt-5 max-w-[620px] text-base leading-7 text-slate-300 text-pretty">
-            Una muestra corta de sistemas, landings y herramientas ya publicadas. El resto está
-            en el portfolio completo.
+            Algunos proyectos navegables. El portfolio completo queda en /casos.
           </p>
           <GlyphRail className="mx-auto mt-7 max-w-[320px]" glyphs={["eye-of-horus", "feather-of-maat", "obelisk"]} />
         </div>
@@ -29,7 +28,7 @@ export function ProductEcosystem() {
           {FEATURED_PROJECTS.map((product, index) => (
             <article
               key={product.name}
-              className={`portfolio-card ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[300px] flex-col p-6`}
+              className={`portfolio-card ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[240px] flex-col p-6`}
               style={{ transitionDelay: `${index * 55}ms` }}
             >
               <div className="flex items-start justify-between gap-3">
@@ -57,7 +56,7 @@ export function ProductEcosystem() {
 
               <div className="mt-auto pt-6">
                 <div className="flex flex-wrap gap-1.5">
-                  {product.modules.slice(0, 3).map((module) => (
+                  {product.modules.slice(0, 2).map((module) => (
                     <span key={module} className="rounded-md border border-white/[0.08] bg-white/[0.025] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.04em] text-slate-300">
                       {module}
                     </span>

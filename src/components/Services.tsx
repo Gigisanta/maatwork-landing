@@ -26,14 +26,12 @@ const SERVICES: Service[] = [
   {
     idx: "01",
     title: "Apps de gestión a medida",
-    desc: "Sistemas internos, CRMs y plataformas pensadas para tu forma real de trabajar.",
+    desc: "CRMs, paneles y sistemas internos para operar sin planillas eternas.",
     includes: [
-      "Reemplazá planillas y procesos manuales",
-      "CRM o panel diseñado para tu equipo",
-      "Plataformas para tus clientes (SaaS)",
-      "Sprints con demo cada dos semanas",
+      "Flujos reales de tu equipo",
+      "Demo cada dos semanas",
     ],
-    delivery: "4 a 8 semanas · Sistema en producción",
+    delivery: "4 a 8 semanas",
     cta: "quiero un sistema a medida",
     accent: "accent-violet",
     motif: "djed",
@@ -42,14 +40,12 @@ const SERVICES: Service[] = [
   {
     idx: "02",
     title: "Webs & Landings",
-    desc: "Sitios rápidos, claros y listos para vender. Buen diseño, SEO técnico y medición desde el día uno.",
+    desc: "Páginas claras, rápidas y listas para convertir tráfico en conversaciones.",
     includes: [
-      "React / Next.js + headless CMS",
-      "SEO técnico + Core Web Vitals",
-      "GA4, Pixel y eventos integrados",
-      "Entrega en 2 a 5 semanas",
+      "Copy corto + diseño premium",
+      "SEO técnico + medición",
     ],
-    delivery: "2 a 5 semanas · Alcance fijo",
+    delivery: "2 a 5 semanas",
     cta: "quiero una web o landing",
     accent: "accent-cyan",
     motif: "obelisk",
@@ -58,14 +54,12 @@ const SERVICES: Service[] = [
   {
     idx: "03",
     title: "Automatización + IA",
-    desc: "Respuestas, recordatorios, reportes y tareas repetitivas funcionando solos.",
+    desc: "Bots, recordatorios y reportes que sacan trabajo repetido del medio.",
     includes: [
-      "Bots WhatsApp + OpenAI / Claude",
-      "Asistentes RAG sobre PDFs / Notion",
-      "Automatizaciones n8n / Make / Zapier",
-      "ROI medible desde el día 30",
+      "WhatsApp + IA + reportes",
+      "Automatizaciones n8n / Make",
     ],
-    delivery: "2 a 4 semanas · ROI en 30 días",
+    delivery: "2 a 4 semanas",
     cta: "quiero automatizar con IA",
     accent: "accent-gold",
     motif: "scarab",
@@ -74,14 +68,12 @@ const SERVICES: Service[] = [
   {
     idx: "04",
     title: "Mantenimiento & Soporte",
-    desc: "Soporte, mejoras, monitoreo y mantenimiento para que el sistema siga andando bien.",
+    desc: "Mejoras, monitoreo y soporte para que el sistema siga andando.",
     includes: [
-      "Soporte técnico y resolución de incidencias",
-      "Mejoras y nuevas funciones programadas",
-      "Monitoreo, backups y actualizaciones",
-      "Asesoramiento estratégico mensual",
+      "Incidencias y mejoras",
+      "Backups y monitoreo",
     ],
-    delivery: "Plan mensual · Soporte continuo",
+    delivery: "Plan mensual",
     cta: "quiero soporte y mantenimiento",
     accent: "accent-emerald",
     motif: "scales-of-maat",
@@ -111,11 +103,10 @@ export function Services() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Servicios</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Elegí por dónde empezar
+            Elegí el primer movimiento.
           </h2>
           <p className="mt-4 max-w-[540px] text-[16px] leading-7 text-slate-300">
-            Podemos arrancar por una landing, una automatización puntual o el sistema completo.
-            Lo importante: resolver el próximo bloqueo real.
+            Landing, automatización o sistema interno. Una puerta de entrada, no una novela.
           </p>
           <GlyphRail className="mt-8 max-w-[420px]" glyphs={["obelisk", "djed", "scarab", "scales-of-maat"]} />
         </div>

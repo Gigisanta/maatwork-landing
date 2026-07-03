@@ -6,16 +6,11 @@ const WHATSAPP = waLink();
 
 const footerLinks = [
   { href: "/#servicios", label: "Servicios" },
-  { href: "/servicios", label: "Servicios (todos)" },
   { href: "/casos", label: "Casos" },
   { href: "/precios", label: "Precios" },
-  { href: "/implementacion", label: "Implementación" },
-  { href: "/datos-exportables", label: "Datos" },
-  { href: "/automatizacion-whatsapp", label: "WhatsApp" },
   { href: "/blog", label: "Blog" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/#contacto", label: "Contacto" },
   { href: "https://www.linkedin.com/in/giolivo-garcia-451954322/", label: "LinkedIn", external: true },
-  { href: "https://www.instagram.com/maat.work/", label: "Instagram", external: true },
 ];
 
 export function Footer() {
@@ -26,8 +21,7 @@ export function Footer() {
           <div>
             <Logo size={26} />
             <p className="mt-3 max-w-[440px] text-sm leading-[1.6] text-slate-400">
-              Estudio de software y automatización a medida. Construimos apps, sistemas de gestión
-              y automatizaciones, con productos propios en producción. Hecho en Argentina.
+              Software simple para ordenar negocios con WhatsApp, Excel y procesos manuales.
             </p>
             <p className="mt-3 text-sm text-slate-500">
               Por{" "}

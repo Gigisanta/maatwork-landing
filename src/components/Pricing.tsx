@@ -17,17 +17,14 @@ function Motif({ name, className, style }: { name: string; className?: string; s
 
 const PLAN_INCLUDES = [
   "Gestión de clientes",
-  "Inventario simple",
-  "Agenda operativa básica",
-  "Panel inicial de control",
+  "Agenda o inventario simple",
+  "Panel inicial",
 ];
 
 const QUOTED_MODULES = [
-  "WhatsApp automático y campañas",
-  "Cobros automáticos y links de pago",
-  "Reportes avanzados y tableros a medida",
-  "App móvil nativa iOS / Android",
-  "Integraciones, multi-sucursal y flujos complejos",
+  "WhatsApp, cobros e IA",
+  "Reportes e integraciones",
+  "App móvil o multi-sucursal",
 ];
 
 export function Pricing() {
@@ -37,11 +34,10 @@ export function Pricing() {
         <div className="max-w-[660px] reveal">
           <span className="eyebrow">Plan base</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Base simple. Crece a medida.
+            Empezá chico. Escalá después.
           </h2>
           <p className="mt-4 max-w-[560px] text-[16px] leading-7 text-slate-300">
-            Arrancamos con lo que ordena la operación. Si hace falta más, se suma por alcance,
-            sin venderte un paquete inflado.
+            Primero ordenamos lo esencial. Lo avanzado se cotiza solo si hace falta.
           </p>
         </div>
 
@@ -88,7 +84,7 @@ export function Pricing() {
                 <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>
               </div>
               <p className="relative mt-2 font-mono text-[11.5px] uppercase tracking-[0.09em] text-slate-400">
-                + setup inicial según alcance · facturado en pesos al cambio del día
+                + setup según alcance · en pesos al cambio del día
               </p>
 
               <div className="seal-rule my-7" aria-hidden>
@@ -119,10 +115,10 @@ export function Pricing() {
                   Cotizar plan base
                 </a>
                 <a
-                  href="#faq"
+                  href="#contacto"
                   className="cta-ghost inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
                 >
-                  Ver preguntas
+                  Hablar ahora
                 </a>
               </div>
 
@@ -140,11 +136,10 @@ export function Pricing() {
               {/* Cartouche — your real scope gets its own name, not a forced bundle */}
               <CardGlyph motif="cartouche" className="absolute right-3 top-3 h-14 w-14" o={0.05} />
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
-                Módulos avanzados a cotizar
+                Extras a medida
               </h3>
               <p className="mt-2 text-[14px] leading-relaxed text-slate-400">
-                No te cobramos un paquete gigante si no lo necesitás. Lo complejo se define por alcance,
-                volumen e integraciones reales.
+                Sin paquete inflado. Sumamos solo lo que tenga impacto real.
               </p>
 
               <ul className="mt-7 space-y-3.5">
@@ -157,7 +152,7 @@ export function Pricing() {
               </ul>
 
               <p className="mt-auto pt-7 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.08em] text-slate-500">
-                Primero dejamos ordenada la operación base. Después escalamos sólo lo que tenga sentido.
+                Primero base. Después escala.
               </p>
             </div>
           </div>

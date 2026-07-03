@@ -17,8 +17,8 @@ function MotifImg({ name, className, style }: { name: string; className?: string
   );
 }
 
-const H1_LINE_1 = "Software a medida para";
-const H1_LINE_2 = "ordenar y automatizar tu negocio";
+const H1_LINE_1 = "Ordená tu negocio";
+const H1_LINE_2 = "con software simple";
 
 // Real products in production — the proof chips, color-keyed to the showcase.
 const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
@@ -68,7 +68,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-amber" />
               </span>
               <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-amber">
-                Agenda abierta
+                Diagnóstico gratis
               </span>
             </span>
             <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
@@ -91,9 +91,8 @@ export function Hero() {
             {H1_LINE_1}{" "}
           </span>
           <span className="line-reveal block" style={{ animationDelay: "170ms" }}>
-            <span className="hero-word hero-word--gold">ordenar</span> y{" "}
-            <span className="hero-word hero-word--violet">automatizar</span>{" "}
-            tu negocio
+            con <span className="hero-word hero-word--gold">software</span>{" "}
+            <span className="hero-word hero-word--violet">simple</span>
           </span>
         </h1>
 
@@ -101,8 +100,7 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Convertimos procesos desordenados en sistemas simples: CRM, agenda, cobros,
-          WhatsApp, tableros y landings. Menos fricción, más control.
+          Detectamos el cuello de botella y construimos lo mínimo para que deje de romperte el día.
         </p>
 
         <div
@@ -116,7 +114,7 @@ export function Hero() {
             className="cta-violet group inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15px] font-semibold tracking-[-0.01em] text-white hover-scale"
             style={{ height: 54 }}
           >
-            Quiero ordenar mi operación
+            Resolver mi cuello de botella
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
@@ -127,7 +125,7 @@ export function Hero() {
             className="cta-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold text-white"
             style={{ height: 54 }}
           >
-            Ver proyectos reales
+            Ver prueba real
           </a>
         </div>
 
@@ -135,7 +133,7 @@ export function Hero() {
           className="reveal mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400"
           style={{ transitionDelay: "300ms" }}
         >
-          Respuesta directa · alcance claro · sin compromiso
+          15 min · alcance claro · sin venta agresiva
         </p>
 
         {/* One proof object: real products in production, stated plainly */}

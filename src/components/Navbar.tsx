@@ -8,19 +8,19 @@ import { Logo } from "./Logo";
 
 const links = [
   { href: "/servicios", id: "servicios", label: "Servicios" },
-  { href: "/soluciones", id: "ecosistema", label: "Soluciones" },
+  { href: "/casos", id: "ecosistema", label: "Casos" },
   { href: "/precios", id: "precios", label: "Precios" },
-  { href: "/casos", id: "faq", label: "Casos" },
+  { href: "#contacto", id: "contacto", label: "Contacto" },
 ];
 
 const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");
 const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 
 const NAV_ITEMS = [
-  { href: "/servicios", label: "Servicios", desc: "Software y automatización a medida" },
-  { href: "/soluciones", label: "Soluciones", desc: "Productos por industria" },
-  { href: "/precios", label: "Precios", desc: "Desde USD 100/mes" },
+  { href: "/servicios", label: "Servicios", desc: "Qué podemos resolver" },
   { href: "/casos", label: "Casos", desc: "Proyectos en producción" },
+  { href: "/precios", label: "Precios", desc: "Desde USD 100/mes" },
+  { href: "#contacto", label: "Contacto", desc: "WhatsApp directo" },
 ];
 
 export function Navbar() {
