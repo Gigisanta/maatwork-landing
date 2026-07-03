@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    `Estudio argentino de software y automatización a medida. Construimos apps, sistemas de gestión y automatizaciones para cualquier rubro — con ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Implementación guiada y soporte local.`,
+    `Software a medida para ordenar y automatizar operaciones: CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
   icons: {
     icon: [
       { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      `Construimos apps, sistemas de gestión y automatizaciones a medida para cualquier negocio — con ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Soporte local en Argentina.`,
+      `Software a medida para ordenar operaciones: CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
     images: [
       {
         url: "/og-image.png",
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      `Apps, sistemas de gestión y automatizaciones a medida. ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Soporte local en Argentina.`,
+      `CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
     images: ["/twitter-image.png"],
   },
   robots: {
@@ -139,7 +139,7 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/logo-mark.svg`,
       description:
-        "Estudio de software y automatización a medida para cualquier negocio, con productos propios en producción en Argentina.",
+        "Software a medida para ordenar y automatizar operaciones reales.",
       founder: {
         "@type": "Person",
         name: "Giolivo Santarelli",

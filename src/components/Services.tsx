@@ -26,7 +26,7 @@ const SERVICES: Service[] = [
   {
     idx: "01",
     title: "Apps de gestión a medida",
-    desc: "Tu Excel se quedó corto. Te armamos el sistema que tu operación necesita — paneles internos, CRMs adaptados a cómo trabajás y plataformas SaaS.",
+    desc: "Sistemas internos, CRMs y plataformas pensadas para tu forma real de trabajar.",
     includes: [
       "Reemplazá planillas y procesos manuales",
       "CRM o panel diseñado para tu equipo",
@@ -42,7 +42,7 @@ const SERVICES: Service[] = [
   {
     idx: "02",
     title: "Webs & Landings",
-    desc: "Sitios corporativos y landings en React/Next.js que cargan rápido y convierten. Lighthouse 90+, SEO técnico y diseño orientado a conversión.",
+    desc: "Sitios rápidos, claros y listos para vender. Buen diseño, SEO técnico y medición desde el día uno.",
     includes: [
       "React / Next.js + headless CMS",
       "SEO técnico + Core Web Vitals",
@@ -58,7 +58,7 @@ const SERVICES: Service[] = [
   {
     idx: "03",
     title: "Automatización + IA",
-    desc: "Automatizá lo que hacés a mano. Bots de WhatsApp con IA, asistentes RAG sobre tus documentos y flujos que trabajan 24/7 sin que toques nada.",
+    desc: "Respuestas, recordatorios, reportes y tareas repetitivas funcionando solos.",
     includes: [
       "Bots WhatsApp + OpenAI / Claude",
       "Asistentes RAG sobre PDFs / Notion",
@@ -74,7 +74,7 @@ const SERVICES: Service[] = [
   {
     idx: "04",
     title: "Mantenimiento & Soporte",
-    desc: "Tu producto no se cuida solo. Plan mensual con horas de soporte, mejoras programadas, monitoreo y asesoramiento estratégico para que nunca se caiga ni quede viejo.",
+    desc: "Soporte, mejoras, monitoreo y mantenimiento para que el sistema siga andando bien.",
     includes: [
       "Soporte técnico y resolución de incidencias",
       "Mejoras y nuevas funciones programadas",
@@ -111,11 +111,11 @@ export function Services() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Servicios</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Soluciones claras, resultados medibles
+            Elegí por dónde empezar
           </h2>
           <p className="mt-4 max-w-[540px] text-[16px] leading-7 text-slate-300">
-            Sin paquetes genéricos. Elegí el nivel de acompañamiento que tu negocio necesita hoy — desde un MVP
-            hasta un sistema completo en producción.
+            Podemos arrancar por una landing, una automatización puntual o el sistema completo.
+            Lo importante: resolver el próximo bloqueo real.
           </p>
           <GlyphRail className="mt-8 max-w-[420px]" glyphs={["obelisk", "djed", "scarab", "scales-of-maat"]} />
         </div>

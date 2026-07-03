@@ -37,11 +37,11 @@ export function Pricing() {
         <div className="max-w-[660px] reveal">
           <span className="eyebrow">Plan base</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Empezás con lo esencial. Lo avanzado se cotiza.
+            Base simple. Crece a medida.
           </h2>
           <p className="mt-4 max-w-[560px] text-[16px] leading-7 text-slate-300">
-            Una base operativa clara para ordenar clientes, inventario y agenda. Si tu operación necesita
-            automatizaciones, integraciones o módulos más complejos, lo armamos a medida.
+            Arrancamos con lo que ordena la operación. Si hace falta más, se suma por alcance,
+            sin venderte un paquete inflado.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export function Pricing() {
               </div>
 
               <p className="mt-5 text-center font-mono text-[11px] uppercase tracking-[0.09em] text-slate-400">
-                Sin permanencia · Te lo mostramos antes de firmar · Escalable a medida
+                Sin permanencia · demo antes de avanzar · escalable
               </p>
             </div>
           </div>

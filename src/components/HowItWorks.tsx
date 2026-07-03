@@ -10,28 +10,28 @@ const STEPS = [
     n: "01",
     d: "30 min",
     t: "Discovery",
-    desc: "Llamada para entender objetivos, tu ICP y las métricas que importan. Salís con un alcance claro y presupuesto estimado.",
+    desc: "Entendemos el problema, el proceso actual y qué tendría que quedar resuelto.",
     motif: "eye-of-horus", // insight / seeing the operation
   },
   {
     n: "02",
     d: "3–7 días",
     t: "Diseño + Arquitectura",
-    desc: "Wireframes, flujos críticos y arquitectura técnica validados antes de escribir una línea de código. Sin sorpresas.",
+    desc: "Definimos pantallas, flujos y alcance antes de desarrollar.",
     motif: "ankh", // structure / design blueprint
   },
   {
     n: "03",
     d: "Sprints 2 sem.",
     t: "Desarrollo iterativo",
-    desc: "Sprints de dos semanas con demos. Vas viendo el producto crecer y ajustás sobre la marcha. Código en tu repo desde el día 1.",
+    desc: "Construimos en sprints cortos, con demos y ajustes sobre algo real.",
     motif: "djed", // stability / building
   },
   {
     n: "04",
     d: "1 semana",
     t: "Deploy + Handover",
-    desc: "Producción, monitoreo, documentación y código en tu repo. Capacitamos al equipo y te entregamos todo funcionando.",
+    desc: "Deploy, documentación y handover para que el sistema quede usable.",
     motif: "sun-disk", // the launch / rising
   },
 ];
@@ -43,11 +43,11 @@ export function HowItWorks() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Proceso</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            De la idea al lanzamiento
+            Cómo lo hacemos
           </h2>
           <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            Sin proyectos de meses ni consultorías eternas. Un proceso claro, con entregables
-            concretos en cada etapa y vos viendo el producto crecer.
+            Menos reuniones, más entregables. Cada etapa termina con algo que se puede
+            revisar, usar o decidir.
           </p>
           <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "ankh", "djed", "sun-disk"]} />
         </div>

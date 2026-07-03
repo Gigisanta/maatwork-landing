@@ -16,10 +16,11 @@ export function ProductEcosystem() {
         <div className="mx-auto max-w-3xl text-center reveal">
           <span className="eyebrow">Portfolio</span>
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-display text-white text-balance sm:text-4xl">
-            Prueba real, sin ruido.
+            Proyectos reales, no promesas.
           </h2>
           <p className="mx-auto mt-5 max-w-[620px] text-base leading-7 text-slate-300 text-pretty">
-            Seis proyectos clave para entender lo que hacemos. El portfolio completo tiene {SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.
+            Una muestra corta de sistemas, landings y herramientas ya publicadas. El resto está
+            en el portfolio completo.
           </p>
           <GlyphRail className="mx-auto mt-7 max-w-[320px]" glyphs={["eye-of-horus", "feather-of-maat", "obelisk"]} />
         </div>

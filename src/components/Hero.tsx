@@ -17,8 +17,8 @@ function MotifImg({ name, className, style }: { name: string; className?: string
   );
 }
 
-const H1_LINE_1 = "Software a medida que";
-const H1_LINE_2 = "automatiza y escala tu negocio";
+const H1_LINE_1 = "Software a medida para";
+const H1_LINE_2 = "ordenar y automatizar tu negocio";
 
 // Real products in production — the proof chips, color-keyed to the showcase.
 const IN_PRODUCTION: { name: string; accent: string; dot: string }[] = [
@@ -68,16 +68,16 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-amber" />
               </span>
               <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-amber">
-                Solo 3 proyectos nuevos este mes
+                Agenda abierta
               </span>
             </span>
             <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
             <span className="font-mono text-[11px] tracking-[0.04em] text-gold-300">
-              ★ <span className="font-semibold">5.0</span>
+              Portfolio real
             </span>
             <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
             <span className="font-mono text-[11px] tracking-[0.04em] text-slate-400">
-              {SERIOUS_PROJECT_COUNT} proyectos Vercel publicados
+              {SERIOUS_PROJECT_COUNT} proyectos online
             </span>
           </div>
         </div>
@@ -88,11 +88,11 @@ export function Hero() {
           style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.02, transitionDelay: "60ms" }}
         >
           <span className="line-reveal block" style={{ animationDelay: "60ms" }}>
-            {H1_LINE_1}
+            {H1_LINE_1}{" "}
           </span>
           <span className="line-reveal block" style={{ animationDelay: "170ms" }}>
-            <span className="hero-word hero-word--gold">automatiza</span> y{" "}
-            <span className="hero-word hero-word--violet">escala</span>{" "}
+            <span className="hero-word hero-word--gold">ordenar</span> y{" "}
+            <span className="hero-word hero-word--violet">automatizar</span>{" "}
             tu negocio
           </span>
         </h1>
@@ -101,8 +101,8 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[680px] text-center text-base leading-7 text-slate-300 md:text-lg md:leading-8"
           style={{ transitionDelay: "200ms" }}
         >
-          Diseñamos y desarrollamos apps de gestión, automatizaciones con IA y sistemas a medida
-          para startups y empresas. Stack moderno, código tuyo, entrega en sprints.
+          Convertimos procesos desordenados en sistemas simples: CRM, agenda, cobros,
+          WhatsApp, tableros y landings. Menos fricción, más control.
         </p>
 
         <div
@@ -116,18 +116,18 @@ export function Hero() {
             className="cta-violet group inline-flex items-center justify-center gap-2.5 rounded-full px-7 text-[15px] font-semibold tracking-[-0.01em] text-white hover-scale"
             style={{ height: 54 }}
           >
-            Contanos tu proyecto
+            Quiero ordenar mi operación
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </a>
           <a
-            href="#servicios"
+            href="#ecosistema"
             className="cta-ghost inline-flex items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold text-white"
             style={{ height: 54 }}
           >
-            Ver qué hacemos
+            Ver proyectos reales
           </a>
         </div>
 
@@ -135,7 +135,7 @@ export function Hero() {
           className="reveal mt-5 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400"
           style={{ transitionDelay: "300ms" }}
         >
-          Respondemos personalmente · Sin compromiso · Estimación en 24 hs
+          Respuesta directa · alcance claro · sin compromiso
         </p>
 
         {/* One proof object: real products in production, stated plainly */}

@@ -30,7 +30,7 @@ export function TechStack() {
             Tecnologías probadas y escalables
           </h2>
           <p className="mt-5 text-base leading-7 text-slate-300 text-pretty mx-auto max-w-[540px]">
-            Sin frameworks de moda. Stack moderno que cualquier dev senior puede mantener y escalar.
+            Tecnología actual, mantenible y lista para producción. Nada raro que te deje atado.
           </p>
           <GlyphRail className="mx-auto mt-8 max-w-[240px]" glyphs={["djed", "feather-of-maat", "obelisk"]} o={0.14} />
         </div>

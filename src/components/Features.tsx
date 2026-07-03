@@ -80,11 +80,11 @@ export function Features() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Producto</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            El núcleo operativo, en módulos claros.
+            Lo que el sistema ordena
           </h2>
           <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            Pensado para quien maneja el negocio, no para programadores. Abrís el sistema
-            y entendés el estado de todo.
+            Módulos simples para ver qué pasa, qué falta y qué sigue. Sin depender de
+            memoria, planillas sueltas o chats perdidos.
           </p>
           <GlyphRail className="mt-8 max-w-[380px]" glyphs={["ankh", "feather-of-maat", "eye-of-horus"]} />
         </div>

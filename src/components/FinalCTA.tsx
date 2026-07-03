@@ -46,19 +46,18 @@ export function FinalCTA() {
               className="mx-auto max-w-[680px] font-display text-[34px] leading-[1.06] tracking-[-0.03em] text-white md:text-[48px]"
               style={{ fontWeight: 800 }}
             >
-              ¿Tenés una idea o un proceso para automatizar?
+              Contanos qué querés ordenar.
             </h2>
             <p className="mx-auto mt-5 max-w-[580px] text-[16px] leading-relaxed text-slate-300 md:text-[17px]">
-              Contanos en 30 minutos qué querés construir. Salís de la llamada con estimación de tiempos,
-              presupuesto y un plan claro.
+              En una llamada corta vemos el problema, el alcance y el primer paso sensato.
             </p>
 
             {/* Offer bullets */}
             <div className="mx-auto mt-7 flex max-w-[480px] flex-col items-center gap-2">
               {[
-                "Estimación de tiempos y precio",
-                "Definición de stack técnico",
-                "Plan de sprints concreto",
+                "Alcance inicial",
+                "Tiempo y presupuesto estimado",
+                "Próximo paso concreto",
               ].map((item) => (
                 <span key={item} className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400">
                   <span className="flex h-4 w-4 items-center justify-center rounded-full border border-emerald-400/40 text-[8px] text-emerald-400">
@@ -78,7 +77,7 @@ export function FinalCTA() {
                 rel="noopener noreferrer"
                 className="cta-violet inline-flex h-[52px] items-center justify-center rounded-full px-7 text-[15.5px] font-semibold tracking-[-0.01em] text-white hover-scale"
               >
-                Empezá tu proyecto
+                Hablar con MaatWork
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="ml-1.5">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
@@ -97,7 +96,7 @@ export function FinalCTA() {
             </div>
 
             <p className="mt-5 text-[13px] text-slate-500">
-              NDA disponible · Respuesta en menos de 24 hs
+              NDA disponible · respuesta directa
             </p>
 
             {/* Lead form — embedded for high-intent traffic */}

@@ -17,9 +17,9 @@ function Motif({ name, className, style }: { name: string; className?: string; s
 }
 
 const MARKERS: { value: string; label: string; dot: string }[] = [
-  { value: `${SERIOUS_PROJECT_COUNT} proyectos`, label: "Serios, publicados en Vercel", dot: "var(--cyan)" },
-  { value: "Apps + landings", label: "Sistemas, clientes, docs y operación", dot: "var(--violet-400)" },
-  { value: "Soporte directo", label: "WhatsApp, mismo día hábil", dot: "var(--success)" },
+  { value: `${SERIOUS_PROJECT_COUNT} proyectos`, label: "Online y navegables", dot: "var(--cyan)" },
+  { value: "Apps + landings", label: "Sistemas, docs y ventas", dot: "var(--violet-400)" },
+  { value: "Soporte directo", label: "Hablás con quien construye", dot: "var(--success)" },
   { value: "Desde USD 100", label: "+ setup, a cotizar", dot: "var(--gold-400)" },
 ];
 

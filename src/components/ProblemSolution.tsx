@@ -75,11 +75,11 @@ export function ProblemSolution() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Diagnóstico</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Una operación sin sistema deja señales.
+            Si todo depende de WhatsApp y Excel, algo se pierde.
           </h2>
           <p className="mt-4 max-w-[520px] text-[16px] leading-7 text-slate-300">
-            Si reconocés alguna de estas señales, tu operación está corriendo más rápido que tu
-            sistema. Cada día así cuesta tiempo, plata y clientes. Eso lo resolvemos.
+            No hace falta cambiar todo. Empezamos por el cuello de botella y lo convertimos
+            en un flujo claro.
           </p>
           <GlyphRail className="mt-8 max-w-[360px]" glyphs={["eye-of-horus", "scales-of-maat", "ankh"]} />
         </div>
@@ -132,11 +132,11 @@ export function ProblemSolution() {
               </span>
               <GlyphRail className="mt-5 max-w-[200px]" glyphs={["scales-of-maat", "feather-of-maat"]} o={0.1} />
               <h3 className="mt-4 font-display text-[22px] font-extrabold tracking-[-0.02em] text-white">
-                Una sola superficie operativa.
+                Una operación más simple.
               </h3>
               <p className="mt-2.5 text-[14.5px] leading-relaxed text-slate-300">
-                Una sola pantalla con clientes, inventario, agenda y el estado del negocio. Sin
-                planillas paralelas y sin WhatsApp como repositorio.
+                Clientes, agenda, inventario y estado del negocio en un solo lugar. Lo demás
+                deja de vivir desperdigado.
               </p>
               <a
                 href="#producto"
