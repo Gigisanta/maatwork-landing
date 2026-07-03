@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
+import { SERIOUS_PROJECT_COUNT } from "@/data/products";
 import { Logo } from "./Logo";
 
 const links = [
@@ -30,8 +31,23 @@ export function Navbar() {
   const activeIdRef = useRef("");
   const toggleRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mount, setMount] = useState(false);
   const [animIn, setAnimIn] = useState(false);
+
+  const openMenu = useCallback(() => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setMount(true);
+    setOpen(true);
+    requestAnimationFrame(() => requestAnimationFrame(() => setAnimIn(true)));
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setAnimIn(false);
+    setOpen(false);
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setMount(false), 300);
+  }, []);
 
   // Header bg on scroll + scroll-spy by position
   useEffect(() => {
@@ -71,17 +87,12 @@ export function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  // Animate menu open/close with delay for mount
+  // Clear pending close animation timer on unmount.
   useEffect(() => {
-    if (open) {
-      setMount(true);
-      requestAnimationFrame(() => requestAnimationFrame(() => setAnimIn(true)));
-    } else {
-      setAnimIn(false);
-      const t = setTimeout(() => setMount(false), 300);
-      return () => clearTimeout(t);
-    }
-  }, [open]);
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
 
   // Modal a11y: move focus into the dialog, trap Tab inside it, close on Escape.
   useEffect(() => {
@@ -93,7 +104,7 @@ export function Navbar() {
     focusables()[0]?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setOpen(false);
+        closeMenu();
         toggleRef.current?.focus();
         return;
       }
@@ -113,7 +124,7 @@ export function Navbar() {
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [closeMenu, open]);
 
   return (
     <header
@@ -123,7 +134,7 @@ export function Navbar() {
       ].join(" ")}
     >
       <nav className="container-maat flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="MaatWork inicio" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center" aria-label="MaatWork inicio" onClick={closeMenu}>
           <Logo size={30} />
         </Link>
 
@@ -163,7 +174,7 @@ export function Navbar() {
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
             aria-haspopup="dialog"
-            onClick={() => setOpen((v) => !v)}
+            onClick={open ? closeMenu : openMenu}
           >
             <MenuIcon open={open} />
           </button>
@@ -180,7 +191,7 @@ export function Navbar() {
               animIn ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             style={{ background: "rgba(0,0,0,0.68)" }}
-            onClick={() => setOpen(false)}
+            onClick={closeMenu}
           />
 
           {/* Panel — glass drawer */}
@@ -197,7 +208,7 @@ export function Navbar() {
               {/* Close button */}
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={closeMenu}
                 className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/[0.06] hover:text-white"
                 aria-label="Cerrar menú"
               >
@@ -213,7 +224,7 @@ export function Navbar() {
                     <a
                       key={item.href}
                       href={item.href}
-                      onClick={() => setOpen(false)}
+                      onClick={closeMenu}
                       className={`group flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.025] px-5 py-4 transition-all duration-300 hover:border-violet-500/30 hover:bg-violet-500/[0.07] ${
                         animIn
                           ? "translate-x-0 opacity-100"
@@ -245,7 +256,7 @@ export function Navbar() {
                   href={DEMO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className={`cta-violet flex h-12 w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold text-white transition-all duration-300 ${
                     animIn ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
                   }`}
@@ -261,7 +272,7 @@ export function Navbar() {
                   href={TALK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
+                  onClick={closeMenu}
                   className={`cta-whatsapp flex h-12 w-full items-center justify-center gap-2 rounded-full text-[15px] font-semibold text-black transition-all duration-300 ${
                     animIn ? "translate-x-0 opacity-100" : "translate-x-6 opacity-0"
                   }`}
@@ -271,7 +282,7 @@ export function Navbar() {
                   Hablar con MaatWork
                 </a>
                 <p className="text-center font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">
-                  Desde USD 100/mes · 4 productos en producción · soporte directo
+                  Desde USD 100/mes · {SERIOUS_PROJECT_COUNT} proyectos Vercel · soporte directo
                 </p>
               </div>
             </div>

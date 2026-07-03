@@ -29,7 +29,7 @@ export const CASES: CasePage[] = [
     metaTitle: "Caso Varigas: software para empresas de extintores",
     metaDescription:
       "Sistema a medida para empresas de venta, recarga y mantenimiento de matafuegos: clientes, vencimientos, órdenes de trabajo y stock. En producción.",
-    url: "https://varigas.vercel.app",
+    url: "https://varigas.maat.work",
     intro:
       "Sistema de gestión para empresas de venta, recarga y mantenimiento de matafuegos. En producción.",
     context:

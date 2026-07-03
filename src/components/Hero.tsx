@@ -3,6 +3,7 @@ import { ProductShowcase } from "./ProductShowcase";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { waLink } from "@/lib/whatsapp";
 import { MOTIFS } from "@/lib/motifs";
+import { SERIOUS_PROJECT_COUNT } from "@/data/products";
 
 /** Render inline SVG motif — zero HTTP requests. */
 function MotifImg({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
@@ -76,7 +77,7 @@ export function Hero() {
             </span>
             <span className="hidden h-3 w-px bg-gold-400/20 sm:block" aria-hidden />
             <span className="font-mono text-[11px] tracking-[0.04em] text-slate-400">
-              4 productos en producción
+              {SERIOUS_PROJECT_COUNT} proyectos Vercel publicados
             </span>
           </div>
         </div>

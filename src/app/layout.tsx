@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { FAQS } from "@/data/faqs";
+import { SERIOUS_PROJECT_COUNT } from "@/data/products";
 
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    "Estudio argentino de software y automatización a medida. Construimos apps, sistemas de gestión y automatizaciones para cualquier rubro — con 4 productos ya funcionando en producción. Implementación guiada y soporte local.",
+    `Estudio argentino de software y automatización a medida. Construimos apps, sistemas de gestión y automatizaciones para cualquier rubro — con ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Implementación guiada y soporte local.`,
   icons: {
     icon: [
       { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
@@ -98,7 +99,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      "Construimos apps, sistemas de gestión y automatizaciones a medida para cualquier negocio — con 4 productos ya en producción. Soporte local en Argentina.",
+      `Construimos apps, sistemas de gestión y automatizaciones a medida para cualquier negocio — con ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Soporte local en Argentina.`,
     images: [
       {
         url: "/og-image.png",
@@ -112,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      "Apps, sistemas de gestión y automatizaciones a medida. 4 productos ya en producción. Soporte local en Argentina.",
+      `Apps, sistemas de gestión y automatizaciones a medida. ${SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel. Soporte local en Argentina.`,
     images: ["/twitter-image.png"],
   },
   robots: {

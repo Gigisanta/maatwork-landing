@@ -1,24 +1,15 @@
 /**
  * ProductEcosystem — proof of real building capability, not the main offer.
- * Demoted below pricing and reframed as evidence: four systems already in
- * production. Sober ops cards (mono initial tile, mono evidence/modules) —
+ * Demoted below pricing and reframed as evidence: all serious Vercel projects
+ * already published. Sober ops cards (mono initial tile, mono evidence/modules) —
  * no orbiting dots, no gradient tiles, no aurora wash.
  */
 import Link from "next/link";
-import { PRODUCT_HIGHLIGHTS } from "@/data/products";
+import { PRODUCT_HIGHLIGHTS, SERIOUS_PROJECT_COUNT } from "@/data/products";
 import { CardGlyph, GlyphRail } from "./Ornaments";
 
-// Color-key each product to its showcase accent (NMS·cyan, CRM·violet, …).
-const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose"];
-// Curated Maat seal per product: monitoring→eye, CRM→life, infra→obelisk, energy→stability.
+const ACCENTS = ["accent-cyan", "accent-violet", "accent-gold", "accent-rose", "accent-emerald"];
 const MOTIFS = ["eye-of-horus", "ankh", "obelisk", "djed"];
-// Map each portfolio product to its case-study page.
-const CASE_SLUG: Record<string, string> = {
-  NMS: "nms",
-  MaatWorkCRM: "maatwork-crm",
-  Infrannova: "infrannova",
-  Varigas: "varigas",
-};
 
 export function ProductEcosystem() {
   return (
@@ -27,12 +18,12 @@ export function ProductEcosystem() {
         <div className="mx-auto max-w-3xl text-center reveal">
           <span className="eyebrow">Lo que ya construimos</span>
           <h2 className="mt-4 font-display text-3xl font-extrabold tracking-display text-white text-balance sm:text-4xl">
-            4 productos. 4 industrias. En producción.
+            {SERIOUS_PROJECT_COUNT} proyectos serios publicados en Vercel.
           </h2>
           <p className="mt-5 text-base leading-7 text-slate-300 text-pretty">
-            No vendemos una promesa: estos sistemas propios ya operan en producción, en industrias
-            distintas — natatorios, comercial, obras y seguridad contra incendios. Entrá y miralos
-            funcionando. Esa es la prueba de que podemos construir el tuyo.
+            No vendemos una promesa: estos sistemas, landings y herramientas ya están online — apps
+            operativas, verticales de cliente, documentación y productos internos. Entrá y miralos.
+            Esa es la prueba de que podemos construir el tuyo.
           </p>
           <GlyphRail className="mx-auto mt-8 max-w-[420px]" glyphs={["eye-of-horus", "ankh", "obelisk"]} />
         </div>
@@ -41,8 +32,8 @@ export function ProductEcosystem() {
           {PRODUCT_HIGHLIGHTS.map((product, index) => (
             <article
               key={product.name}
-              className={`ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[420px] flex-col p-6`}
-              style={{ transitionDelay: `${index * 70}ms` }}
+              className={`ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[360px] flex-col p-6`}
+              style={{ transitionDelay: `${index * 45}ms` }}
             >
               <CardGlyph motif={MOTIFS[index % MOTIFS.length]} className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               <div className="flex items-start justify-between gap-3">
@@ -54,7 +45,7 @@ export function ProductEcosystem() {
                 </span>
                 <span className="status-pill status-pill--ok">
                   <span className="live-ring h-1.5 w-1.5 rounded-full bg-success" />
-                  En producción
+                  Vercel live
                 </span>
               </div>
 
@@ -102,16 +93,18 @@ export function ProductEcosystem() {
                     <path d="M7 7h10v10" />
                   </svg>
                 </a>
-                <Link
-                  href={`/casos/${CASE_SLUG[product.name]}`}
-                  className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-violet-300 transition-colors hover:text-violet-200"
-                >
-                  Ver caso
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </Link>
+                {product.caseSlug ? (
+                  <Link
+                    href={`/casos/${product.caseSlug}`}
+                    className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-violet-300 transition-colors hover:text-violet-200"
+                  >
+                    Ver caso
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                ) : null}
               </div>
             </article>
           ))}
@@ -119,7 +112,7 @@ export function ProductEcosystem() {
 
         <div className="mt-9 text-center">
           <Link href="/casos" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200">
-            Ver todos los casos →
+            Ver portfolio completo →
           </Link>
         </div>
       </div>

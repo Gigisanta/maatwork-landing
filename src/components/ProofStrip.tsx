@@ -5,6 +5,7 @@
  * row as an instrument readout. Server component.
  */
 import type { CSSProperties } from "react";
+import { SERIOUS_PROJECT_COUNT } from "@/data/products";
 import { CornerMarks, GlyphRail, MOTIFS_MAP } from "./Ornaments";
 
 function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
@@ -16,8 +17,8 @@ function Motif({ name, className, style }: { name: string; className?: string; s
 }
 
 const MARKERS: { value: string; label: string; dot: string }[] = [
-  { value: "4 productos", label: "En producción, navegables", dot: "var(--cyan)" },
-  { value: "4 industrias", label: "Natatorios · obras · extintores · comercial", dot: "var(--violet-400)" },
+  { value: `${SERIOUS_PROJECT_COUNT} proyectos`, label: "Serios, publicados en Vercel", dot: "var(--cyan)" },
+  { value: "Apps + landings", label: "Sistemas, clientes, docs y operación", dot: "var(--violet-400)" },
   { value: "Soporte directo", label: "WhatsApp, mismo día hábil", dot: "var(--success)" },
   { value: "Desde USD 100", label: "+ setup, a cotizar", dot: "var(--gold-400)" },
 ];
