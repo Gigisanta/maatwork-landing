@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import { ProductShowcase } from "./ProductShowcase";
 import { CornerMarks, GlyphRail } from "./Ornaments";
 import { Logo } from "./Logo";
 import { waLink } from "@/lib/whatsapp";
@@ -198,10 +197,6 @@ export function Hero() {
           glyphs={["ankh", "was-scepter", "feather-of-maat", "eye-of-horus"]}
           o={0.18}
         />
-
-        <div className="reveal mt-9 md:mt-12" style={{ transitionDelay: "400ms" }}>
-          <ProductShowcase />
-        </div>
       </div>
     </section>
   );
