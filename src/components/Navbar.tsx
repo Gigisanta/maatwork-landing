@@ -134,8 +134,11 @@ export function Navbar() {
       ].join(" ")}
     >
       <nav className="container-maat flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="MaatWork inicio" onClick={closeMenu}>
-          <Logo size={30} />
+        <Link href="/" className="group flex items-center" aria-label="MaatWork inicio" onClick={closeMenu}>
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-full bg-violet-500/0 opacity-0 transition-all duration-500 group-hover:bg-violet-500/10 group-hover:opacity-100" aria-hidden />
+            <Logo size={30} />
+          </div>
         </Link>
 
         <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
@@ -146,7 +149,7 @@ export function Navbar() {
                 <a
                   href={l.href}
                   aria-current={isActive ? "true" : undefined}
-                  className={`group relative transition-colors ${isActive ? "text-white" : "hover:text-white"}`}
+                  className={`hover-lift-glow group relative transition-colors ${isActive ? "text-white" : "hover:text-white"}`}
                 >
                   {l.label}
                   <span
@@ -161,7 +164,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={DEMO}
-            className="cta-violet hidden h-10 items-center rounded-full px-5 text-sm font-semibold text-white hover-scale md:inline-flex"
+            className="cta-violet hover-lift-glow press-sink border-beam hidden h-10 items-center rounded-full px-5 text-sm font-semibold text-white md:inline-flex"
             target="_blank"
             rel="noopener noreferrer"
           >
