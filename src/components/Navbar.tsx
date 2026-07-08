@@ -203,7 +203,7 @@ export function Navbar() {
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
-            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.08] bg-bg-elev-1 shadow-2xl transition-all duration-300 ease-out ${
+            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.08] bg-bg-elev-1 shadow-xl transition-all duration-300 ease-out ${
               animIn ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
             }`}
           >

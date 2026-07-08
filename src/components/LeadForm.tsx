@@ -31,7 +31,7 @@ const NECESIDAD_TEXT: Record<Necesidad, string> = {
 };
 
 const INPUT_CLASS =
-  "w-full h-12 px-4 rounded-xl bg-white/[0.05] border border-white/[0.1] text-[14.5px] text-white placeholder:text-purple-400/80 focus:border-purple-600/55 focus:outline-none focus:ring-1 focus:ring-purple-600/40 transition-colors";
+  "w-full h-12 px-4 rounded-xl border border-white/[0.1] text-[14.5px] text-white placeholder:text-[var(--text-muted)]/70 focus:border-[var(--border-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--border-accent)] transition-colors";
 
 export function LeadForm() {
   const [nombre, setNombre] = useState("");
