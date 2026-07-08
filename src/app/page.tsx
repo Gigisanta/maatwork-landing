@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { Pricing } from "@/components/Pricing";
-import { ProductEcosystem } from "@/components/ProductEcosystem";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
@@ -19,7 +18,6 @@ export default function HomePage() {
         <Hero />
         <Services />
         <Pricing />
-        <ProductEcosystem />
         <FinalCTA />
       </main>
       <Footer />
