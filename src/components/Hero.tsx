@@ -95,12 +95,7 @@ export function Hero() {
           </div>
 
           {/* ---- Tagline ---- */}
-          <p
-            className="reveal -mt-1 mb-5 text-center font-display text-lg tracking-wide text-gold-400/70 sm:text-xl"
-            style={{ transitionDelay: "30ms" }}
-          >
-            Software real, cero humo
-          </p>
+          {/* removed */}
 
           {/* Scarcity + credibility badge — sincroweb-inspired limited-spots + rating */}
           <div className="mb-6 flex justify-center">

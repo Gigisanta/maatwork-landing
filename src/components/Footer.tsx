@@ -46,9 +46,7 @@ export function Footer() {
               <span className="brand-maat">MAAT</span>
               <span className="brand-work">Work</span>
             </h2>
-            <p className="mt-3 font-mono text-[13px] uppercase tracking-[0.08em] text-[var(--text-muted)]">
-              Software real, cero humo
-            </p>
+            <div className="mt-3 h-px w-12 bg-[var(--gold-500)]/30" />
             <a
               href={WHATSAPP}
               target="_blank"

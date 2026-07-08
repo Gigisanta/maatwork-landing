@@ -216,7 +216,7 @@ function Panel({ screen, live }: { screen: Screen; live: boolean }) {
           <p className="font-display text-[15px] font-bold text-white sm:text-lg">{screen.name}</p>
           <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-slate-500 sm:text-[10.5px]">{screen.role}</p>
         </div>
-        <span className="mono-tag text-slate-600">Datos demo</span>
+        {/* removed */}
       </div>
 
       <div className="mt-3 grid grid-cols-3 gap-2">
