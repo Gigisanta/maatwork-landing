@@ -44,22 +44,22 @@ export function Hero() {
       {/* ---- Floating ceremonial glyphs ---- */}
       <MotifImg
         name="ankh"
-        className="glyph-drift pointer-events-none absolute left-[4%] top-[18%] z-[1] h-14 w-14 hidden md:block"
+        className="glyph-drift pointer-events-none absolute left-[4%] top-[18%] z-[1] h-14 w-14"
         style={{ animationDelay: "0s" } as CSSProperties}
       />
       <MotifImg
         name="feather-of-maat"
-        className="glyph-float pointer-events-none absolute right-[6%] top-[22%] z-[1] h-18 w-18 hidden md:block"
+        className="glyph-float pointer-events-none absolute right-[6%] top-[22%] z-[1] h-18 w-18"
         style={{ animationDelay: "-3s" } as CSSProperties}
       />
       <MotifImg
         name="was-scepter"
-        className="glyph-drift pointer-events-none absolute left-[8%] bottom-[30%] z-[1] h-16 w-16 hidden md:block"
+        className="glyph-drift pointer-events-none absolute left-[8%] bottom-[30%] z-[1] h-16 w-16"
         style={{ animationDelay: "-7s" } as CSSProperties}
       />
       <MotifImg
         name="eye-of-horus"
-        className="glyph-float pointer-events-none absolute right-[3%] bottom-[38%] z-[1] h-12 w-12 hidden lg:block"
+        className="glyph-float pointer-events-none absolute right-[3%] bottom-[38%] z-[1] h-12 w-12"
         style={{ animationDelay: "-11s" } as CSSProperties}
       />
 
