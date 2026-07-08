@@ -1042,3 +1042,44 @@ html.js-ready .reveal:not(.is-visible) {
     scroll-behavior: auto !important;
   }
 }
+
+/* ================================================================
+   Section atmosphere + premium card/CTA helpers
+   (Footer / Services / Pricing / ProductEcosystem / FinalCTA)
+   ================================================================ */
+.section-atmo { position: relative; }
+.section-atmo > .atmo { position: absolute; inset: 0; }
+
+.card-premium {
+  border: 1px solid var(--ink-line);
+  border-radius: 14px;
+  background: var(--ink-card);
+  transition: border-color var(--dur-base) var(--ease-out-expo),
+    transform var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo);
+}
+.card-premium:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(131, 93, 245, 0.1);
+}
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  background: var(--gold-500);
+  color: #0A0A11;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform var(--dur-base) var(--ease-out-expo), box-shadow var(--dur-base) var(--ease-out-expo);
+}
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(232, 178, 60, 0.35);
+}
+.cta-primary:active {
+  transform: scale(0.97);
+}

@@ -115,23 +115,23 @@ export function Services() {
           {SERVICES.map((s, i) => (
             <article
               key={s.title}
-              className={`ops-card card-accent ${s.accent} reveal flex flex-col p-6`}
+              className={`ops-card card-accent ${s.accent} hover-lift-glow press-sink group reveal flex flex-col p-6`}
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <CardGlyph motif={s.motif} />
               <div className="flex items-center justify-between">
                 <span
-                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border"
+                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border transition-transform duration-200 group-hover:scale-105"
                   style={{ borderColor: "var(--accent-ring)", background: "var(--accent-soft)", color: "var(--accent)" }}
                 >
                   {s.icon}
                 </span>
                 <span className="mono-tag text-slate-600">Servicio {s.idx}</span>
               </div>
-              <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-white">
+              <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-white transition-colors duration-200 group-hover:text-[var(--accent)]">
                 {s.title}
               </h3>
-              <p className="mt-1.5 text-[14px] leading-relaxed text-slate-400">
+              <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--text-secondary)]">
                 {s.desc}
               </p>
               {/* Checkmark list */}

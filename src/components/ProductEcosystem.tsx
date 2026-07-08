@@ -4,7 +4,7 @@
  */
 import Link from "next/link";
 import { PRODUCT_HIGHLIGHTS, SERIOUS_PROJECT_COUNT } from "@/data/products";
-import { GlyphRail } from "./Ornaments";
+import { CardGlyph, GlyphRail } from "./Ornaments";
 
 const FEATURED_PROJECTS = PRODUCT_HIGHLIGHTS.slice(0, 6);
 const ACCENTS = ["accent-violet", "accent-violet", "accent-gold", "accent-cyan", "accent-rose", "accent-cyan"];
@@ -28,12 +28,13 @@ export function ProductEcosystem() {
           {FEATURED_PROJECTS.map((product, index) => (
             <article
               key={product.name}
-              className={`portfolio-card ops-card card-accent ${ACCENTS[index % ACCENTS.length]} reveal flex min-h-[240px] flex-col p-6`}
+              className={`portfolio-card ops-card card-accent ${ACCENTS[index % ACCENTS.length]} hover-lift-glow press-sink group reveal flex min-h-[240px] flex-col p-6`}
               style={{ transitionDelay: `${index * 55}ms` }}
             >
+              <CardGlyph motif="cartouche" o={0.05} />
               <div className="flex items-start justify-between gap-3">
                 <span
-                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border bg-bg-base font-mono text-[12px] font-bold tracking-[0.02em]"
+                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border bg-bg-base font-mono text-[12px] font-bold tracking-[0.02em] transition-transform duration-200 group-hover:scale-105"
                   style={{ borderColor: "var(--accent-ring)", color: "var(--accent)" }}
                 >
                   {product.name.slice(0, 2).toUpperCase()}
@@ -50,7 +51,7 @@ export function ProductEcosystem() {
               <p className="mt-1 font-mono text-[10.5px] uppercase tracking-[0.14em] text-slate-500">
                 {product.label}
               </p>
-              <p className="mt-4 text-[14px] leading-relaxed text-slate-400">
+              <p className="mt-4 text-[14px] leading-relaxed text-[var(--text-secondary)]">
                 {product.description}
               </p>
 
@@ -78,7 +79,7 @@ export function ProductEcosystem() {
                 {product.caseSlug ? (
                   <Link
                     href={`/casos/${product.caseSlug}`}
-                    className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-violet-300 transition-colors hover:text-violet-200"
+                    className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--gold-500)] transition-[filter] hover:brightness-125"
                   >
                     Ver caso
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

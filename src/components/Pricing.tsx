@@ -78,7 +78,7 @@ export function Pricing() {
                 <span className="pb-2 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-gold-300">
                   Desde USD
                 </span>
-                <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-white" style={{ fontWeight: 800 }}>
+                <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-[var(--gold-500)]" style={{ fontWeight: 800 }}>
                   100
                 </span>
                 <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>
@@ -98,7 +98,7 @@ export function Pricing() {
 
               <ul className="relative space-y-3">
                 {PLAN_INCLUDES.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[14.5px] text-slate-300">
+                  <li key={f} className="hover-lift-glow flex items-start gap-3 rounded-md text-[14.5px] text-slate-300">
                     <Check />
                     <span>{f}</span>
                   </li>
@@ -110,13 +110,13 @@ export function Pricing() {
                   href={waLink("Hola MaatWork, quiero cotizar el plan base")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-violet inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
+                  className="cta-violet hover-lift-glow press-sink inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
                 >
                   Cotizar plan base
                 </a>
                 <a
                   href="#contacto"
-                  className="cta-ghost inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
+                  className="cta-ghost hover-lift-glow press-sink inline-flex h-12 flex-1 items-center justify-center rounded-full px-6 text-[15px] font-semibold text-white"
                 >
                   Hablar ahora
                 </a>
@@ -130,7 +130,7 @@ export function Pricing() {
 
           {/* Quoted modules */}
           <div className="reveal" style={{ transitionDelay: "100ms" }}>
-            <div className="ops-card card-accent accent-emerald relative flex h-full flex-col p-8">
+            <div className="ops-card card-accent accent-emerald hover-lift-glow press-sink relative flex h-full flex-col p-8">
               {/* Scales of Maat — judgement / balance: clear base, custom scope quoted fairly. */}
               <CardGlyph motif="scales-of-maat" className="absolute right-3 bottom-3 h-20 w-20" o={0.06} />
               {/* Cartouche — your real scope gets its own name, not a forced bundle */}
@@ -138,13 +138,13 @@ export function Pricing() {
               <h3 className="font-display text-[20px] font-extrabold tracking-[-0.02em] text-white">
                 Extras a medida
               </h3>
-              <p className="mt-2 text-[14px] leading-relaxed text-slate-400">
+              <p className="mt-2 text-[14px] leading-relaxed text-[var(--text-secondary)]">
                 Sin paquete inflado. Sumamos solo lo que tenga impacto real.
               </p>
 
               <ul className="mt-7 space-y-3.5">
                 {QUOTED_MODULES.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-[14.5px] text-slate-300">
+                  <li key={f} className="hover-lift-glow flex items-start gap-3 rounded-md text-[14.5px] text-slate-300">
                     <PremiumMark />
                     {f}
                   </li>
