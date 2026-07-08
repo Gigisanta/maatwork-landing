@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { Pricing } from "@/components/Pricing";
 import { FinalCTA } from "@/components/FinalCTA";
+import { PortfolioSection } from "@/components/PortfolioSection";
 import { Footer } from "@/components/Footer";
 import { StickyWhatsApp } from "@/components/StickyWhatsApp";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Services />
         <Pricing />
         <FinalCTA />
+        <PortfolioSection />
       </main>
       <Footer />
       <StickyWhatsApp />
