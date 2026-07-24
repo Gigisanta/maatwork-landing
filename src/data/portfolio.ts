@@ -183,7 +183,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     name: 'Documentación técnica y APIs',
     tagline: 'Referencia centralizada de APIs y componentes',
     description: 'Documentación técnica centralizada de APIs, componentes y servicios de producto, con guías y referencia.',
-    url: 'https://maatworkdocs.vercel.app',
+    url: 'https://docs.maat.work',
     industry: 'Documentación',
     status: 'production',
     badges: ['Documentación'],
