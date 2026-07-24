@@ -5,6 +5,7 @@ import { SystemPreview } from "@/components/SystemPreview";
 import { Services } from "@/components/Services";
 import { TechStack } from "@/components/TechStack";
 import { WorkFramework } from "@/components/WorkFramework";
+import { Pricing } from "@/components/Pricing";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PortfolioSection } from "@/components/PortfolioSection";
 import { Nosotros } from "@/components/Nosotros";
@@ -26,6 +27,7 @@ export default function HomePage() {
         <Nosotros />
         <TechStack />
         <WorkFramework />
+        <Pricing />
         <FinalCTA />
       </main>
       <Footer />

@@ -152,6 +152,13 @@ body {
   position: relative;
 }
 
+/* Navegación de scroll único: al saltar a una sección vía ancla del navbar,
+   dejar aire suficiente para que el título no quede tapado por el header fijo
+   (h-16 = 64px). */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 /* ================================================================
    Skip link
    ================================================================ */
