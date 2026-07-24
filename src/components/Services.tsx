@@ -8,7 +8,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
-import { CardGlyph, GlyphRail } from "./Ornaments";
+import { BorderBeam } from "@/components/BorderBeam";
 
 type Service = {
   idx: string;
@@ -18,7 +18,7 @@ type Service = {
   delivery: string;
   cta: string; // WhatsApp prefill context
   accent: string;
-  motif: string;
+  highlight?: boolean; // "Más elegido" — default option, reduce choice paralysis
   icon: ReactNode;
 };
 
@@ -34,7 +34,7 @@ const SERVICES: Service[] = [
     delivery: "4 a 8 semanas",
     cta: "quiero un sistema a medida",
     accent: "accent-violet",
-    motif: "djed",
+    highlight: true,
     icon: <IconCode />,
   },
   {
@@ -48,7 +48,6 @@ const SERVICES: Service[] = [
     delivery: "2 a 5 semanas",
     cta: "quiero una web o landing",
     accent: "accent-cyan",
-    motif: "obelisk",
     icon: <IconGlobe />,
   },
   {
@@ -62,7 +61,6 @@ const SERVICES: Service[] = [
     delivery: "2 a 4 semanas",
     cta: "quiero automatizar con IA",
     accent: "accent-gold",
-    motif: "scarab",
     icon: <IconBolt />,
   },
   {
@@ -76,7 +74,6 @@ const SERVICES: Service[] = [
     delivery: "Plan mensual",
     cta: "quiero soporte y mantenimiento",
     accent: "accent-emerald",
-    motif: "scales-of-maat",
     icon: <IconShield />,
   },
 ];
@@ -108,37 +105,47 @@ export function Services() {
           <p className="mt-4 max-w-[540px] text-[16px] leading-7 text-slate-300">
             Landing, automatización o sistema interno. Una puerta de entrada, no una novela.
           </p>
-          <GlyphRail className="mt-8 max-w-[420px]" glyphs={["obelisk", "djed", "scarab", "scales-of-maat"]} />
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
           {SERVICES.map((s, i) => (
             <article
               key={s.title}
-              className={`ops-card card-accent ${s.accent} hover-lift-glow press-sink group reveal flex flex-col p-6`}
+              className="beam-card press-sink group reveal flex flex-col p-6"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <CardGlyph motif={s.motif} />
+              {/* Luz que recorre el borde (BorderBeam, port MagicUI/cult-ui) */}
+              <BorderBeam size={110} duration={7} delay={i * 1.5} />
+              <div className="relative z-10 flex flex-1 flex-col">
               <div className="flex items-center justify-between">
                 <span
-                  className="icon-halo flex h-10 w-10 items-center justify-center rounded-lg border transition-transform duration-200 group-hover:scale-105"
-                  style={{ borderColor: "var(--accent-ring)", background: "var(--accent-soft)", color: "var(--accent)" }}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border transition-transform duration-200 group-hover:scale-105"
+                  style={{ borderColor: "rgba(124,92,255,0.28)", background: "rgba(124,92,255,0.10)", color: "#7C5CFF" }}
                 >
                   {s.icon}
                 </span>
-                <span className="mono-tag text-slate-600">Servicio {s.idx}</span>
+                {s.highlight ? (
+                  <span
+                    className="rounded-full px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em]"
+                    style={{ border: "1px solid rgba(124,92,255,0.30)", background: "rgba(124,92,255,0.10)", color: "#6D4AE0" }}
+                  >
+                    Más elegido
+                  </span>
+                ) : (
+                  <span className="font-mono text-[11px] uppercase tracking-[0.04em] text-slate-400">Servicio {s.idx}</span>
+                )}
               </div>
-              <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-white transition-colors duration-200 group-hover:text-[var(--accent)]">
+              <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-slate-900 transition-colors duration-200 group-hover:text-[#7C5CFF]">
                 {s.title}
               </h3>
-              <p className="mt-1.5 text-[14px] leading-relaxed text-[var(--text-secondary)]">
+              <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600">
                 {s.desc}
               </p>
               {/* Checkmark list */}
               <ul className="mt-4 space-y-2">
                 {s.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-[13px] leading-normal text-slate-300">
-                    <span className="mt-[2px] flex-shrink-0 text-emerald-400">
+                  <li key={item} className="flex items-start gap-2.5 text-[13px] leading-normal text-slate-600">
+                    <span className="mt-[2px] flex-shrink-0 text-[#7C5CFF]">
                       <CheckIcon />
                     </span>
                     {item}
@@ -146,13 +153,13 @@ export function Services() {
                 ))}
               </ul>
               {/* Delivery tag */}
-              <div className="mt-4 inline-flex self-start rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-slate-500">
+              <div className="mt-4 inline-flex self-start rounded-full border border-[rgba(15,15,35,0.10)] bg-[rgba(15,15,35,0.02)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-slate-500">
                 {s.delivery}
               </div>
-              <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.06] pt-4">
+              <div className="mt-auto flex items-center justify-between gap-3 border-t border-[rgba(15,15,35,0.08)] pt-4">
                 <Link
                   href={DETAIL[s.title]}
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-slate-400 transition-colors hover:text-white"
+                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-slate-500 transition-colors hover:text-slate-900"
                 >
                   Ver detalle
                 </Link>
@@ -160,8 +167,8 @@ export function Services() {
                   href={waLink(`Hola MaatWork, ${s.cta}`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors"
-                  style={{ color: "var(--accent)" }}
+                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors hover:opacity-80"
+                  style={{ color: "#7C5CFF" }}
                 >
                   Consultar
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -169,6 +176,7 @@ export function Services() {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </a>
+              </div>
               </div>
             </article>
           ))}

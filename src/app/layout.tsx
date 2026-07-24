@@ -6,11 +6,12 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { AnalyticsEvents } from "@/components/AnalyticsEvents";
-import { SERIOUS_PROJECT_COUNT } from "@/data/products";
+import { CanvasFractalGrid } from "@/components/magicui/CanvasFractalGrid";
+import { PRODUCTION_COUNT } from "@/data/portfolio";
 
 const SITE_URL = "https://maat.work";
 const SITE_NAME = "MaatWork";
-const BRAND_THEME_COLOR = "#0A0A11";
+const BRAND_THEME_COLOR = "#08080A";
 const ICON_VERSION = "maatwork-ds-logo-20260618-v2";
 
 // MaatWork Design System type stack — Sora (display) · Hanken Grotesk
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     template: "%s · MaatWork",
   },
   description:
-    `Software simple para ordenar negocios con WhatsApp, Excel y procesos manuales. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
+    `Software simple para ordenar negocios con WhatsApp, Excel y procesos manuales. ${PRODUCTION_COUNT} productos en producción real.`,
   icons: {
     icon: [
       { url: `/favicon-ds-32x32.png?v=${ICON_VERSION}`, sizes: "32x32", type: "image/png" },
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     ],
     shortcut: `/favicon-ds.ico?v=${ICON_VERSION}`,
     apple: [{ url: `/apple-touch-icon-ds.png?v=${ICON_VERSION}`, sizes: "180x180", type: "image/png" }],
-    other: [{ rel: "mask-icon", url: `/safari-pinned-tab.svg?v=${ICON_VERSION}`, color: "#E8B23C" }],
+    other: [{ rel: "mask-icon", url: `/safari-pinned-tab.svg?v=${ICON_VERSION}`, color: "#7C5CFF" }],
   },
   appleWebApp: {
     capable: true,
@@ -98,7 +99,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      `Software a medida para ordenar operaciones: CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
+      `Software a medida para ordenar operaciones: CRM, agenda, cobros, WhatsApp, tableros y landings. ${PRODUCTION_COUNT} productos en producción real.`,
     images: [
       {
         url: "/og-image.png",
@@ -112,7 +113,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MaatWork — Estudio de software a medida y automatización",
     description:
-      `CRM, agenda, cobros, WhatsApp, tableros y landings. ${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel.`,
+      `CRM, agenda, cobros, WhatsApp, tableros y landings. ${PRODUCTION_COUNT} productos en producción real.`,
     images: ["/twitter-image.png"],
   },
   robots: {
@@ -214,6 +215,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        {/* Fondo global (port cult-ui): retícula fractal violeta con onda que
+            sigue al mouse — fijo detrás de todas las páginas. */}
+        <CanvasFractalGrid fixed className="-z-10" />
         <a href="#main-content" className="skip-link">Saltar al contenido</a>
         {children}
         <RevealOnScroll />

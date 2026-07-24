@@ -5,15 +5,22 @@ import { useEffect } from "react";
 /**
  * Reveal-on-scroll: minimal CSS-only intersection observer.
  * Zero deps, zero motion library.
+ *
+ * Un MutationObserver re-engancha cualquier `.reveal` agregado después del montaje
+ * (HMR en dev, contenido async) — sin esto, esos nodos nuevos nunca se observan y
+ * quedan atascados en opacity:0 (invisibles). El failsafe global cubre el resto.
  */
 export function RevealOnScroll() {
   useEffect(() => {
     document.documentElement.classList.add("js-ready");
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
-    if (!("IntersectionObserver" in window) || els.length === 0) {
-      els.forEach((el) => el.classList.add("is-visible"));
+
+    if (!("IntersectionObserver" in window)) {
+      document
+        .querySelectorAll<HTMLElement>(".reveal")
+        .forEach((el) => el.classList.add("is-visible"));
       return;
     }
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -25,16 +32,30 @@ export function RevealOnScroll() {
       },
       { rootMargin: "0px 0px 0px 0px", threshold: 0.01 },
     );
-    els.forEach((el) => io.observe(el));
-    // Failsafe: if browser doesn't fire IO (some screenshot tools, headless contexts),
-    // reveal everything after 2.5s so content is never permanently hidden.
+
+    // Observa todos los `.reveal` presentes ahora y los que aún no tengan `is-visible`.
+    const observeAll = () => {
+      document
+        .querySelectorAll<HTMLElement>(".reveal:not(.is-visible)")
+        .forEach((el) => io.observe(el));
+    };
+    observeAll();
+
+    // Re-engancha nodos `.reveal` insertados después (HMR / render async).
+    const mo = new MutationObserver(observeAll);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    // Failsafe: si el navegador no dispara IO (tools de screenshot, headless),
+    // revela todo tras 2.5s para que el contenido nunca quede oculto.
     const failsafe = window.setTimeout(() => {
-      document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)").forEach((el) =>
-        el.classList.add("is-visible"),
-      );
+      document
+        .querySelectorAll<HTMLElement>(".reveal:not(.is-visible)")
+        .forEach((el) => el.classList.add("is-visible"));
     }, 2500);
+
     return () => {
       io.disconnect();
+      mo.disconnect();
       window.clearTimeout(failsafe);
     };
   }, []);

@@ -1,80 +1,38 @@
 /**
- * FinalCTA — closing section. Sincroweb-inspired copy: urgency, clear offer,
- * WhatsApp + email options. Calm and premium with the Egyptian design.
+ * FinalCTA — cierre único de la página: un pedido claro, después de la prueba.
+ * WhatsApp primario + mail de dominio + formulario para tráfico de alta intención.
  */
-import type { CSSProperties } from "react";
 import { waLink } from "@/lib/whatsapp";
 import { LeadForm } from "./LeadForm";
-import { CornerMarks, MOTIFS_MAP } from "./Ornaments";
+import { CornerMarks } from "./Ornaments";
 
-function Motif({ name, className, style }: { name: string; className?: string; style?: CSSProperties }) {
-  return (
-    <span aria-hidden className={className} style={style}
-      dangerouslySetInnerHTML={{ __html: MOTIFS_MAP[name] || "" }}
-    />
-  );
-}
+const CONTACT_EMAIL = "hola@maat.work";
 
 export function FinalCTA() {
   return (
     <section id="contacto" className="section-atmo section-base section-chroma section-pad">
       <div className="atmo" aria-hidden>
         <div className="atmo-grid" />
-        <div className="atmo-vignette" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1000px] px-5 md:px-8">
-        <div className="ops-card ring-anim maat-weave relative overflow-hidden p-10 text-center md:p-16">
-          {/* Cinematic color wash — drifting violet/gold/cyan aurora behind copy */}
-          <div className="panel-aurora" aria-hidden />
-          {/* Engraved gold corner marks — ceremonial frame around the close */}
+        <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-16">
           <CornerMarks inset={18} />
-          {/* Engraved Maat motif — winged sun disk watermark */}
-          <div aria-hidden className="pointer-events-none absolute left-1/2 -top-12 -translate-x-1/2">
-            <Motif name="sun-disk" className="motif motif-float h-28 w-28 md:h-32 md:w-32"
-              style={{ "--motif-o": 0.1 } as CSSProperties}
-            />
-          </div>
-          {/* Was-scepter — authority over the chaos */}
-          <div aria-hidden className="pointer-events-none absolute bottom-10 right-8 hidden md:block">
-            <Motif name="was-scepter" className="motif motif-float h-20 w-20 [animation-delay:-7s]"
-              style={{ "--motif-o": 0.06 } as CSSProperties}
-            />
-          </div>
 
           <div className="relative">
-            <p className="reveal font-mono text-[13px] uppercase tracking-[0.16em] text-[var(--gold-400)]">
-              ¿Qué querés destrabar?
+            <p className="reveal font-mono text-[13px] uppercase tracking-[0.16em] text-[var(--text-tertiary)]">
+              Contacto
             </p>
 
             <h2
-              className="reveal mx-auto mt-3 max-w-[680px] font-display text-[40px] font-black leading-[1.02] tracking-display md:text-[64px]"
+              className="reveal mx-auto mt-3 max-w-[680px] font-display text-[34px] font-black leading-[1.05] tracking-display text-text-primary md:text-[52px]"
               style={{ transitionDelay: "40ms" }}
             >
-              <span className="brand-maat">MAAT</span>
-              <span className="brand-work">Work</span>
+              ¿Qué querés destrabar?
             </h2>
             <p className="reveal mx-auto mt-5 max-w-[580px] text-[16px] leading-relaxed text-[var(--text-secondary)] md:text-[17px]" style={{ transitionDelay: "80ms" }}>
-              Mandanos el problema. Te decimos el primer paso sin marearte.
+              Mandanos el problema. Salís de la charla con alcance, tiempo, costo y el primer paso — sin marearte.
             </p>
-
-            {/* Offer bullets */}
-            <div className="reveal mx-auto mt-7 flex max-w-[480px] flex-col items-center gap-2" style={{ transitionDelay: "120ms" }}>
-              {[
-                "Alcance",
-                "Tiempo y costo",
-                "Próximo paso",
-              ].map((item) => (
-                <span key={item} className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.1em] text-slate-400">
-                  <span className="flex h-4 w-4 items-center justify-center rounded-full border border-emerald-400/40 text-[8px] text-emerald-400">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </span>
-                  {item}
-                </span>
-              ))}
-            </div>
 
             <div className="reveal mt-9 flex flex-col justify-center gap-3 sm:flex-row" style={{ transitionDelay: "160ms" }}>
               <a
@@ -89,8 +47,8 @@ export function FinalCTA() {
                 Hablar con MaatWork
               </a>
               <a
-                href="mailto:giolivosantarelli@gmail.com"
-                className="cta-ghost hover-lift-glow press-sink inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-7 text-[15.5px] font-semibold text-white"
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="cta-ghost hover-lift-glow press-sink inline-flex h-[52px] items-center justify-center gap-2 rounded-full px-7 text-[15.5px] font-semibold text-text-primary"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -100,8 +58,8 @@ export function FinalCTA() {
               </a>
             </div>
 
-            <p className="reveal mt-5 inline-flex rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-slate-400" style={{ transitionDelay: "200ms" }}>
-              NDA disponible · respuesta directa
+            <p className="reveal mt-5 inline-flex rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--text-tertiary)]" style={{ transitionDelay: "200ms" }}>
+              NDA disponible · respuesta en el día · sin permanencia
             </p>
 
             {/* Lead form — embedded for high-intent traffic */}

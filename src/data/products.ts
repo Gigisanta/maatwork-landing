@@ -9,10 +9,10 @@ export type ProductHighlight = {
   caseSlug?: string;
 };
 
-// Vercel portfolio: all serious MaatWork projects, excluding only throwaway/test deploys.
+// Vercel portfolio: all serious projects, excluding only throwaway/test deploys.
 export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
   {
-    name: "MaatWorkHub",
+    name: "Sistema operativo interno con IA",
     label: "AI OS y centro operativo",
     url: "hub.maat.work",
     accent: "from-violet-300 to-violet-500",
@@ -21,7 +21,7 @@ export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
     modules: ["Operaciones", "Docs", "Bridge", "Seguridad"],
   },
   {
-    name: "MaatWorkCRM",
+    name: "CRM",
     label: "CRM comercial y administrativo",
     url: "crm.maat.work",
     accent: "from-violet-300 to-violet-500",
@@ -41,7 +41,7 @@ export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
     caseSlug: "infrannova",
   },
   {
-    name: "NMS / Oro Azul",
+    name: "Sistema de Gestión para natatorios",
     label: "Natatory Management System",
     url: "oroazul.maat.work",
     accent: "from-cyan-300 to-emerald-400",
@@ -51,7 +51,7 @@ export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
     caseSlug: "nms",
   },
   {
-    name: "Varigas",
+    name: "Sistema de Gestión para empresas de extintores",
     label: "Operación de extintores",
     url: "varigas.maat.work",
     accent: "from-rose-300 to-rose-500",
@@ -142,7 +142,7 @@ export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
     modules: ["Planes", "Clases", "Contacto", "Marca"],
   },
   {
-    name: "MaatWork Nutrición",
+    name: "Sistema de Gestión para nutricionistas",
     label: "Salud y nutrición",
     url: "maatwork-nutricion-giolivos-projects.vercel.app",
     accent: "from-emerald-300 to-gold-500",
@@ -191,7 +191,7 @@ export const PRODUCT_HIGHLIGHTS: ProductHighlight[] = [
     label: "Sitio público para natatorio",
     url: "oro-azul-landing.vercel.app",
     accent: "from-cyan-300 to-emerald-400",
-    description: "Landing pública para natatorio, separada del sistema operativo interno NMS.",
+    description: "Landing pública para natatorio, separada del sistema de gestión interno.",
     evidence: ["Landing", "Vercel", "Natatorio", "CTA"],
     modules: ["Oferta", "Horarios", "Contacto", "Marca"],
   },

@@ -25,7 +25,7 @@ export const INDUSTRIES: IndustryPage[] = [
     h1: "Software para empresas de extintores",
     metaTitle: "Software para empresas de extintores y matafuegos",
     metaDescription:
-      "Sistema para empresas de venta, recarga y mantenimiento de extintores: clientes, vencimientos, órdenes de trabajo y stock. Ya en producción con Varigas.",
+      "Sistema para empresas de venta, recarga y mantenimiento de extintores: clientes, vencimientos, órdenes de trabajo y stock. Ya en producción con una empresa real del rubro.",
     intro:
       "Gestioná clientes, extintores, vencimientos regulatorios y órdenes de trabajo en un solo sistema, sin papel ni planillas.",
     pains: [
@@ -40,7 +40,7 @@ export const INDUSTRIES: IndustryPage[] = [
       "Control de acceso por roles (administración, técnicos, recepción)",
     ],
     proofText:
-      "No es teoría: ya construimos Varigas, un sistema para una empresa de seguridad contra incendios que opera en producción.",
+      "No es teoría: ya construimos un sistema para una empresa de seguridad contra incendios que opera en producción.",
     proofCaseSlug: "varigas",
     faqs: [
       {
@@ -49,7 +49,7 @@ export const INDUSTRIES: IndustryPage[] = [
       },
       {
         q: "¿Se adapta a mi empresa?",
-        a: "Se construye a medida. Partimos de lo que ya resolvimos en Varigas y lo ajustamos a tu operación.",
+        a: "Se construye a medida. Partimos de lo que ya resolvimos para el rubro y lo ajustamos a tu operación.",
       },
     ],
   },
@@ -59,7 +59,7 @@ export const INDUSTRIES: IndustryPage[] = [
     h1: "Software para natatorios",
     metaTitle: "Software de gestión para natatorios",
     metaDescription:
-      "Sistema a medida para natatorios: socios, cuotas, asistencia, calendario, caja y facturación ARCA. Ya en producción con NMS.",
+      "Sistema a medida para natatorios: socios, cuotas, asistencia, calendario, caja y facturación ARCA. Ya en producción en un natatorio real.",
     intro:
       "Socios, cuotas, asistencia, calendario, caja y facturación de tu natatorio en un solo sistema operativo.",
     pains: [
@@ -74,7 +74,7 @@ export const INDUSTRIES: IndustryPage[] = [
       "Facturación electrónica ARCA integrada",
     ],
     proofText:
-      "Ya construimos NMS (Natatory Management System), en producción para un natatorio real.",
+      "Ya construimos un sistema de gestión de natatorios, en producción para un natatorio real.",
     proofCaseSlug: "nms",
     faqs: [
       {
@@ -176,7 +176,7 @@ export const INDUSTRIES: IndustryPage[] = [
       "Panel con el estado del día",
     ],
     proofText:
-      "Construimos sistemas a medida con facturación ARCA y gestión de turnos en producción (NMS, MaatWorkCRM). Tu consultorio es el próximo.",
+      "Construimos sistemas a medida con facturación ARCA y gestión de turnos en producción (natatorios, CRM). Tu consultorio es el próximo.",
     faqs: [
       {
         q: "¿Integra facturación electrónica?",

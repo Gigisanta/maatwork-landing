@@ -24,13 +24,13 @@ type Screen = {
 
 const SCREENS: Screen[] = [
   {
-    name: "NMS",
+    name: "Gestión de natatorios",
     path: "nms",
     role: "Recepción · Natatorio",
     accent: "cyan",
     kpis: [
-      { label: "Socios activos", value: "312", delta: "+9 sem.", fill: 0.78 },
-      { label: "Cuotas al día", value: "87%", delta: "+4 pp", fill: 0.87 },
+      { label: "Socios activos", value: "—", fill: 0.78 },
+      { label: "Cuotas al día", value: "—", fill: 0.87 },
       { label: "Asistencia hoy", value: "64", fill: 0.52 },
     ],
     rows: [
@@ -40,7 +40,7 @@ const SCREENS: Screen[] = [
     ],
   },
   {
-    name: "MaatWorkCRM",
+    name: "CRM",
     path: "crm",
     role: "Pipeline comercial",
     accent: "violet",
@@ -72,7 +72,7 @@ const SCREENS: Screen[] = [
     ],
   },
   {
-    name: "Varigas",
+    name: "Gestión de extintores",
     path: "varigas",
     role: "Operación de extintores",
     accent: "rose",

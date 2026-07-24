@@ -2,13 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { waLink } from "@/lib/whatsapp";
-import { SERIOUS_PROJECT_COUNT } from "@/data/products";
+import { PRODUCTION_COUNT } from "@/data/portfolio";
 import { Logo } from "./Logo";
 
 const links = [
   { href: "/servicios", id: "servicios", label: "Servicios" },
-  { href: "/casos", id: "ecosistema", label: "Casos" },
+  { href: "/casos", id: "portfolio", label: "Casos" },
   { href: "/precios", id: "precios", label: "Precios" },
   { href: "#contacto", id: "contacto", label: "Contacto" },
 ];
@@ -18,12 +19,13 @@ const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 
 const NAV_ITEMS = [
   { href: "/servicios", label: "Servicios", desc: "Qué podemos resolver" },
-  { href: "/casos", label: "Casos", desc: "Proyectos en producción" },
-  { href: "/precios", label: "Precios", desc: "Desde USD 100/mes" },
+  { href: "/casos", label: "Casos", desc: "Sistemas en producción" },
+  { href: "/precios", label: "Precios", desc: "Planes claros, sin permanencia" },
   { href: "#contacto", label: "Contacto", desc: "WhatsApp directo" },
 ];
 
-export function Navbar() {
+export function Navbar({ solid = false }: { solid?: boolean }) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
@@ -130,36 +132,93 @@ export function Navbar() {
     <header
       className={[
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || open ? "glass-subtle border-b border-white/[0.06]" : "bg-transparent",
+        solid || scrolled || open ? "glass-subtle border-b border-white/[0.06]" : "bg-transparent",
       ].join(" ")}
     >
       <nav className="container-maat flex h-16 items-center justify-between">
         <Link href="/" className="group flex items-center" aria-label="MaatWork inicio" onClick={closeMenu}>
           <div className="relative">
             <div className="absolute -inset-3 rounded-full bg-violet-500/0 opacity-0 transition-all duration-500 group-hover:bg-violet-500/10 group-hover:opacity-100" aria-hidden />
-            <Logo size={30} />
+            <Logo showMark={false} />
           </div>
         </Link>
 
-        <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-          {links.map((l) => {
-            const isActive = activeId === l.id;
-            return (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  aria-current={isActive ? "true" : undefined}
-                  className={`hover-lift-glow group relative transition-colors ${isActive ? "text-white" : "hover:text-white"}`}
-                >
-                  {l.label}
-                  <span
-                    className={`absolute -bottom-0.5 left-0 h-px bg-violet-400 transition-all ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
-                  />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        {/* Gradient button group (port cult-ui): bandeja hundida + contenedor
+            elevado; el ítem activo lleva pozo + anillo conic violeta girando. */}
+        <div className="relative hidden items-center md:flex">
+          {/* Bandeja hundida (recessed tray) — paleta light del original */}
+          <div
+            aria-hidden
+            className="absolute inset-0 rounded-full"
+            style={{
+              background: "linear-gradient(180deg, #d1d1d6 0%, #cacad0 50%, #c3c3c9 100%)",
+              boxShadow:
+                "inset 0 2px 6px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(0,0,0,0.08), 0 1px 0 rgba(255,255,255,0.55)",
+            }}
+          />
+          {/* Contenedor elevado */}
+          <ul
+            className="relative flex items-center gap-1 rounded-full p-1.5"
+            style={{
+              background: "linear-gradient(180deg, #ffffff 0%, #fefeff 52%, #fcfcfe 100%)",
+              borderTop: "1px solid rgba(255,255,255,1)",
+              boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 1px 0 rgba(255,255,255,1)",
+            }}
+          >
+            {links.map((l) => {
+              const isActive = activeId
+                ? activeId === l.id
+                : l.href.startsWith("/") && !!pathname && pathname.startsWith(l.href);
+              return (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`relative flex h-9 items-center justify-center rounded-full px-4 text-sm font-medium transition-colors duration-300 ${
+                      isActive ? "text-[#131317]" : "text-[#9a9aa2] hover:text-[#47474E]"
+                    }`}
+                  >
+                    {isActive && (
+                      <>
+                        {/* Pozo hundido */}
+                        <span
+                          aria-hidden
+                          className="absolute inset-0 rounded-full"
+                          style={{
+                            background: "linear-gradient(180deg, #dcdce1 0%, #e4e4e8 50%, #e0e0e4 100%)",
+                            boxShadow:
+                              "inset 0 2px 6px rgba(0,0,0,0.12), inset 0 0 4px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.9)",
+                          }}
+                        />
+                        {/* Anillo conic violeta girando */}
+                        <span aria-hidden className="absolute inset-[3px] overflow-hidden rounded-full">
+                          <span
+                            className="absolute inset-[-150%] origin-center will-change-transform"
+                            style={{
+                              background:
+                                "conic-gradient(from 220deg, #B9A6FF 0%, #7C5CFF 18%, #4F33E0 36%, #A78BFA 54%, #6D4AFF 74%, #B9A6FF 100%)",
+                              animation: "mw-ring-spin 3.5s linear infinite",
+                            }}
+                          />
+                        </span>
+                        {/* Superficie interna (deja ver 2px de anillo) */}
+                        <span
+                          aria-hidden
+                          className="absolute inset-[5px] rounded-full"
+                          style={{
+                            background: "#f5f5f7",
+                            boxShadow: "inset 0 1px 3px rgba(0,0,0,0.14), inset 0 0 2px rgba(0,0,0,0.08)",
+                          }}
+                        />
+                      </>
+                    )}
+                    <span className="relative z-10">{l.label}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         <div className="flex items-center gap-3">
           <a
@@ -285,7 +344,7 @@ export function Navbar() {
                   Hablar con MaatWork
                 </a>
                 <p className="text-center font-mono text-[10px] uppercase tracking-[0.1em] text-slate-600">
-                  Desde USD 100/mes · {SERIOUS_PROJECT_COUNT} proyectos Vercel · soporte directo
+                  {PRODUCTION_COUNT} productos en producción · respuesta en el día
                 </p>
               </div>
             </div>

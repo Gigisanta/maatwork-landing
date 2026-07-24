@@ -10,7 +10,7 @@ import { track } from "@vercel/analytics";
  *  - faq_open: fires when a FAQ item is expanded, with the question.
  * Pageviews are handled by <Analytics/> in layout.
  */
-const TRACKED_SECTIONS = ["servicios", "precios", "ecosistema", "contacto"];
+const TRACKED_SECTIONS = ["servicios", "portfolio", "contacto"];
 
 export function AnalyticsEvents() {
   useEffect(() => {

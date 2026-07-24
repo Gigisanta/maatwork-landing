@@ -84,6 +84,7 @@ export default async function SourceClaimPage({ params }: { params: Promise<{ sl
     <PageShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Breadcrumb items={[{ name: page.h1, href: `/${page.slug}` }]} />
+      <div className="doc-compact">
       <PageHero
         eyebrow={page.eyebrow}
         h1={page.h1}
@@ -151,6 +152,7 @@ export default async function SourceClaimPage({ params }: { params: Promise<{ sl
         text="Contanos cómo trabajás y te mostramos una base funcionando antes de convertirlo en un proyecto grande."
         ctaMsg={page.ctaMsg}
       />
+      </div>
     </PageShell>
   );
 }

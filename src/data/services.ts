@@ -19,6 +19,38 @@ export type ServicePage = {
 
 export const SERVICES: ServicePage[] = [
   {
+    slug: "paginas-web",
+    name: "Páginas web",
+    h1: "Páginas web que cargan rápido y convierten",
+    metaTitle: "Diseño y desarrollo de páginas web en Argentina",
+    metaDescription:
+      "Sitios y landings a medida en Next.js: rápidos, claros y pensados para convertir. Diseño, SEO técnico y puesta online. Estudio de software en Río Negro, Argentina.",
+    intro:
+      "Sitios y landings pensados para vender: rápidos, claros y fáciles de encontrar en Google. Diseñamos, desarrollamos y publicamos tu web con el mismo stack que usamos en esta página.",
+    forWhom:
+      "Para negocios que necesitan presencia online seria: una web que cargue rápido, explique bien lo que hacés y convierta visitas en consultas por WhatsApp.",
+    includes: [
+      "Landing o sitio institucional en Next.js",
+      "Diseño a medida, sin plantillas genéricas",
+      "SEO técnico y velocidad de carga",
+      "Botón de WhatsApp y formulario de contacto",
+      "Hosting, dominio y puesta online",
+    ],
+    proof:
+      "Esta misma página es la prueba: la diseñamos y desarrollamos nosotros, con el mismo stack y el mismo cuidado que ponemos en los proyectos de clientes.",
+    faqs: [
+      {
+        q: "¿Cuánto tarda una página web?",
+        a: "Depende del alcance; lo estimamos en la primera llamada. Una landing típica sale en 2 a 4 semanas, con contenido y puesta online incluidos.",
+      },
+      {
+        q: "¿La web queda en mi poder?",
+        a: "Sí. El dominio es tuyo y la web queda operativa para tu negocio, con soporte local si querés seguir mejorándola.",
+      },
+    ],
+    ctaMsg: "quiero una página web",
+  },
+  {
     slug: "desarrollo-a-medida",
     name: "Desarrollo de software a medida",
     h1: "Desarrollo de software a medida",
@@ -37,7 +69,7 @@ export const SERVICES: ServicePage[] = [
       "Puesta en producción, capacitación y soporte local",
     ],
     proof:
-      "No es una promesa: ya construimos y operamos sistemas a medida en producción — NMS (natatorios), Infrannova (obras) y Varigas (seguridad contra incendios). Cada uno es un negocio distinto resuelto con software propio.",
+      "No es una promesa: ya construimos y operamos sistemas a medida en producción — gestión de natatorios, Infrannova (obras) y gestión de extintores. Cada uno es un negocio distinto resuelto con software propio.",
     faqs: [
       {
         q: "¿De quién es la app y los datos?",
@@ -105,7 +137,7 @@ export const SERVICES: ServicePage[] = [
       "Migración de tu información actual sin que toques nada",
     ],
     proof:
-      "La integración con ARCA/AFIP ya corre en nuestros productos (ArcaMaat en MaatWorkCRM; lógica bimonetaria y de obra en Infrannova). Es algo que tenemos resuelto, no un experimento.",
+      "La integración con ARCA/AFIP ya corre en nuestros productos (ArcaMaat en nuestro CRM; lógica bimonetaria y de obra en Infrannova). Es algo que tenemos resuelto, no un experimento.",
     faqs: [
       {
         q: "¿Funciona con Mercado Pago y ARCA/AFIP?",

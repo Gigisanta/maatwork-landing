@@ -23,10 +23,10 @@ export type CasePage = {
 export const CASES: CasePage[] = [
   {
     slug: "varigas",
-    product: "Varigas",
+    product: "Sistema de Gestión para extintores",
     industry: "Seguridad contra incendios",
-    h1: "Varigas — software para empresas de extintores",
-    metaTitle: "Caso Varigas: software para empresas de extintores",
+    h1: "Sistema de Gestión para empresas de extintores",
+    metaTitle: "Caso real: software para empresas de extintores",
     metaDescription:
       "Sistema a medida para empresas de venta, recarga y mantenimiento de matafuegos: clientes, vencimientos, órdenes de trabajo y stock. En producción.",
     url: "https://varigas.maat.work",
@@ -37,7 +37,7 @@ export const CASES: CasePage[] = [
     problem:
       "Sin un sistema, los vencimientos de extintores, las órdenes de trabajo y el stock se controlan a mano — con riesgo de incumplir la normativa y perder trazabilidad.",
     solution:
-      "Construimos Varigas: clientes con CUIT validado e historial, inventario de extintores por cliente con vencimientos y alertas automáticas, órdenes de trabajo numeradas y trazables (recargas, reparaciones, pruebas hidráulicas) y control de acceso por roles.",
+      "Construimos el sistema: clientes con CUIT validado e historial, inventario de extintores por cliente con vencimientos y alertas automáticas, órdenes de trabajo numeradas y trazables (recargas, reparaciones, pruebas hidráulicas) y control de acceso por roles.",
     modules: ["Clientes", "Extintores", "Órdenes de trabajo", "Vencimientos", "Stock"],
     stack: ["Next.js", "Vercel", "Roles (RBAC)", "Datos fiscales (CUIT)"],
   },
@@ -49,7 +49,7 @@ export const CASES: CasePage[] = [
     metaTitle: "Caso Infrannova: software de gestión de obras",
     metaDescription:
       "Plataforma a medida para constructoras: obras, partes diarios, certificaciones, redeterminaciones, reportes bimonetarios y curva S. En producción.",
-    url: "https://www.infrannova.com.ar",
+    url: "https://infrannova.com.ar",
     intro:
       "Plataforma para constructoras: obras, partes diarios, certificaciones, redeterminaciones y curva S. En producción.",
     context:
@@ -63,10 +63,10 @@ export const CASES: CasePage[] = [
   },
   {
     slug: "nms",
-    product: "NMS",
+    product: "Sistema de Gestión para natatorios",
     industry: "Natatorios",
-    h1: "NMS — sistema de gestión para natatorios",
-    metaTitle: "Caso NMS: sistema de gestión para natatorios",
+    h1: "Sistema de Gestión para natatorios",
+    metaTitle: "Caso real: sistema de gestión para natatorios",
     metaDescription:
       "Natatory Management System: sistema a medida para gestionar un natatorio — socios, cuotas, asistencia, calendario, caja y facturación ARCA. En producción.",
     url: "https://oroazul.maat.work",
@@ -77,16 +77,16 @@ export const CASES: CasePage[] = [
     problem:
       "Coordinar inscripciones, cuotas y asistencia a mano se vuelve inmanejable a medida que el natatorio crece, y la facturación suma fricción.",
     solution:
-      "Construimos NMS, en producción para un natatorio real: gestión de clientes y cuotas, asistencia, empleados, calendario, caja y facturación electrónica ARCA.",
+      "Construimos el sistema, en producción para un natatorio real: gestión de clientes y cuotas, asistencia, empleados, calendario, caja y facturación electrónica ARCA.",
     modules: ["Socios", "Cuotas", "Asistencias", "Calendario", "Facturación ARCA"],
     stack: ["Next.js", "Neon + Prisma", "NextAuth", "Facturación ARCA"],
   },
   {
     slug: "maatwork-crm",
-    product: "MaatWorkCRM",
+    product: "CRM",
     industry: "Gestión comercial",
-    h1: "MaatWorkCRM — CRM comercial y administrativo",
-    metaTitle: "Caso MaatWorkCRM: CRM multi-tenant a medida",
+    h1: "CRM comercial y administrativo a medida",
+    metaTitle: "Caso real: CRM multi-tenant a medida",
     metaDescription:
       "CRM multi-tenant a medida: contactos, tareas, calendario, reportes y facturación integrada (ArcaMaat), con roles y permisos. En producción.",
     url: "https://crm.maat.work",
@@ -97,7 +97,7 @@ export const CASES: CasePage[] = [
     problem:
       "Cuando el pipeline, las tareas y la facturación viven en herramientas separadas, se pierde tiempo y visibilidad del estado real.",
     solution:
-      "Construimos MaatWorkCRM, multi-tenant con roles: dashboard, contactos, productividad (tareas, calendario, objetivos), equipo y reportes, y facturación integrada (ArcaMaat).",
+      "Construimos un CRM multi-tenant con roles: dashboard, contactos, productividad (tareas, calendario, objetivos), equipo y reportes, y facturación integrada (ArcaMaat).",
     modules: ["Contactos", "Tareas", "Calendario", "Reportes", "Facturación (ArcaMaat)"],
     stack: ["Next.js", "Drizzle + Neon", "TanStack Query", "NextAuth", "RBAC"],
   },

@@ -2,110 +2,114 @@
 @import "../styles/maatwork-ds.css";
 
 /* ================================================================
-   MaatWork — official Design System theme
-   Ink · electric violet (order/agency) · pharaonic gold (truth) ·
-   semantic status. Tailwind utility tokens below map onto the
-   canonical DS values (see src/styles/maatwork-ds.css). Legacy
-   `purple-*` utilities are remapped to the DS violet scale so the
-   whole surface migrates without per-component churn.
+   MaatWork — "Monocromo premium" theme (dark)
+   Negro casi puro · tipografía blanca · escala de grises · UN solo
+   acento eléctrico (violeta) para CTAs, estados "en producción" y
+   foco. Los tokens utilitarios mapean a los valores canónicos del DS
+   (src/styles/maatwork-ds.css). Las clases accent-* (violet/cyan/gold/
+   rose/emerald) colapsan a un tratamiento neutro para que las tarjetas
+   no formen arcoíris: el color es una decisión de marca, no de adorno.
    ================================================================ */
 
 @theme {
-  /* ---- Violet scale (primary) — DS values ----------------------- */
-  --color-violet-50:  #F4EEFF;
-  --color-violet-100: #E8DBFF;
-  --color-violet-200: #CFB4FF;
-  --color-violet-300: #B488FF;
-  --color-violet-400: #9D7BFF;
-  --color-violet-500: #8E69FA;
-  --color-violet-600: #835DF5;
-  --color-violet-700: #6E45E6;
-  --color-violet-800: #5A1FBE;
-  --color-violet-900: #3A1487;
-  --color-violet-950: #240C54;
+  /* ---- Violet (acento único) ------------------------------------ */
+  --color-violet-50:  #F1EDFF;
+  --color-violet-100: #E4DBFF;
+  --color-violet-200: #C9B8FF;
+  --color-violet-300: #B9A6FF;
+  --color-violet-400: #9B82FF;
+  --color-violet-500: #7C5CFF;
+  --color-violet-600: #6B47F5;
+  --color-violet-700: #5A38E0;
+  --color-violet-800: #4A2AC2;
+  --color-violet-900: #351D93;
+  --color-violet-950: #20115C;
 
-  /* ---- Legacy `purple-*` aliases → DS violet (drop-in migration) - */
-  --color-purple-50:  #F4EEFF;
-  --color-purple-100: #E8DBFF;
-  --color-purple-200: #CFB4FF;
-  --color-purple-300: #B488FF;
-  --color-purple-400: #9D7BFF;
-  --color-purple-500: #8E69FA;
-  --color-purple-550: #8862F7;
-  --color-purple-600: #835DF5;
-  --color-purple-650: #7650EE;
-  --color-purple-700: #6E45E6;
-  --color-purple-800: #5A1FBE;
-  --color-purple-900: #3A1487;
-  --color-purple-950: #240C54;
+  /* ---- Legacy `purple-*` → violet ------------------------------- */
+  --color-purple-50:  #F1EDFF;
+  --color-purple-100: #E4DBFF;
+  --color-purple-200: #C9B8FF;
+  --color-purple-300: #B9A6FF;
+  --color-purple-400: #9B82FF;
+  --color-purple-500: #7C5CFF;
+  --color-purple-550: #7454FA;
+  --color-purple-600: #6B47F5;
+  --color-purple-650: #6340EE;
+  --color-purple-700: #5A38E0;
+  --color-purple-800: #4A2AC2;
+  --color-purple-900: #351D93;
+  --color-purple-950: #20115C;
 
-  /* ---- Pharaonic gold scale ------------------------------------- */
-  --color-gold-100: #FBEFC9;
-  --color-gold-200: #F6DD95;
-  --color-gold-300: #F2CD6A;
-  --color-gold-400: #ECBE4C;
-  --color-gold-500: #E8B23C;
-  --color-gold-600: #CE9526;
-  --color-gold-700: #A5741A;
+  /* ---- "Gold" reasignado a grises oscuros (sin amarillo) --------- */
+  --color-gold-100: #47474E;
+  --color-gold-200: #5E5E67;
+  --color-gold-300: #6E6E76;
+  --color-gold-400: #85858F;
+  --color-gold-500: #A6A6AE;
+  --color-gold-600: #BEBEC6;
+  --color-gold-700: #D2D2D8;
 
-  /* ---- Brand surfaces (DS ink ladder) --------------------------- */
-  --color-bg-base:   #0A0A11;
-  --color-bg-elev-1: #0F0F18;
-  --color-bg-elev-2: #15151F;
-  --color-bg-card:   #15151F;
-  --color-bg-card-2: #1C1C27;
+  /* ---- Superficies (lienzo claro) -------------------------------- */
+  --color-bg-base:   #FBFBFD;
+  --color-bg-elev-1: #F6F6FA;
+  --color-bg-elev-2: #FFFFFF;
+  --color-bg-card:   #FFFFFF;
+  --color-bg-card-2: #F6F6FA;
 
   /* ---- Borders -------------------------------------------------- */
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-border-accent: rgba(140, 94, 246, 0.34);
-  --color-border-strong: rgba(131, 93, 245, 0.42);
+  --color-border-subtle: rgba(15, 15, 35, 0.08);
+  --color-border-accent: rgba(124, 92, 255, 0.40);
+  --color-border-strong: rgba(124, 92, 255, 0.46);
 
-  /* ---- Text (warm-violet whites) -------------------------------- */
-  --color-text-primary:   #F5F1FF;
-  --color-text-secondary: #CBC3E0;
-  --color-text-tertiary:  #9C93B8;
-  --color-text-muted:     #756C90;
-  --color-white:          #ffffff;
+  /* ---- Texto ---------------------------------------------------- */
+  --color-text-primary:   #131317;
+  --color-text-secondary: #47474E;
+  --color-text-tertiary:  #6E6E76;
+  --color-text-muted:     #85858F;
+  /* `text-white` se usa como "texto primario" en todo el sitio: en el
+     tema claro colapsa a tinta oscura. El blanco literal (botones
+     violeta) usa .cta-* (CSS #fff) o text-[#fff]. */
+  --color-white:          #131317;
 
-  /* ---- Stock neutrals retuned to the warm DS palette ------------ */
-  --color-slate-200: #CBC3E0;
-  --color-slate-300: #CBC3E0;
-  --color-slate-400: #9C93B8;
-  --color-slate-500: #756C90;
-  --color-slate-950: #0A0A11;
+  /* ---- Neutros stock retonados al ladder frío (sobre claro) ------ */
+  --color-slate-200: #3F3F48;
+  --color-slate-300: #47474E;
+  --color-slate-400: #5E5E67;
+  --color-slate-500: #6E6E76;
+  --color-slate-600: #47474E;
+  --color-slate-950: #0E0E11;
 
-  /* ---- Status (semantic) ---------------------------------------- */
-  --color-success:      #22C38E;  /* healthy / done / operational */
-  --color-success-soft: #1B9B72;
-  --color-whatsapp:     #25D366;  /* WhatsApp CTA only */
+  /* ---- Status (funcional, uso mínimo) --------------------------- */
+  --color-success:      #2FBF88;
+  --color-success-soft: #1F9E6E;
+  --color-whatsapp:     #25D366;
   --color-whatsapp-dim: #1FB958;
-  --color-cyan:         #2DD4EE;  /* live / realtime */
-  --color-cyan-soft:    #6FE3F4;
-  --color-amber:        #F59E0B;  /* warning / attention */
+  --color-cyan:         #7C5CFF;   /* colapsa al acento */
+  --color-cyan-soft:    #9B82FF;
+  --color-amber:        #E0A83A;
   --color-info:         #4FB0F5;
   --color-coral:        #F2555A;
-  --color-rose:         #FB7185;
+  --color-rose:         #7C5CFF;   /* colapsa al acento */
 
-  /* ---- "live/healthy" green dots unified to DS success ---------- */
-  --color-emerald-300: #4BD6A8;
-  --color-emerald-400: #22C38E;
+  --color-emerald-300: #2FBF88;
+  --color-emerald-400: #2FBF88;
 
-  /* ---- Typography — Sora · Hanken Grotesk · JetBrains Mono ------- */
+  /* ---- Tipografía — Sora · Hanken Grotesk · JetBrains Mono ------- */
   --font-display: var(--font-sora), "Sora", system-ui, sans-serif;
   --font-body:    var(--font-hanken), "Hanken Grotesk", system-ui, sans-serif;
   --font-mono:    var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
 
-  /* ---- Editorial type scale (ratio ~1.25) ----------------------- */
-  --text-xs:      0.75rem;   /* 12px */
-  --text-sm:      0.875rem;  /* 14px */
-  --text-base:    1rem;      /* 16px */
-  --text-lg:      1.125rem;  /* 18px */
-  --text-xl:      1.25rem;   /* 20px */
-  --text-2xl:     1.5rem;    /* 24px */
-  --text-3xl:     2rem;      /* 32px */
-  --text-4xl:     2.5rem;    /* 40px */
-  --text-5xl:     3.5rem;    /* 56px */
-  --text-display: 4.5rem;    /* 72px */
+  /* ---- Escala tipográfica (ratio ~1.25) ------------------------- */
+  --text-xs:      0.75rem;
+  --text-sm:      0.875rem;
+  --text-base:    1rem;
+  --text-lg:      1.125rem;
+  --text-xl:      1.25rem;
+  --text-2xl:     1.5rem;
+  --text-3xl:     2rem;
+  --text-4xl:     2.5rem;
+  --text-5xl:     3.5rem;
+  --text-display: 4.5rem;
 
   /* ---- Tracking ------------------------------------------------- */
   --tracking-display: -0.04em;
@@ -114,20 +118,20 @@
   --tracking-h3:      -0.02em;
   --tracking-label:    0.16em;
 
-  /* ---- Editorial section rhythm --------------------------------- */
-  --spacing-section:    4rem;    /* 64px  */
-  --spacing-section-md: 5.5rem;  /* 88px  */
-  --spacing-section-lg: 7rem;    /* 112px */
-  --spacing-block:      2.5rem;  /* 40px  */
-  --spacing-card:       1.5rem;  /* 24px  */
+  /* ---- Ritmo de sección ----------------------------------------- */
+  --spacing-section:    4rem;
+  --spacing-section-md: 5.5rem;
+  --spacing-section-lg: 7rem;
+  --spacing-block:      2.5rem;
+  --spacing-card:       1.5rem;
 }
 
 /* ================================================================
-   Base layer
+   Base
    ================================================================ */
 html {
   background: var(--color-bg-base);
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
   overflow-x: clip;
   width: 100%;
@@ -149,7 +153,7 @@ body {
 }
 
 /* ================================================================
-   Skip link — accessible, off-screen until focused
+   Skip link
    ================================================================ */
 .skip-link {
   position: absolute;
@@ -157,70 +161,30 @@ body {
   z-index: 999;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  background: var(--violet-600);
+  background: var(--violet-500);
   color: #fff;
   font-size: 0.875rem;
   transform: translateY(-120%);
   transition: transform 150ms;
 }
-.skip-link:focus {
-  transform: translateY(0);
-}
+.skip-link:focus { transform: translateY(0); }
 
 /* ================================================================
-   Section surfaces (background)
+   Section surfaces
    ================================================================ */
-.section-base  { background: var(--ink-base); }
-.section-elev1 { background: var(--ink-surface); }
-.section-elev2 { background: var(--ink-elev); }
+/* Superficies transparentes: dejan ver el fondo fractal global (canvas fijo
+   detrás de todo). Las tarjetas/elevaciones opacas van encima. */
+.section-base  { background: transparent; }
+.section-elev1 { background: rgba(15, 15, 35, 0.015); }
+.section-elev2 { background: rgba(15, 15, 35, 0.03); }
 
-/* ---- Chroma field — ink-deep background with a drifting color wash.
-   Applied to .section-chroma. The chroma is a soft gradient overlay,
-   set per-section via --chroma / --chroma-2 (see section-colors block).
-   The ::before glow layer stays on the fixed field, the ::after
-   (chroma) scrolls with the section. Both paint in constant time
-   (GPU-composited gradients), no JS, no image assets. --------------- */
-.section-chroma {
-  position: relative;
-  isolation: isolate;
-}
-
-.section-chroma::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(100% 68% at 18% -20%,
-      color-mix(in srgb, var(--chroma, var(--violet-500)) 30%, transparent) 0%,
-      transparent 80%),
-    radial-gradient(100% 56% at 82% -20%,
-      color-mix(in srgb, var(--chroma-2, var(--cyan)) 18%, transparent) 0%,
-      transparent 70%),
-    linear-gradient(180deg,
-      color-mix(in srgb, var(--chroma, var(--violet-500)) 24%, transparent) 0%,
-      color-mix(in srgb, var(--chroma, var(--violet-500)) 9%, transparent) 38%,
-      transparent 100%);
-  opacity: 0.5;
-  animation: chroma-shift 14s ease-in-out infinite;
-}
-
-/* Distinct color room per section (ids drive nav anchors — stable hooks).
-   Hero (#top) keeps the default violet/cyan. */
-#operacion.section-chroma      { --chroma: var(--rose);       --chroma-2: var(--violet-400); }
-#producto.section-chroma       { --chroma: var(--cyan);       --chroma-2: var(--violet-400); }
-#implementacion.section-chroma { --chroma: var(--gold-400);   --chroma-2: var(--violet-400); }
-#precios.section-chroma        { --chroma: var(--success);    --chroma-2: var(--cyan); }
-#ecosistema.section-chroma     { --chroma: var(--violet-500); --chroma-2: var(--cyan); }
-#contacto.section-chroma       { --chroma: var(--gold-400);   --chroma-2: var(--violet-400); }
-
-@keyframes chroma-shift {
-  0%, 100% { opacity: 0.5; }
-  50%      { opacity: 0.75; }
-}
+/* ---- Chroma field — DESACTIVADO: en monocromo el color es solo el
+   acento. Sin lavados de color por sección. --------------------- */
+.section-chroma { position: relative; isolation: isolate; }
+.section-chroma::after { content: none; }
 
 /* ================================================================
-   Section padding — editorial vertical rhythm
+   Section padding — ritmo editorial (con aire generoso)
    ================================================================ */
 .section-pad    { padding-top: var(--spacing-section);    padding-bottom: var(--spacing-section); }
 .section-pad-md { padding-top: var(--spacing-section-md); padding-bottom: var(--spacing-section-md); }
@@ -232,36 +196,31 @@ body {
   .section-pad    { padding-top: var(--spacing-section-lg); padding-bottom: var(--spacing-section-lg); }
 }
 
-/* Landing pass: shorter, faster story without changing deep pages. */
-.home-compact .section-pad {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
-}
+.home-compact .section-pad { padding-top: 4rem; padding-bottom: 4rem; }
 @media (min-width: 768px) {
-  .home-compact .section-pad {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
-  }
+  .home-compact .section-pad { padding-top: 5rem; padding-bottom: 5rem; }
 }
 @media (min-width: 1024px) {
-  .home-compact .section-pad {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
+  .home-compact .section-pad { padding-top: 6rem; padding-bottom: 6rem; }
+}
+
+/* Subpáginas data-driven (source-pages) — densas, sin tanto aire vertical */
+.doc-compact .section-pad { padding-top: 2.25rem; padding-bottom: 2.25rem; }
+@media (min-width: 768px) {
+  .doc-compact .section-pad { padding-top: 2.75rem; padding-bottom: 2.75rem; }
 }
 
 /* ================================================================
-   Eyebrow — mono uppercase tracked section label (DS)
+   Eyebrow — mono uppercase, NEUTRO (el acento se reserva)
    ================================================================ */
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
-  color: var(--violet-300);
+  color: var(--text-tertiary);
   font-weight: 600;
 }
-/* Mono metadata tag — IDs, status keys, evidence chips */
 .mono-tag {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -271,7 +230,7 @@ body {
 }
 
 /* ================================================================
-   Container — max-width content area with padding
+   Container
    ================================================================ */
 .container-maat {
   margin-inline: auto;
@@ -283,94 +242,93 @@ body {
 }
 
 /* ================================================================
-   Seal rule — engraved gold hairline divider (Maat detail).
-   Used sparingly: section seams, the final CTA. Gold only here.
+   Corner marks — L-brackets neutros que enmarcan una superficie
+   premium (hero, CTA final). Blanco a baja opacidad, sin oro.
    ================================================================ */
-.seal-rule {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+.corner-marks { position: absolute; inset: 0; pointer-events: none; }
+.corner-marks::before,
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(15, 15, 35, 0.16);
 }
+.corner-marks::before {
+  top: var(--inset, 8px);
+  left: var(--inset, 8px);
+  border-right: 0;
+  border-bottom: 0;
+}
+.corner-marks::after {
+  bottom: var(--inset, 8px);
+  right: var(--inset, 8px);
+  border-left: 0;
+  border-top: 0;
+}
+
+/* ================================================================
+   Seal rule — hairline neutro (sin oro)
+   ================================================================ */
+.seal-rule { display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
 .seal-rule::before,
 .seal-rule::after {
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(232, 178, 60, 0.34), transparent);
+  background: linear-gradient(90deg, transparent, rgba(15, 15, 35, 0.12), transparent);
 }
 
 /* ================================================================
-   Primary CTA — electric violet · breathing box-shadow glow
+   Primary CTA — violeta eléctrico (el único color de acción)
    ================================================================ */
 .cta-violet {
-  background: linear-gradient(135deg, var(--violet-600), var(--violet-700));
-  position: relative;
-  isolation: isolate;
-}
-.cta-violet::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: -1;
+  background: var(--violet-500);
+  color: #fff;
   box-shadow: var(--glow-primary);
-  animation: cta-breathe 3.8s ease-in-out infinite;
+  transition: background 180ms var(--ease-out-quart), box-shadow 180ms var(--ease-out-quart);
 }
-@keyframes cta-breathe {
-  0%, 100% { box-shadow: 0 6px 20px -10px rgba(131, 93, 245, 0.42); }
-  50%      { box-shadow: 0 12px 38px -8px rgba(131, 93, 245, 0.80); }
-}
+.cta-violet:hover { background: var(--violet-400); }
+.cta-violet, .cta-violet * { color: #fff; }
 
-/* ---- Ghost CTA — no bg, subtle hover --------------------------- */
+/* ---- Ghost CTA — contorno neutro ------------------------------- */
 .cta-ghost {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(15, 15, 35, 0.20);
   transition: border-color 180ms var(--ease-out-quart), background 180ms var(--ease-out-quart);
 }
 .cta-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(15, 15, 35, 0.36);
+  background: rgba(15, 15, 35, 0.04);
 }
 
-/* ---- WhatsApp CTA — DS-clean green, not overly bright ---------- */
-.cta-whatsapp {
-  background: var(--color-whatsapp);
-  color: #000;
-  font-weight: 600;
-}
-.cta-whatsapp:hover { background: #28D368; }
+/* ---- WhatsApp CTA ---------------------------------------------- */
+.cta-whatsapp { background: var(--color-whatsapp); color: #06210F; font-weight: 600; }
+.cta-whatsapp:hover { background: var(--color-whatsapp-dim); }
+.cta-whatsapp, .cta-whatsapp * { color: #06210F; }
 
 /* ================================================================
-   hover-scale — micro-lift on interactive cards/CTAs
+   hover-scale
    ================================================================ */
-.hover-scale {
-  transition: transform 180ms var(--ease-out-quart);
-}
-.hover-scale:hover {
-  transform: translateY(-2px);
-}
+.hover-scale { transition: transform 180ms var(--ease-out-quart); }
+.hover-scale:hover { transform: translateY(-2px); }
 
 /* ================================================================
-   Glass surface — translucent dark with blur (header dropdowns,
-   floating panels, popovers). Use sparingly (blur is expensive).
+   Glass surface (header / drawers)
    ================================================================ */
 .glass {
-  background: rgba(10, 10, 17, 0.85);
+  background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
 .glass-subtle {
-  background: rgba(10, 10, 17, 0.78);
+  background: rgba(255, 255, 255, 0.80);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 /* ================================================================
-   Ops card — the primary card surface for operational data.
-   Ink-dark, hairline border, soft inset highlight. The accent
-   palette system (violet, cyan, gold, rose, emerald) is applied
-   separately via .accent-* classes or custom properties.
+   Ops card — superficie primaria: tinta, hairline, inset sutil
    ================================================================ */
 .ops-card {
   background: var(--surface-card);
@@ -379,11 +337,11 @@ body {
   box-shadow: var(--inset-top);
 }
 .ops-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--inset-top), 0 16px 44px -28px rgba(131, 93, 245, 0.32);
+  border-color: var(--border-default);
+  box-shadow: var(--inset-top), var(--shadow-md);
 }
 
-/* ---- Signal row — list item with dot + inline meta ------------ */
+/* ---- Signal row ------------------------------------------------ */
 .signal-row {
   display: flex;
   align-items: center;
@@ -391,26 +349,17 @@ body {
   padding: 0.6rem 0.75rem;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.014);
+  background: rgba(15, 15, 35, 0.02);
   transition: border-color 180ms var(--ease-out-quart), background 180ms var(--ease-out-quart);
 }
-.signal-row:hover {
-  border-color: var(--border-default);
-  background: rgba(255, 255, 255, 0.028);
-}
-.signal-dot {
-  flex: none;
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
-}
+.signal-row:hover { border-color: var(--border-default); background: rgba(15, 15, 35, 0.035); }
+.signal-dot { flex: none; width: 8px; height: 8px; border-radius: 9999px; box-shadow: 0 0 0 4px rgba(15, 15, 35, 0.05); }
 .signal-dot--critical { background: var(--danger); }
 .signal-dot--warning  { background: var(--warning); }
 .signal-dot--info     { background: var(--info); }
-.signal-dot--ok       { background: var(--success); }
+.signal-dot--ok       { background: var(--violet-500); }
 
-/* Status pill — mono uppercase state marker */
+/* Status pill — mono uppercase */
 .status-pill {
   display: inline-flex;
   align-items: center;
@@ -422,119 +371,136 @@ body {
   font-weight: 600;
   padding: 0.25rem 0.55rem;
   border-radius: 9999px;
-  border: 1px solid var(--violet-ring);
-  background: var(--violet-soft);
-  color: var(--violet-200);
+  border: 1px solid var(--border-default);
+  background: rgba(15, 15, 35, 0.04);
+  color: var(--text-secondary);
 }
-.status-pill--live   { border-color: var(--cyan-ring);    background: var(--cyan-soft);    color: var(--cyan-soft); }
-.status-pill--ok     { border-color: var(--success-ring); background: var(--success-soft); color: var(--success); }
-
-/* Live status dot (cyan/success) with soft ping */
-.live-chip {
-  background: var(--violet-soft);
+/* "En producción" — el único estado que usa el acento */
+.status-pill--live,
+.status-pill--ok {
   border-color: var(--violet-ring);
-  color: var(--violet-200);
+  background: var(--violet-soft);
+  color: var(--violet-300);
 }
+
+.live-chip { background: var(--violet-soft); border-color: var(--violet-ring); color: var(--violet-300); }
 
 /* ================================================================
-   Scrollbar (DS — subtle, dark)
+   Scrollbar
    ================================================================ */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.16);
-  border-radius: var(--radius-xs);
-}
-::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); }
+::-webkit-scrollbar-thumb { background: rgba(15, 15, 35, 0.22); border-radius: var(--radius-xs); }
+::-webkit-scrollbar-thumb:hover { background: rgba(15, 15, 35, 0.34); }
 
 /* ================================================================
-   Fade-in on scroll (CSS-only, JS adds .is-visible)
+   Fade-in on scroll
    ================================================================ */
 .reveal {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 600ms var(--ease-out-quart), transform 600ms var(--ease-out-quart);
 }
-html.js-ready .reveal:not(.is-visible) {
-  opacity: 0;
-  transform: translateY(12px);
-}
+html.js-ready .reveal:not(.is-visible) { opacity: 0; transform: translateY(14px); }
 
-/* ---- Hero line-reveal — staggered line pop-up with a subtle clip ---- */
-.line-reveal {
-  display: block;
-  animation: line-up 580ms var(--ease-out-quart) both;
-  will-change: transform, opacity;
-}
+/* ---- Hero line-reveal ------------------------------------------ */
+.line-reveal { display: block; animation: line-up 620ms var(--ease-out-quart) both; will-change: transform, opacity; }
 @keyframes line-up {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-    clip-path: inset(0 0 100% 0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    clip-path: inset(0);
-  }
+  from { opacity: 0; transform: translateY(28px); clip-path: inset(0 0 100% 0); }
+  to   { opacity: 1; transform: translateY(0); clip-path: inset(0); }
 }
 
-/* ---- Hero colour-shift words ----------------------------------- */
-.hero-word--gold   { color: var(--gold-400); }
-.hero-word--violet { color: var(--violet-400); }
+/* ---- Hero words — monocromo (sin color en el titular) ---------- */
+.hero-word--gold,
+.hero-word--violet { color: var(--text-primary); }
 
-/* ---- Hero halo — warm gold-violet radial behind the H1 ---------- */
+/* ---- Backlight (MagicUI) — luz cenital que cae sobre el hero.
+   Beam cónico violeta + wash radial + núcleo blanco. Estático. ------ */
 .hero-halo {
   position: absolute;
-  top: 42%;
-  left: 50%;
-  translate: -50% -50%;
-  width: clamp(440px, 68vw, 800px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(131, 93, 245, 0.18) 0%,
-    rgba(232, 178, 60, 0.08) 28%,
-    rgba(131, 93, 245, 0.04) 50%,
-    transparent 70%);
+  inset: 0;
   pointer-events: none;
-  animation: halo-breathe 15s ease-in-out infinite;
-}
-@keyframes halo-breathe {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  50%      { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+  background:
+    conic-gradient(from 90deg at 50% -14%,
+      transparent 38%,
+      rgba(124, 92, 255, 0.20) 46%,
+      rgba(203, 190, 255, 0.30) 50%,
+      rgba(124, 92, 255, 0.20) 54%,
+      transparent 62%),
+    radial-gradient(58% 46% at 50% 0%,
+      rgba(124, 92, 255, 0.26) 0%,
+      rgba(124, 92, 255, 0.09) 52%,
+      transparent 100%),
+    radial-gradient(24% 14% at 50% 0%,
+      rgba(15, 15, 35, 0.05) 0%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 94%);
+          mask-image: linear-gradient(180deg, #000 55%, transparent 94%);
 }
 
-/* ---- Operational field — deep grid background (mounted on the ::before
-   of .bg-field). A very faint ruled grid, like a battle map or engineering
-   blueprint. Static (no motion) so it's zero-cost. --------------------- */
+/* ---- Halo del preview de producto (#sistema) — glow violeta contenido ---- */
+.preview-halo {
+  position: absolute;
+  inset: -8% -6% -12%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(60% 55% at 50% 8%,
+      rgba(124, 92, 255, 0.22) 0%,
+      rgba(124, 92, 255, 0.08) 46%,
+      transparent 78%);
+  filter: blur(12px);
+}
+
+/* ---- Backlight de sección — versión contenida para #framework ---- */
+.section-backlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(46% 34% at 50% 0%,
+      rgba(124, 92, 255, 0.14) 0%,
+      rgba(124, 92, 255, 0.05) 55%,
+      transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent 85%);
+          mask-image: linear-gradient(180deg, #000 45%, transparent 85%);
+}
+
+/* ---- Terminal (MagicUI port) ----------------------------------- */
+@keyframes terminal-caret-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+.terminal-caret { animation: terminal-caret-blink 1.1s steps(1) infinite; }
+@keyframes terminal-fade-in { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+.terminal-fade { animation: terminal-fade-in 300ms var(--ease-out-quart) both; }
+
+/* ---- Operational field — retícula tinta muy tenue (estática) --- */
 .bg-field::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -10;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(rgba(15, 15, 35, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 15, 35, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
   pointer-events: none;
 }
 
-/* ---- Aurora drift — the big abstract color wash --------------- */
-@keyframes aurora-drift {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  33%      { transform: scale(1.06) rotate(1.2deg); }
-  66%      { transform: scale(0.96) rotate(-0.8deg); }
+/* ================================================================
+   Accent palette — TODAS colapsan a un tratamiento neutro. El único
+   color vivo del sitio es el acento en CTAs / "en producción".
+   ================================================================ */
+.accent-violet,
+.accent-cyan,
+.accent-gold,
+.accent-rose,
+.accent-emerald {
+  --accent: rgba(15, 15, 35, 0.85);
+  --accent-2: #131317;
+  --accent-soft: rgba(15, 15, 35, 0.05);
+  --accent-ring: rgba(15, 15, 35, 0.14);
 }
 
-/* ---- Accent palette — one ruleset, many colors (CSS-var driven) - */
-.accent-violet  { --accent: var(--violet-500); --accent-2: var(--violet-300); --accent-soft: var(--violet-soft);     --accent-ring: var(--violet-ring); }
-.accent-cyan    { --accent: var(--cyan);       --accent-2: var(--cyan);       --accent-soft: var(--cyan-soft);       --accent-ring: var(--cyan-ring); }
-.accent-gold    { --accent: var(--gold-500);   --accent-2: var(--gold-300);   --accent-soft: var(--gold-soft);       --accent-ring: var(--gold-ring); }
-.accent-rose    { --accent: var(--rose);       --accent-2: var(--rose);       --accent-soft: rgba(251, 113, 133, 0.14); --accent-ring: rgba(251, 113, 133, 0.34); }
-.accent-emerald { --accent: var(--success);    --accent-2: var(--success);    --accent-soft: var(--success-soft);    --accent-ring: var(--success-ring); }
-
-/* ---- Accent surface: top rail + colored glow + lift on hover ---- */
+/* ---- Accent surface: rail superior + lift on hover (neutro) ---- */
 .card-accent { position: relative; }
 .card-accent::after {
   content: "";
@@ -542,32 +508,22 @@ html.js-ready .reveal:not(.is-visible) {
   left: 14px; right: 14px; top: 0;
   height: 2px;
   border-radius: 0 0 3px 3px;
-  background: linear-gradient(90deg, transparent, var(--accent, var(--violet-500)), transparent);
-  opacity: 0.5;
+  background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.55), transparent);
+  opacity: 0;
   transition: opacity 240ms var(--ease-out-quart);
 }
 .card-accent:hover::after { opacity: 1; }
 .card-accent:hover {
-  border-color: color-mix(in srgb, var(--accent, var(--violet-500)) 42%, transparent);
-  box-shadow: var(--inset-top), 0 22px 54px -28px var(--accent, var(--violet-500));
+  border-color: rgba(15, 15, 35, 0.20);
+  box-shadow: var(--inset-top), var(--shadow-md);
 }
 
-/* ---- Portfolio cards — concise, tactile, no ticker/no heavy motion. */
-.portfolio-card {
-  position: relative;
-  overflow: hidden;
-  transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart);
-}
+/* ---- Portfolio cards ------------------------------------------- */
+.portfolio-card { position: relative; overflow: hidden; transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart); }
 .portfolio-card:hover,
-.portfolio-card:focus-within {
-  transform: translateY(-4px);
-}
-.portfolio-card:hover .portfolio-link,
-.portfolio-card:focus-within .portfolio-link {
-  color: var(--accent-2, var(--violet-300));
-}
+.portfolio-card:focus-within { transform: translateY(-4px); }
 
-/* ---- Icon halo — colored glow behind a module/product glyph ----- */
+/* ---- Icon halo — glow neutro sutil ----------------------------- */
 .icon-halo { position: relative; }
 .icon-halo > * { position: relative; z-index: 1; }
 .icon-halo::before {
@@ -575,162 +531,82 @@ html.js-ready .reveal:not(.is-visible) {
   position: absolute;
   inset: -22%;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent, var(--violet-400)), transparent 68%);
-  opacity: 0.20;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 68%);
+  opacity: 0.06;
   filter: blur(7px);
   transition: opacity 260ms var(--ease-out-quart);
 }
-.card-accent:hover .icon-halo::before { opacity: 0.5; }
+.card-accent:hover .icon-halo::before { opacity: 0.14; }
 
-/* ---- Animated data bar (KPI / progress ticks) ------------------ */
-@keyframes bar-fill { from { transform: scaleX(0); } to { transform: scaleX(var(--fill, 1)); } }
-.kpi-bar {
-  position: relative;
-  height: 3px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.07);
-  overflow: hidden;
+/* ---- Animated beam (port MagicUI) — un dash "viaja" por el path -- */
+@keyframes mw-beam-travel { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* ---- Gradient button group (port cult-ui) — anillo conic girando - */
+@keyframes mw-ring-spin { to { transform: rotate(360deg); } }
+
+/* ---- Canvas fractal grid (port cult-ui) — gradiente que respira -- */
+@keyframes mw-fractal-breathe {
+  from { opacity: 0.75; transform: translateY(0); }
+  to   { opacity: 1;    transform: translateY(-2%); }
 }
+
+/* ---- Meteors (port MagicUI) — estela que cae en diagonal --------- */
+@keyframes mw-meteor {
+  0%   { transform: rotate(var(--angle)) translateX(0); opacity: 1; }
+  70%  { opacity: 1; }
+  100% { transform: rotate(var(--angle)) translateX(-520px); opacity: 0; }
+}
+
+/* ---- Data bar — anima UNA vez ---------------------------------- */
+@keyframes bar-fill { from { transform: scaleX(0); } to { transform: scaleX(var(--fill, 1)); } }
+.kpi-bar { position: relative; height: 3px; border-radius: 99px; background: rgba(15, 15, 35, 0.08); overflow: hidden; }
 .kpi-bar > span {
-  display: block;
-  height: 100%;
-  transform-origin: left;
-  transform: scaleX(0);
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent, var(--violet-500)), var(--accent-2, var(--violet-300)));
+  display: block; height: 100%; transform-origin: left; transform: scaleX(0); border-radius: inherit;
+  background: linear-gradient(90deg, var(--violet-600), var(--violet-400));
   animation: bar-fill 1.2s var(--ease-out-quart) forwards;
 }
 
-/* ---- Live status pulses ---------------------------------------- */
-@keyframes dot-pulse { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
-.dot-pulse { animation: dot-pulse 2.4s ease-in-out infinite; }
-@keyframes ring-ping {
-  0%   { box-shadow: 0 0 0 0 var(--accent-ring, rgba(131, 93, 245, 0.45)); }
-  70%, 100% { box-shadow: 0 0 0 7px transparent; }
-}
-.live-ring { animation: ring-ping 2.6s ease-out infinite; }
+/* ---- Live dots / rings — ESTÁTICOS (sin pulso infinito) -------- */
+.dot-pulse { /* estático a propósito */ }
+.live-ring { /* estático a propósito */ }
 
-/* ---- Flowing connector (HowItWorks) ---------------------------- */
-@keyframes flow-x { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
-.flow-line { position: relative; overflow: hidden; background: rgba(255, 255, 255, 0.08); }
-.flow-line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, var(--violet-400) 40%, var(--cyan) 60%, transparent);
-  transform: translateX(-100%);
-  animation: flow-x 5s linear infinite;
-}
-
-/* ---- Panel sweep (ProductShowcase live scanline) --------------- */
-@keyframes panel-sweep {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  12%  { opacity: 1; }
-  80%  { opacity: 1; }
-  100% { transform: translateY(440px); opacity: 0; }
-}
+/* ---- Flow / scan / shimmer — desactivados (decoración) --------- */
+.flow-line { position: relative; overflow: hidden; background: rgba(15, 15, 35, 0.08); }
+.flow-line::after { content: none; }
 .panel-scan { position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: inherit; }
-.panel-scan::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0;
-  height: 46%;
-  background: linear-gradient(180deg, transparent, var(--accent-soft, rgba(131, 93, 245, 0.12)), transparent);
-  animation: panel-sweep 6s ease-in-out infinite;
-}
+.panel-scan::after { content: none; }
+.gold-shimmer { color: var(--text-primary); }
 
-/* ---- Premium border ring (Pricing / Final CTA) — static gradient border --- */
+/* ---- Premium ring — borde de acento sutil ---------------------- */
 .ring-anim { position: relative; }
 .ring-anim::before {
   content: "";
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  padding: 1.5px;
-  background: linear-gradient(135deg,
-    var(--violet-600), var(--gold-400), var(--cyan), var(--violet-500));
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.55), rgba(255, 255, 255, 0.10) 45%, rgba(124, 92, 255, 0.35));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
           mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
-  opacity: 0.85;
+  opacity: 0.6;
   pointer-events: none;
 }
 
-/* ---- Scoped aurora — for cinematic panels (Final CTA) ---------- */
-.panel-aurora {
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(40% 50% at 22% 24%, rgba(131, 93, 245, 0.18), transparent 60%),
-    radial-gradient(38% 46% at 80% 30%, rgba(232, 178, 60, 0.10), transparent 60%),
-    radial-gradient(36% 44% at 62% 84%, rgba(45, 212, 238, 0.08), transparent 60%);
-  animation: aurora-drift 26s ease-in-out infinite;
-  will-change: transform;
-  pointer-events: none;
-}
-
-/* ---- Gold shimmer — seals & premium accents (never headlines) -- */
-@keyframes shimmer-x { 0% { background-position: -130% 0; } 100% { background-position: 230% 0; } }
-.gold-shimmer {
-  background: linear-gradient(110deg, var(--gold-600) 18%, #FFF1C4 40%, var(--gold-400) 58%, var(--gold-600) 82%);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  animation: shimmer-x 5s linear infinite;
-}
+/* ---- Aurora — desactivada -------------------------------------- */
+.panel-aurora { display: none; }
 
 /* ================================================================
-   Engraved Maat motifs — symbolic gold line watermarks
+   Motifs — DESACTIVADOS (el monograma MW es la única marca visual)
    ================================================================ */
-.motif {
-  opacity: var(--motif-o, 0.08);
-  pointer-events: none;
-  filter: drop-shadow(0 0 12px rgba(232, 178, 60, 0.22));
-}
-@keyframes motif-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-8px) rotate(0.8deg); }
-}
-@keyframes motif-breathe {
-  0%, 100% { opacity: var(--motif-o, 0.08); }
-  50%      { opacity: calc(var(--motif-o, 0.08) * 1.85); }
-}
-.motif-float {
-  animation: motif-float 11s ease-in-out infinite,
-             motif-breathe 8.5s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-
-.card-glyph {
-  z-index: -1;
-  opacity: var(--glyph-o, 0.07);
-  filter: drop-shadow(0 0 8px rgba(232, 178, 60, 0.16));
-  transition: opacity 280ms var(--ease-out-quart), transform 280ms var(--ease-out-quart);
-}
-.card-accent:hover .card-glyph {
-  opacity: calc(var(--glyph-o, 0.07) * 2.3);
-  transform: rotate(-3deg) scale(1.05);
-}
-
-/* ---- Maat weave — faience-net linework wash ------------------- */
-.maat-weave { position: relative; isolation: isolate; }
-.maat-weave::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(45deg,  rgba(232, 178, 60, 0.05) 0 1px, transparent 1px 23px),
-    repeating-linear-gradient(-45deg, rgba(232, 178, 60, 0.05) 0 1px, transparent 1px 23px);
-  -webkit-mask-image: radial-gradient(135% 100% at 50% 0%, #000 8%, transparent 78%);
-          mask-image: radial-gradient(135% 100% at 50% 0%, #000 8%, transparent 78%);
-}
+.motif { opacity: 0; display: none; }
+.motif-float, .glyph-float, .glyph-drift, .card-glyph { opacity: 0; }
+.maat-weave { position: relative; }
+.maat-weave::after { content: none; }
 
 /* ================================================================
-   Safari mobile chrome tinting — brand dark bar
+   Safari mobile chrome tinting
    ================================================================ */
 .safari-mobile-chrome {
   background: var(--ink-base);
@@ -738,163 +614,53 @@ html.js-ready .reveal:not(.is-visible) {
   opacity: 0;
   visibility: hidden;
 }
-.safari-mobile-chrome.is-visible {
-  opacity: 1;
-  visibility: visible;
-}
+.safari-mobile-chrome.is-visible { opacity: 1; visibility: visible; }
 
 /* ================================================================
-   RESPONSIVE — Mobile under 768px
+   RESPONSIVE — Mobile < 768px
    ================================================================ */
 @media (max-width: 767px) {
-  /* ---- Grid field background -------------------------------- */
-  .bg-field::before { background-size: 48px 48px; }
-  .hero-halo { opacity: 0.45; }
+  .bg-field::before { background-size: 52px 52px; }
+  .hero-halo { opacity: 0.7; }
 
-  /* ---- Freeze expensive animations & GPU promotions -------- */
-  .hero-halo,
-  .panel-aurora,
-  .cta-violet::before,
-  .ring-anim::before,
-  .live-ring,
-  .section-chroma::after {
-    animation: none;
-  }
-  .panel-aurora { will-change: auto; }
-
-  /* ---- Typography scaling ----------------------------------- */
   h1.font-display.text-4xl {
-    font-size: 2rem !important;       /* 32px en vez de 40px */
-    line-height: 1.08 !important;
+    font-size: 2.1rem !important;
+    line-height: 1.06 !important;
     letter-spacing: -0.03em !important;
   }
+  h2.font-display.text-3xl { font-size: 1.6rem !important; line-height: 1.12 !important; }
 
-  h2.font-display.text-3xl {
-    font-size: 1.6rem !important;      /* ~26px en vez de 32px */
-    line-height: 1.12 !important;
-  }
+  .section-pad    { padding-top: 2.75rem !important; padding-bottom: 2.75rem !important; }
+  .section-pad-md { padding-top: 3.25rem !important; padding-bottom: 3.25rem !important; }
+  .container-maat { padding-inline: 1rem; }
+  .hero-halo { width: clamp(320px, 92vw, 460px); top: 36%; }
 
-  /* ---- Section padding reduction (mobile) ------------------- */
-  .section-pad {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
-  }
-  .section-pad-md {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
+  .product-frame .panel-content { padding: 0.75rem !important; }
+  .product-frame .signal-row { padding: 0.4rem 0.5rem; gap: 0.5rem; }
+  .product-frame .kpi-label { font-size: 10px; }
 
-  /* ---- Container tighter padding ---------------------------- */
-  .container-maat {
-    padding-inline: 1rem;
-  }
+  .ops-card.p-7  { padding: 1.25rem !important; }
+  .ops-card.p-8  { padding: 1.25rem !important; }
+  .ops-card.p-10 { padding: 1.5rem !important; }
 
-  /* ---- Hero adjustments ------------------------------------- */
-  .hero-halo {
-    width: clamp(320px, 90vw, 440px);
-    top: 38%;
-  }
+  .pricing-amount { font-size: 2.5rem !important; }
 
-  /* ---- ProductShowcase — compact panel ---------------------- */
-  .product-frame .panel-content {
-    padding: 0.75rem !important;
-  }
-  .product-frame .signal-row {
-    padding: 0.4rem 0.5rem;
-    gap: 0.5rem;
-  }
-  .product-frame .kpi-label {
-    font-size: 10px;
-  }
+  #contacto .ops-card.p-10 { padding: 1.5rem 1.25rem !important; }
+  #contacto h2 { font-size: 1.7rem !important; line-height: 1.12 !important; }
 
-  /* ---- Services cards — tighter padding --------------------- */
-  .ops-card.p-7 {
-    padding: 1.25rem !important;
-  }
-  .ops-card.p-8 {
-    padding: 1.25rem !important;
-  }
-  .ops-card.p-10 {
-    padding: 1.5rem !important;
-  }
-
-  /* ---- Pricing card — compact price display ----------------- */
-  .pricing-amount {
-    font-size: 2.5rem !important;     /* 40px en vez de 58px */
-  }
-
-  /* ---- Final CTA card — tighter ----------------------------- */
-  #contacto .ops-card.p-10 {
-    padding: 1.5rem 1.25rem !important;
-  }
-  #contacto h2 {
-    font-size: 1.6rem !important;
-    line-height: 1.12 !important;
-  }
-
-  /* ---- Section subtitle text -------------------------------- */
-  .section-subtitle {
-    font-size: 0.9375rem !important;   /* 15px */
-    line-height: 1.6 !important;
-  }
-
-  /* ---- CTA buttons full-width on small screens -------------- */
-  .cta-full-mobile {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* ---- Grid single column on mobile for key sections -------- */
-  .services-grid-mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  /* ---- Testimonial cards tighter ---------------------------- */
-  #testimonios article {
-    padding: 1.25rem !important;
-  }
-
-  /* ---- HowItWorks step cards -------------------------------- */
-  #proceso .ops-card.p-7 {
-    padding: 1rem 1.25rem !important;
-  }
-
-  /* ---- TechStack badges — more compact ---------------------- */
-  #stack .ops-card {
-    padding: 0.4rem 0.75rem !important;
-    font-size: 11px !important;
-  }
-
-  /* ---- Subpage content better padding ----------------------- */
-  .subpage-content {
-    padding-top: 5rem !important;
-  }
-
-  /* ---- Navbar — keep compact on mobile ---------------------- */
-  header .container-maat {
-    padding-inline: 1rem;
-  }
-
-  /* ---- StickyWhatsApp safeness ------------------------------ */
-  .cta-whatsapp {
-    font-size: 14px !important;
-    height: 50px !important;
-  }
-
-  /* ---- Footer — compact on mobile --------------------------- */
-  footer .container-maat {
-    padding-inline: 1rem;
-  }
-
-  /* ---- Features section — stacked --------------------------- */
-  #operacion .grid-cols-2 {
-    grid-template-columns: 1fr !important;
-  }
+  .section-subtitle { font-size: 0.9375rem !important; line-height: 1.6 !important; }
+  .cta-full-mobile { width: 100%; justify-content: center; }
+  .services-grid-mobile { display: flex; flex-direction: column; gap: 1rem; }
+  #testimonios article { padding: 1.25rem !important; }
+  #proceso .ops-card.p-7 { padding: 1rem 1.25rem !important; }
+  #stack .ops-card { padding: 0.4rem 0.75rem !important; font-size: 11px !important; }
+  .subpage-content { padding-top: 5rem !important; }
+  header .container-maat { padding-inline: 1rem; }
+  .cta-whatsapp { font-size: 14px !important; height: 50px !important; }
+  footer .container-maat { padding-inline: 1rem; }
+  #operacion .grid-cols-2 { grid-template-columns: 1fr !important; }
 }
 
-/* ---- Touch devices — neutralize hover lifts ---------------- */
 @media (hover: none) {
   .hover-scale:hover,
   .ops-card:hover,
@@ -902,135 +668,57 @@ html.js-ready .reveal:not(.is-visible) {
   .portfolio-card:hover { transform: none; }
 }
 
-/* ---- Very small screens (< 420px) — extra tightening ------- */
 @media (max-width: 419px) {
-  .container-maat {
-    padding-inline: 0.75rem;
-  }
-
-  h1.font-display.text-4xl {
-    font-size: 1.65rem !important;
-  }
-
-  .hero-halo {
-    width: 280px;
-  }
-
-  #contacto h2 {
-    font-size: 1.35rem !important;
-  }
-
-  .pricing-amount {
-    font-size: 2rem !important;
-  }
+  .container-maat { padding-inline: 0.75rem; }
+  h1.font-display.text-4xl { font-size: 1.75rem !important; }
+  .hero-halo { width: 300px; }
+  #contacto h2 { font-size: 1.4rem !important; }
+  .pricing-amount { font-size: 2rem !important; }
 }
 
 /* ================================================================
-   MaatWork DS — atmosphere, floating glyphs, micro-interactions
+   Atmosphere + micro-interactions (dark monochrome)
    ================================================================ */
-
-/* ---- DS easing & type tokens not in @theme ---- */
 :root {
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphatic: cubic-bezier(0.3, 0, 0, 1);
-  --font-monumental: "Big Shoulders Display", system-ui, sans-serif;
-  --lapis-500: #1FB6C9;
 }
 
-/* ---- Atmosphere layers — golden grid, vignette, grain ---- */
-.atmo {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
+.atmo { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
 .atmo-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(232, 178, 60, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 178, 60, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(15, 15, 35, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 15, 35, 0.03) 1px, transparent 1px);
   background-size: 80px 80px;
   -webkit-mask-image: radial-gradient(100% 60% at 50% 30%, #000 0%, transparent 70%);
   mask-image: radial-gradient(100% 60% at 50% 30%, #000 0%, transparent 70%);
 }
-.atmo-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 50% 40%, transparent 0%, rgba(0,0,0,0.6) 100%);
-}
+.atmo-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 40%, transparent 0%, rgba(15,15,35,0.07) 100%); }
 .atmo-grain {
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.03;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' fill='white' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 384px 384px;
 }
 
-/* ---- Floating glyph animations ---- */
-@keyframes glyph-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
-  25%  { transform: translateY(-12px) rotate(1.5deg); opacity: 0.18; }
-  50%  { transform: translateY(-6px) rotate(-0.5deg); opacity: 0.12; }
-  75%  { transform: translateY(-18px) rotate(0.8deg); opacity: 0.22; }
-}
-.glyph-float {
-  animation: glyph-float 14s ease-in-out infinite;
-  will-change: transform, opacity;
-}
-@keyframes glyph-drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.06; }
-  33%  { transform: translate(18px, -10px) rotate(4deg); opacity: 0.16; }
-  66%  { transform: translate(-12px, -22px) rotate(-2deg); opacity: 0.12; }
-}
-.glyph-drift {
-  animation: glyph-drift 18s ease-in-out infinite;
-  will-change: transform, opacity;
-}
+.hover-lift-glow { transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart); }
+.hover-lift-glow:hover { transform: translateY(-3px); box-shadow: 0 10px 30px -10px rgba(15, 15, 35, 0.18); }
+.hover-lift-glow:active { transform: translateY(-1px); }
 
-/* ---- Micro-interactions ---- */
-.hover-lift-glow {
-  transition: transform 200ms var(--ease-out-quart), box-shadow 200ms var(--ease-out-quart);
-}
-.hover-lift-glow:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px -6px rgba(131, 93, 245, 0.50);
-}
-.hover-lift-glow:active {
-  transform: translateY(-1px);
-}
+.press-sink { transition: transform 120ms cubic-bezier(0.2, 0, 0, 1); }
+.press-sink:active { transform: scale(0.97); }
 
-.press-sink {
-  transition: transform 120ms cubic-bezier(0.2, 0, 0, 1);
-}
-.press-sink:active {
-  transform: scale(0.97);
-}
-
-/* ---- Halo pulse for decorative spots ---- */
-@keyframes halo-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50%      { opacity: 0.9; transform: scale(1.08); }
-}
-.halo-pulse {
-  animation: halo-pulse 6s ease-in-out infinite;
-}
-
-/* ---- Border beam — animated gradient border accent ---- */
-@keyframes border-beam {
-  0%, 100% { border-color: rgba(131, 93, 245, 0.3); }
-  50%      { border-color: rgba(232, 178, 60, 0.5); }
-}
-.border-beam {
-  animation: border-beam 4s ease-in-out infinite;
-}
+.halo-pulse { /* estático */ }
+.border-beam { border-color: rgba(124, 92, 255, 0.30); }
 
 /* ================================================================
-   prefers-reduced-motion — kill all animations
+   prefers-reduced-motion
    ================================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1045,7 +733,6 @@ html.js-ready .reveal:not(.is-visible) {
 
 /* ================================================================
    Section atmosphere + premium card/CTA helpers
-   (Footer / Services / Pricing / ProductEcosystem / FinalCTA)
    ================================================================ */
 .section-atmo { position: relative; }
 .section-atmo > .atmo { position: absolute; inset: 0; }
@@ -1061,7 +748,7 @@ html.js-ready .reveal:not(.is-visible) {
 .card-premium:hover {
   border-color: var(--border-accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(131, 93, 245, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .cta-primary {
@@ -1070,16 +757,65 @@ html.js-ready .reveal:not(.is-visible) {
   gap: 8px;
   padding: 12px 28px;
   border-radius: 9999px;
-  background: var(--gold-500);
-  color: #0A0A11;
+  background: var(--violet-500);
+  color: #fff;
   font-weight: 600;
   font-size: 15px;
-  transition: transform var(--dur-base) var(--ease-out-expo), box-shadow var(--dur-base) var(--ease-out-expo);
+  transition: background var(--dur-base) var(--ease-out-expo), transform var(--dur-base) var(--ease-out-expo);
 }
-.cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 24px rgba(232, 178, 60, 0.35);
+.cta-primary:hover { background: var(--violet-400); transform: translateY(-2px); }
+.cta-primary:active { transform: scale(0.97); }
+
+/* ================================================================
+   Border Beam — luz que recorre el perímetro (port MagicUI/cult-ui).
+   Un haz viaja por el borde vía offset-path; la máscara deja pintar
+   solo el anillo del borde. Configurable por CSS vars (--bb-*).
+   ================================================================ */
+@keyframes mw-border-beam { to { offset-distance: 100%; } }
+
+.beam-ring {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid transparent;
+  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+          mask: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  -webkit-mask-clip: padding-box, border-box;
+          mask-clip: padding-box, border-box;
+  -webkit-mask-composite: source-in;
+          mask-composite: intersect;
 }
-.cta-primary:active {
-  transform: scale(0.97);
+.beam-ring::after {
+  content: "";
+  position: absolute;
+  aspect-ratio: 1;
+  width: calc(var(--bb-size, 120) * 1px);
+  background: linear-gradient(to left, var(--bb-from, #7C5CFF), var(--bb-to, #B9A6FF), transparent);
+  offset-anchor: 90% 50%;
+  offset-path: rect(0 auto auto 0 round calc(var(--bb-size, 120) * 1px));
+  animation: mw-border-beam calc(var(--bb-duration, 8) * 1s) linear infinite;
+  animation-delay: var(--bb-delay, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .beam-ring::after { display: none; }
+  .beam-ring { border-color: rgba(124, 92, 255, 0.35); }
+}
+
+/* ---- Card blanca con borde animado (Servicios / preview) -------- */
+.beam-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(15, 15, 35, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 1px 2px rgba(15, 15, 35, 0.04), 0 12px 32px -16px rgba(15, 15, 35, 0.18);
+  color: #17171f;
+  transition: transform 200ms var(--ease-out-quart),
+    box-shadow 200ms var(--ease-out-quart),
+    border-color 200ms var(--ease-out-quart);
+}
+.beam-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(124, 92, 255, 0.35);
+  box-shadow: 0 1px 2px rgba(15, 15, 35, 0.04), 0 20px 44px -18px rgba(124, 92, 255, 0.32);
 }

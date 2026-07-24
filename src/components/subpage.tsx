@@ -1,7 +1,8 @@
 /**
  * Partes presentacionales compartidas por las subpáginas (servicios, casos,
  * soluciones, blog). Reusan el design system de la home (ops-card, eyebrow,
- * cta-violet, secciones). Server components.
+ * cta-violet, secciones). Server components. El sitio entero es claro; el fondo
+ * (retícula fractal con onda de mouse) es global, montado en el layout.
  */
 import type { ReactNode } from "react";
 import { waLink } from "@/lib/whatsapp";
@@ -14,6 +15,8 @@ export function PageHero({
   secondaryHref = "/#servicios",
   secondaryLabel = "Ver todos los servicios",
   secondaryExternal = false,
+  visual,
+  tone = "light",
 }: {
   eyebrow: string;
   h1: string;
@@ -22,36 +25,71 @@ export function PageHero({
   secondaryHref?: string;
   secondaryLabel?: string;
   secondaryExternal?: boolean;
+  /** Ilustración opcional a la derecha del hero (ej. mockup Safari). */
+  visual?: ReactNode;
+  /** Compat: el sitio entero es claro. */
+  tone?: "dark" | "light";
 }) {
-  return (
-    <section className="section-base section-chroma relative overflow-hidden">
-      <div className="container-maat pt-10 pb-12 md:pt-12 md:pb-16">
-        <span className="eyebrow">{eyebrow}</span>
-        <h1
-          className="mt-3 max-w-[840px] font-display text-4xl text-white text-balance md:text-5xl"
-          style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.05 }}
+  const light = tone === "light";
+  const copy = (
+    <div>
+      <span
+        className={
+          light ? "text-[14px] font-semibold uppercase tracking-[0.06em] text-violet-600" : "eyebrow"
+        }
+      >
+        {eyebrow}
+      </span>
+      <h1
+        className={`mt-3 max-w-[840px] font-display text-4xl text-balance md:text-5xl ${
+          light ? "text-slate-900" : "text-white"
+        }`}
+        style={{ fontWeight: 800, letterSpacing: "var(--tracking-display)", lineHeight: 1.05 }}
+      >
+        {h1}
+      </h1>
+      <p className={`mt-5 max-w-[660px] leading-8 ${light ? "text-[18px] text-slate-600" : "text-[17px] text-slate-300"}`}>
+        {intro}
+      </p>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={waLink(`Hola MaatWork, ${ctaMsg}`)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-violet inline-flex h-12 items-center justify-center rounded-full px-7 text-[15px] font-semibold text-white hover-scale"
         >
-          {h1}
-        </h1>
-        <p className="mt-5 max-w-[660px] text-[17px] leading-8 text-slate-300">{intro}</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={waLink(`Hola MaatWork, ${ctaMsg}`)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-violet inline-flex h-12 items-center justify-center rounded-full px-7 text-[15px] font-semibold text-white hover-scale"
-          >
-            Contanos tu proyecto
-          </a>
-          <a
-            href={secondaryHref}
-            target={secondaryExternal ? "_blank" : undefined}
-            rel={secondaryExternal ? "noopener noreferrer" : undefined}
-            className="cta-ghost inline-flex h-12 items-center justify-center rounded-full px-7 text-[15px] font-semibold text-white"
-          >
-            {secondaryLabel}
-          </a>
-        </div>
+          Contanos tu proyecto
+        </a>
+        <a
+          href={secondaryHref}
+          target={secondaryExternal ? "_blank" : undefined}
+          rel={secondaryExternal ? "noopener noreferrer" : undefined}
+          className={`inline-flex h-12 items-center justify-center rounded-full px-7 text-[15px] font-semibold ${
+            light
+              ? "border border-slate-300 text-slate-900 transition-colors hover:border-slate-400 hover:bg-slate-100"
+              : "cta-ghost text-white"
+          }`}
+        >
+          {secondaryLabel}
+        </a>
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="relative overflow-hidden">
+      <div className="container-maat relative pt-10 pb-12 md:pt-12 md:pb-16">
+        {visual ? (
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,540px)] lg:gap-16">
+            {copy}
+            <div className="relative reveal" style={{ transitionDelay: "80ms" }}>
+              <div className="preview-halo" aria-hidden />
+              <div className="relative z-10">{visual}</div>
+            </div>
+          </div>
+        ) : (
+          copy
+        )}
       </div>
     </section>
   );
@@ -151,19 +189,37 @@ export function PageCTA({
   title,
   text,
   ctaMsg,
+  tone = "dark",
 }: {
   title: string;
   text?: string;
   ctaMsg: string;
+  tone?: "dark" | "light";
 }) {
+  const light = tone === "light";
   return (
-    <section id="contacto" className="section-base section-pad">
+    <section id="contacto" className={`section-pad ${light ? "" : "section-base"}`}>
       <div className="container-maat">
-        <div className="ops-card ring-anim relative overflow-hidden p-10 text-center md:p-14">
-          <h2 className="mx-auto max-w-[640px] font-display text-[30px] leading-tight text-white md:text-[40px]" style={{ fontWeight: 800 }}>
+        <div
+          className={`relative overflow-hidden p-10 text-center md:p-14 ${
+            light
+              ? "rounded-2xl border border-slate-200 bg-[#fff] shadow-[0_18px_60px_-30px_rgba(15,15,35,0.25)]"
+              : "ops-card ring-anim"
+          }`}
+        >
+          <h2
+            className={`mx-auto max-w-[640px] font-display text-[30px] leading-tight md:text-[40px] ${
+              light ? "text-slate-900" : "text-white"
+            }`}
+            style={{ fontWeight: 800 }}
+          >
             {title}
           </h2>
-          {text && <p className="mx-auto mt-4 max-w-[540px] text-[16px] leading-relaxed text-slate-300">{text}</p>}
+          {text && (
+            <p className={`mx-auto mt-4 max-w-[540px] leading-relaxed ${light ? "text-[17px] text-slate-600" : "text-[16px] text-slate-300"}`}>
+              {text}
+            </p>
+          )}
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <a
               href={waLink(`Hola MaatWork, ${ctaMsg}`)}
@@ -174,8 +230,14 @@ export function PageCTA({
               Contanos tu proyecto
             </a>
           </div>
-          <p className="mt-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500">
-            Desde USD 100/mes · te lo mostramos antes de firmar · soporte local
+          <p
+            className={
+              light
+                ? "mt-6 text-[14px] text-slate-500"
+                : "mt-6 font-mono text-[10.5px] uppercase tracking-[0.12em] text-slate-500"
+            }
+          >
+            Cotización a medida y sin costo · te pasamos alcance y precio antes de firmar · soporte local
           </p>
         </div>
       </div>

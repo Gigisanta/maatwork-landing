@@ -4,18 +4,22 @@
  * páginas internas se ven nativas sin duplicar layout. Server component.
  */
 import type { ReactNode } from "react";
-import { OperationalField } from "./OperationalField";
 import { ScrollProgress } from "./ScrollProgress";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { StickyWhatsApp } from "./StickyWhatsApp";
 
-export function PageShell({ children }: { children: ReactNode }) {
+export function PageShell({
+  children,
+}: {
+  children: ReactNode;
+  /** Compat: el sitio entero es claro; el prop ya no cambia el render. */
+  tone?: "dark" | "light";
+}) {
   return (
     <>
-      <OperationalField />
       <ScrollProgress />
-      <Navbar />
+      <Navbar solid />
       <main id="main-content" tabIndex={-1}>
         {children}
       </main>

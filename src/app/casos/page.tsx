@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { PRODUCT_HIGHLIGHTS, SERIOUS_PROJECT_COUNT } from "@/data/products";
+import { PRODUCT_HIGHLIGHTS } from "@/data/products";
 import { PageShell } from "@/components/PageShell";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { PageHero, PageCTA } from "@/components/subpage";
 
 export const metadata: Metadata = {
   title: "Casos — portfolio real en producción",
-  description: `${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel: sistemas, landings, documentación y herramientas internas de MaatWork.`,
+  description: "Todo lo que construimos, navegable: sistemas en producción real, proyectos en desarrollo y herramientas internas de MaatWork.",
   alternates: { canonical: "/casos" },
   openGraph: {
     title: "Casos — portfolio real en producción · MaatWork",
-    description: `${SERIOUS_PROJECT_COUNT} proyectos publicados en Vercel: una muestra visible de lo que MaatWork construye.`,
+    description: "Sistemas en producción real y proyectos en desarrollo: una muestra navegable de lo que MaatWork construye.",
     url: "https://maat.work/casos",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Casos de MaatWork" }],
   },
@@ -24,7 +24,7 @@ export default function CasesIndexPage() {
       <PageHero
         eyebrow="Casos"
         h1="Portfolio real, publicado en Vercel"
-        intro={`${SERIOUS_PROJECT_COUNT} proyectos online: sistemas, landings, documentación y herramientas internas. Todo navegable.`}
+        intro="Todo lo que construimos, navegable: sistemas en producción real, proyectos en desarrollo y herramientas internas."
         ctaMsg="quiero contarles un proyecto"
         secondaryHref="/servicios"
         secondaryLabel="Ver servicios"

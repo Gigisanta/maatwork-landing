@@ -29,7 +29,7 @@ export function StickyWhatsApp() {
       const y = window.scrollY;
       const pastHero = y > vh * 0.9;
       const nearBottom = y + vh > docH - vh * 1.3;
-      const overLocalCta = ["operacion", "precios"].some((id) => {
+      const overLocalCta = ["contacto"].some((id) => {
         const rect = document.getElementById(id)?.getBoundingClientRect();
         return rect ? rect.top < vh * 0.92 && rect.bottom > vh * 0.18 : false;
       });

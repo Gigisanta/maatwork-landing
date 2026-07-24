@@ -78,7 +78,7 @@ export function Pricing() {
                 <span className="pb-2 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-gold-300">
                   Desde USD
                 </span>
-                <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-[var(--gold-500)]" style={{ fontWeight: 800 }}>
+                <span className="font-display text-[58px] leading-none tracking-[-0.04em] text-text-primary" style={{ fontWeight: 800 }}>
                   100
                 </span>
                 <span className="pb-1 text-[15px] font-medium text-slate-400">/mes</span>

@@ -18,45 +18,49 @@ export const SOURCE_PAGES: SourcePage[] = [
     slug: "precios",
     eyebrow: "Precios",
     h1: "Precios de MaatWork",
-    metaTitle: "Precios de MaatWork: software desde USD 100/mes",
+    metaTitle: "Precios de MaatWork: cotización a medida",
     metaDescription:
-      "Precios de MaatWork: producto base desde USD 100/mes, setup según alcance, sin permanencia y desarrollos a medida cotizados por etapas.",
+      "Cómo cotiza MaatWork: cada proyecto se estima según tu operación, alcance e integraciones. Sin precios genéricos, sin permanencia y con avances por etapas.",
     intro:
-      "El punto de entrada de MaatWork es un producto base operativo desde USD 100/mes, más un setup inicial según el alcance. Los módulos avanzados, automatizaciones, integraciones y desarrollos a medida se cotizan por proyecto.",
+      "En MaatWork no damos precios genéricos: cada proyecto se cotiza a medida según tu operación, el alcance y las integraciones que necesites. Primero entendemos tu situación en una charla sin costo; después te pasamos una propuesta con alcance, tiempos y precio antes de firmar.",
     claim:
-      "MaatWork ofrece un producto base operativo desde USD 100/mes para negocios argentinos que necesitan agenda, clientes, cobros y tablero sin iniciar un proyecto de meses.",
+      "MaatWork cotiza cada proyecto a medida según la operación y el alcance de cada negocio, sin precios genéricos y sin permanencia obligatoria.",
     facts: [
-      "Producto base operativo: desde USD 100/mes.",
-      "Setup inicial: se define según alcance, migración y configuración requerida.",
+      "Cotización: a medida, según operación, alcance e integraciones.",
+      "Diagnóstico inicial: una charla sin costo para entender tu situación.",
+      "Propuesta: alcance, tiempos y precio definidos antes de firmar.",
       "Facturación: en pesos argentinos al tipo de cambio del día.",
-      "Permanencia: el producto base es mes a mes, sin permanencia obligatoria.",
-      "Desarrollo a medida: se cotiza por alcance y se paga por etapas con avances visibles.",
-      "Módulos avanzados: WhatsApp, apps móviles, multi-sucursal, IA e integraciones se cotizan aparte.",
+      "Permanencia: sin permanencia obligatoria.",
+      "Desarrollo a medida: se paga por etapas, con avances visibles.",
     ],
     sections: [
       {
-        title: "Qué incluye el producto base",
+        title: "Cómo cotizamos",
         body: [
-          "El producto base operativo incluye clientes, agenda, cobros, inventario simple y tablero de control. Está pensado para ordenar rápido la operación y después crecer con módulos a medida.",
-          "La implementación guiada carga tus datos, configura el flujo inicial y deja al equipo operando con soporte local en español.",
+          "Analizamos tu operación real —qué flujo duele hoy, con qué sistemas hay que integrarse y qué querés lograr— y sobre eso armamos una propuesta a medida. No hay dos negocios iguales, así que no trabajamos con precios de lista.",
+          "Te pasamos alcance, etapas, tiempos y precio antes de arrancar. Solo seguís si tiene sentido para vos.",
         ],
       },
       {
-        title: "Qué se cotiza aparte",
+        title: "Qué define la cotización",
         body: [
-          "Las automatizaciones por WhatsApp, facturación ARCA/AFIP, Mercado Pago, apps móviles, roles avanzados, múltiples sucursales y desarrollos propios se estiman según el flujo real de cada negocio.",
-          "MaatWork muestra avances reales antes de seguir cobrando etapas, para evitar consultorías eternas o proyectos sin uso operativo.",
+          "El precio depende de la complejidad del flujo, la cantidad de módulos, las integraciones (WhatsApp, Mercado Pago, ARCA/AFIP) y si hace falta app móvil, multi-sucursal o IA.",
+          "Mostramos avances reales antes de seguir cobrando etapas, para evitar consultorías eternas o proyectos sin uso operativo.",
         ],
       },
     ],
     faqs: [
       {
         q: "¿Cuánto cuesta MaatWork?",
-        a: "El producto base operativo arranca desde USD 100/mes más un setup inicial según alcance. Los desarrollos a medida, integraciones y automatizaciones se cotizan por proyecto.",
+        a: "Depende de tu operación y del alcance del proyecto. No damos precios genéricos: primero entendemos tu situación y después te pasamos una cotización a medida, sin costo.",
+      },
+      {
+        q: "¿La cotización tiene costo?",
+        a: "No. El diagnóstico inicial y la cotización son sin costo. Recién avanzamos si la propuesta tiene sentido para vos.",
       },
       {
         q: "¿Hay permanencia?",
-        a: "No. El producto base es mes a mes. Los proyectos a medida se pactan por alcance y por etapas.",
+        a: "No. Los proyectos se pactan por alcance y por etapas, sin permanencia obligatoria.",
       },
       {
         q: "¿En qué moneda se factura?",
@@ -68,7 +72,7 @@ export const SOURCE_PAGES: SourcePage[] = [
       { href: "/servicios/desarrollo-a-medida", label: "Desarrollo a medida" },
       { href: "/implementacion", label: "Implementación" },
     ],
-    ctaMsg: "quiero saber el precio para mi negocio",
+    ctaMsg: "quiero una cotización a medida",
   },
   {
     slug: "implementacion",
