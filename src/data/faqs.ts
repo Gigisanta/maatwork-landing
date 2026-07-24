@@ -8,7 +8,7 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: "¿Cuánto cuesta?",
-    a: "Arranca desde USD 100/mes para el producto base, más un setup inicial según el alcance. El desarrollo a medida, las automatizaciones y las integraciones se cotizan según lo que tu negocio necesita. Facturamos en pesos al tipo de cambio del día.",
+    a: "No manejamos precios de lista: cada proyecto se cotiza a medida según el alcance. Arrancás con un diagnóstico gratis de 15 minutos y te pasamos un presupuesto claro, sin permanencia. Facturamos en pesos al tipo de cambio del día.",
   },
   {
     q: "¿Cuánto tarda?",

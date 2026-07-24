@@ -20,7 +20,7 @@ const MARKERS: { value: string; label: string; dot: string }[] = [
   { value: `${SERIOUS_PROJECT_COUNT} live`, label: "Proyectos navegables", dot: "var(--cyan)" },
   { value: "Apps + IA", label: "Operación y ventas", dot: "var(--violet-400)" },
   { value: "Directo", label: "Hablás con quien construye", dot: "var(--success)" },
-  { value: "USD 100+", label: "Base mensual", dot: "var(--gold-400)" },
+  { value: "A cotizar", label: "Presupuesto a medida", dot: "var(--gold-400)" },
 ];
 
 export function ProofStrip() {

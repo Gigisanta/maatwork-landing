@@ -5,6 +5,7 @@
  * no work-in-progress. Server component (sin filtros).
  */
 import Link from "next/link";
+import { waLink } from "@/lib/whatsapp";
 import { PRODUCTION_ITEMS, PRODUCTION_COUNT, type PortfolioItem } from "@/data/portfolio";
 
 const GESTION = PRODUCTION_ITEMS.filter((p) => p.category === "gestion");
@@ -56,11 +57,16 @@ export function PortfolioSection() {
           ))}
         </div>
 
-        {/* Cierre */}
+        {/* Cierre — sin salir del scroll: CTA directo por WhatsApp */}
         <div className="reveal mt-12 flex flex-col items-center gap-3 border-t border-white/[0.06] pt-9 text-center">
-          <Link href="/casos" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--text-tertiary)] transition-colors hover:text-text-primary">
-            Ver todos los proyectos, incluidos los que están en desarrollo →
-          </Link>
+          <a
+            href={waLink("Hola MaatWork, quiero un sistema o web como los de producción")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--text-tertiary)] transition-colors hover:text-text-primary"
+          >
+            ¿Querés uno así para tu negocio? Contanos tu proyecto →
+          </a>
         </div>
       </div>
     </section>

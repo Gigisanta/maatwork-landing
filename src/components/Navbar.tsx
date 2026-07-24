@@ -13,6 +13,7 @@ import { Logo } from "./Logo";
 const links = [
   { href: "/#servicios", id: "servicios", label: "Servicios" },
   { href: "/#portfolio", id: "portfolio", label: "Casos" },
+  { href: "/#nosotros", id: "nosotros", label: "Nosotros" },
   { href: "/#precios", id: "precios", label: "Precios" },
   { href: "/#contacto", id: "contacto", label: "Contacto" },
 ];
@@ -23,6 +24,7 @@ const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 const NAV_ITEMS = [
   { href: "/#servicios", label: "Servicios", desc: "Qué podemos resolver" },
   { href: "/#portfolio", label: "Casos", desc: "Sistemas en producción" },
+  { href: "/#nosotros", label: "Nosotros", desc: "Quiénes construyen tu sistema" },
   { href: "/#precios", label: "Precios", desc: "Planes claros, sin permanencia" },
   { href: "/#contacto", label: "Contacto", desc: "WhatsApp directo" },
 ];

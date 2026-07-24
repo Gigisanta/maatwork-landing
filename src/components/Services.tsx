@@ -1,12 +1,10 @@
 /**
- * Services — what MaatWork actually sells, as a hireable menu. Four rails:
- * producto base, desarrollo a medida, automatización e IA, integraciones.
- * Reuses the ops-card / accent system from Features; each card carries its own
- * WhatsApp CTA so the lead arrives with context (rubro/servicio pre-cargado).
- * Server component.
+ * Services — lo que hace MaatWork, en dos tipos claros: sistemas a medida y
+ * páginas web. Todo se cotiza a medida (sin precios de lista). Cada card lleva
+ * su propio CTA de WhatsApp con contexto pre-cargado. Sin links a páginas
+ * separadas: la home es un único scroll. Server component.
  */
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { waLink } from "@/lib/whatsapp";
 import { BorderBeam } from "@/components/BorderBeam";
 
@@ -15,75 +13,40 @@ type Service = {
   title: string;
   desc: string;
   includes: string[];
-  delivery: string;
   cta: string; // WhatsApp prefill context
-  accent: string;
-  highlight?: boolean; // "Más elegido" — default option, reduce choice paralysis
+  highlight?: boolean; // "Más elegido" — opción por defecto
   icon: ReactNode;
 };
 
 const SERVICES: Service[] = [
   {
     idx: "01",
-    title: "Apps de gestión a medida",
-    desc: "CRMs, paneles y sistemas internos para operar sin planillas eternas.",
+    title: "Sistemas a medida",
+    desc: "CRMs, paneles y sistemas internos hechos para tu operación real. Con automatización, IA y facturación integradas cuando hacen falta.",
     includes: [
-      "Flujos reales de tu equipo",
-      "Demo cada dos semanas",
+      "Modelado sobre los flujos reales de tu equipo",
+      "Automatización, WhatsApp e IA integrados",
+      "Facturación ARCA/AFIP y cobros",
+      "Demo cada dos semanas hasta producción",
     ],
-    delivery: "4 a 8 semanas",
     cta: "quiero un sistema a medida",
-    accent: "accent-violet",
     highlight: true,
     icon: <IconCode />,
   },
   {
     idx: "02",
-    title: "Webs & Landings",
-    desc: "Páginas claras, rápidas y listas para convertir tráfico en conversaciones.",
+    title: "Páginas web",
+    desc: "Sitios y landings rápidos, claros y listos para convertir visitas en conversaciones por WhatsApp.",
     includes: [
-      "Copy corto + diseño premium",
-      "SEO técnico + medición",
+      "Diseño a medida, sin plantillas genéricas",
+      "SEO técnico y velocidad de carga",
+      "WhatsApp y formulario de contacto",
+      "Hosting, dominio y puesta online",
     ],
-    delivery: "2 a 5 semanas",
-    cta: "quiero una web o landing",
-    accent: "accent-cyan",
+    cta: "quiero una página web",
     icon: <IconGlobe />,
   },
-  {
-    idx: "03",
-    title: "Automatización + IA",
-    desc: "Bots, recordatorios y reportes que sacan trabajo repetido del medio.",
-    includes: [
-      "WhatsApp + IA + reportes",
-      "Automatizaciones n8n / Make",
-    ],
-    delivery: "2 a 4 semanas",
-    cta: "quiero automatizar con IA",
-    accent: "accent-gold",
-    icon: <IconBolt />,
-  },
-  {
-    idx: "04",
-    title: "Mantenimiento & Soporte",
-    desc: "Mejoras, monitoreo y soporte para que el sistema siga andando.",
-    includes: [
-      "Incidencias y mejoras",
-      "Backups y monitoreo",
-    ],
-    delivery: "Plan mensual",
-    cta: "quiero soporte y mantenimiento",
-    accent: "accent-emerald",
-    icon: <IconShield />,
-  },
 ];
-
-const DETAIL: Record<string, string> = {
-  "Apps de gestión a medida": "/servicios/desarrollo-a-medida",
-  "Webs & Landings": "/servicios/web-landings",
-  "Automatización + IA": "/servicios/automatizaciones",
-  "Mantenimiento & Soporte": "/servicios/mantenimiento",
-};
 
 function CheckIcon() {
   return (
@@ -100,10 +63,10 @@ export function Services() {
         <div className="max-w-[640px] reveal">
           <span className="eyebrow">Servicios</span>
           <h2 className="mt-3 font-display text-3xl text-white md:text-4xl" style={{ fontWeight: 800, letterSpacing: "var(--tracking-h2)" }}>
-            Elegí el primer movimiento.
+            Dos formas de trabajar juntos.
           </h2>
           <p className="mt-4 max-w-[540px] text-[16px] leading-7 text-slate-300">
-            Landing, automatización o sistema interno. Una puerta de entrada, no una novela.
+            Un sistema a medida o tu página web. Todo se cotiza según tu proyecto, con diagnóstico gratis y sin permanencia.
           </p>
         </div>
 
@@ -117,78 +80,63 @@ export function Services() {
               {/* Luz que recorre el borde (BorderBeam, port MagicUI/cult-ui) */}
               <BorderBeam size={110} duration={7} delay={i * 1.5} />
               <div className="relative z-10 flex flex-1 flex-col">
-              <div className="flex items-center justify-between">
-                <span
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border transition-transform duration-200 group-hover:scale-105"
-                  style={{ borderColor: "rgba(124,92,255,0.28)", background: "rgba(124,92,255,0.10)", color: "#7C5CFF" }}
-                >
-                  {s.icon}
-                </span>
-                {s.highlight ? (
+                <div className="flex items-center justify-between">
                   <span
-                    className="rounded-full px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em]"
-                    style={{ border: "1px solid rgba(124,92,255,0.30)", background: "rgba(124,92,255,0.10)", color: "#6D4AE0" }}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border transition-transform duration-200 group-hover:scale-105"
+                    style={{ borderColor: "rgba(124,92,255,0.28)", background: "rgba(124,92,255,0.10)", color: "#7C5CFF" }}
                   >
-                    Más elegido
+                    {s.icon}
                   </span>
-                ) : (
-                  <span className="font-mono text-[11px] uppercase tracking-[0.04em] text-slate-400">Servicio {s.idx}</span>
-                )}
-              </div>
-              <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-slate-900 transition-colors duration-200 group-hover:text-[#7C5CFF]">
-                {s.title}
-              </h3>
-              <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600">
-                {s.desc}
-              </p>
-              {/* Checkmark list */}
-              <ul className="mt-4 space-y-2">
-                {s.includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-[13px] leading-normal text-slate-600">
-                    <span className="mt-[2px] flex-shrink-0 text-[#7C5CFF]">
-                      <CheckIcon />
+                  {s.highlight ? (
+                    <span
+                      className="rounded-full px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em]"
+                      style={{ border: "1px solid rgba(124,92,255,0.30)", background: "rgba(124,92,255,0.10)", color: "#6D4AE0" }}
+                    >
+                      Más elegido
                     </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {/* Delivery tag */}
-              <div className="mt-4 inline-flex self-start rounded-full border border-[rgba(15,15,35,0.10)] bg-[rgba(15,15,35,0.02)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-slate-500">
-                {s.delivery}
-              </div>
-              <div className="mt-auto flex items-center justify-between gap-3 border-t border-[rgba(15,15,35,0.08)] pt-4">
-                <Link
-                  href={DETAIL[s.title]}
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-slate-500 transition-colors hover:text-slate-900"
-                >
-                  Ver detalle
-                </Link>
-                <a
-                  href={waLink(`Hola MaatWork, ${s.cta}`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors hover:opacity-80"
-                  style={{ color: "#7C5CFF" }}
-                >
-                  Consultar
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </a>
-              </div>
+                  ) : (
+                    <span className="font-mono text-[11px] uppercase tracking-[0.04em] text-slate-400">Servicio {s.idx}</span>
+                  )}
+                </div>
+                <h3 className="mt-5 font-display text-[19px] font-bold tracking-[-0.01em] text-slate-900 transition-colors duration-200 group-hover:text-[#7C5CFF]">
+                  {s.title}
+                </h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-slate-600">
+                  {s.desc}
+                </p>
+                {/* Checkmark list */}
+                <ul className="mt-4 space-y-2">
+                  {s.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-[13px] leading-normal text-slate-600">
+                      <span className="mt-[2px] flex-shrink-0 text-[#7C5CFF]">
+                        <CheckIcon />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                {/* A cotizar tag */}
+                <div className="mt-4 inline-flex self-start rounded-full border border-[rgba(15,15,35,0.10)] bg-[rgba(15,15,35,0.02)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-slate-500">
+                  A cotizar
+                </div>
+                <div className="mt-auto flex items-center justify-end border-t border-[rgba(15,15,35,0.08)] pt-4">
+                  <a
+                    href={waLink(`Hola MaatWork, ${s.cta}`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors hover:opacity-80"
+                    style={{ color: "#7C5CFF" }}
+                  >
+                    Consultar
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Link href="/servicios" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-violet-300 transition-colors hover:text-violet-200">
-            Ver todos los servicios →
-          </Link>
-          <Link href="/soluciones" className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-slate-400 transition-colors hover:text-white">
-            Soluciones por industria →
-          </Link>
         </div>
       </div>
     </section>
@@ -212,22 +160,6 @@ function IconGlobe() {
       <circle cx="12" cy="12" r="10" />
       <line x1="2" y1="12" x2="22" y2="12" />
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-  );
-}
-
-function IconBolt() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>
-  );
-}
-
-function IconShield() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     </svg>
   );
 }

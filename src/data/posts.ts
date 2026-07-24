@@ -119,7 +119,7 @@ export const POSTS: BlogPost[] = [
       {
         heading: "Cómo pensar el retorno",
         paras: [
-          "La automatización se paga sola cuando recupera horas o plata. Un buen ejercicio: estimá cuántas horas por mes dedica tu equipo a la tarea, o cuánto perdés por cobranza que se escapa. Si la automatización cuesta menos que eso, el retorno es claro. En MaatWork el producto base operativo arranca desde USD 100/mes, y la automatización a medida se cotiza según el alcance.",
+          "La automatización se paga sola cuando recupera horas o plata. Un buen ejercicio: estimá cuántas horas por mes dedica tu equipo a la tarea, o cuánto perdés por cobranza que se escapa. Si la automatización cuesta menos que eso, el retorno es claro. En MaatWork cotizamos cada proyecto a medida según el alcance, con un diagnóstico gratis antes de avanzar y sin precios de lista.",
         ],
       },
     ],

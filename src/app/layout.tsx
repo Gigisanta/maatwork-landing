@@ -161,10 +161,8 @@ const jsonLd = {
         "@type": "OfferCatalog",
         name: "Servicios",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Desarrollo de software a medida" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automatizaciones e IA" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Integraciones y facturación ARCA/AFIP" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Producto base operativo" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sistemas a medida" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Páginas web" } },
         ],
       },
     },
@@ -178,18 +176,11 @@ const jsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      name: `${SITE_NAME} — Producto base operativo`,
+      name: `${SITE_NAME} — Sistemas a medida`,
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS, Android",
       description:
-        "Producto base operativo de MaatWork: agenda, clientes, cobros y tablero de control. Punto de entrada desde USD 100/mes; el alcance avanzado se desarrolla y cotiza a medida.",
-      offers: {
-        "@type": "AggregateOffer",
-        lowPrice: "100",
-        priceCurrency: "USD",
-        priceValidUntil: "2027-12-31",
-        availability: "https://schema.org/InStock",
-      },
+        "Sistemas a medida para tu negocio: agenda, clientes, cobros, tablero de control, automatización y facturación. Cada proyecto se cotiza a medida, sin precios de lista.",
       provider: { "@id": `${SITE_URL}/#organization` },
     },
   ],

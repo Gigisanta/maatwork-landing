@@ -81,7 +81,7 @@ export const SERVICES: ServicePage[] = [
       },
       {
         q: "¿Cuánto cuesta?",
-        a: "Se cotiza según el alcance, con un setup inicial. El producto base operativo arranca desde USD 100/mes si querés empezar por ahí.",
+        a: "Se cotiza a medida según el alcance, con un diagnóstico gratis antes de avanzar. No manejamos precios de lista.",
       },
     ],
     ctaMsg: "quiero un desarrollo a medida",
@@ -156,7 +156,7 @@ export const SERVICES: ServicePage[] = [
     h1: "Producto base operativo, listo para usar",
     metaTitle: "Software de gestión operativa para tu negocio",
     metaDescription:
-      "Un sistema listo para operar desde el día uno: agenda, clientes, cobros y tablero de control. Desde USD 100/mes. Implementación guiada y soporte local en Argentina.",
+      "Un sistema listo para operar desde el día uno: agenda, clientes, cobros y tablero de control. Se cotiza a medida. Implementación guiada y soporte local en Argentina.",
     intro:
       "Si querés empezar ya, el producto base te deja operando desde el día uno: agenda, clientes, cobros e inventario, con un tablero de control. Tu punto de entrada al estudio.",
     forWhom:
@@ -173,7 +173,7 @@ export const SERVICES: ServicePage[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta?",
-        a: "Desde USD 100/mes más un setup inicial según el alcance, facturado en pesos al tipo de cambio del día.",
+        a: "Se cotiza a medida según el alcance, facturado en pesos al tipo de cambio del día. No manejamos precios de lista.",
       },
       {
         q: "¿En cuánto tiempo lo tengo operando?",

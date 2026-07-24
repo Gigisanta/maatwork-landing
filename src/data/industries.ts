@@ -127,7 +127,7 @@ export const INDUSTRIES: IndustryPage[] = [
     h1: "Software para gimnasios y estudios",
     metaTitle: "Software para gimnasios, estudios y centros de turnos",
     metaDescription:
-      "Sistema para gimnasios y estudios: socios, cuotas, agenda, cobros automáticos y recordatorios por WhatsApp. A medida, desde USD 100/mes.",
+      "Sistema para gimnasios y estudios: socios, cuotas, agenda, cobros automáticos y recordatorios por WhatsApp. A medida, se cotiza según tu caso.",
     intro:
       "Ordená socios, cuotas, agenda y cobros, con recordatorios automáticos por WhatsApp. Empezás con el producto base y escalás a medida.",
     pains: [
@@ -147,7 +147,7 @@ export const INDUSTRIES: IndustryPage[] = [
     faqs: [
       {
         q: "¿Cuánto cuesta?",
-        a: "El producto base arranca desde USD 100/mes más setup; lo a medida se cotiza según tu necesidad.",
+        a: "Todo se cotiza a medida según tu necesidad, con un diagnóstico gratis antes de avanzar. No manejamos precios de lista.",
       },
       {
         q: "¿Hace recordatorios por WhatsApp?",
