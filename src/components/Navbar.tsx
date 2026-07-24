@@ -7,21 +7,24 @@ import { waLink } from "@/lib/whatsapp";
 import { PRODUCTION_COUNT } from "@/data/portfolio";
 import { Logo } from "./Logo";
 
+// Navegación de scroll único: todas las entradas son anclas a secciones de la
+// home. Se usa la forma "/#id" para que también funcionen desde subpáginas
+// (navegan a la home y hacen scroll a la sección).
 const links = [
-  { href: "/servicios", id: "servicios", label: "Servicios" },
-  { href: "/casos", id: "portfolio", label: "Casos" },
-  { href: "/precios", id: "precios", label: "Precios" },
-  { href: "#contacto", id: "contacto", label: "Contacto" },
+  { href: "/#servicios", id: "servicios", label: "Servicios" },
+  { href: "/#portfolio", id: "portfolio", label: "Casos" },
+  { href: "/#precios", id: "precios", label: "Precios" },
+  { href: "/#contacto", id: "contacto", label: "Contacto" },
 ];
 
 const DEMO = waLink("Hola MaatWork, quiero contarles un proyecto");
 const TALK = waLink("Hola MaatWork, quiero hablar con el equipo");
 
 const NAV_ITEMS = [
-  { href: "/servicios", label: "Servicios", desc: "Qué podemos resolver" },
-  { href: "/casos", label: "Casos", desc: "Sistemas en producción" },
-  { href: "/precios", label: "Precios", desc: "Planes claros, sin permanencia" },
-  { href: "#contacto", label: "Contacto", desc: "WhatsApp directo" },
+  { href: "/#servicios", label: "Servicios", desc: "Qué podemos resolver" },
+  { href: "/#portfolio", label: "Casos", desc: "Sistemas en producción" },
+  { href: "/#precios", label: "Precios", desc: "Planes claros, sin permanencia" },
+  { href: "/#contacto", label: "Contacto", desc: "WhatsApp directo" },
 ];
 
 export function Navbar({ solid = false }: { solid?: boolean }) {
@@ -256,15 +259,19 @@ export function Navbar({ solid = false }: { solid?: boolean }) {
             onClick={closeMenu}
           />
 
-          {/* Panel — glass drawer */}
+          {/* Panel — drawer sólido. El fondo se pinta con color explícito y la
+              animación usa SOLO transform: animar `opacity` sobre un elemento
+              `fixed` transformado provoca que el fondo no componga en webviews
+              de iOS/Instagram (el contenido del Hero se transparentaba a través). */}
           <div
             ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label="Menú de navegación"
-            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-white/[0.08] bg-bg-elev-1 shadow-xl transition-all duration-300 ease-out ${
-              animIn ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
+            className={`fixed inset-y-0 right-0 z-50 w-[85vw] max-w-[340px] border-l border-black/[0.08] shadow-xl transition-transform duration-300 ease-out ${
+              animIn ? "translate-x-0" : "translate-x-full"
             }`}
+            style={{ background: "#F6F6FA", willChange: "transform" }}
           >
             <div className="flex h-full flex-col px-6 pb-8 pt-20">
               {/* Close button */}
